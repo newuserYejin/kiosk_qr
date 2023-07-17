@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>BasicOrder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--좌측 네비게이션 + 장바구니-->
+  <div class="sidebar">
+    <!--네비게이션 기능-->
+    <div class="navs">
+      
+      <div onclick="move()" class="nav">
+        <p class="circle_name">선택</p>
+        <button class="circle"></button>
+      </div>
+      <div class="level_line">
+        <p></p>
+        <img src="line.jpg" alt="Line 이미지" class="center">
+      </div>
+      <div onclick="move()" class="nav">
+        <p class="circle_name">확인</p>
+        <button class="circle"></button>
+      </div>
+      <div class="level_line">
+        <p></p>
+        <img src="line.jpg" alt="Line 이미지" class="center">
+      </div>
+      <div onclick="move()" class="nav">
+        <p class="circle_name">결제</p>
+        <button class="circle"></button>
+      </div>
+      
+        
+    </div>
+    <!--장바구니-->
+    <div class="menu-items" style=" border:1px solid black;">
+        <h2>현재 주문 내역</h2>
+        <ul class="menu-items">
+            <li class="menu-item">아메리가노 <span class="count">개수</span></li>
+            <li class="menu-item">아메리가노 <span class="count">개수</span></li>
+            <li class="menu-item">아메리가노 <span class="count">개수</span></li>
+            <li class="menu-item">아메리가노 <span class="count">개수</span></li>
+        </ul>
+    </div>
+    
+  </div>
+ 
+
+  <main>
+    
+    <section>
+      <div class="title">
+          <div class="selectmenu">메뉴 선택
+            <img class="help" src="helpicon.png">
+          </div>
+      </div>
+    </section>
+    <section >
+      <input type="radio" name="size" value="basic" checked>기본
+      <input type="radio" name="size" value="big">더크게
+      <input type="search" name="menu-search">
+    </section>
+    <section>
+
+      <div class="featured-content">
+          
+        <ul class="categores">
+          <li class="categore"><a href="">커피</a></li>
+          <li class="categore"><a href="">음료수</a></li>
+          <li class="categore"><a href="">티</a></li>
+          <li class="categore"><a href="">플랫치노</a></li>
+          <li class="categore"><a href="">쉐이크 & 에이드</a></li>
+          <li class="categore"><a href="">디저트</a></li>
+      </ul>
+
+        
+      </div>
+      <div class="menulists"  >
+        
+        <div class="menulist" >
+          <img class="menu-img" src="img1.PNG">
+          <div class="menu-name">
+            아메리카노
+          </div>
+          <div class="price">
+            가격
+          </div>
+        </div>
+        <div class="menulist">
+            <img class="menu-img" src="img1.PNG">
+            <div class="menu-name">
+              아메리카노
+            </div>
+            <div class="price">
+              가격
+            </div>
+        </div>
+        <div class="menulist">
+            <img class="menu-img" src="img1.PNG">
+            <div class="menu-name">
+              아메리카노
+            </div>
+            <div class="price">
+              가격
+            </div>
+        </div>
+        <div class="menulist">
+            <img class="menu-img" src="img1.PNG">
+            <div class="menu-name">
+              아메리카노
+            </div>
+            <div class="price">
+              가격
+            </div>
+        </div>
+        <div class="menulist">
+            <img class="menu-img" src="img1.PNG">
+            <div class="menu-name">
+              아메리카노
+            </div>
+            <div class="price">
+              가격
+            </div>
+          </div>
+          <div class="menulist">
+            <img class="menu-img" src="img1.PNG">
+            <div class="menu-name">
+              아메리카노
+            </div>
+            <div class="price">
+              가격
+            </div>
+        </div>
+        <div class="menulist">
+            <img class="menu-img" src="img1.PNG">
+            <div class="menu-name">
+              아메리카노
+            </div>
+            <div class="price">
+              가격
+            </div>
+        </div>
+        <div class="menulist">
+            <img class="menu-img" src="img1.PNG">
+            <div class="menu-name">
+              아메리카노
+            </div>
+            <div class="price">
+              가격
+            </div>
+        </div>
+        <div class="menulist">
+          <img class="menu-img" src="img1.PNG">
+          <div class="menu-name">
+            아메리카노
+          </div>
+          <div class="price">
+            가격
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="infos">
+        <button id="after">이전화면</button>
+        <button id="first">처음으로</button>
+        <button id="next">다음</button>
+      </div>
+    </section>
+    
+   
+  </main>
+  <script src="BasicOrder.js"></script>
+</body>
+</html>
