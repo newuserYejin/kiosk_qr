@@ -1,0 +1,318 @@
+html,body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/*전체 div flex*/
+.all {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/*네비게이션 바*/
+.navigation {
+    border: solid 3px black;
+    width: 20%;
+    height: 100%;
+}
+
+.list_menu {
+    width: 80%;
+    height: 100%;
+    padding: 2vw;
+}
+
+.navigation_all_box{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.box_line {
+    border: solid 2px black;
+    height: 11.5%;
+    display: flex;
+    margin: 0 5px;
+}
+
+/*단계별 가운데 선*/
+.level_line {
+    display: flex;
+    justify-content: center;
+    padding: 2vh;
+}
+
+.center {
+    width: 100%;
+    height: 100%;
+    max-width: 50%;
+    max-height: 25vh;
+}
+
+/*각 단계 버튼*/
+.level_button {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+
+    .level_name {
+        padding: 1vh;
+        font-weight: bold;
+    }
+
+    .circle {
+        width: 8vw;
+        height: 8vw;
+        border: solid 3px black;
+        border-radius: 50%;
+        background-color: pink;
+        margin-right: 5px;
+    }
+
+    .circle_name {
+        text-align: center;
+        margin: 0;
+        font-size: 3vw;
+        font-weight: bold;
+    }
+}
+
+/*주문 리스트*/
+.box {
+    border: solid 3px black;
+}
+
+.text-center {
+    height: 100%;
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: auto;
+}
+
+/*주문 목록 글씨*/
+.list_name {
+    text-align: center;
+    font-size: 5vw;
+    font-weight: bold;
+}
+
+.list_box {
+    padding: 1vw;
+    height: 80%;
+    overflow: hidden;
+    overflow-y: visible;
+}
+
+.list_content_box {
+    padding: 1vw;
+    display: flex;
+    justify-content: space-between;
+    margin: 1vw;
+}
+
+.list_img_box {
+    width: 35%;
+    height: var(width);
+    padding: 10px;
+    border: solid 2px black;
+}
+
+.list_img_size {
+    width: 100%;
+}
+
+/*주문 정보*/
+.container {
+    height: 100%;
+    padding: auto;
+}
+
+.content_title {
+    font-weight: bold;
+    text-align: center;
+    height: 25%;
+}
+
+.menu_name {
+    font-size: 3vw;
+    text-align: left;
+    padding: 0;
+    border-right: solid 3px black;
+}
+
+.menu_cost {
+    padding: 0;
+    text-align: left;
+    font-size: 3vw;
+}
+
+.list_content_info {
+    width: 63%;
+}
+
+/*옵션*/
+.list_option {
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+    height: 45%;
+}
+
+.list_option_detail{
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: visible;
+}
+
+.option_name{
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    font-size: 2.5vw;
+    font-weight: bold;
+}
+
+.list-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    text-align: center;
+    text-align: left;
+  }
+
+.list-group-item{
+    border: none;
+    min-width: 20px;
+    padding: 0 1VW;
+    font-weight: bold;
+    font-size: 2VW;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+}
+
+.list_buttons {
+    height: 30%;
+}
+
+.form-check-input{
+    border: solid .5px black;
+}
+
+/*수량 체크(버튼)*/
+.button_box_num {
+    height: 100%;
+    border-right: solid 3px black;
+}
+
+.num_check {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: .3vw 0;
+    height: 100%;
+}
+
+.input-group {
+    border: 2px solid black;
+    height: 100%;
+}
+
+.input_group_option {
+    height: 100%;
+}
+
+.form-control[readonly] {
+    background-color: white;
+    border-right: solid 2px black;
+    border-left: solid 2px black;
+    width: 10px;
+    margin: 0;
+}
+
+.form-control {
+    text-align: center;
+    font-weight: bold;
+    font-size: 4vw;
+    color: black;
+    padding: 0;
+    width: 10px;
+    height: 100%;
+}
+
+.btn-outline-secondary {
+    border: none;
+    font-weight: bold;
+    font-size: 4vw;
+    color: black;
+    padding: 0;
+    vertical-align: 3vh;
+    height: 100%;
+}
+
+/*수량 체크(text)*/
+.button_num {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3vw;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* 수정&삭제 버튼*/
+.content_update_button{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-left: solid 3px black;
+}
+
+.content_update_button button{
+    width: 45%;
+    height: 90%;
+    background-color: white;
+    font-weight: bold;
+    font-size: 3vw;
+    border-radius: 20%;
+}
+
+.content_update_button button:hover{
+    background-color: skyblue;
+    color: white;
+    border: solid 1px skyblue;
+}
+
+/*하단 고정 버튼*/
+.fix_button {
+    height: 12.3%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: none;
+}
+
+.fix_button_detail{
+    width: 20vw;
+    height: 90%;
+    background-color: white;
+    border-radius: 20px;
+    border: solid 2px black;
+    font-weight: bold;
+    font-size: 2vw;
+}
+
+
+
+
+
