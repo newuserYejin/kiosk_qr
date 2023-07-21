@@ -1,160 +1,313 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>BasicOrder</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
-    <!--좌측 네비게이션 + 장바구니-->
-  <div class="sidebar">
-    <!--네비게이션 기능-->
-    <div class="navs">
-      
-      <div onclick="move()" class="nav">
-        <p class="circle_name">선택</p>
-        <button class="circle"></button>
-      </div>
-      <div class="level_line">
-        <p></p>
-        <img src="line.jpg" alt="Line 이미지" class="center">
-      </div>
-      <div onclick="move()" class="nav">
-        <p class="circle_name">확인</p>
-        <button class="circle"></button>
-      </div>
-      <div class="level_line">
-        <p></p>
-        <img src="line.jpg" alt="Line 이미지" class="center">
-      </div>
-      <div onclick="move()" class="nav">
-        <p class="circle_name">결제</p>
-        <button class="circle"></button>
-      </div>
-      
-        
-    </div>
-    <!--장바구니-->
-    <div class="menu-items" style=" border:1px solid black;">
-        <h2 >현재 주문 내역</h2>
-        <ul class="menu-items">
-          <li class="menu-item">아메리가노 <span class="count">개수</span></li>
-          <li class="menu-item">아메리가노 <span class="count">개수</span></li>
-          <li class="menu-item">아메리가노 <span class="count">개수</span></li>
-          <li class="menu-item">아메리가노 <span class="count">개수</span></li>
-          <li class="menu-item">아메리가노 <span class="count">개수</span></li>
-        </ul>
-    </div>
-    
-  </div>
+    <div class="all">
+        <!--navigate bar-->
+        <div class="navigation">
+            <div class="navigate_name">
+                네비
+            </div>
+            <div class="box_line">
+                <div onclick="navigate_click()" class="level_button">
+                    <p class="circle_name">1단계</p>
+                    <button class="circle"></button>
+                </div>
+            </div>
 
+            <div class="level_line">
+                <p></p>
+                <img src="line.jpg" alt="Line 이미지" class="center">
+            </div>
 
-  <main>
-    <section>
-      <div class="title">
-          <div class="selectmenu">메뉴 선택
-            <img class="help" src="helpicon.png">
-          </div>
-      </div>
-    </section>
-    <section >
-      <input type="radio" name="size" value="basic"  onclick="handleRadioClick()">기본
-      <input type="radio" name="size" value="big"  onclick="handleRadioClick()" checked>더크게
-      
-      <input type="search" name="menu-search">
-    </section>
-    <section>
-      <div class="categores">     
-        <ul class="categores">
-          <li class="categore"><a href="">커피</a></li>
-          <li class="categore"><a href="">음료수</a></li>
-          <li class="categore"><a href="">티</a></li>
-          <li class="categore"><a href="">플랫치노</a></li>
-          <li class="categore"><a href="">쉐이크 & 에이드</a></li>
-          <li class="categore"><a href="">디저트</a></li>
-        </ul> 
-      </div>
-      <div class="menulists2"  >
-        <div class="menulist2" >
-          <img class="menu2-img" src="img1.PNG">
-          <div class="menu-content">
-            <div class="menu-name">
-              아메리카노
+            <div class="box_line">
+                <div onclick="navigate_click()" class="level_button">
+                    <p class="circle_name">2단계</p>
+                    <button class="circle"></button>
+                </div>
             </div>
-            <div class="price">
-              가격
+
+            <div class="level_line">
+                <p></p>
+                <img src="line.jpg" alt="Line 이미지" class="center" width="5vw" height="212vh">
+
             </div>
-            <div>
-              <button onclick="decreaseQuantity()">-</button>
-              <span id="quantity">0</span>
-              <button onclick="increaseQuantity()">+</button>
-              <button id="add">추가</button>
+
+            <div class="box_line">
+                <div onclick="navigate_click()" class="level_button">
+                    <p class="circle_name">3단계</p>
+                    <button class="circle"></button>
+                </div>
             </div>
-          </div>
+
         </div>
-        <div class="menulist2" >
-          <img class="menu2-img" src="img1.PNG">
-          <div class="menu-content">
-            <div class="menu-name">
-              아메리카노
-            </div>
-            <div class="price">
-              가격
-            </div>
-            <div>
-              <button onclick="decreaseQuantity()">-</button>
-              <span id="quantity">0</span>
-              <button onclick="increaseQuantity()">+</button>
-              <button id="add">추가</button>
-            </div>
-          </div>
-          <div class="menulist2" >
-            <img class="menu2-img" src="img1.PNG">
-            <div class="menu-content">
-              <div class="menu-name">
-                아메리카노
-              </div>
-              <div class="price">
-                가격
-              </div>
-              <div>
-                <button onclick="decreaseQuantity()">-</button>
-                <span id="quantity">0</span>
-                <button onclick="increaseQuantity()">+</button>
-                <button id="add">추가</button>
-              </div>
-            </div>
-            <div class="menulist2" >
-              <img class="menu2-img" src="img1.PNG">
-              <div class="menu-content">
-                <div class="menu-name">
-                  아메리카노
-                </div>
-                <div class="price">
-                  가격
-                </div>
-                <div>
-                  <button onclick="decreaseQuantity()">-</button>
-                  <span id="quantity">0</span>
-                  <button onclick="increaseQuantity()">+</button>
-                  <button id="add">추가</button>
-                </div>
-              </div>
-        </div>
-      </div>
-    </section>
-    <section>
 
-    </section>
-    <section>
-      <div class="infos">
-        <button id="after">이전화면</button>
-        <button id="first">처음으로</button>
-        <button id="next">다음</button>
-      </div>
-    </section>
-  </main>
-  <script src="BigOrder.js"></script>
+        <!--오른쪽 목록-->
+        <div class="box list_menu">
+
+            <!--주문 목록-->
+            <div class="list_name">
+                주문 목록
+            </div>
+            <div class="sizes">
+                <input type="radio" name="size" value="basic" checked>기본
+                <input type="radio" name="size" value="big">더크게
+                <input type="search" name="menu-search" class="search">
+                <img class="search" src="search.png">
+            </div>
+            
+            <ul class="categores">
+                <li class="categore"><a href="">커피</a></li>
+                <li class="categore"><a href="">음료수</a></li>
+                <li class="categore"><a href="">티</a></li>
+                <li class="categore"><a href="">플랫치노</a></li>
+                <li class="categore"><a href="">쉐이크 & 에이드</a></li>
+                <li class="categore"><a href="">디저트</a></li>
+            </ul>
+            <div class="box list_box">
+               <div class="box list_content_box">
+                    <div class="box list_img_box">
+                        <img id="im" class="list_img_size"
+                            src="https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20230515_3%2F1684110362848RHjpp_JPEG%2F12428024669556457_1834440081.jpg&type=sc960_832" />
+                    </div>
+                    <div class="box list_content_info">
+                        <div class=" container text-center">
+                            <div class="row content_title">
+                                <div class="col-7 menu_name">아메리카노</div>
+                                <div class="col-5 menu_cost">3000원</div>
+                            </div>
+                            <div class="row list_option">
+                                <div class="col-12">
+                                    내용 설명
+                                </div>
+                            </div>
+                            <div class="row list_buttons">
+                                <div class="col-6 button_box_num">
+                                    <div class="num_check">
+                                        <div class="quantity-control">
+                                            <button class="decrease">-</button>
+                                            <input type="number" value="0" min="0">
+                                            <button class="increase">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <button class="selectBtn">선택</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box list_content_box">
+                    <div class="box list_img_box">
+                        <img id="im" class="list_img_size"
+                            src="https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20230515_3%2F1684110362848RHjpp_JPEG%2F12428024669556457_1834440081.jpg&type=sc960_832" />
+                    </div>
+                    <div class="box list_content_info">
+                        <div class=" container text-center">
+                            <div class="row content_title">
+                                <div class="col-7 menu_name">아메리카노</div>
+                                <div class="col-5 menu_cost">3000원</div>
+                            </div>
+                            <div class="row list_option">
+                                <div class="col-12">
+                                    내용 설명
+                                </div>
+                            </div>
+                            <div class="row list_buttons">
+                                <div class="col-6 button_box_num">
+                                    <div class="num_check">
+                                        <div class="quantity-control">
+                                            <button class="decrease">-</button>
+                                            <input type="number" value="0" min="0">
+                                            <button class="increase">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <button class="selectBtn">선택</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box list_content_box">
+                    <div class="box list_img_box">
+                        <img id="im" class="list_img_size"
+                            src="https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20230515_3%2F1684110362848RHjpp_JPEG%2F12428024669556457_1834440081.jpg&type=sc960_832" />
+                    </div>
+                    <div class="box list_content_info">
+                        <div class=" container text-center">
+                            <div class="row content_title">
+                                <div class="col-7 menu_name">아메리카노</div>
+                                <div class="col-5 menu_cost">3000원</div>
+                            </div>
+                            <div class="row list_option">
+                                <div class="col-12">
+                                    내용 설명
+                                </div>
+                            </div>
+                            <div class="row list_buttons">
+                                <div class="col-6 button_box_num">
+                                    <div class="num_check">
+                                        <div class="quantity-control">
+                                            <button class="decrease">-</button>
+                                            <input type="number" value="0" min="0">
+                                            <button class="increase">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <button class="selectBtn">선택</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box list_content_box">
+                    <div class="box list_img_box">
+                        <img id="im" class="list_img_size"
+                            src="https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20230515_3%2F1684110362848RHjpp_JPEG%2F12428024669556457_1834440081.jpg&type=sc960_832" />
+                    </div>
+                    <div class="box list_content_info">
+                        <div class=" container text-center">
+                            <div class="row content_title">
+                                <div class="col-7 menu_name">아메리카노</div>
+                                <div class="col-5 menu_cost">3000원</div>
+                            </div>
+                            <div class="row list_option">
+                                <div class="col-12">
+                                    내용 설명
+                                </div>
+                            </div>
+                            <div class="row list_buttons">
+                                <div class="col-6 button_box_num">
+                                    <div class="num_check">
+                                        <div class="quantity-control">
+                                            <button class="decrease">-</button>
+                                            <input type="number" value="0" min="0">
+                                            <button class="increase">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <button class="selectBtn">선택</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box list_content_box">
+                    <div class="box list_img_box">
+                        <img id="im" class="list_img_size"
+                            src="https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20230515_3%2F1684110362848RHjpp_JPEG%2F12428024669556457_1834440081.jpg&type=sc960_832" />
+                    </div>
+                    <div class="box list_content_info">
+                        <div class=" container text-center">
+                            <div class="row content_title">
+                                <div class="col-7 menu_name">아메리카노</div>
+                                <div class="col-5 menu_cost">3000원</div>
+                            </div>
+                            <div class="row list_option">
+                                <div class="col-12">
+                                    내용 설명
+                                </div>
+                            </div>
+                            <div class="row list_buttons">
+                                <div class="col-6 button_box_num">
+                                    <div class="num_check">
+                                        <div class="quantity-control">
+                                            <button class="decrease">-</button>
+                                            <input type="number" value="0" min="0">
+                                            <button class="increase">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <button class="selectBtn">선택</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="box list_content_box">
+                    <div class="box list_img_box">
+                        <img id="im" class="list_img_size"
+                            src="https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20230515_3%2F1684110362848RHjpp_JPEG%2F12428024669556457_1834440081.jpg&type=sc960_832" />
+                    </div>
+                    <div class="box list_content_info">
+                        <div class=" container text-center">
+                            <div class="row content_title">
+                                <div class="col-7 menu_name">아메리카노</div>
+                                <div class="col-5 menu_cost">3000원</div>
+                            </div>
+                            <div class="row list_option">
+                                <div class="col-12">
+                                    내용 설명
+                                </div>
+                            </div>
+                            <div class="row list_buttons">
+                                <div class="col-6 button_box_num">
+                                    <div class="num_check">
+                                        <div class="quantity-control">
+                                            <button class="decrease">-</button>
+                                            <input type="number" value="0" min="0">
+                                            <button class="increase">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <button class="selectBtn">선택</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+
+            <!--고정 버튼-->
+            <div class="box fix_button">
+                <button class="fix_button_detail">이전화면</button>
+                <button class="fix_button_detail">처음으로</button>
+                <button class="fix_button_detail">다음</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="BigOrder.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
