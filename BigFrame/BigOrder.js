@@ -1,61 +1,58 @@
-function move(){
-  alert('이동합니다');
-  const circle =document.getElementById('circle');
-  circle.style.backgroundColor="red";
+// script.js
+
+var button = document.querySelector('.circle');
+var colors = ['orange', 'pink'];
+var currentIndex = 0;
+
+button.addEventListener('click', function () {
+  button.style.backgroundColor = colors[currentIndex];
+  currentIndex = (currentIndex + 1) % colors.length;
+  alert("버튼이 클릭되었습니다!");
+  window.location.href = '../detail_menu/jojo.html';
+});
+
+// 선택 버튼
+const selectBtn = document.querySelector('.selectBtn');
+selectBtn.onclick = function(){
+  alert("선택되었습니다");
 };
+// 검색버튼
+const search= document.querySelectorAll('.search');
+search.forEach((divElement) => {
+    divElement.addEventListener('click', function() {
+      // 이벤트 처리 로직 작성
+      alert("검색을 선택하였습니다");
+      window.location.href = '../detail_menu/search.html';
+      
+    });
+  });
 
-var quantityElement = document.getElementById('quantity');
-var quantity = 0;
+  const fix_button = document.querySelectorAll('.fix_button');
+  fix_button.forEach((divElement) => {
+    divElement.addEventListener('click', function() {
+      // 이벤트 처리 로직 작성
+      alert("선택하였습니다");
+      window.location.href = '../detail_menu/search.html';
+      
+    });
+  });
+// 수량 조절 버튼
+const quantityControls = document.querySelectorAll('.quantity-control');
 
-function decreaseQuantity() {
-  if (quantity > 1) {
-    quantity--;
-    updateQuantity();
-  }
-}
+quantityControls.forEach(control => {
+  const decreaseButton = control.querySelector('.decrease');
+  const increaseButton = control.querySelector('.increase');
+  const inputElement = control.querySelector('input');
 
-function increaseQuantity() {
-  quantity++;
-  updateQuantity();
-}
+  decreaseButton.addEventListener('click', () => {
+    // 수량이 0 이상일 때만 감소
+    if (parseInt(inputElement.value) > 0) {
+      inputElement.value = parseInt(inputElement.value) - 1;
+    }
+  });
 
-function updateQuantity() {
-  quantityElement.textContent = quantity;
-}
-
-const firstBtn = document.getElementById('first');
-const afterBtn = document.getElementById('after');
-const nextBtn = document.getElementById('next');
-
-//처음으로 버튼 이벤트
-firstBtn.onclick= function(){
-
-}
-
-//이전화면 버튼 이벤트
-afterBtn.onclick = function(){
-
-}
-
-// 다음 버튼 이벤트
-nextBtn.onclick = function(){
-
-}
-
-// 도움말 이미지 클릭시 이벤트
-const help = document.getElementById('help');
-
-help.onclick = function(){
-  
-}
-
-//기본 더크게 라디오 이벤트
-function handleRadioClick() {
-  var selectedValue = document.querySelector('input[name="size"]:checked').value;
-  
-  if (selectedValue === 'big') {
-    window.location.href = 'BigOrder.html'; // 이동할 페이지의 URL을 지정합니다.
-  } else if (selectedValue === 'basic') {
-    window.location.href = 'BasicOrder.html';
-  } 
-}
+  increaseButton.addEventListener('click', () => {
+    // 수량을 증가
+    inputElement.value = parseInt(inputElement.value) + 1;
+  });
+});
