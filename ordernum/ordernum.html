@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="ordernum.css" rel="stylesheet" type="text/css" />
+    <script>
+        function openHelp() {
+            window.location.href = "#"
+        }
+        function openClose() {
+            window.location.href = "#"
+        }
+    </script>
+</head>
+
+<body>
+    <div class="all">
+        <div class="help">
+            <img class="helpimg" src="circle-question.svg"  width="7.5%" height="7.5%" onclick="openHelp()">
+        </div>
+        <div class="ordernum">
+            <div class="order">
+                <div class="closeimg">
+                    <img class="close" src="close.png" width="6%" height="3%" onclick="openClose()">
+                </div>
+                <div class="info">
+                    <p class="completed">주문 완료</p>
+                    <p class="waitnum">대기 번호</p>
+                    <div class="num">901</div>
+                </div>
+            </div>
+            <div class="gohome_">
+                <button type="button" class="gohome" onclick="location.href='selectorder.html'">처음으로 돌아가기</button>
+            </div>
+        </div>
+    </div>   
+</body>
+
+</html>
