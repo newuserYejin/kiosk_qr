@@ -24,9 +24,11 @@ html,body {
   padding: 2vw;
 }
 
-.navigate_name {
-  font-size: 3vw;
-  margin-bottom: 1vw;
+.navigation_all_box{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .box_line {
@@ -39,13 +41,14 @@ html,body {
 /*단계별 가운데 선*/
 .level_line {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   padding: 2vh;
 }
 
 .center {
-  width: .5vw;
-  max-width: 2rem;
+  width: 100%;
+  height: 100%;
+  max-width: 50%;
   max-height: 25vh;
 }
 
@@ -96,7 +99,7 @@ html,body {
 /*주문 목록 글씨*/
 .list_name {
   text-align: center;
-  font-size: 5vw;
+  font-size: 4vw;
   font-weight: bold;
 }
 
@@ -104,7 +107,6 @@ html,body {
   display: grid;
   grid-template-columns: repeat(6,33%);
   grid-template-rows: repeat(3,33%);
-  padding: 1%;
   height: 70%;
   overflow: hidden;
   overflow-x: visible;

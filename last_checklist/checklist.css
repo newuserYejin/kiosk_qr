@@ -82,6 +82,34 @@ body {
     }
 }
 
+
+/*포장 확인*/
+
+.take-out{
+    border: solid 1px red;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.take-out ul li label{
+    font-size: 2.5vw;
+    font-weight: bold;
+}
+
+.take-out ul li input{
+    border: solid 2px black;
+}
+
+.take_out_title{
+    font-weight: bold;
+    font-size: 3vw;
+    padding-right: 1rem;
+}
+
 /*주문 리스트*/
 .box {
     border: solid 3px black;
@@ -100,13 +128,15 @@ body {
 /*주문 목록 글씨*/
 .list_name {
     text-align: center;
-    font-size: 5vw;
+    font-size: 4vw;
     font-weight: bold;
+    padding: 0;
+    margin: 0;
 }
 
 .list_box {
     padding: 1vw;
-    height: 80%;
+    height: 75%;
     overflow: hidden;
     overflow-y: visible;
 }
@@ -184,7 +214,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: start;
-    text-align: center;
+    align-items: center;
     text-align: left;
 }
 
@@ -196,6 +226,8 @@ body {
     font-size: 2VW;
     margin-top: 1vw;
     margin-bottom: 1vw;
+    display: flex;
+    align-items: center;
 }
 
 .list_buttons {
