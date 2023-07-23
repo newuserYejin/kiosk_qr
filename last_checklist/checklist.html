@@ -90,26 +90,57 @@
                                 <div class="col-5 menu_cost">3000원</div>
                             </div>
                             <div class="row list_option">
-                                <div class="col-12">
-                                    옵션
+                                <div class="list_option_detail">
+                                    <!--체크 박스-->
+                                    <p class="option_name">
+                                        필수 사항
+                                    </p>
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <input class="form-check-input me-1" type="checkbox" value=""
+                                                id="firstCheckbox">
+                                            <label class="form-check-label" for="firstCheckbox">뜨겁게</label>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <input class="form-check-input me-1" type="checkbox" value=""
+                                                id="secondCheckbox">
+                                            <label class="form-check-label" for="secondCheckbox">차갑게</label>
+                                        </li>
+                                    </ul>
+
+                                    <!--크기 옵션(라디오 버튼)-->
+                                    <p class="option_name">
+                                        크기
+                                    </p>
+
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <input class="form-check-input me-1" type="radio" name="listGroupRadio"
+                                                value="" id="firstRadio" checked>
+                                            <label class="form-check-label" for="firstRadio">작은거</label>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <input class="form-check-input me-1" type="radio" name="listGroupRadio"
+                                                value="" id="secondRadio">
+                                            <label class="form-check-label" for="secondRadio">기본</label>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <input class="form-check-input me-1" type="radio" name="listGroupRadio"
+                                                value="" id="thirdRadio">
+                                            <label class="form-check-label" for="thirdRadio">큰거</label>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                             <div class="row list_buttons">
-                                <div class="col-6 button_box_num">
-                                    <div class="num_check">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend input_group_option">
-                                                <button class="btn btn-outline-secondary" id="decrement">-</button>
-                                            </div>
-                                            <input type="text" class="form-control" id="quantity" value="1" readonly>
-                                            <div class="input-group-append input_group_option">
-                                                <button class="btn btn-outline-secondary" id="increment">+</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="col-4 button_box_num">
+                                    <p class="button_num">1개</p>
                                 </div>
-                                <div class="col-6">
-                                    버튼
+                                <div class="col-8" style="padding: 0px; height: 100%;">
+                                    <div class="content_update_button">
+                                        <button>수정</button>
+                                        <button>삭제</button>
+                                    </div>
                                 </div>
 
                             </div>
