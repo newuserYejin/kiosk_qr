@@ -1,4 +1,5 @@
-html,body {
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -24,7 +25,7 @@ html,body {
     padding: 2vw;
 }
 
-.navigation_all_box{
+.navigation_all_box {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -60,13 +61,13 @@ html,body {
     align-items: center;
 
     .level_name {
-        padding: 1vh;
+        padding: .8rem;
         font-weight: bold;
     }
 
     .circle {
-        width: 8vw;
-        height: 8vw;
+        width: 2rem;
+        height: 2rem;
         border: solid 3px black;
         border-radius: 50%;
         background-color: pink;
@@ -164,14 +165,14 @@ html,body {
     height: 45%;
 }
 
-.list_option_detail{
+.list_option_detail {
     padding: 0;
     height: 100%;
     overflow: hidden;
     overflow-y: visible;
 }
 
-.option_name{
+.option_name {
     text-align: left;
     padding: 0;
     margin: 0;
@@ -185,9 +186,9 @@ html,body {
     justify-content: start;
     text-align: center;
     text-align: left;
-  }
+}
 
-.list-group-item{
+.list-group-item {
     border: none;
     min-width: 20px;
     padding: 0 1VW;
@@ -201,7 +202,7 @@ html,body {
     height: 30%;
 }
 
-.form-check-input{
+.form-check-input {
     border: solid .5px black;
 }
 
@@ -268,7 +269,7 @@ html,body {
 }
 
 /* 수정&삭제 버튼*/
-.content_update_button{
+.content_update_button {
     height: 100%;
     width: 100%;
     display: flex;
@@ -277,7 +278,7 @@ html,body {
     border-left: solid 3px black;
 }
 
-.content_update_button button{
+.content_update_button button {
     width: 45%;
     height: 90%;
     background-color: white;
@@ -286,7 +287,7 @@ html,body {
     border-radius: 20%;
 }
 
-.content_update_button button:hover{
+.content_update_button button:hover {
     background-color: skyblue;
     color: white;
     border: solid 1px skyblue;
@@ -302,7 +303,7 @@ html,body {
     border-top: none;
 }
 
-.fix_button_detail{
+.fix_button_detail {
     width: 20vw;
     height: 90%;
     background-color: white;
@@ -311,8 +312,3 @@ html,body {
     font-weight: bold;
     font-size: 2vw;
 }
-
-
-
-
-
