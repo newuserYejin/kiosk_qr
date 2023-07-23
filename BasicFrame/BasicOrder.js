@@ -6,7 +6,7 @@ button.addEventListener('click', function () {
   button.style.backgroundColor = colors[currentIndex];
   currentIndex = (currentIndex + 1) % colors.length;
   alert("버튼이 클릭되었습니다!");
-  window.location.href = '../detail_menu/jojo.html';
+  window.location.href = '../search/search.html';
 });
 
 const search= document.querySelectorAll('.search');
@@ -14,7 +14,7 @@ search.forEach((divElement) => {
     divElement.addEventListener('click', function() {
       // 이벤트 처리 로직 작성
       alert("검색을 선택하였습니다");
-      window.location.href = '../detail_menu/search.html';
+      window.location.href = '../search/search.html';
       
     });
   });
@@ -25,7 +25,7 @@ search.forEach((divElement) => {
     divElement.addEventListener('click', function() {
       // 이벤트 처리 로직 작성
       alert("선택하였습니다");
-      window.location.href = '../detail_menu/search.html';
+      window.location.href = '../search/search.html';
       
     });
   });
