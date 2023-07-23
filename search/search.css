@@ -2,6 +2,11 @@
     height:95%;
 }
 
+.modal-body{
+    overflow: hidden;
+    overflow-y: visible;
+}
+
 .box{
     border: solid 1px red;
 }
@@ -25,9 +30,11 @@
     border: solid 2px black;
 }
 
-
-
-
 .keyword_box{
-    height: 30%;
+    height: 50%;
+    overflow: hidden;
+}
+
+.simple-keyboard{
+    border: solid 1px blue;
 }
