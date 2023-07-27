@@ -14,14 +14,14 @@ const help= document.querySelectorAll('.help');
 help.forEach((divElement) => {
     divElement.addEventListener('click', function() {
       // 이벤트 처리 로직 작성
-      alert("검색을 선택하였습니다");
+      alert("도움말을 선택하였습니다");
       window.location.href = '../help_msg/help_msg.html';
       
     });
   });
 
 
-const search= document.querySelectorAll('.search');
+const search= document.querySelectorAll('.search, .searchs');
 search.forEach((divElement) => {
     divElement.addEventListener('click', function() {
       // 이벤트 처리 로직 작성
@@ -37,15 +37,17 @@ document.getElementById("prvsScren").addEventListener("click", function() {
   // 새로운 페이지로 이동
   window.location.href = "../selecteat/selecteat.html";
 });
+
 // 처음으로
 document.getElementById("firstScreen").addEventListener("click", function() {
 // 새로운 페이지로 이동
 window.location.href = "../selectorder/selectorder.html";
 });
+
 // 다음
 document.getElementById("nextScreen").addEventListener("click", function() {
 // 새로운 페이지로 이동
-window.location.href = "../last_checklist/cheklist.html";
+window.location.href = "../last_checklist/checklist.html";
 });
 
  // JavaScript

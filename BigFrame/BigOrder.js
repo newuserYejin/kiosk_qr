@@ -21,7 +21,7 @@ selectBtn.forEach((divElement)=>{
 });
 
 // 검색버튼
-const search= document.querySelectorAll('.search');
+const search= document.querySelectorAll('.search, .searchs');
 search.forEach((divElement) => {
     divElement.addEventListener('click', function() {
       // 이벤트 처리 로직 작성
