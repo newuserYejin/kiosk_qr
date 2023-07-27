@@ -103,7 +103,6 @@ body {
 }
 
 .list-group{
-    border: solid 1px red;
     width: 60%;
     display: flex;
     flex-direction: row;
