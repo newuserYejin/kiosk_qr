@@ -370,6 +370,76 @@ html,body {
   height: 3vw;
 }
 
+@media screen and (min-width: 600px) {
+  .slider-container {
+      grid-template-columns: repeat(3, 1fr); /* 화면 크기가 768px 이하일 때 2개의 열로 조정 */
+  }
+  .list_box{
+    height: 70%;
+  }
+  .slide{
+    grid-template-rows: repeat(3,33%);
+  }
+  .menu_name{
+    font-size: 1.5vw;
+  }
+  .menu_cost{
+    font-size: 1.5vw;
+  }
+  .sizes{
+    font-size: 1rem;
+  }
+  
+  input[type="search"] {
+      padding: 1vw;
+      height: 1rem;
+      
+  }
+  .searchs{
+    height: 3vw;
+  }
+  
+}
+
+@media screen and (min-width:1100px) {
+  .slider-container {
+      grid-template-columns: repeat(3, 1fr); /* 화면 크기가 768px 이하일 때 2개의 열로 조정 */
+  }
+  .list_box{
+    height: 68%;
+  }
+  .list_name{
+    font-size: 2vw;
+  }
+  .help{
+    width: 3%;
+    height: 5%;
+  }
+  .slide{
+    grid-template-rows: repeat(3,33%);
+  }
+ 
+  .sizes{
+    font-size: 1rem;
+  }
+  
+  input[type="search"] {
+      padding: 1vw;
+      height: 1rem;
+      
+  }
+  .searchs{
+    height: 3vw;
+  }
+  .categores{
+    height: 2.5vw;
+    margin: 0;
+  }
+  .categore a{
+    font-size:2vw;
+    
+  }
+}
 
 
 

@@ -156,6 +156,15 @@ html,body {
   font-size: 4vw;
   font-weight: bold;
 }
+@media (max-width: 360px) {
+  .list_name{
+    font-size:5vw;
+  }
+  .sizes{
+    font-size: 0.3rem;
+  }
+}
+
 
 .help{
   position: absolute;
@@ -163,14 +172,13 @@ html,body {
   right: 2%;
   width: 5%;
 }
-
+/*주문 리스트*/
 .list_box {
   display: grid;
-  grid-template-columns: repeat(6,33%);
-  grid-template-rows: repeat(3,33%);
   height: 70%;
   overflow: hidden;
-  overflow-x: visible;
+  overflow-x: hidden; 
+  position: relative;
 }
 
 .list_content_box {
@@ -179,6 +187,7 @@ html,body {
   flex-wrap: wrap;
   margin:2%;
   align-items: center;
+  position: relative;
 }
 
 .list_img_box {
@@ -295,23 +304,157 @@ html,body {
   color:black;
   background-color: #dddddd;
 }
-
+@media (max-width: 360px) {
+  .categore{
+    font-size: 0.2rem;
+  }
+}
 
 /* 기본 더크게 검색*/
 .sizes{
   display: flex;
-  font-size: 2vw;
+  font-size: 1rem;
   margin: 1%;
   justify-content: space-between;
   align-items: center;
   
 }
+
+
+input[type="search"] {
+  padding: 1vw;
+  font-size: 2vw;
+}
 .menu-search{
- display: flex;
- justify-content: flex-end;
+  display: flex;
+  float: right;
+ }
+ 
+.searchs{
+  height: 5vw;
 }
 
-.search{
+.slider-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   
-  height: 5vw;
+}
+
+.slider {
+  display: flex;
+  width: 100%;
+  height: 100%; /* 슬라이드 개수에 따라 조정합니다. 각 슬라이드는 100% 너비를 가집니다. */
+  transition: transform 0.3s ease;
+}
+
+.slide {
+  flex: 0 0 100%;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(3,1fr);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overflow-x: visible;
+}
+
+
+
+#prevBtn {
+  position: absolute;
+  top: 50%;
+  
+  transform: translateY(-50%);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#nextBtn {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/*전체적 사이즈 조절 */
+@media screen and (min-width: 600px) {
+  .slider-container {
+      grid-template-columns: repeat(3, 1fr); /* 화면 크기가 768px 이하일 때 2개의 열로 조정 */
+  }
+  .list_box{
+    height: 70%;
+  }
+  .slide{
+    grid-template-rows: repeat(3,33%);
+  }
+  .menu_name{
+    font-size: 1.5vw;
+  }
+  .menu_cost{
+    font-size: 1.5vw;
+  }
+  .sizes{
+    font-size: 1rem;
+  }
+    .help{
+    width: 3%;
+    height: 5%;
+  }
+  input[type="search"] {
+      padding: 1vw;
+      height: 1rem;
+      
+  }
+  .searchs{
+    height: 3vw;
+  }
+  
+}
+
+@media screen and (min-width:1100px) {
+  .slider-container {
+      grid-template-columns: repeat(3, 1fr); /* 화면 크기가 768px 이하일 때 2개의 열로 조정 */
+  }
+  .list_box{
+    height: 68%;
+  }
+  .list_name{
+    font-size: 2vw;
+  }
+  .help{
+    width: 3%;
+    height: 5%;
+  }
+  .slide{
+    grid-template-rows: repeat(3,33%);
+  }
+  .menu_name{
+    font-size: 1vw;
+  }
+  .menu_cost{
+    font-size: 1vw;
+  }
+  .sizes{
+    font-size: 1rem;
+  }
+  
+  input[type="search"] {
+      padding: 1vw;
+      height: 1rem;
+      
+  }
+  .searchs{
+    height: 3vw;
+  }
+  .categores{
+    height: 2.5vw;
+    margin: 0;
+  }
+  .categore a{
+    font-size:2vw;
+    
+  }
 }

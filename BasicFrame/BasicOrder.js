@@ -9,6 +9,18 @@ button.addEventListener('click', function () {
   window.location.href = '../search/search.html';
 });
 
+// 도움말 버튼
+const help= document.querySelectorAll('.help');
+help.forEach((divElement) => {
+    divElement.addEventListener('click', function() {
+      // 이벤트 처리 로직 작성
+      alert("검색을 선택하였습니다");
+      window.location.href = '../help_msg/help_msg.html';
+      
+    });
+  });
+
+
 const search= document.querySelectorAll('.search');
 search.forEach((divElement) => {
     divElement.addEventListener('click', function() {
@@ -20,16 +32,21 @@ search.forEach((divElement) => {
   });
    
  
-  const fix_button = document.querySelectorAll('.fix_button');
-  fix_button.forEach((divElement) => {
-    divElement.addEventListener('click', function() {
-      // 이벤트 처리 로직 작성
-      alert("선택하였습니다");
-      window.location.href = '../search/search.html';
-      
-    });
-  });
-
+ // 이전화면 클릭시
+document.getElementById("prvsScren").addEventListener("click", function() {
+  // 새로운 페이지로 이동
+  window.location.href = "../selecteat/selecteat.html";
+});
+// 처음으로
+document.getElementById("firstScreen").addEventListener("click", function() {
+// 새로운 페이지로 이동
+window.location.href = "../selectorder/selectorder.html";
+});
+// 다음
+document.getElementById("nextScreen").addEventListener("click", function() {
+// 새로운 페이지로 이동
+window.location.href = "../last_checklist/cheklist.html";
+});
 
  // JavaScript
 const list_content_box = document.querySelectorAll('.list_content_box');
@@ -42,3 +59,45 @@ list_content_box.forEach((divElement) => {
   });
 });
  
+
+/*슬라이드 버튼*/
+const slider = document.querySelector(".slider");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+
+let slideIndex = 0;
+
+prevBtn.addEventListener("click", () => {
+slideIndex = Math.max(slideIndex - 1, 0);
+updateSliderPosition();
+});
+
+nextBtn.addEventListener("click", () => {
+slideIndex = Math.min(slideIndex + 1, slider.children.length - 1);
+updateSliderPosition();
+});
+
+function updateSliderPosition() {
+const slideWidth = slider.clientWidth;
+const offset = -slideWidth * slideIndex;
+slider.style.transform = `translateX(${offset}px)`;
+}
+const radioButtons = document.getElementsByName('size');
+radioButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // 선택된 라디오 버튼의 값에 따라 페이지 이동
+        if (button.checked) {
+            switch (button.value) {
+                case 'basic':
+                    window.location.href = '../BasicFrame/BasicOrder.html';
+                    break;
+                case 'big':
+                    window.location.href = '../BigFrame/BigOrder.html';
+                    break;
+                default:
+                    break;
+            }
+        }
+    });
+});
+
