@@ -157,6 +157,13 @@ html,body {
   font-weight: bold;
 }
 
+.help{
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  width: 5%;
+}
+
 .list_box {
   display: grid;
   grid-template-columns: repeat(6,33%);

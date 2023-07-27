@@ -2,15 +2,24 @@
     margin-bottom: 10px;
 }
 
+.help{
+    position: absolute;
+    top: 2%;
+    right: 10%;
+    width: 5%;
+  }
+
 .menu_img_box {
     width: 38vw;
     height: var(width);
     padding: 10px;
     border: solid 2px black;
+    display: flex;
+    justify-content: center;
 }
 
 .menu_img_size {
-    width: 100%;
+    width: 70%;
 }
 
 .menu_explain {

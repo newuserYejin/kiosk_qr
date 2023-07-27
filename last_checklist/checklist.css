@@ -137,9 +137,14 @@ body {
     text-align: center;
     font-size: 4vw;
     font-weight: bold;
-    padding: 0;
-    margin: 0;
-}
+  }
+  
+  .help{
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    width: 5%;
+  }
 
 .list_box {
     padding: 1vw;
