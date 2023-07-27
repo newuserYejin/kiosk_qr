@@ -65,14 +65,14 @@
                 <div class="take_out_title">포장확인: </div>
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <input class="form-check-input me-1" type="checkbox" value=""
-                            id="firstCheckbox">
-                        <label class="form-check-label" for="firstCheckbox">먹고가기</label>
+                        <input class="form-check-input me-1" type="radio" name="listGroupRadio"
+                            value="" id="firstRadio" checked>
+                        <label class="form-check-label" for="firstRadio">먹고가기</label>
                     </li>
                     <li class="list-group-item">
-                        <input class="form-check-input me-1" type="checkbox" value=""
-                            id="secondCheckbox">
-                        <label class="form-check-label" for="secondCheckbox">포장하기</label>
+                        <input class="form-check-input me-1" type="radio" name="listGroupRadio"
+                            value="" id="secondRadio">
+                        <label class="form-check-label" for="secondRadio">포장</label>
                     </li>
                 </ul>
             </div>
@@ -91,45 +91,18 @@
                             </div>
                             <div class="row list_option">
                                 <div class="list_option_detail">
-                                    <!--체크 박스-->
-                                    <p class="option_name">
-                                        필수 사항
-                                    </p>
-                                    <ul class="list-group">
-                                        <li class="list-group-item">
-                                            <input class="form-check-input me-1" type="checkbox" value=""
-                                                id="firstCheckbox">
-                                            <label class="form-check-label" for="firstCheckbox">뜨겁게</label>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <input class="form-check-input me-1" type="checkbox" value=""
-                                                id="secondCheckbox">
-                                            <label class="form-check-label" for="secondCheckbox">차갑게</label>
-                                        </li>
-                                    </ul>
+                                    <p class="option_title">현재 선택 내용</p>
+                                    <div class="option_detail">
+                                        <div>
+                                            <span class="option_name">온도: </span>
+                                            <span class="select_tem">차갑게</span>
+                                        </div>
+                                        <div>
+                                            <span class="option_name">크기: </span>
+                                            <span class="select_size">큰거</span>
+                                        </div>
+                                    </div>
 
-                                    <!--크기 옵션(라디오 버튼)-->
-                                    <p class="option_name">
-                                        크기
-                                    </p>
-
-                                    <ul class="list-group">
-                                        <li class="list-group-item">
-                                            <input class="form-check-input me-1" type="radio" name="listGroupRadio"
-                                                value="" id="firstRadio" checked>
-                                            <label class="form-check-label" for="firstRadio">작은거</label>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <input class="form-check-input me-1" type="radio" name="listGroupRadio"
-                                                value="" id="secondRadio">
-                                            <label class="form-check-label" for="secondRadio">기본</label>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <input class="form-check-input me-1" type="radio" name="listGroupRadio"
-                                                value="" id="thirdRadio">
-                                            <label class="form-check-label" for="thirdRadio">큰거</label>
-                                        </li>
-                                    </ul>
                                 </div>
                             </div>
                             <div class="row list_buttons">
@@ -154,68 +127,7 @@
                             src="https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20230515_3%2F1684110362848RHjpp_JPEG%2F12428024669556457_1834440081.jpg&type=sc960_832" />
                     </div>
                     <div class="box list_content_info">
-                        <div class=" container text-center">
-                            <div class="row content_title">
-                                <div class="col-7 menu_name">아메리카노</div>
-                                <div class="col-5 menu_cost">3000원</div>
-                            </div>
-                            <div class="row list_option">
-                                <div class="list_option_detail">
-                                    <!--체크 박스-->
-                                    <p class="option_name">
-                                        필수 사항
-                                    </p>
-                                    <ul class="list-group">
-                                        <li class="list-group-item">
-                                            <input class="form-check-input me-1" type="checkbox" value=""
-                                                id="firstCheckbox">
-                                            <label class="form-check-label" for="firstCheckbox">뜨겁게</label>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <input class="form-check-input me-1" type="checkbox" value=""
-                                                id="secondCheckbox">
-                                            <label class="form-check-label" for="secondCheckbox">차갑게</label>
-                                        </li>
-                                    </ul>
-
-                                    <!--크기 옵션(라디오 버튼)-->
-                                    <p class="option_name">
-                                        크기
-                                    </p>
-
-                                    <ul class="list-group">
-                                        <li class="list-group-item">
-                                            <input class="form-check-input me-1" type="radio" name="listGroupRadio"
-                                                value="" id="firstRadio" checked>
-                                            <label class="form-check-label" for="firstRadio">작은거</label>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <input class="form-check-input me-1" type="radio" name="listGroupRadio"
-                                                value="" id="secondRadio">
-                                            <label class="form-check-label" for="secondRadio">기본</label>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <input class="form-check-input me-1" type="radio" name="listGroupRadio"
-                                                value="" id="thirdRadio">
-                                            <label class="form-check-label" for="thirdRadio">큰거</label>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                            <div class="row list_buttons">
-                                <div class="col-4" style="height: 100%;">
-                                    <p class="button_num">1개</p>
-                                </div>
-                                <div class="col-8" style="padding: 0px; height: 100%;">
-                                    <div class="content_update_button">
-                                        <button>수정</button>
-                                        <button>삭제</button>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
+                        내용내용
                     </div>
                 </div>
 
