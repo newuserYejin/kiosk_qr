@@ -59,7 +59,12 @@ html,body{
 }
 .kor {
     width: 18vW;
+    border: solid 2px black;
+    border-radius: 50%;
 }
 .usa {
     width: 18vW;
+    border: solid 2px black;
+    border-radius: 50%;
 }
+

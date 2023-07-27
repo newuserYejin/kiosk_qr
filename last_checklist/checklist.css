@@ -94,19 +94,27 @@ body {
     align-items: center;
 }
 
-.take-out ul li label {
-    font-size: 2.5vw;
-    font-weight: bold;
-}
-
-.take-out ul li input {
-    border: solid 2px black;
-}
-
 .take_out_title {
     font-weight: bold;
     font-size: 3vw;
     padding-right: 1rem;
+    width: 40%;
+    text-align:end;
+}
+
+.list-group{
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+}
+
+.list-group-item{
+    border: none;
+    font-weight: bold;
+}
+
+.form-check-input{
+    border: solid 2px black;
 }
 
 /*주문 리스트*/
@@ -129,9 +137,14 @@ body {
     text-align: center;
     font-size: 4vw;
     font-weight: bold;
-    padding: 0;
-    margin: 0;
-}
+  }
+  
+  .help{
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    width: 5%;
+  }
 
 .list_box {
     padding: 1vw;
@@ -204,94 +217,26 @@ body {
     overflow-y: visible;
 }
 
-.option_name {
-    text-align: left;
+.option_title{
+    font-weight: bold;
     padding: 0;
     margin: 0;
-    font-size: 2.5vw;
+    margin-bottom: 2%;
+}
+
+.option_detail {
+    padding: 0;
+    margin: 0;
+    font-size: 3vw;
     font-weight: bold;
 }
 
-.list-group {
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: center;
-    text-align: left;
-}
 
-.list-group-item {
-    border: none;
-    min-width: 20px;
-    padding: 0 1VW;
-    font-weight: bold;
-    font-size: 2VW;
-    margin-top: 1vw;
-    margin-bottom: 1vw;
-    display: flex;
-    align-items: center;
-}
-
+/*수량 체크(text)*/
 .list_buttons {
     height: 25%;
 }
 
-.form-check-input {
-    border: solid .5px black;
-}
-
-/*수량 체크(버튼)*/
-.button_box_num {
-    height: 100%;
-    border-right: solid 3px black;
-}
-
-.num_check {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    padding: .3vw 0;
-    height: 100%;
-}
-
-.input-group {
-    border: 2px solid black;
-    height: 100%;
-}
-
-.input_group_option {
-    height: 100%;
-}
-
-.form-control[readonly] {
-    background-color: white;
-    border-right: solid 2px black;
-    border-left: solid 2px black;
-    width: 10px;
-    margin: 0;
-}
-
-.form-control {
-    text-align: center;
-    font-weight: bold;
-    font-size: 4vw;
-    color: black;
-    padding: 0;
-    width: 10px;
-    height: 100%;
-}
-
-.btn-outline-secondary {
-    border: none;
-    font-weight: bold;
-    font-size: 4vw;
-    color: black;
-    padding: 0;
-    vertical-align: 3vh;
-    height: 100%;
-}
-
-/*수량 체크(text)*/
 .button_num {
     position: relative;
     top: 50%;
