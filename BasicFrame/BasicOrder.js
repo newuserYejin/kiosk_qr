@@ -14,18 +14,14 @@ const help= document.querySelectorAll('.help');
 help.forEach((divElement) => {
     divElement.addEventListener('click', function() {
       // 이벤트 처리 로직 작성
-      alert("검색을 선택하였습니다");
+      alert("도움말을 선택하였습니다");
       window.location.href = '../help_msg/help_msg.html';
       
     });
   });
 
-// 검색
-var searchs = document.querySelector('.searchs');
-searchs.addEventListener('click',function(){
-  window.location.href = '../search/search.html';
-});
-const search= document.querySelectorAll('.search');
+
+const search= document.querySelectorAll('.search, .searchs');
 search.forEach((divElement) => {
     divElement.addEventListener('click', function() {
       // 이벤트 처리 로직 작성

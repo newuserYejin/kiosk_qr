@@ -103,24 +103,21 @@ html,body {
   height: 80%;
   overflow: hidden;
   overflow-y: visible;
-  font-size: 2.5vw;
 }
 
 .select_list_detail{
   display: flex;
   justify-content: space-around;
   font-weight: bold;
-  font-size: 1vh;
+  font-size: 1.7vh;
   padding-top: .3rem;
   border-bottom: solid 1px blue;
 }
 
 @media screen and (max-width: 380px) {
   .select_list_title{
-    height: 30%;
     width: 100%;
     font-size: 0.1rem;
-    padding: 0px 5%;
   }
   .select_list_detail{
     display: block;
@@ -131,6 +128,15 @@ html,body {
   }
   .select_num{
     text-align: end;
+  }
+  @media screen and (max-height: 500px){
+    .select_list_title{
+      padding: 0 5%;
+      margin-bottom: 20%;
+    }
+    .select_list_list{
+      height: 75%;
+    }
   }
 }
 

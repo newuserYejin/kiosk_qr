@@ -103,6 +103,7 @@ html,body {
   height: 80%;
   overflow: hidden;
   overflow-y: visible;
+  
 }
 
 .select_list_detail{
@@ -359,7 +360,6 @@ html,body {
   margin: 1%;
   justify-content: space-between;
   align-items: center;
-  
 }
 
 /* 검색 입력창*/
@@ -372,7 +372,6 @@ input[type="search"] {
 }
 
 .searchs{
-  
   height: 3vw;
 }
 
@@ -385,22 +384,23 @@ input[type="search"] {
   }
  
   .menu_name{
-    font-size: 3vw;
+    font-size: 4vw;
   }
   .menu_cost{
-    font-size: 3vw;
+    font-size: 4vw;
   }
   .sizes{
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
   
+  .searchs{
+    height: 5vw;
+  }
+
   input[type="search"] {
       padding: 1vw;
-      height: 1rem;
-      
-  }
-  .searchs{
-    height: 3vw;
+      height: 2rem;
+      border: solid 1px black;
   }
   
 }
@@ -411,7 +411,7 @@ input[type="search"] {
     height: 68%;
   }
   .list_name{
-    font-size: 2vw;
+    font-size: 4vw;
   }
   .help{
     width: 3%;
@@ -433,9 +433,13 @@ input[type="search"] {
   
   input[type="search"] {
       padding: 1vw;
-      height: 1rem;
-      
+      height: 1rem; 
   }
+
+  .search{
+    width: 25vw;
+  }
+
   .searchs{
     height: 3vw;
   }
@@ -445,8 +449,8 @@ input[type="search"] {
   }
   .categore a{
     font-size:2vw;
-    
   }
+
 }
 
 
