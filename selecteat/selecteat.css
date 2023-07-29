@@ -121,10 +121,25 @@ html,body {
     background-color: white;
     height: 14.5vh;
     margin-bottom: 5vh;
+    font-weight: bold;
 }
+
+.sloworder:active{
+    background-color: skyblue;
+    color: white;
+    border: none;
+}
+
 .basicorder {
     font-size: 5vw;
     background-color: white;
     height: 14.5vh;
+    font-weight: bold;
     margin-top: 3vh;
+}
+
+.basicorder:active{
+    background-color: skyblue;
+    color: white;
+    border: none;
 }
