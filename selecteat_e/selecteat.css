@@ -1,0 +1,130 @@
+html,body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /*overflow: hidden;*/
+}
+
+.all {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/*네비게이션 바*/
+.navigation {
+    border: solid 3px black;
+    width: 20%;
+    height: 100%;
+}
+
+.list_menu {
+    width: 80%;
+    height: 100%;
+    padding: 2vw;
+}
+
+.navigation_all_box{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.box_line {
+    border: solid 2px black;
+    height: 11.5%;
+    display: flex;
+    margin: 0 5px;
+}
+
+/*단계별 가운데 선*/
+.level_line {
+    display: flex;
+    justify-content: center;
+    padding: 2vh;
+}
+
+.center {
+    width: 100%;
+    height: 100%;
+    max-width: 50%;
+    max-height: 25vh;
+}
+
+/*각 단계 버튼*/
+.level_button {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+
+    .level_name {
+        padding: 1vh;
+        font-weight: bold;
+    }
+
+    .circle {
+        width: 8vw;
+        height: 8vw;
+        border: solid 3px black;
+        border-radius: 50%;
+        background-color: pink;
+        margin-right: 5px;
+    }
+
+    .circle_name {
+        text-align: center;
+        margin: 0;
+        font-size: 3vw;
+        font-weight: bold;
+    }
+}
+
+.selecteat {
+    width: 100%;
+    overflow: hidden;
+}
+.help{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+.helpimg {
+    padding-top: 2%;
+    padding-right: 2%;
+}
+
+.first{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fir_box{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.order {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    margin-top: -15vh;
+}
+
+.sloworder {
+    font-size: 5vw;
+    background-color: white;
+    height: 14.5vh;
+    margin-bottom: 5vh;
+}
+.basicorder {
+    font-size: 5vw;
+    background-color: white;
+    height: 14.5vh;
+    margin-top: 3vh;
+}
