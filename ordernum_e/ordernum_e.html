@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="ordernum.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="all">
+        <div class="help">
+            <img class="helpimg" src="./image/circle-question.svg"  width="7.5%" height="7.5%" onclick="openHelp()">
+        </div>
+        <div class="ordernum">
+            <div class="order">
+                <div class="closeimg">
+                    <img class="close" src="./image/close.png" width="6%" height="3%" onclick="openClose()">
+                </div>
+                <div class="info">
+                    <p class="completed">Order Completed</p>
+                    <p class="waitnum">Waiting number</p>
+                    <div class="num">901</div>
+                </div>
+            </div>
+            <div class="gohome_">
+                <button type="button" class="gohome" onclick="location.href='../selectorder/selectorder.html'">Back to HOME</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function openHelp() {
+            window.location.href = "#"
+        }
+        function openClose() {
+            window.location.href = "#"
+        }
+    </script>
+
+</body>
+
+</html>
