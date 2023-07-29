@@ -30,8 +30,9 @@ search.forEach((divElement) => {
       
     });
   });
+
    
- 
+ // 하단 고정 버튼(이전화면, 처음으로, 다음)
  // 이전화면 클릭시
 document.getElementById("prvsScren").addEventListener("click", function() {
   // 새로운 페이지로 이동
@@ -50,14 +51,14 @@ document.getElementById("nextScreen").addEventListener("click", function() {
 window.location.href = "../last_checklist/checklist.html";
 });
 
- // JavaScript
+ // 메뉴 박스
 const list_content_box = document.querySelectorAll('.list_content_box');
 
 list_content_box.forEach((divElement) => {
   divElement.addEventListener('click', function() {
     // 이벤트 처리 로직 작성
-    console.log("클릭 이벤트가 발생했습니다.");
     alert("선택되었습니다");
+    window.location.href = '../detail_menu/jojo.html';
   });
 });
  
@@ -84,6 +85,8 @@ const slideWidth = slider.clientWidth;
 const offset = -slideWidth * slideIndex;
 slider.style.transform = `translateX(${offset}px)`;
 }
+
+// 크기 조절 버튼
 const radioButtons = document.getElementsByName('size');
 radioButtons.forEach(button => {
     button.addEventListener('click', () => {
