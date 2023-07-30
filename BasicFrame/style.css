@@ -171,13 +171,13 @@ html,body {
   }
 }
 
-
 .help{
   position: absolute;
-  top: 2%;
-  right: 2%;
-  width: 5%;
+  width: 6%;
+  right: 1%;
+  top: 1%;
 }
+
 /*주문 리스트*/
 .list_box {
   display: grid;
@@ -423,14 +423,9 @@ html,body {
   .sizes{
     font-size: 1rem;
   }
-    .help{
-    width: 3%;
-    height: 5%;
-  }
   input[type="search"] {
       padding: 1vw;
       height: 1rem;
-      
   }
   .searchs{
     height: 3vw;

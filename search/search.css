@@ -8,7 +8,7 @@
 }
 
 .box{
-    border: solid 1px red;
+    border: solid 2px black;
 }
 
 .top_box{
@@ -36,5 +36,5 @@
 }
 
 .simple-keyboard{
-    border: solid 1px blue;
+    border: solid 2px black;
 }
