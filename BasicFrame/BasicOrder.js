@@ -10,16 +10,15 @@ button.addEventListener('click', function () {
 });
 
 // 도움말 버튼
-const help= document.querySelectorAll('.help');
-help.forEach((divElement) => {
-    divElement.addEventListener('click', function() {
-      // 이벤트 처리 로직 작성
-      alert("도움말을 선택하였습니다");
-      window.location.href = '../help_msg/help_msg.html';
-      
-    });
-  });
+const joImage = document.getElementById("imageLink");
 
+        joImage.addEventListener("click", function () {
+            $.get("../help_msg/help_msg.html", function (data) {
+                $("#modalContainer").html(data);
+                const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+                modal.show();
+            });
+        });
 
 const search= document.querySelectorAll('.search, .searchs');
 search.forEach((divElement) => {
