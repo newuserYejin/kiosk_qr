@@ -92,34 +92,52 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 5%;
 }
 
 .take_out_title {
     font-weight: bold;
-    font-size: 3vw;
+    font-size: 4vw;
     padding-right: 1rem;
     width: 40%;
-    text-align:end;
+    text-align: end;
 }
 
-.list-group{
+.list-group {
     width: 60%;
     display: flex;
     flex-direction: row;
 }
 
-.list-group-item{
+.list-group-item {
     border: none;
+    width: 100%;
     font-weight: bold;
+    display: flex;
+    padding: 0;
+    align-items: center;
 }
 
-.form-check-input{
+.list-group-item label {
+    font-size: 3vw;
+    width: 80%;
+}
+
+.form-check-input {
     border: solid 2px black;
+    margin-top: 0;
 }
 
 /*주문 리스트*/
 .box {
     border: solid 3px black;
+}
+
+.list_box {
+    padding: 1vw;
+    height: 70%;
+    overflow: hidden;
+    overflow-y: visible;
 }
 
 .text-center {
@@ -129,7 +147,6 @@ body {
     top: 50%;
     transform: translateY(-50%);
     width: 100%;
-    height: auto;
 }
 
 /*주문 목록 글씨*/
@@ -137,20 +154,13 @@ body {
     text-align: center;
     font-size: 4vw;
     font-weight: bold;
-  }
-  
-  .help{
+}
+
+.help {
     position: absolute;
     top: 2%;
     right: 2%;
     width: 5%;
-  }
-
-.list_box {
-    padding: 1vw;
-    height: 75%;
-    overflow: hidden;
-    overflow-y: visible;
 }
 
 .list_content_box {
@@ -217,7 +227,7 @@ body {
     overflow-y: visible;
 }
 
-.option_title{
+.option_title {
     font-weight: bold;
     padding: 0;
     margin: 0;
@@ -272,9 +282,24 @@ body {
     border: solid 1px skyblue;
 }
 
+/*최종 금액*/
+.total_cost_box {
+    height: 7%;
+    border-top: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 3vw;
+}
+
+.total_cost {
+    margin-left: 1vw;
+}
+
 /*하단 고정 버튼*/
 .fix_button {
-    height: 10%;
+    height: 9%;
     width: 100%;
     display: flex;
     justify-content: space-around;
