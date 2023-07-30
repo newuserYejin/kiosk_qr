@@ -24,18 +24,22 @@ const search= document.querySelectorAll('.search, .searchs');
 search.forEach((divElement) => {
     divElement.addEventListener('click', function() {
       // 이벤트 처리 로직 작성
-      alert("검색을 선택하였습니다");
-      window.location.href = '../search/search.html';
-      
+      $.get("../search/search.html", function (data) {
+        $("#modalContainer").html(data);
+        const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+        modal.show();
+      });
     });
   });
 
    
  // 하단 고정 버튼(이전화면, 처음으로, 다음)
  // 이전화면 클릭시
-document.getElementById("prvsScren").addEventListener("click", function() {
-  // 새로운 페이지로 이동
-  window.location.href = "../selecteat/selecteat.html";
+ document.getElementById('prvsScren').addEventListener('click', function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  urlParams.set('order', 'basic'); // 'order' 파라미터를 'slow' 값으로 설정
+  // 기존 URL에 파라미터를 추가한 새 URL로 이동
+  window.location.href = `../selecteat/selecteat.html?${urlParams}`;
 });
 
 // 처음으로
