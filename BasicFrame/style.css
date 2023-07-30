@@ -316,28 +316,36 @@ html,body {
   }
 }
 
-/* 기본 더크게 검색*/
-.sizes{
+/* 기본 더크게 검색 nav바*/
+.add_fuc_bar{
   display: flex;
-  font-size: 1rem;
-  margin: 1%;
   justify-content: space-between;
   align-items: center;
-  
+  margin-bottom: 1%;
+}
+
+.view_button{
+  width: 50%;
+  font-size: 2.5vw;
 }
 
 /* 검색 입력창*/
-input[type="search"] {
-  padding: 1vw;
-}
-.menu-search{
+.search_div{
   display: flex;
-  float: right;
- }
+  justify-content: end;
+  align-items: center;
+  width: 50%;
+}
+
+.search{
+  width: 80%;
+  height: 3vw;
+}
  
-.searchs{
+.search_icon{
   height: 5vw;
 }
+
 
 
 /*슬라이드 창*/
@@ -373,13 +381,10 @@ input[type="search"] {
   top: 50%;
   height: 10%;
   width: 10%;
-  border-radius: 50%;
-  left: -5%;
   
   transform: translateY(-50%);
   cursor: pointer;
-  font-size: 3vw;
-  text-align: end;
+  font-size: 20px;
   font-weight: bold;
   background-color: rgb(255, 255, 128);
 }
@@ -387,15 +392,13 @@ input[type="search"] {
 #nextBtn {
   position: absolute;
   top: 50%;
-  right: -5%;
+  right: 0;
   height: 10%;
   width: 10%;
-  border-radius: 50%;
 
   transform: translateY(-50%);
-  font-size: 3vw;
+  font-size: 20px;
   font-weight: bold;
-  text-align: start;
   cursor: pointer;
   background-color: rgb(255, 255, 128);
 }
