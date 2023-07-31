@@ -16,12 +16,11 @@ function onChange(input) {
 }
 
 function onKeyPress(button) {
+  var KeyBoard = document.getElementById("KeyBoard");
   console.log("Button pressed", button);
+
+  if (button == "{enter}"){
+    KeyBoard.style.visibility = "hidden";
+  }
+
 }
-
-const showKeyboardButton = document.getElementById('show-keyboard-button');
-const inputField = document.getElementById('input-field');
-
-showKeyboardButton.addEventListener('click', () => {
-  inputField.focus();
-});
