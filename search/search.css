@@ -25,9 +25,7 @@
 }
 
 .search_icon{
-    background-color: white;
-    border-radius: 50%;
-    border: solid 2px black;
+    width: 7%;
 }
 
 .keyword_box{
