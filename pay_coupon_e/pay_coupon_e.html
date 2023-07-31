@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
     <link href="pay_coupon.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -43,7 +47,7 @@
                 <div class="box_line">
                     <div onclick="openPay()" class="level_button">
                         <p class="circle_name">Pay</p>
-                        <button class="circle"></button>
+                        <button class="circle" style="background-color:#b928b98d;"></button>
                     </div>
                 </div>
             </div>
@@ -52,7 +56,8 @@
 
         <div class="selectpay">
             <div class="help">
-                <img class="helpimg" src="./image/circle-question.svg"  width="7.5%" height="7.5%" onclick="openHelp()">
+                <img class="helpimg" src="./image/circle-question.svg"  width="7.5%" height="7.5%" id="imageLink">
+                 <div id="modalContainer"></div>
             </div>
             <div class="first">
                 <div class="fir_box">
@@ -64,26 +69,34 @@
                         <img class="pay_coupon" src="./image/pay_coupon.gif" loop = infinite/>
                     </div>
                     <div class="gohome_">
-                        <button type="button" class="gohome" onclick="location.href='#'">Return to order</button>
+                        <button type="button" class="gohome" onclick="location.href='../selectorder_e/selectorder_e.html'">Return to order</button>
                     </div>
                 </div>
             </div>
         </div>
-        
         <script>
-            function openHelp() {
-                window.location.href = "#"
-            }
+            const joImage = document.getElementById("imageLink");
+
+            joImage.addEventListener("click", function () {
+                $.get("../help_msg/help_msg.html", function (data) {
+                        $("#modalContainer").html(data);
+                        const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+                        modal.show();
+                    });
+                });
+
+        </script>        
+        <script>
             function openSelect() {
-                window.location.href = "#"
+                window.location.href = "../selecteat_e/selecteat_e.html"
                 alert("The button has been clicked!")
             }
             function openCheck() {
-                window.location.href = "#"
+                window.location.href = "../last_checklist/checklist.html"
                 alert("The button has been clicked!")
             }
             function openPay() {
-                window.location.href = "#"
+                window.location.href = "../paymethod_e/paymethod_e.html"
                 alert("The button has been clicked!")
             }
         </script>
