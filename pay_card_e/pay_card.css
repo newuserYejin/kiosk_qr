@@ -65,8 +65,8 @@ html,body {
     }
 
     .circle {
-        width: 8vw;
-        height: 8vw;
+        width: 2rem;
+        height: 2rem;
         border: solid 3px black;
         border-radius: 50%;
         background-color: pink;
