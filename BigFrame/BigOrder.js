@@ -13,8 +13,8 @@ button.addEventListener('click', function () {
 
 // 선택 버튼
 const selectBtn = document.querySelectorAll('.selectBtn');
-selectBtn.forEach((divElement)=>{
-  divElement.addEventListener('click', function() {
+selectBtn.forEach((divElement) => {
+  divElement.addEventListener('click', function () {
     alert("선택되었습니다");
     window.location.href = '../detail_menu/jojo.html';
   });
@@ -22,36 +22,51 @@ selectBtn.forEach((divElement)=>{
 
 // 검색버튼
 
-const search= document.querySelectorAll('.search, .searchs');
+const search = document.querySelectorAll('.search, .searchs');
 search.forEach((divElement) => {
-    divElement.addEventListener('click', function() {
-      // 이벤트 처리 로직 작성
-      alert("검색을 선택하였습니다");
-      window.location.href = '../search/search.html';
-      
-    });
+  divElement.addEventListener('click', function () {
+    // 이벤트 처리 로직 작성
+    alert("검색을 선택하였습니다");
+    window.location.href = '../search/search.html';
+
   });
+});
 
 
 // 하단 고정 버튼(이전화면, 처음으로, 다음)
- // 이전화면 클릭시
- document.getElementById('prvsScren').addEventListener('click', function() {
+// 이전화면 클릭시
+document.getElementById('prvsScren').addEventListener('click', function () {
   const urlParams = new URLSearchParams(window.location.search);
-  urlParams.set('order', 'slow'); // 'order' 파라미터를 'slow' 값으로 설정
-  // 기존 URL에 파라미터를 추가한 새 URL로 이동
-  window.location.href = `../selecteat/selecteat.html?${urlParams}`;
+  const orderType = urlParams.get('order');
+
+  if (orderType == 'slow') {
+    // 천천히 주문하기 버튼을 클릭한 경우
+    location.href = '../selecteat/selecteat.html?order=slow';
+  } else if (orderType == 'basic') {
+    // 기본 주문하기 버튼을 클릭한 경우
+    location.href = '../selecteat/selecteat.html?order=basic';
+  }
 });
 
 // 처음으로
-document.getElementById("firstScreen").addEventListener("click", function() {
-// 새로운 페이지로 이동
+document.getElementById("firstScreen").addEventListener("click", function () {
+  // 새로운 페이지로 이동
   window.location.href = "../selectorder/selectorder.html";
 });
 
 // 다음
-document.getElementById("nextScreen").addEventListener("click", function() {
-// 새로운 페이지로 이동
-  window.location.href = "../last_checklist/checklist.html";
+document.getElementById("nextScreen").addEventListener("click", function () {
+  // 새로운 페이지로 이동
+  const urlParams = new URLSearchParams(window.location.search);
+  const orderType = urlParams.get('order');
+
+  if (orderType == 'slow') {
+    // 천천히 주문하기 버튼을 클릭한 경우
+    location.href = '../last_checklist/checklist.html?order=slow';
+  } else if (orderType == 'basic') {
+    // 기본 주문하기 버튼을 클릭한 경우
+    location.href = '../last_checklist/checklist.html?order=basic';
+  }
 });
 
 // 수량 조절 버튼
@@ -78,19 +93,19 @@ quantityControls.forEach(control => {
 //사이즈 이동
 const radioButtons = document.getElementsByName('size');
 radioButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        // 선택된 라디오 버튼의 값에 따라 페이지 이동
-        if (button.checked) {
-            switch (button.value) {
-                case 'basic':
-                    window.location.href = '../BasicFrame/BasicOrder.html';
-                    break;
-                case 'big':
-                    window.location.href = '../BigFrame/BigOrder.html';
-                    break;
-                default:
-                    break;
-            }
-        }
-    });
-});ㄴ
+  button.addEventListener('click', () => {
+    // 선택된 라디오 버튼의 값에 따라 페이지 이동
+    if (button.checked) {
+      switch (button.value) {
+        case 'basic':
+          window.location.href = '../BasicFrame/BasicOrder.html';
+          break;
+        case 'big':
+          window.location.href = '../BigFrame/BigOrder.html';
+          break;
+        default:
+          break;
+      }
+    }
+  });
+}); 
