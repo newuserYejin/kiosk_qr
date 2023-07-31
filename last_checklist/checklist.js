@@ -1,16 +1,6 @@
 // script.js
 
 var button = document.querySelector('.circle');
-var colors = ['orange', 'pink'];
-var currentIndex = 0;
-
-button.addEventListener('click', function () {
-  button.style.backgroundColor = colors[currentIndex];
-  currentIndex = (currentIndex + 1) % colors.length;
-  alert("버튼이 클릭되었습니다!");
-  window.location.href = '../detail_menu/jojo.html';
-});
-
 
 document.addEventListener("DOMContentLoaded", function () {
   var decrementButton = document.getElementById("decrement");
@@ -29,3 +19,14 @@ document.addEventListener("DOMContentLoaded", function () {
     quantityInput.value = currentQuantity + 1;
   });
 });
+
+function selectPage(){
+  var URL = new URLSearchParams(window.location.search);
+  var order_info = URL.get('order');
+
+  if(order_info == 'slow'){
+    window.location.href = "../BigFrame/BigOrder.html"
+  } else if(order_info == 'basic'){
+    window.location.href = "../BasicFrame/BasicOrder.html"
+  }
+}

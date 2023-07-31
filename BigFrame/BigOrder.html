@@ -27,7 +27,7 @@
                     <img src=".\image\line2.jpg" alt="Line 이미지" class="center">
                 </div>
 
-                <div class="box_line">
+                <div class="box_line" onclick="location.href='../last_checklist/checklist.html?order=slow'">
                     <div onclick="navigate_click()" class="level_button">
                         <p class="circle_name">확인</p>
                         <button class="circle"></button>
@@ -40,7 +40,7 @@
 
                 </div>
 
-                <div class="box_line">
+                <div class="box_line" onclick="location.href='../paymethod/paymethod.html?order=slow'">
                     <div onclick="navigate_click()" class="level_button">
                         <p class="circle_name">결제</p>
                         <button class="circle"></button>
@@ -48,7 +48,7 @@
                 </div>
             </div>
             <!--주문리스트 미리보기-->
-            <div class="select_list">
+            <div class="select_list" onclick="location.href='../last_checklist/checklist.html?order=slow'">
                 <div class="select_list_title">
                     현재 주문 목록
                 </div>
@@ -139,11 +139,15 @@
                 <div id="modalContainer"></div>
             </div>
 
-            <div class="sizes">
-                <input type="radio" name="size" value="basic">기본
-                <input type="radio" name="size" value="big" checked>더크게
-                <input type="search" name="menu-search" class="search">
-                <img class="searchs" src=".\image\search.png">
+            <div class="add_fuc_bar">
+                <div class="view_button">
+                    <input type="radio" name="size" value="basic">기본
+                    <input type="radio" name="size" value="big" checked>더크게
+                </div>
+                <div class="search_div">
+                    <input type="search" name="menu-search" class="search">
+                    <img class="search_icon" src=".\image\search.png">
+                </div>
             </div>
 
             <ul class="categores">
