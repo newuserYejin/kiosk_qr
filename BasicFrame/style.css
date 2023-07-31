@@ -173,7 +173,7 @@ html,body {
 
 .help{
   position: absolute;
-  width: 6%;
+  width: 5%;
   right: 1%;
   top: 1%;
 }
@@ -330,18 +330,10 @@ html,body {
 }
 
 /* 검색 입력창*/
-.search_div{
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  width: 50%;
+input[type="search"] {
+  padding: 1vw;
 }
 
-.search{
-  width: 80%;
-  height: 3vw;
-}
- 
 .search_icon{
   height: 5vw;
 }
