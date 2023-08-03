@@ -34,8 +34,7 @@
                             <div class="row">
                                 <div class="col-6">
                                     <div class="menu_img_box">
-                                        <img class="menu_img_size"
-                                            src="image/img1.PNG" />
+                                        <img class="menu_img_size" src="image/img1.PNG" />
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -51,19 +50,24 @@
                                                 카페의 가장 기본적인 음료!
                                             </div>
 
-                                            <!--수량 체크 박스-->
-                                            <div class="num_check">
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <button class="btn btn-outline-secondary"
-                                                            id="decrement">-</button>
+                                            <div class="detail_explain_bottom">
+                                                <!--수량 체크 박스-->
+                                                <div class="num_check">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <button class="btn btn-outline-secondary"
+                                                                id="decrement">-</button>
+                                                        </div>
+                                                        <input type="text" class="form-control" id="quantity" value="1"
+                                                            readonly />
+                                                        <div class="input-group-append">
+                                                            <button class="btn btn-outline-secondary"
+                                                                id="increment">+</button>
+                                                        </div>
                                                     </div>
-                                                    <input type="text" class="form-control" id="quantity" value="1"
-                                                        readonly>
-                                                    <div class="input-group-append">
-                                                        <button class="btn btn-outline-secondary"
-                                                            id="increment">+</button>
-                                                    </div>
+                                                </div>
+                                                <div class="add_button">
+                                                    <button>추가</button>
                                                 </div>
                                             </div>
 
@@ -76,61 +80,63 @@
                             <div class="col-12 ml-auto">
                                 <div class="option_box">
                                     <div class="option">
+                                        <div class="option_inner_bow">
+                                            <!--라디오 박스-->
+                                            <p class="option_name">
+                                                첫번째 옵션
+                                            </p>
 
-                                        <!--라디오 박스-->
-                                        <p class="option_name">
-                                            첫번째 옵션
-                                        </p>
+                                            <ul class="list-group">
+                                                <li class="list-group-item">
+                                                    <input class="form-check-input me-1" type="radio"
+                                                        name="listGroupRadio" value="" id="firstRadio" checked>
+                                                    <label class="form-check-label" for="firstRadio">First
+                                                        radio</label>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <input class="form-check-input me-1" type="radio"
+                                                        name="listGroupRadio" value="" id="secondRadio">
+                                                    <label class="form-check-label" for="secondRadio">Second
+                                                        radio</label>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <input class="form-check-input me-1" type="radio"
+                                                        name="listGroupRadio" value="" id="thirdRadio">
+                                                    <label class="form-check-label" for="thirdRadio">Third
+                                                        radio</label>
+                                                </li>
+                                            </ul>
 
-                                        <ul class="list-group">
-                                            <li class="list-group-item">
-                                                <input class="form-check-input me-1" type="radio" name="listGroupRadio"
-                                                    value="" id="firstRadio" checked>
-                                                <label class="form-check-label" for="firstRadio">First
-                                                    radio</label>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <input class="form-check-input me-1" type="radio" name="listGroupRadio"
-                                                    value="" id="secondRadio">
-                                                <label class="form-check-label" for="secondRadio">Second
-                                                    radio</label>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <input class="form-check-input me-1" type="radio" name="listGroupRadio"
-                                                    value="" id="thirdRadio">
-                                                <label class="form-check-label" for="thirdRadio">Third
-                                                    radio</label>
-                                            </li>
-                                        </ul>
+                                        </div>
 
 
                                     </div>
                                     <div class="option">
                                         <!--체크 박스-->
-                                        <p class="option_name">
-                                            두번째 옵션
-                                        </p>
+                                        <div class="option_inner_bow">
 
-                                        <ul class="list-group">
-                                            <li class="list-group-item">
-                                                <input class="form-check-input me-1" type="checkbox" value=""
-                                                    id="firstCheckbox">
-                                                <label class="form-check-label" for="firstCheckbox">First
-                                                    checkbox</label>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <input class="form-check-input me-1" type="checkbox" value=""
-                                                    id="secondCheckbox">
-                                                <label class="form-check-label" for="secondCheckbox">Second
-                                                    checkbox</label>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <input class="form-check-input me-1" type="checkbox" value=""
-                                                    id="thirdCheckbox">
-                                                <label class="form-check-label" for="thirdCheckbox">Third
-                                                    checkbox</label>
-                                            </li>
-                                        </ul>
+                                            <p class="option_name">
+                                                두번째 옵션
+                                            </p>
+
+                                            <ul class="list-group">
+                                                <li class="list-group-item">
+                                                    <input class="form-check-input me-1" type="checkbox" value=""
+                                                        id="firstCheckbox">
+                                                    <label class="form-check-label" for="firstCheckbox">First</label>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <input class="form-check-input me-1" type="checkbox" value=""
+                                                        id="secondCheckbox">
+                                                    <label class="form-check-label" for="secondCheckbox">Second</label>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <input class="form-check-input me-1" type="checkbox" value=""
+                                                        id="thirdCheckbox">
+                                                    <label class="form-check-label" for="thirdCheckbox">Third</label>
+                                                </li>
+                                            </ul>
+                                        </div>
 
                                     </div>
                                     <div class="option">

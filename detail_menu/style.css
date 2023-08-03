@@ -22,16 +22,20 @@
 
 .menu_explain {
     height: 100%;
-    position: relative;
     border: solid 2px black;
+    display: flex;
+    align-items: center;
+    padding: 2%;
 }
 
 .menu_explain_center {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu_explain_center div{
     width: 100%;
-    height: auto;
 }
 
 .menu_explain_content {
@@ -42,6 +46,7 @@
 
 .menu_title {
     font-size: 4vw;
+    margin-top: 0;
 }
 
 .border_line {
@@ -76,16 +81,27 @@
 /*상세 옵션*/
 .option {
     border: 2px solid black;
-    height: 10vh;
+    height: 20vh;
     min-height: 80px;
     margin-bottom: 2vh;
     padding: 0 10px;
     overflow: hidden;
     overflow-y: visible;
+    display: flex;
+    align-items: center;
+}
+
+.option_inner_bow{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .option_name{
     margin: 0;
+    margin-bottom: 20px;
     font-weight: bold;
     font-size: 3vh;
 }
@@ -104,25 +120,49 @@
     min-width: 20px;
 }
 
+.list-group li{
+    display: flex;
+    align-items: center;
+}
+
 .form-check-input{
     border: solid 2px black;
+    width: 3vw;
+    height: 3vw;
 }
 
 .form-check-label{
-    font-size: 2vh;
+    font-size: 2.5vh;
     font-weight: bold;
+    margin-left: 20px;
 }
 
+
+.detail_explain_bottom{
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 /*수량 체크 박스*/
 .num_check{
     display: flex;
     justify-content: center;
-    width: 100%;
-    padding: 0 10px;
+    width: 60%;
+    height: 50%;
+    flex-direction: row;
 }
 
 .input-group{
     border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+}
+
+.input-group div{
+    width: auto;
 }
 
 .form-control[readonly]{
@@ -137,6 +177,7 @@
     font-size: 4vw;
     color: black;
     padding:0;
+    width: 10%;
 }
 
 .btn-outline-secondary{
@@ -144,7 +185,22 @@
     font-weight: bold;
     font-size: 4vw;
     color: black;
-    padding: 2vw;
+    padding: 0 2vw;
+}
+
+/*추가버튼*/
+.add_button{
+    height: 5.5vw;
+    display: flex;
+    justify-content: center;
+}
+
+.add_button button{
+    width: 70%;
+    height: 100%;
+    background-color: white;
+    font-weight: bold;
+    font-size: 3vw;
 }
 
 
