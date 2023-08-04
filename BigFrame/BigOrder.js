@@ -35,7 +35,7 @@ search.forEach((divElement) => {
 
 // 하단 고정 버튼(이전화면, 처음으로, 다음)
 // 이전화면 클릭시
-document.getElementById('prvsScren').addEventListener('click', function () {
+function prvsScren() {
   const urlParams = new URLSearchParams(window.location.search);
   const orderType = urlParams.get('order');
 
@@ -46,16 +46,16 @@ document.getElementById('prvsScren').addEventListener('click', function () {
     // 기본 주문하기 버튼을 클릭한 경우
     location.href = '../selecteat/selecteat.html?order=basic';
   }
-});
+};
 
 // 처음으로
-document.getElementById("firstScreen").addEventListener("click", function () {
+function firstScreen(){
   // 새로운 페이지로 이동
   window.location.href = "../selectorder/selectorder.html";
-});
+};
 
 // 다음
-document.getElementById("nextScreen").addEventListener("click", function () {
+function nextScreen(){
   // 새로운 페이지로 이동
   const urlParams = new URLSearchParams(window.location.search);
   const orderType = urlParams.get('order');
@@ -67,7 +67,7 @@ document.getElementById("nextScreen").addEventListener("click", function () {
     // 기본 주문하기 버튼을 클릭한 경우
     location.href = '../last_checklist/checklist.html?order=basic';
   }
-});
+};
 
 // 수량 조절 버튼
 const quantityControls = document.querySelectorAll('.quantity-control');
