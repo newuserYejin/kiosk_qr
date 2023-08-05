@@ -1,13 +1,13 @@
-.row {
+#menu_modalContainer .row {
     margin-bottom: 10px;
 }
 
-.help{
+#menu_modalContainer .help{
     position: absolute;
     width: 7%;
   }
 
-.menu_img_box {
+#menu_modalContainer .menu_img_box {
     width: 38vw;
     height: var(width);
     padding: 10px;
@@ -16,11 +16,11 @@
     justify-content: center;
 }
 
-.menu_img_size {
+#menu_modalContainer .menu_img_size {
     width: 70%;
 }
 
-.menu_explain {
+#menu_modalContainer .menu_explain {
     height: 100%;
     border: solid 2px black;
     display: flex;
@@ -28,49 +28,53 @@
     padding: 2%;
 }
 
-.menu_explain_center {
+#menu_modalContainer .menu_explain_center {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.menu_explain_center div{
+#menu_modalContainer .menu_explain_center div{
     width: 100%;
 }
 
-.menu_explain_content {
+#menu_modalContainer .menu_explain_content {
     margin: 1vw;
     font-weight: bold;
     font-size: 3vw;
 }
 
-.menu_title {
+#menu_modalContainer .menu_title {
     font-size: 4vw;
     margin-top: 0;
 }
 
-.border_line {
+#menu_modalContainer .border_line {
     border-bottom: 2px solid black;
 }
 
-.modal-title {
+#menu_modalContainer .modal{
+    width: 100%;
+    height: 100%;
+}
+
+#menu_modalContainer .modal-title {
     font-weight: bold;
 }
 
-.modal-dialog {
-    max-width: 90%;
-    max-height: 90%;
-    height: 1000px;
+#menu_modalContainer .modal-dialog {
+    min-width: 90%;
+    min-height: 90%;
 }
 
-.modal-content {
+#menu_modalContainer .modal-content {
     height: 95vh;
     overflow: hidden;
     overflow-y: visible;
 }
 
 /*옵션*/
-.option_box {
+#menu_modalContainer .option_box {
     border: 2px solid black;
     height: 40vh;
     padding: 2vw;
@@ -79,7 +83,7 @@
 }
 
 /*상세 옵션*/
-.option {
+#menu_modalContainer .option {
     border: 2px solid black;
     height: 20vh;
     min-height: 80px;
@@ -91,7 +95,7 @@
     align-items: center;
 }
 
-.option_inner_bow{
+#menu_modalContainer .option_inner_bow{
     height: 80%;
     width: 100%;
     display: flex;
@@ -99,14 +103,14 @@
     justify-content: space-around;
 }
 
-.option_name{
+#menu_modalContainer .option_name{
     margin: 0;
     margin-bottom: 20px;
     font-weight: bold;
     font-size: 3vh;
 }
 
-.list-group {
+#menu_modalContainer .list-group {
     display: flex;
     flex-direction: row;
     justify-content: start;
@@ -114,31 +118,31 @@
     text-align: left;
   }
 
-.list-group-item{
+#menu_modalContainer .list-group-item{
     border: none;
     padding: 1vh 2vh;
     min-width: 20px;
 }
 
-.list-group li{
+#menu_modalContainer .list-group li{
     display: flex;
     align-items: center;
 }
 
-.form-check-input{
+#menu_modalContainer .form-check-input{
     border: solid 2px black;
     width: 3vw;
     height: 3vw;
 }
 
-.form-check-label{
-    font-size: 2.5vh;
+#menu_modalContainer .form-check-label{
+    font-size: 2#menu_modalContainer .5vh;
     font-weight: bold;
     margin-left: 20px;
 }
 
 
-.detail_explain_bottom{
+#menu_modalContainer .detail_explain_bottom{
     position: relative;
     bottom: 0;
     width: 100%;
@@ -147,7 +151,7 @@
     align-items: center;
 }
 /*수량 체크 박스*/
-.num_check{
+#menu_modalContainer .num_check{
     display: flex;
     justify-content: center;
     width: 60%;
@@ -155,23 +159,23 @@
     flex-direction: row;
 }
 
-.input-group{
+#menu_modalContainer .input-group{
     border: 2px solid black;
     display: flex;
     flex-direction: row;
 }
 
-.input-group div{
+#menu_modalContainer .input-group div{
     width: auto;
 }
 
-.form-control[readonly]{
+#menu_modalContainer .form-control[readonly]{
     background-color: white;
     border-right: solid 2px black;
     border-left: solid 2px black;
 }
 
-.form-control{
+#menu_modalContainer .form-control{
     text-align: center;
     font-weight: bold;
     font-size: 4vw;
@@ -180,7 +184,7 @@
     width: 10%;
 }
 
-.btn-outline-secondary{
+#menu_modalContainer .btn-outline-secondary{
     border: none;
     font-weight: bold;
     font-size: 4vw;
@@ -189,13 +193,13 @@
 }
 
 /*추가버튼*/
-.add_button{
-    height: 5.5vw;
+#menu_modalContainer .add_button{
+    height: 5#menu_modalContainer .5vw;
     display: flex;
     justify-content: center;
 }
 
-.add_button button{
+#menu_modalContainer .add_button button{
     width: 70%;
     height: 100%;
     background-color: white;

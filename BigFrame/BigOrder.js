@@ -11,14 +11,55 @@ button.addEventListener('click', function () {
   window.location.href = '../detail_menu/jojo.html';
 });
 
-// 선택 버튼
-const selectBtn = document.querySelectorAll('.selectBtn');
-selectBtn.forEach((divElement) => {
-  divElement.addEventListener('click', function () {
-    alert("선택되었습니다");
-    window.location.href = '../detail_menu/jojo.html';
+//도움말 버튼
+const joImage = document.getElementById("imageLink");
+
+joImage.addEventListener("click", function () {
+  // 먼저 모달 컨테이너를 비웁니다.
+  document.getElementById("menu_modalContainer").innerHTML = "";
+
+  // help_msg.html 콘텐츠를 로드하여 모달 컨테이너에 추가합니다.
+  $.get("../help_msg/help_msg.html", function (data) {
+    $("#menu_modalContainer").html(data); // "menu_modalContainer"로 변경
+    const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+    modal.show();
   });
 });
+
+// 선택 버튼
+
+const selectBtn = document.getElementById("selectBtn");
+selectBtn.addEventListener("click", function () {
+  // 먼저 모달 컨테이너를 비웁니다.
+  document.getElementById("menu_modalContainer").innerHTML = "";
+
+  // jojo.html 콘텐츠를 로드하여 모달 컨테이너에 추가합니다.
+  fetch("../detail_menu/jojo.html")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("HTTP Error " + response.status);
+      }
+      return response.text();
+    })
+    .then(data => {
+      // 모달 컨테이너에 jojo.html 콘텐츠를 추가합니다.
+      $("#menu_modalContainer").html(data);
+
+      // detail_menu.css 파일을 로드합니다.
+      const linkElement = document.createElement("link");
+      linkElement.rel = "stylesheet";
+      linkElement.type = "text/css";
+      linkElement.href = "../detail_menu/detail_menu.css";
+      document.head.appendChild(linkElement);
+
+      const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+      modal.show();
+    })
+    .catch(error => {
+      console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
+    });
+});
+
 
 // 검색버튼
 
