@@ -97,8 +97,8 @@ body {
 
 .take_out_title {
     font-weight: bold;
-    font-size: 4vw;
-    padding-right: 1rem;
+    font-size: 2.5vw;
+    padding-right: 0.5rem;
     width: 40%;
     text-align: end;
 }
@@ -119,7 +119,7 @@ body {
 }
 
 .list-group-item label {
-    font-size: 3vw;
+    font-size: 2.5vw;
     width: 80%;
 }
 
@@ -232,7 +232,6 @@ body {
     padding: 0;
     margin: 0;
     margin-bottom: 2%;
-    font-size: 3.5vw;
 }
 
 .option_detail {
@@ -323,7 +322,6 @@ body {
     color: white;
     border: solid 1px skyblue;
 }
-
 
 @media screen and (min-width:1000px) {
     .list-group-item label {

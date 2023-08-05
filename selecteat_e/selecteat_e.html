@@ -9,66 +9,13 @@
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
     <link href="selecteat.css" rel="stylesheet" type="text/css" />
-    <script>
-        function openSelect() {
-            window.location.href = "../selecteat_e/selecteat_e.html"
-            alert("The button has been clicked!")
-        }
-        function openCheck() {
-            window.location.href = "../last_checklist/checklist.html"
-            alert("The button has been clicked!")
-        }
-        function openPay() {
-            window.location.href = "../paymethod_e/paymethod_e.html"
-            alert("The button has been clicked!")
-        }
-    </script>
+
     <script src="navbarmsg.js"></script>
 </head>
 
 <body>
     <body>
         <div class="all">
-            <!--navigate bar-->
-            <div class="navigation">
-                <div class="navigation_all_box">
-                    <div class="box_line">
-                        <div onclick="openSelect()" class="level_button">
-                            <p class="circle_name">Choose</p>
-                            <button class="circle" style="background-color:#b928b98d;"></button>
-                        </div>
-                    </div>
-    
-                    <div class="level_line">
-                        <p></p>
-                        <img src="./image/line2.jpg" alt="Line 이미지" class="center">
-                    </div>
-    
-                    <div class="box_line">
-                        <div onclick="openCheck()" class="level_button">
-                            <p class="circle_name">Check</p>
-                            <button class="circle"></button>
-                        
-    
-                        </div>
-                    </div>
-    
-                    <div class="level_line">
-                        <p></p>
-                        <img src="./image/line2.jpg" alt="Line 이미지" class="center">
-    
-                    </div>
-    
-                    <div class="box_line">
-                        <div onclick="openPay()" class="level_button">
-                            <p class="circle_name">Pay</p>
-                            <button class="circle"></button>
-                        </div>
-                    </div>
-                </div>
-    
-            </div>
-    
 
         <div class="selecteat">
             <div class="help">
@@ -91,10 +38,10 @@
 
                     if (orderType === 'slow') {
                         // 천천히 주문하기 버튼을 클릭한 경우
-                        location.href = '../BigFrame_e/BigOrder_e.html';
+                        location.href = '../BigFrame_e/BigOrder_e.html?order=slow';
                     } else if (orderType === 'basic') {
                         // 기본 주문하기 버튼을 클릭한 경우
-                        location.href = '../BasicFrame_e/BasicOrder_e.html';
+                        location.href = '../BasicFrame_e/BasicOrder_e.html?order=basic';
                     } else {
                         location.href = '../selectorder/selectorder.html';
                     }
