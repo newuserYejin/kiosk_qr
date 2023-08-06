@@ -99,12 +99,11 @@ body {
 }
 
 .select_list_list {
-  border: solid 2px blue;
-  padding-right: 1px;
   height: 80%;
   overflow: hidden;
   overflow-y: visible;
-
+  margin: 0 1PX;
+  border: solid 1px blue;
 }
 
 .select_list_detail {
@@ -200,34 +199,39 @@ body {
   width: 100%;
 }
 
-/*주문 정보*/
-.container {
-  height: 100%;
-  padding: auto;
+.list_content_info {
+  width: 63%;
 }
 
 .content_title {
   font-weight: bold;
-  text-align: center;
-  height: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 30%;
 }
 
 .menu_name {
+  width: 60%;
   font-size: 3vw;
-  text-align: left;
-  padding: 0;
   border-right: solid 3px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .menu_cost {
+  width: 40%;
+  padding-left: 1rem;
+  font-size: 2.5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 0%;
   padding: 0;
-  text-align: left;
-  font-size: 3vw;
 }
 
-.list_content_info {
-  width: 63%;
-}
 
 /*옵션*/
 .list_option {
@@ -236,68 +240,26 @@ body {
   height: 45%;
 }
 
+.list_option div{
+  height: 100%;
+  font-size: 3vw;
+}
 
 .list_buttons {
   height: 30%;
-}
-
-
-/*수량 체크(버튼)*/
-.button_box_num {
-  height: 100%;
-  border-right: solid 3px black;
-  padding: 0;
-}
-
-.num_check {
-  width: 100%;
-  height: 100%;
-}
-
-/* 각 수량 조절 버튼 세트를 Flex 항목으로 정의 */
-.quantity-control {
   display: flex;
-  align-items: center;
-  width: 100%;
-  height: 100%;
+  justify-content: end;
 }
-
-/* 수량 버튼과 입력란 사이의 간격 조절 */
-.quantity-control .decrease,
-.quantity-control .increase {
-  font-size: 3vw;
-  text-align: center;
-  width: 25%;
-  padding: 0;
-  margin: 0 1vw;
-}
-
-/* 수량 입력란 너비 조절 */
-.quantity-control input[type="number"] {
-  width: 50%;
-  text-align: center;
-  padding: 0;
-  margin: 0;
-  font-size: 3vw;
-  font-weight: bold;
-  border: none;
-}
-
 
 /* 선택 버튼*/
 .selectBtn {
-  height: 90%;
-  width: 100%;
-  margin: 2%;
-  border-radius: 20%;
+  height: 80%;
+  width: 50%;
+  border-radius: 30px;
   background-color: white;
   font-weight: bold;
   font-size: 3vw;
-  display: flex;
-  font-weight: bold;
-  justify-content: center;
-  align-items: center;
-  border-left: solid 3px black;
+  margin-right: 2%;
 }
 
 
@@ -373,8 +335,12 @@ body {
 }
 
 /* 검색 입력창*/
-input[type="search"] {
-  padding: 1vw;
+.search_div{
+  width: 50%;
+}
+
+.search{
+  width: 80%;
 }
 
 .search_icon {
@@ -383,31 +349,54 @@ input[type="search"] {
 
 /*전체적 사이즈 조절 */
 
+@media screen and (max-width : 310px) {
+  .search_div{
+    width: 50%;
+  }
+  .view_button{
+    width: 50%;
+  }
+  .search{
+    height: 20px;
+    width: 70%;
+  }
+  .navigation {
+    border: solid 3px black;
+    border-right: none;
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .list_menu {
+    width: 75%;
+    height: 100%;
+    padding: 2vw;
+  }
+
+  .select_name{
+    font-size: 5px;
+    width: 100%;
+  }
+  .view_button{
+    font-size: 0.5rem;
+  }
+}
+
 @media screen and (min-width: 600px) {
 
   .list_box {
     height: 70%;
   }
-
   .menu_name {
     font-size: 4vw;
   }
-
   .menu_cost {
     font-size: 4vw;
   }
-
   .sizes {
     font-size: 1.5rem;
-  }
-
-  input[type="search"] {
-    padding: 1vw;
-    height: 1rem;
-  }
-
-  .searchs {
-    height: 3vw;
   }
 
 }
@@ -452,7 +441,7 @@ input[type="search"] {
     width: 25vw;
   }
 
-  .searchs {
+  .search {
     height: 3vw;
   }
 
