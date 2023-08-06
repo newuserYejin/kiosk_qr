@@ -24,7 +24,7 @@
                 </div>
                 <div class="language">
                     <img class="kor" src="./image/kor.png">
-                    <img class="usa" src="./image/usa.png">
+                    <img class="usa" src="./image/usa.png" onclick="lang_ch()">
                 </div>
             </div>
         </div>
@@ -47,6 +47,10 @@
                 modal.show();
             });
         });
+
+        function lang_ch(){
+            window.location.href = '../selectorder_e/selectorder_e.html';
+        }
 
     </script>
 </body>
