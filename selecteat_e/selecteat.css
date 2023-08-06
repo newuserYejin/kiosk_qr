@@ -11,7 +11,6 @@ html,body {
     height: 100%;
 }
 
-
 .selecteat {
     width: 100%;
     overflow: hidden;
@@ -32,6 +31,7 @@ html,body {
     justify-content: center;
     align-items: center;
 }
+
 .fir_box{
     height: 100%;
     width: 100%;

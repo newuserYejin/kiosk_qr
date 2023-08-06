@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,60 +15,56 @@
 </head>
 
 <body>
+
     <body>
         <div class="all">
+            <!--navigate bar-->
 
-        <div class="selecteat">
-            <div class="help">
-                <img class="helpimg" src="./image/circle-question.svg"  width="7.5%" height="7.5%" id="imageLink">
-                <div id="modalContainer"></div>
-            </div>
-            <div class="first">
-                <div class="fir_box">
-                    <div class="order">	
-                        <button type="button" class="sloworder" onclick="checkOrderType()">To go</button>
-                        <button type="button" class="basicorder" onclick="checkOrderType()">Eat and go</button>
+            <div class="selecteat">
+                <div class="help">
+                    <img class="helpimg" src="./image/circle-question.svg" width="7.5%" height="7.5%" id="imageLink">
+                    <div id="modalContainer"></div>
+                </div>
+                <div class="first">
+                    <div class="fir_box">
+                        <div class="order">
+                            <button type="button" class="sloworder" onclick="checkOrderType()">To go</button>
+                            <button type="button" class="basicorder" onclick="checkOrderType()">Eat and go</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <script>
-                function checkOrderType() {
-                    // URL에서 "order" 파라미터 값을 확인하여 다른 페이지로 이동
-                    const urlParams = new URLSearchParams(window.location.search);
-                    const orderType = urlParams.get('order');
+                <script>
+                    function checkOrderType() {
+                        // URL에서 "order" 파라미터 값을 확인하여 다른 페이지로 이동
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const orderType = urlParams.get('order');
 
-                    if (orderType === 'slow') {
-                        // 천천히 주문하기 버튼을 클릭한 경우
-                        location.href = '../BigFrame_e/BigOrder_e.html?order=slow';
-                    } else if (orderType === 'basic') {
-                        // 기본 주문하기 버튼을 클릭한 경우
-                        location.href = '../BasicFrame_e/BasicOrder_e.html?order=basic';
-                    } else {
-                        location.href = '../selectorder/selectorder.html';
+                        if (orderType === 'slow') {
+                            // 천천히 주문하기 버튼을 클릭한 경우
+                            location.href = '../BigFrame_e/BigOrder_e.html?order=slow';
+                        } else if (orderType === 'basic') {
+                            // 기본 주문하기 버튼을 클릭한 경우
+                            location.href = '../BasicFrame_e/BasicOrder_e.html?order=basic';
+                        } else {
+                            location.href = '../selectorder/selectorder.html';
+                        }
                     }
-                }
-            </script>
-            <script>
-                const joImage = document.getElementById("imageLink");
+                </script>
+                <script>
+                    const joImage = document.getElementById("imageLink");
 
-                joImage.addEventListener("click", function () {
-                    $.get("../help_msg/help_msg.html", function (data) {
-                        $("#modalContainer").html(data);
-                        const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
-                        modal.show();
+                    joImage.addEventListener("click", function () {
+                        $.get("../help_msg/help_msg.html", function (data) {
+                            $("#modalContainer").html(data);
+                            const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+                            modal.show();
+                        });
                     });
-                });
 
-            </script>
+                </script>
+            </div>
         </div>
 
-           
-    </div>
-
-
-
-
-
-</body>
+    </body>
 
 </html>

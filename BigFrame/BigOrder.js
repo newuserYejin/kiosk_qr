@@ -11,14 +11,92 @@ button.addEventListener('click', function () {
   window.location.href = '../detail_menu/jojo.html';
 });
 
-// 선택 버튼
-const selectBtn = document.querySelectorAll('.selectBtn');
-selectBtn.forEach((divElement) => {
-  divElement.addEventListener('click', function () {
-    alert("선택되었습니다");
-    window.location.href = '../detail_menu/jojo.html';
-  });
+//도움말 버튼
+const joImage = document.getElementById("imageLink");
+
+joImage.addEventListener("click", function () {
+  // 먼저 모달 컨테이너를 비웁니다.
+  document.getElementById("modalContainer").innerHTML = "";
+
+  // detail_menu.css를 제거합니다.
+  const detailMenuLink = document.querySelector('link[href="../detail_menu/detail_menu.css"]');
+  if (detailMenuLink) {
+    detailMenuLink.remove();
+  }
+
+  // help_msg.html 콘텐츠를 로드하여 모달 컨테이너에 추가합니다.
+  fetch("../help_msg/help_msg.html")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("HTTP Error " + response.status);
+      }
+      return response.text();
+    })
+    .then(data => {
+      // 모달 컨테이너에 help_msg.html 콘텐츠를 추가합니다.
+      $("#modalContainer").html(data);
+
+      // help_msg.css 파일을 로드합니다.
+      const linkElement = document.createElement("link");
+      linkElement.rel = "stylesheet";
+      linkElement.type = "text/css";
+      linkElement.href = "../help_msg/help_msg.css";
+      document.head.appendChild(linkElement);
+
+      const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+      modal.show();
+    })
+    .catch(error => {
+      console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
+    });
 });
+
+// 선택 버튼
+const selectBtn = document.getElementById("selectBtn");
+selectBtn.addEventListener("click", function () {
+  // 먼저 모달 컨테이너를 비웁니다.
+  document.getElementById("modalContainer").innerHTML = "";
+
+  // help_msg.css를 제거합니다.
+  const detailMenuLink = document.querySelector('link[href="../help_msg/help_msg.css"]');
+  if (detailMenuLink) {
+    detailMenuLink.remove();
+  }
+
+  // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
+  fetch("../detail_menu/jojo.html") // 이 부분의 파일 경로를 수정해야합니다.
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("HTTP Error " + response.status);
+      }
+      return response.text();
+    })
+    .then(data => {
+      // 모달 컨테이너에 jojo.html 콘텐츠를 추가합니다.
+      $("#modalContainer").html(data);
+
+      // 외부 detail_menu 폴더에 있는 detail_menu.css 파일을 로드합니다.
+      const linkElement = document.createElement("link");
+      linkElement.rel = "stylesheet";
+      linkElement.type = "text/css";
+      linkElement.href = "../detail_menu/detail_menu.css"; // 이 부분의 파일 경로를 수정해야합니다.
+      document.head.appendChild(linkElement);
+
+      // 외부 detail_menu 폴더에 있는 detail_menu.js 파일을 로드합니다.
+      const scriptElement = document.createElement("script");
+      scriptElement.src = "../detail_menu/detail_menu.js"; // 이 부분의 파일 경로를 수정해야합니다.
+      document.body.appendChild(scriptElement);
+
+      const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+      modal.show();
+    })
+    .catch(error => {
+      console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
+    });
+});
+
+
+
 
 // 검색버튼
 
@@ -35,7 +113,7 @@ search.forEach((divElement) => {
 
 // 하단 고정 버튼(이전화면, 처음으로, 다음)
 // 이전화면 클릭시
-document.getElementById('prvsScren').addEventListener('click', function () {
+function prvsScren() {
   const urlParams = new URLSearchParams(window.location.search);
   const orderType = urlParams.get('order');
 
@@ -46,16 +124,16 @@ document.getElementById('prvsScren').addEventListener('click', function () {
     // 기본 주문하기 버튼을 클릭한 경우
     location.href = '../selecteat/selecteat.html?order=basic';
   }
-});
+};
 
 // 처음으로
-document.getElementById("firstScreen").addEventListener("click", function () {
+function firstScreen(){
   // 새로운 페이지로 이동
   window.location.href = "../selectorder/selectorder.html";
-});
+};
 
 // 다음
-document.getElementById("nextScreen").addEventListener("click", function () {
+function nextScreen(){
   // 새로운 페이지로 이동
   const urlParams = new URLSearchParams(window.location.search);
   const orderType = urlParams.get('order');
@@ -67,7 +145,7 @@ document.getElementById("nextScreen").addEventListener("click", function () {
     // 기본 주문하기 버튼을 클릭한 경우
     location.href = '../last_checklist/checklist.html?order=basic';
   }
-});
+};
 
 // 수량 조절 버튼
 const quantityControls = document.querySelectorAll('.quantity-control');
