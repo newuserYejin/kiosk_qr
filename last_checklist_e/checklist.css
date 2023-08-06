@@ -59,7 +59,6 @@ body {
     width: 100%;
     justify-content: space-around;
     align-items: center;
-    cursor: pointer;
 
     .level_name {
         padding: .8rem;
@@ -98,8 +97,8 @@ body {
 
 .take_out_title {
     font-weight: bold;
-    font-size: 3vw;
-    padding-right: 1rem;
+    font-size: 2.5vw;
+    padding-right: 0.5rem;
     width: 40%;
     text-align: end;
 }
@@ -233,7 +232,6 @@ body {
     padding: 0;
     margin: 0;
     margin-bottom: 2%;
-    font-size: 3.5vw;
 }
 
 .option_detail {
@@ -324,7 +322,6 @@ body {
     color: white;
     border: solid 1px skyblue;
 }
-
 
 @media screen and (min-width:1000px) {
     .list-group-item label {

@@ -86,18 +86,50 @@
 
         </script>
         <script>
-            function openSelect() {
-                window.location.href = "../selecteat_e/selecteat_e.html"
-                alert("The button has been clicked!")
+            // URL에서 "order" 파라미터 값을 확인하여 다른 페이지로 이동
+        const urlParams = new URLSearchParams(window.location.search);
+        const orderType = urlParams.get('order');
+        function openSelect() {
+        
+            if (orderType === 'slow') {
+                // 천천히 주문하기 버튼을 클릭한 경우
+                location.href = '../BigFrame_e/BigOrder_e.html?order=slow';
+            } else if (orderType === 'basic') {
+                // 기본 주문하기 버튼을 클릭한 경우
+                location.href = '../BasicFrame_e/BasicOrder_e.html?order=basic';
+            } else {
+                location.href = '../selectorder/selectorder.html';
             }
-            function openCheck() {
-                window.location.href = "../last_checklist/checklist.html"
-                alert("The button has been clicked!")
+            alert("The button has been clicked!")
+
+        }
+        function openCheck() {
+            if (orderType === 'slow') {
+            // 천천히 주문하기 버튼을 클릭한 경우
+            location.href = '../last_checklist_e/checklist_e.html?order=slow';
+            } else if (orderType === 'basic') {
+            // 기본 주문하기 버튼을 클릭한 경우
+            location.href = '../last_checklist_e/checklist_e.html?order=basic';
+            } else {
+            location.href = '../selectorder/selectorder.html';
             }
-            function openPay() {
-                window.location.href = "../paymethod_e/paymethod_e.html"
-                alert("The button has been clicked!")
+
+            alert("The button has been clicked!")
+        }
+        function openPay() {
+            if (orderType === 'slow') {
+            // 천천히 주문하기 버튼을 클릭한 경우
+            location.href = '../paymethod_e/paymethod_e.html?order=slow';
+            } else if (orderType === 'basic') {
+            // 기본 주문하기 버튼을 클릭한 경우
+            location.href = '../paymethod_e/paymethod_e.html?order=basic';
+            } else {
+            location.href = '../selectorder/selectorder.html';
             }
+
+            alert("The button has been clicked!")
+        }
+
         </script>
         <script src="navbarmsg.js"></script>   
 </body>
