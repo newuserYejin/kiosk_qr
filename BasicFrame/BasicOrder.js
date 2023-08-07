@@ -138,10 +138,10 @@ radioButtons.forEach(button => {
     if (button.checked) {
       switch (button.value) {
         case 'basic':
-          window.location.href = '../BasicFrame/BasicOrder.html';
+          window.location.href = '../BasicFrame/BasicOrder.html?order=basic';
           break;
         case 'big':
-          window.location.href = '../BigFrame/BigOrder.html';
+          window.location.href = '../BigFrame/BigOrder.html?order=slow';
           break;
         default:
           break;

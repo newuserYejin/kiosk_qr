@@ -57,6 +57,18 @@ function openPay() {
 
     alert("The button has been clicked!")
 }
+//주문리스트 미리보기
+function orderlist(){
+  if (orderType === 'slow') {
+    // 천천히 주문하기 버튼을 클릭한 경우
+    location.href = '../last_checklist_e/checklist_e.html?order=slow';
+    } else if (orderType === 'basic') {
+    // 기본 주문하기 버튼을 클릭한 경우
+    location.href = '../last_checklist_e/checklist_e.html?order=basic';
+    } else {
+    location.href = '../selectorder/selectorder.html';
+    }
+}
 
 const selectBtn = document.querySelectorAll('.selectBtn');
 selectBtn.forEach((divElement) => {
@@ -107,26 +119,6 @@ document.getElementById("nextScreen").addEventListener("click", function() {
   window.location.href = `../last_checklist_e/checklist_e.html?${urlParams}`;
 });
 
-// 수량 조절 버튼
-const quantityControls = document.querySelectorAll('.quantity-control');
-
-quantityControls.forEach(control => {
-  const decreaseButton = control.querySelector('.decrease');
-  const increaseButton = control.querySelector('.increase');
-  const inputElement = control.querySelector('input');
-
-  decreaseButton.addEventListener('click', () => {
-    // 수량이 0 이상일 때만 감소
-    if (parseInt(inputElement.value) > 0) {
-      inputElement.value = parseInt(inputElement.value) - 1;
-    }
-  });
-
-  increaseButton.addEventListener('click', () => {
-    // 수량을 증가
-    inputElement.value = parseInt(inputElement.value) + 1;
-  });
-});
 
 //사이즈 이동
 const radioButtons = document.getElementsByName('size');
@@ -136,10 +128,10 @@ radioButtons.forEach(button => {
         if (button.checked) {
             switch (button.value) {
                 case 'basic':
-                    window.location.href = '../BasicFrame_e/BasicOrder_e.html';
+                    window.location.href = '../BasicFrame_e/BasicOrder_e.html?order=basic';
                     break;
                 case 'big':
-                    window.location.href = '../BigFrame_e/BigOrder_e.html';
+                    window.location.href = '../BigFrame_e/BigOrder_e.html?order=big';
                     break;
                 default:
                     break;

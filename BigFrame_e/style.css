@@ -94,12 +94,13 @@ html,body {
   font-weight: bold;
   text-align: center;
   height: 15%;
-  font-size: 2vw;
+  font-size: 2.5vw;
 }
 
 .select_list_list{
   border: solid 2px blue;
   padding-right: 1px;
+  margin: 0 1px;
   height: 80%;
   overflow: hidden;
   overflow-y: visible;
@@ -203,21 +204,30 @@ html,body {
 
 .content_title {
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   text-align: center;
-  height: 25%;
+  height: 30%;
 }
 
 .menu_name {
+  width:60%;
   font-size: 3vw;
-  text-align: left;
-  padding: 0;
+  display: flex;
+  justify-content: center;
   border-right: solid 3px black;
 }
 
 .menu_cost {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin:0;
   padding: 0;
-  text-align: left;
-  font-size: 3vw;
+  font-size: 2.5vw;
 }
 
 .list_content_info {
@@ -234,64 +244,21 @@ html,body {
 
 .list_buttons {
   height: 30%;
-}
-
-
-/*수량 체크(버튼)*/
-.button_box_num {
-  height: 100%;
-  border-right: solid 3px black;
-  padding: 0;
-}
-.num_check {
-  width: 100%;
-  height: 100%;
-}
-
-/* 각 수량 조절 버튼 세트를 Flex 항목으로 정의 */
-.quantity-control {
   display: flex;
-  align-items: center;
-  width: 100%;
-  height: 100%;
+  justify-content: end;
 }
 
-/* 수량 버튼과 입력란 사이의 간격 조절 */
-.quantity-control .decrease,
-.quantity-control .increase {
-  font-size: 3vw;
-  text-align: center;
-  width: 25%;
-  padding: 0;
-  margin: 0 1vw;
-}
-
-/* 수량 입력란 너비 조절 */
-.quantity-control input[type="number"] {
-  width: 50%;
-  text-align: center;
-  padding: 0;
-  margin: 0;
-  font-size: 3vw;
-  font-weight: bold;
-  border: none;
-}
 
 
 /* 선택 버튼*/
 .selectBtn{
-  height: 90%;
-  width: 100%;
-  margin: 2%;
-  border-radius: 20%;
+  height: 80%;
+  width: 50%;
+  border-radius: 30px;
   background-color: white;
   font-weight: bold;
   font-size: 3vw;
-  display: flex;
-  font-weight: bold;
-  justify-content: center;
-  align-items: center;
-  border-left: solid 3px black;
+  margin-left: 2%;
 }
 
 
