@@ -14,13 +14,3 @@ function onChange(input) {
   document.querySelector(".input").value = input;
   console.log("Input changed", input);
 }
-
-function onKeyPress(button) {
-  var KeyBoard = document.getElementById("KeyBoard");
-  console.log("Button pressed", button);
-
-  if (button == "{enter}"){
-    KeyBoard.style.visibility = "hidden";
-  }
-
-}

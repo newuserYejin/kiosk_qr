@@ -96,21 +96,6 @@ selectBtn.addEventListener("click", function () {
 });
 
 
-
-
-// 검색버튼
-
-const search = document.querySelectorAll('.search, .searchs');
-search.forEach((divElement) => {
-  divElement.addEventListener('click', function () {
-    // 이벤트 처리 로직 작성
-    alert("검색을 선택하였습니다");
-    window.location.href = '../search/search.html';
-
-  });
-});
-
-
 // 하단 고정 버튼(이전화면, 처음으로, 다음)
 // 이전화면 클릭시
 function prvsScren() {
@@ -147,26 +132,26 @@ function nextScreen(){
   }
 };
 
-// 수량 조절 버튼
-const quantityControls = document.querySelectorAll('.quantity-control');
+// // 수량 조절 버튼
+// const quantityControls = document.querySelectorAll('.quantity-control');
 
-quantityControls.forEach(control => {
-  const decreaseButton = control.querySelector('.decrease');
-  const increaseButton = control.querySelector('.increase');
-  const inputElement = control.querySelector('input');
+// quantityControls.forEach(control => {
+//   const decreaseButton = control.querySelector('.decrease');
+//   const increaseButton = control.querySelector('.increase');
+//   const inputElement = control.querySelector('input');
 
-  decreaseButton.addEventListener('click', () => {
-    // 수량이 0 이상일 때만 감소
-    if (parseInt(inputElement.value) > 0) {
-      inputElement.value = parseInt(inputElement.value) - 1;
-    }
-  });
+//   decreaseButton.addEventListener('click', () => {
+//     // 수량이 0 이상일 때만 감소
+//     if (parseInt(inputElement.value) > 0) {
+//       inputElement.value = parseInt(inputElement.value) - 1;
+//     }
+//   });
 
-  increaseButton.addEventListener('click', () => {
-    // 수량을 증가
-    inputElement.value = parseInt(inputElement.value) + 1;
-  });
-});
+//   increaseButton.addEventListener('click', () => {
+//     // 수량을 증가
+//     inputElement.value = parseInt(inputElement.value) + 1;
+//   });
+// });
 
 //사이즈 이동
 const radioButtons = document.getElementsByName('size');
@@ -187,3 +172,55 @@ radioButtons.forEach(button => {
     }
   });
 }); 
+
+
+// 검색버튼
+
+document.getElementById("search_div").addEventListener('click', search);
+
+function search(){
+  document.getElementById("modalContainer").innerHTML = "";
+
+  // help_msg.css를 제거합니다.
+  const help_msg_Link = document.querySelector('link[href="../help_msg/help_msg.css"]');
+  if (help_msg_Link) {
+    help_msg_Link.remove();
+  }
+
+  // detail_menu.css를 제거합니다.
+  const detailMenuLink = document.querySelector('link[href="../detail_menu/detail_menu.css"]');
+  if (detailMenuLink) {
+    detailMenuLink.remove();
+  }
+
+  fetch("../search/search.html") // 이 부분의 파일 경로를 수정해야합니다.
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("HTTP Error " + response.status);
+      }
+      return response.text();
+    })
+    .then(data => {
+      // 모달 컨테이너에 jojo.html 콘텐츠를 추가합니다.
+      $("#modalContainer").html(data);
+
+      // 외부 detail_menu 폴더에 있는 detail_menu.css 파일을 로드합니다.
+      const linkElement = document.createElement("link");
+      linkElement.rel = "stylesheet";
+      linkElement.type = "text/css";
+      linkElement.href = "../search/search.css"; // 이 부분의 파일 경로를 수정해야합니다.
+      document.head.appendChild(linkElement);
+
+      // 외부 detail_menu 폴더에 있는 detail_menu.js 파일을 로드합니다.
+      const scriptElement = document.createElement("script");
+      scriptElement.src = "../search/search.js"; // 이 부분의 파일 경로를 수정해야합니다.
+      document.body.appendChild(scriptElement);
+      
+
+      const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+      modal.show();
+    })
+    .catch(error => {
+      console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
+    });
+}
