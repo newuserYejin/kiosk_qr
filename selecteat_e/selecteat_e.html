@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,118 +10,61 @@
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
     <link href="selecteat.css" rel="stylesheet" type="text/css" />
-    <script>
-        function openSelect() {
-            window.location.href = "../selecteat_e/selecteat_e.html"
-            alert("The button has been clicked!")
-        }
-        function openCheck() {
-            window.location.href = "../last_checklist/checklist.html"
-            alert("The button has been clicked!")
-        }
-        function openPay() {
-            window.location.href = "../paymethod_e/paymethod_e.html"
-            alert("The button has been clicked!")
-        }
-    </script>
+
     <script src="navbarmsg.js"></script>
 </head>
 
 <body>
+
     <body>
         <div class="all">
             <!--navigate bar-->
-            <div class="navigation">
-                <div class="navigation_all_box">
-                    <div class="box_line">
-                        <div onclick="openSelect()" class="level_button">
-                            <p class="circle_name">Choose</p>
-                            <button class="circle" style="background-color:#b928b98d;"></button>
-                        </div>
-                    </div>
-    
-                    <div class="level_line">
-                        <p></p>
-                        <img src="./image/line2.jpg" alt="Line 이미지" class="center">
-                    </div>
-    
-                    <div class="box_line">
-                        <div onclick="openCheck()" class="level_button">
-                            <p class="circle_name">Check</p>
-                            <button class="circle"></button>
-                        
-    
-                        </div>
-                    </div>
-    
-                    <div class="level_line">
-                        <p></p>
-                        <img src="./image/line2.jpg" alt="Line 이미지" class="center">
-    
-                    </div>
-    
-                    <div class="box_line">
-                        <div onclick="openPay()" class="level_button">
-                            <p class="circle_name">Pay</p>
-                            <button class="circle"></button>
+
+            <div class="selecteat">
+                <div class="help">
+                    <img class="helpimg" src="./image/circle-question.svg" width="7.5%" height="7.5%" id="imageLink">
+                    <div id="modalContainer"></div>
+                </div>
+                <div class="first">
+                    <div class="fir_box">
+                        <div class="order">
+                            <button type="button" class="sloworder" onclick="checkOrderType()">To go</button>
+                            <button type="button" class="basicorder" onclick="checkOrderType()">Eat and go</button>
                         </div>
                     </div>
                 </div>
-    
-            </div>
-    
+                <script>
+                    function checkOrderType() {
+                        // URL에서 "order" 파라미터 값을 확인하여 다른 페이지로 이동
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const orderType = urlParams.get('order');
 
-        <div class="selecteat">
-            <div class="help">
-                <img class="helpimg" src="./image/circle-question.svg"  width="7.5%" height="7.5%" id="imageLink">
-                <div id="modalContainer"></div>
-            </div>
-            <div class="first">
-                <div class="fir_box">
-                    <div class="order">	
-                        <button type="button" class="sloworder" onclick="checkOrderType()">To go</button>
-                        <button type="button" class="basicorder" onclick="checkOrderType()">Eat and go</button>
-                    </div>
-                </div>
-            </div>
-            <script>
-                function checkOrderType() {
-                    // URL에서 "order" 파라미터 값을 확인하여 다른 페이지로 이동
-                    const urlParams = new URLSearchParams(window.location.search);
-                    const orderType = urlParams.get('order');
-
-                    if (orderType === 'slow') {
-                        // 천천히 주문하기 버튼을 클릭한 경우
-                        location.href = '../BigFrame_e/BigOrder_e.html';
-                    } else if (orderType === 'basic') {
-                        // 기본 주문하기 버튼을 클릭한 경우
-                        location.href = '../BasicFrame_e/BasicOrder_e.html';
-                    } else {
-                        location.href = '../selectorder/selectorder.html';
+                        if (orderType === 'slow') {
+                            // 천천히 주문하기 버튼을 클릭한 경우
+                            location.href = '../BigFrame_e/BigOrder_e.html?order=slow';
+                        } else if (orderType === 'basic') {
+                            // 기본 주문하기 버튼을 클릭한 경우
+                            location.href = '../BasicFrame_e/BasicOrder_e.html?order=basic';
+                        } else {
+                            location.href = '../selectorder/selectorder.html';
+                        }
                     }
-                }
-            </script>
-            <script>
-                const joImage = document.getElementById("imageLink");
+                </script>
+                <script>
+                    const joImage = document.getElementById("imageLink");
 
-                joImage.addEventListener("click", function () {
-                    $.get("../help_msg/help_msg.html", function (data) {
-                        $("#modalContainer").html(data);
-                        const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
-                        modal.show();
+                    joImage.addEventListener("click", function () {
+                        $.get("../help_msg/help_msg.html", function (data) {
+                            $("#modalContainer").html(data);
+                            const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+                            modal.show();
+                        });
                     });
-                });
 
-            </script>
+                </script>
+            </div>
         </div>
 
-           
-    </div>
-
-
-
-
-
-</body>
+    </body>
 
 </html>

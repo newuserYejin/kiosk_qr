@@ -62,8 +62,8 @@
             <div class="first">
                 <div class="fir_box">
                     <div class="pay">	
-                        <button type="button" class="card" onclick="location.href='../pay_card_e/pay_card_e.html'">Card</button>
-                        <button type="button" class="coupon" onclick="location.href='../pay_coupon_e/pay_coupon_e.html'">Coupon</button>
+                        <button type="button" class="card" onclick="opencard()">Card</button>
+                        <button type="button" class="coupon" onclick="openCupon()">Coupon</button>
                     </div>
                     <div class="gohome_">
                         <button type="button" class="gohome" onclick="location.href='../selectorder_e/selectorder_e.html'">Return to order</button>
@@ -84,17 +84,78 @@
 
     </script>
     <script>
+       // 네비바 클릭 이동
+       // URL에서 "order" 파라미터 값을 확인하여 다른 페이지로 이동
+        const urlParams = new URLSearchParams(window.location.search);
+        const orderType = urlParams.get('order');
         function openSelect() {
-            window.location.href = "../selecteat_e/selecteat_e.html"
+        
+            if (orderType === 'slow') {
+                // 천천히 주문하기 버튼을 클릭한 경우
+                location.href = '../BigFrame_e/BigOrder_e.html?order=slow';
+            } else if (orderType === 'basic') {
+                // 기본 주문하기 버튼을 클릭한 경우
+                location.href = '../BasicFrame_e/BasicOrder_e.html?order=basic';
+            } else {
+                location.href = '../selectorder/selectorder.html';
+            }
             alert("The button has been clicked!")
+
         }
         function openCheck() {
-            window.location.href = "../last_checklist/checklist.html"
+            if (orderType === 'slow') {
+            // 천천히 주문하기 버튼을 클릭한 경우
+            location.href = '../last_checklist_e/checklist_e.html?order=slow';
+            } else if (orderType === 'basic') {
+            // 기본 주문하기 버튼을 클릭한 경우
+            location.href = '../last_checklist_e/checklist_e.html?order=basic';
+            } else {
+            location.href = '../selectorder/selectorder.html';
+            }
+
             alert("The button has been clicked!")
         }
+        
         function openPay() {
-            window.location.href = "../paymethod_e/paymethod_e.html"
+            if (orderType === 'slow') {
+            // 천천히 주문하기 버튼을 클릭한 경우
+            location.href = '../paymethod_e/paymethod_e.html?order=slow';
+            } else if (orderType === 'basic') {
+            // 기본 주문하기 버튼을 클릭한 경우
+            location.href = '../paymethod_e/paymethod_e.html?order=basic';
+            } else {
+            location.href = '../selectorder/selectorder.html';
+            }
+
             alert("The button has been clicked!")
+        }
+
+        //지불방법 버튼
+        function opencard(){
+            
+            if (orderType === 'slow') {
+                location.href = '../pay_card_e/pay_card_e.html?order=slow';
+            } else if (orderType === 'basic') {
+                // 기본 주문하기 버튼을 클릭한 경우
+                location.href = '../pay_card_e/pay_card_e.html?order=basic';
+            } else {
+                location.href = '../selectorder/selectorder.html';
+            }
+           
+            
+        }
+
+        function openCupon(){
+            
+            if (orderType === 'slow') {
+                location.href = '../pay_card_e/pay_card_e.html?order=slow';
+            } else if (orderType === 'basic') {
+                // 기본 주문하기 버튼을 클릭한 경우
+                location.href = '../pay_card_e/pay_card_e.html?order=basic';
+            } else {
+                location.href = '../selectorder/selectorder.html';
+            }
+           
         }
     </script>
     <script src="navbarmsg.js"></script>
