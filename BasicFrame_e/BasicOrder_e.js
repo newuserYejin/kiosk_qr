@@ -54,6 +54,19 @@ function openPay() {
   alert("The button has been clicked!")
 }
 
+//주문리스트 미리보기
+function orderlist(){
+  if (orderType === 'slow') {
+    // 천천히 주문하기 버튼을 클릭한 경우
+    location.href = '../last_checklist_e/checklist_e.html?order=slow';
+    } else if (orderType === 'basic') {
+    // 기본 주문하기 버튼을 클릭한 경우
+    location.href = '../last_checklist_e/checklist_e.html?order=basic';
+    } else {
+    location.href = '../selectorder/selectorder.html';
+    }
+}
+
 // 도움말 버튼
 const joImage = document.getElementById("imageLink");
 
@@ -172,10 +185,10 @@ radioButtons.forEach(button => {
     if (button.checked) {
       switch (button.value) {
         case 'basic':
-          window.location.href = '../BasicFrame_e/BasicOrder_e.html';
+          window.location.href = '../BasicFrame_e/BasicOrder_e.html?order=basic';
           break;
         case 'big':
-          window.location.href = '../BigFrame_e/BigOrder_e.html';
+          window.location.href = '../BigFrame_e/BigOrder_e.html?order=slow';
           break;
         default:
           break;
