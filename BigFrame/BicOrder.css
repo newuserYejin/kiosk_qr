@@ -115,7 +115,7 @@ body {
   border-bottom: solid 1px blue;
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 450px) {
   .select_list_title {
     width: 100%;
     font-size: 0.1rem;
@@ -126,17 +126,18 @@ body {
     font-size: 0.1rem;
     margin: 0;
     padding: 0;
-    border-bottom: solid 2px blu;
+    border-bottom: solid 2px blue;
   }
 
   .select_num {
     text-align: end;
   }
 
-  @media screen and (max-height: 500px) {
+  @media screen and (max-height: 700px) {
     .select_list_title {
       padding: 0 5%;
       margin-bottom: 20%;
+      font-size: 12px;
     }
 
     .select_list_list {
@@ -374,11 +375,6 @@ body {
     height: 100%;
     padding: 2vw;
   }
-
-  .select_name{
-    font-size: 5px;
-    width: 100%;
-  }
   .view_button{
     font-size: 0.5rem;
   }
@@ -387,7 +383,7 @@ body {
 @media screen and (min-width: 600px) {
 
   .list_box {
-    height: 70%;
+    height: 75%;
   }
   .menu_name {
     font-size: 4vw;
@@ -404,7 +400,7 @@ body {
 @media screen and (min-width:1000px) {
 
   .list_box {
-    height: 68%;
+    height: 75%;
   }
 
   .list_name {

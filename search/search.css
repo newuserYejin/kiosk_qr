@@ -1,17 +1,17 @@
-.modal_size{
+#modalContainer .modal_size{
     height:95%;
 }
 
-.modal-body{
+#modalContainer .modal-body{
     overflow: hidden;
     overflow-y: visible;
 }
 
-.box{
+#modalContainer .box{
     border: solid 2px black;
 }
 
-.top_box{
+#modalContainer .top_box{
     height: 10%;
     display: flex;
     justify-content: center;
@@ -24,15 +24,15 @@
     padding-right: 2vw;
 }
 
-.search_icon{
+#modalContainer .search_icon{
     width: 7%;
 }
 
-.keyword_box{
+#modalContainer .keyword_box{
     height: 50%;
     overflow: hidden;
 }
 
-.simple-keyboard{
+#modalContainer .simple-keyboard{
     border: solid 2px black;
 }
