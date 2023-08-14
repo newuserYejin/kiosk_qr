@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>더크게</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet" type="text/css" />
@@ -14,44 +13,7 @@
 
 <body>
     <div class="all">
-        <!--navigate bar-->
-        <!--
-        <div class="navigation">
-            <div class="navigation_all_box">
-                <div class="box_line">
-                    <div onclick="navigate_click()" class="level_button">
-                        <p class="circle_name">Choose</p>
-                        <button class="circle" style="background-color:#b928b98d;"></button>
-                    </div>
-                </div>
 
-                <div class="level_line">
-                    <p></p>
-                    <img src=".\image\line2.jpg" alt="Line 이미지" class="center">
-                </div>
-
-                <div class="box_line">
-                    <div onclick="navigate_click()" class="level_button">
-                        <p class="circle_name">Check</p>
-                        <button class="circle"></button>
-                    </div>
-                </div>
-
-                <div class="level_line">
-                    <p></p>
-                    <img src=".\image\line2.jpg" alt="Line 이미지" class="center" width="5vw" height="212vh">
-
-                </div>
-
-                <div class="box_line">
-                    <div onclick="navigate_click()" class="level_button">
-                        <p class="circle_name">Pay</p>
-                        <button class="circle"></button>
-                    </div>
-                </div>
-
-            </div>
-            -->
             <div class="navigation">
             <div class="navigation_all_box">
                 <div class="box_line">
@@ -180,11 +142,15 @@
                 <div id="modalContainer"></div>
             </div>
 
-            <div class="sizes">
-                <input type="radio" name="size" value="basic">Basic
-                <input type="radio" name="size" value="big" checked>Bigger
-                <input type="search" name="menu-search" class="search">
-                <img class="searchs" src=".\image\search.png">
+            <div class="add_fuc_bar">
+                <div class="view_button">
+                    <input type="radio" name="size" value="basic">Basic
+                    <input type="radio" name="size" value="big" checked>Bigger
+                </div>
+                <div class="search_div" id="search_div">
+                    <input type="search" name="menu-search" class="search">
+                    <img class="search_icon" src=".\image\search.png">
+                </div>
             </div>
 
             <ul class="categores">
@@ -195,6 +161,7 @@
                 <li class="categore"><a href="">Shake & Ade</a></li>
                 <li class="categore"><a href="">Dessert</a></li>
             </ul>
+
             <div class="box list_box">
                 <div class="box list_content_box">
                     <div class="box list_img_box">
@@ -211,11 +178,8 @@
                                 Content Description
                             </div>
                          </div>
-                        <div class="list_buttons">
-                                
+                        <div class="list_buttons">     
                             <button class="selectBtn" >add</button>
-                                
-                              
                         </div>
                         
                     </div>
@@ -286,11 +250,8 @@
                                 Content Description
                             </div>
                          </div>
-                        <div class="list_buttons">
-                                
-                            <button class="selectBtn" >add</button>
-                                
-                              
+                        <div class="list_buttons">    
+                            <button class="selectBtn" >add</button> 
                         </div>
                         
                     </div>
@@ -313,8 +274,6 @@
                         <div class="list_buttons">
                                 
                             <button class="selectBtn" >add</button>
-                                
-                              
                         </div>
                         
                     </div>
@@ -337,9 +296,7 @@
                          </div>
                         <div class="list_buttons">
                                 
-                            <button class="selectBtn" >add</button>
-                                
-                              
+                            <button class="selectBtn" >add</button>  
                         </div>
                         
                     </div>
@@ -357,38 +314,18 @@
         </div>
     </div>
 
-    <script>
-        const joImage = document.getElementById("imageLink");
+ 
 
-        joImage.addEventListener("click", function () {
-            $.get("../help_msg/help_msg.html", function (data) {
-                $("#modalContainer").html(data);
-                const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
-                modal.show();
-            });
-        });
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
 
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
-        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
-        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-<!-- jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!-- Bootstrap JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-keyboard-layouts@latest/build/index.min.js"></script>
     <script src="BigOrder_e.js"></script>
 
 </body>

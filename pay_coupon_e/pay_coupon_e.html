@@ -33,8 +33,6 @@
                     <div onclick="openCheck()" class="level_button">
                         <p class="circle_name">Check</p>
                         <button class="circle"></button>
-
-
                     </div>
                 </div>
 
@@ -57,83 +55,136 @@
         <div class="selectpay">
             <div class="help">
                 <img class="helpimg" src="./image/circle-question.svg"  width="7.5%" height="7.5%" id="imageLink">
-                 <div id="modalContainer"></div>
+                <div id="modalContainer"></div>
             </div>
             <div class="first">
                 <div class="fir_box">
                     <div class="explain">	
-                        <div class="explain1">Please scan the barcode of the coupon </div>
-                        <div class="explain2">on the barcode reader below.</div>
+                        <div class="explain1">Please insert the card </div>
+                        <div class="explain2">into the slot like the video.</div>
                     </div>
                     <div class="video">
                         <img class="pay_coupon" src="./image/pay_coupon.gif" loop = infinite/>
                     </div>
                     <div class="gohome_">
+                        <button type="button" class="back" onclick="back()">Previous screen</button>
                         <button type="button" class="gohome" onclick="location.href='../selectorder_e/selectorder_e.html'">Return to order</button>
                     </div>
                 </div>
             </div>
         </div>
+        
         <script>
+           //도움말 버튼
             const joImage = document.getElementById("imageLink");
 
             joImage.addEventListener("click", function () {
-                $.get("../help_msg/help_msg.html", function (data) {
-                        $("#modalContainer").html(data);
-                        const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
-                        modal.show();
-                    });
-                });
+            // 먼저 모달 컨테이너를 비웁니다.
+            document.getElementById("modalContainer").innerHTML = "";
 
-        </script>        
-        <script>
-            // URL에서 "order" 파라미터 값을 확인하여 다른 페이지로 이동
-            const urlParams = new URLSearchParams(window.location.search);
-            const orderType = urlParams.get('order');
-            function openSelect() {
             
-                if (orderType === 'slow') {
-                    // 천천히 주문하기 버튼을 클릭한 경우
-                    location.href = '../BigFrame_e/BigOrder_e.html?order=slow';
-                } else if (orderType === 'basic') {
-                    // 기본 주문하기 버튼을 클릭한 경우
-                    location.href = '../BasicFrame_e/BasicOrder_e.html?order=basic';
-                } else {
-                    location.href = '../selectorder/selectorder.html';
-                }
-                alert("The button has been clicked!")
 
-            }
-            function openCheck() {
-                if (orderType === 'slow') {
-                // 천천히 주문하기 버튼을 클릭한 경우
-                location.href = '../last_checklist_e/checklist_e.html?order=slow';
-                } else if (orderType === 'basic') {
-                // 기본 주문하기 버튼을 클릭한 경우
-                location.href = '../last_checklist_e/checklist_e.html?order=basic';
-                } else {
-                location.href = '../selectorder/selectorder.html';
+            // help_msg.html 콘텐츠를 로드하여 모달 컨테이너에 추가합니다.
+            fetch("../help_msg/help_msg.html")
+                .then(response => {
+                if (!response.ok) {
+                    throw new Error("HTTP Error " + response.status);
                 }
+                return response.text();
+                })
+                .then(data => {
+                // 모달 컨테이너에 help_msg.html 콘텐츠를 추가합니다.
+                $("#modalContainer").html(data);
 
-                alert("The button has been clicked!")
-            }
-            function openPay() {
-                if (orderType === 'slow') {
-                // 천천히 주문하기 버튼을 클릭한 경우
-                location.href = '../paymethod_e/paymethod_e.html?order=slow';
-                } else if (orderType === 'basic') {
-                // 기본 주문하기 버튼을 클릭한 경우
-                location.href = '../paymethod_e/paymethod_e.html?order=basic';
-                } else {
-                location.href = '../selectorder/selectorder.html';
-                }
+                // help_msg.css 파일을 로드합니다.
+                const linkElement = document.createElement("link");
+                linkElement.rel = "stylesheet";
+                linkElement.type = "text/css";
+                linkElement.href = "../help_msg/help_msg.css";
+                document.head.appendChild(linkElement);
 
-                alert("The button has been clicked!")
-            }
+                const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+                modal.show();
+                })
+                .catch(error => {
+                console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
+                });
+            });
+
 
         </script>
-        <script src="navbarmsg.js"></script>
+        <script>
+            // URL에서 "order" 파라미터 값을 확인하여 다른 페이지로 이동
+        const urlParams = new URLSearchParams(window.location.search);
+        const orderType = urlParams.get('order');
+        function openSelect() {
+        
+            if (orderType === 'slow') {
+                // 천천히 주문하기 버튼을 클릭한 경우
+                location.href = '../BigFrame_e/BigOrder_e.html?order=slow';
+            } else if (orderType === 'basic') {
+                // 기본 주문하기 버튼을 클릭한 경우
+                location.href = '../BasicFrame_e/BasicOrder_e.html?order=basic';
+            } else {
+                location.href = '../selectorder/selectorder.html';
+            }
+            alert("The button has been clicked!")
 
+        }
+        function openCheck() {
+            if (orderType === 'slow') {
+            // 천천히 주문하기 버튼을 클릭한 경우
+            location.href = '../last_checklist_e/checklist_e.html?order=slow';
+            } else if (orderType === 'basic') {
+            // 기본 주문하기 버튼을 클릭한 경우
+            location.href = '../last_checklist_e/checklist_e.html?order=basic';
+            } else {
+            location.href = '../selectorder/selectorder.html';
+            }
+
+            alert("The button has been clicked!")
+        }
+        function openPay() {
+            if (orderType === 'slow') {
+            // 천천히 주문하기 버튼을 클릭한 경우
+            location.href = '../paymethod_e/paymethod_e.html?order=slow';
+            } else if (orderType === 'basic') {
+            // 기본 주문하기 버튼을 클릭한 경우
+            location.href = '../paymethod_e/paymethod_e.html?order=basic';
+            } else {
+            location.href = '../selectorder/selectorder.html';
+            }
+
+            alert("The button has been clicked!")
+        }
+
+        function back(){
+            if (orderType === 'slow') {
+            // 천천히 주문하기 버튼을 클릭한 경우
+            location.href = '../paymethod_e/paymethod_e.html?order=slow';
+            } else if (orderType === 'basic') {
+            // 기본 주문하기 버튼을 클릭한 경우
+            location.href = '../paymethod_e/paymethod_e.html?order=basic';
+            } else {
+            location.href = '../selectorder/selectorder.html';
+            }
+
+            alert("The button has been clicked!")
+        }
+
+        function gohome(){
+            if (orderType === 'slow') {
+                // 천천히 주문하기 버튼을 클릭한 경우
+                location.href = '../BigFrame_e/BigOrder_e.html?order=slow';
+            } else if (orderType === 'basic') {
+                // 기본 주문하기 버튼을 클릭한 경우
+                location.href = '../BasicFrame_e/BasicOrder_e.html?order=basic';
+            } else {
+                location.href = '../selectorder/selectorder.html';
+            }
+            alert("The button has been clicked!")
+        }
+        </script>
+        <script src="navbarmsg.js"></script>   
 </body>
-
 </html>

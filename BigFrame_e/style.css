@@ -1,4 +1,5 @@
-html,body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -27,7 +28,7 @@ html,body {
   padding: 2vw;
 }
 
-.navigation_all_box{
+.navigation_all_box {
   height: 75%;
   display: flex;
   flex-direction: column;
@@ -42,7 +43,7 @@ html,body {
 }
 
 /*단계별 가운데 선*/
-.level_line {
+.+ {
   display: flex;
   justify-content: center;
   padding: 2vh;
@@ -63,51 +64,49 @@ html,body {
   align-items: center;
 
   .level_name {
-      padding: 0.8rem;
-      font-weight: bold;
+    padding: 0.8rem;
+    font-weight: bold;
   }
 
   .circle {
-      width: 2rem;
-      height: 2rem;
-      border: solid 3px black;
-      border-radius: 50%;
-      background-color: pink;
-      margin-right: 5px;
+    width: 2rem;
+    height: 2rem;
+    border: solid 3px black;
+    border-radius: 50%;
+    background-color: pink;
+    margin-right: 5px;
   }
 
   .circle_name {
-      text-align: center;
-      margin: 0;
-      font-size: 3vw;
-      font-weight: bold;
+    text-align: center;
+    margin: 0;
+    font-size: 3vw;
+    font-weight: bold;
   }
 }
 
 /*주문리스트 미리보기*/
-.select_list{
+.select_list {
   height: 25%;
   border-top: solid 3px black;
 }
 
-.select_list_title{
+.select_list_title {
   font-weight: bold;
   text-align: center;
   height: 15%;
   font-size: 2.5vw;
 }
 
-.select_list_list{
-  border: solid 2px blue;
-  padding-right: 1px;
-  margin: 0 1px;
+.select_list_list {
   height: 80%;
   overflow: hidden;
   overflow-y: visible;
-  
+  margin: 0 1PX;
+  border: solid 1px blue;
 }
 
-.select_list_detail{
+.select_list_detail {
   display: flex;
   justify-content: space-around;
   font-weight: bold;
@@ -116,27 +115,32 @@ html,body {
   border-bottom: solid 1px blue;
 }
 
-@media screen and (max-width: 380px) {
-  .select_list_title{
+@media screen and (max-width: 450px) {
+  .select_list_title {
     width: 100%;
     font-size: 0.1rem;
   }
-  .select_list_detail{
+
+  .select_list_detail {
     display: block;
     font-size: 0.1rem;
     margin: 0;
     padding: 0;
-    border-bottom: solid 2px blu;
+    border-bottom: solid 2px blue;
   }
-  .select_num{
+
+  .select_num {
     text-align: end;
   }
-  @media screen and (max-height: 500px){
-    .select_list_title{
+
+  @media screen and (max-height: 700px) {
+    .select_list_title {
       padding: 0 5%;
       margin-bottom: 20%;
+      font-size: 12px;
     }
-    .select_list_list{
+
+    .select_list_list {
       height: 75%;
     }
   }
@@ -164,10 +168,10 @@ html,body {
   font-weight: bold;
 }
 
-.help{
+.help {
   position: absolute;
-  top: 2%;
-  right: 2%;
+  top: 1%;
+  right: 1%;
   width: 5%;
 }
 
@@ -196,10 +200,8 @@ html,body {
   width: 100%;
 }
 
-/*주문 정보*/
-.container {
-  height: 100%;
-  padding: auto;
+.list_content_info {
+  width: 63%;
 }
 
 .content_title {
@@ -207,32 +209,30 @@ html,body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  text-align: center;
   height: 30%;
 }
 
 .menu_name {
-  width:60%;
+  width: 60%;
   font-size: 3vw;
+  border-right: solid 3px black;
   display: flex;
   justify-content: center;
-  border-right: solid 3px black;
+  align-items: center;
 }
 
 .menu_cost {
   width: 40%;
+  padding-left: 1rem;
+  font-size: 2.5vw;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-  margin:0;
+  margin: 0%;
   padding: 0;
-  font-size: 2.5vw;
 }
 
-.list_content_info {
-  width: 63%;
-}
 
 /*옵션*/
 .list_option {
@@ -241,6 +241,10 @@ html,body {
   height: 45%;
 }
 
+.list_option div{
+  height: 100%;
+  font-size: 3vw;
+}
 
 .list_buttons {
   height: 30%;
@@ -248,21 +252,19 @@ html,body {
   justify-content: end;
 }
 
-
-
 /* 선택 버튼*/
-.selectBtn{
+.selectBtn {
   height: 80%;
   width: 50%;
   border-radius: 30px;
   background-color: white;
   font-weight: bold;
   font-size: 3vw;
-  margin-left: 2%;
+  margin-right: 2%;
 }
 
 
-.selectBtn:hover{
+.selectBtn:hover {
   background-color: skyblue;
   color: white;
   border: solid 1px skyblue;
@@ -278,7 +280,7 @@ html,body {
   border-top: none;
 }
 
-.fix_button_detail{
+.fix_button_detail {
   width: 20vw;
   height: 80%;
   background-color: white;
@@ -287,7 +289,8 @@ html,body {
   font-weight: bold;
   font-size: 2vw;
 }
-.fix_button_detail:hover{
+
+.fix_button_detail:hover {
   background-color: skyblue;
   color: white;
   border: solid 1px skyblue;
@@ -301,13 +304,13 @@ html,body {
   margin: 0;
   padding: 0;
   overflow: hidden;
- 
+
 }
 
 .categore {
-  display:grid;
-  border:1px solid black;
-  
+  display: grid;
+  border: 1px solid black;
+
 }
 
 .categore a {
@@ -315,108 +318,140 @@ html,body {
   text-align: center;
   font-size: 2.5vw;
   text-decoration: none;
-  color:black;
+  color: black;
   background-color: #dddddd;
 }
 
-/* 기본 더크게 검색*/
-.sizes{
+/* 기본 더크게 검색 nav바*/
+.add_fuc_bar {
   display: flex;
-  font-size: 2vw;
-  margin: 1%;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1%;
+}
+
+.view_button {
+  width: 50%;
+  font-size: 2.5vw;
 }
 
 /* 검색 입력창*/
-input[type="search"] {
-  padding: 1vw;
-}
-.menu-search{
- display: flex;
- justify-content: flex-end;
+.search_div{
+  width: 50%;
 }
 
-.searchs{
-  height: 3vw;
+.search{
+  width: 80%;
+}
+
+.search_icon {
+  height: 5vw;
 }
 
 /*전체적 사이즈 조절 */
 
+@media screen and (max-width : 310px) {
+  .search_div{
+    width: 50%;
+  }
+  .view_button{
+    width: 50%;
+  }
+  .search{
+    height: 20px;
+    width: 70%;
+  }
+  .navigation {
+    border: solid 3px black;
+    border-right: none;
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .list_menu {
+    width: 75%;
+    height: 100%;
+    padding: 2vw;
+  }
+  .view_button{
+    font-size: 0.5rem;
+  }
+}
+
 @media screen and (min-width: 600px) {
- 
-  .list_box{
-    height: 70%;
+
+  .list_box {
+    height: 75%;
   }
- 
-  .menu_name{
+  .menu_name {
     font-size: 4vw;
   }
-  .menu_cost{
+  .menu_cost {
     font-size: 4vw;
   }
-  .sizes{
+  .sizes {
     font-size: 1.5rem;
   }
-  
-  .searchs{
-    height: 5vw;
-  }
 
-  input[type="search"] {
-      padding: 1vw;
-      height: 2rem;
-      border: solid 1px black;
-  }
-  
 }
 
 @media screen and (min-width:1000px) {
-
-  .list_box{
+  .select_list_title {
+    font-size: 2vw;
+  }
+  .list_box {
     height: 63%;
   }
-  .list_name{
-    font-size: 4vw;
+ 
+
+  .list_name {
+    font-size: 3vw;
   }
-  .help{
+
+  .help {
     width: 3%;
     height: 5%;
   }
 
-  .menu_name{
+  .menu_name {
     font-size: 2vw;
-  }
-  .menu_cost{
-    font-size: 2vw;
-  }
-  .list_option{
-    font-size: 2vw;
-  }
-  .sizes{
-    font-size: 1rem;
-  }
-  
-  input[type="search"] {
-      padding: 1vw;
-      height: 1rem; 
   }
 
-  .search{
+  .menu_cost {
+    font-size: 2vw;
+  }
+
+  .list_option {
+    font-size: 2vw;
+  }
+
+  .sizes {
+    font-size: 1rem;
+  }
+
+  input[type="search"] {
+    padding: 1vw;
+    height: 1rem;
+  }
+
+  .search {
     width: 25vw;
   }
 
-  .searchs{
+  .search {
     height: 3vw;
   }
-  .categores{
+
+  .categores {
     height: 2.5vw;
     margin: 0;
   }
-  .categore a{
-    font-size:2vw;
-  }
 
+  .categore a {
+    font-size: 2vw;
+  }
   /*네비바 선*/
   .center {
     width: 100%;
@@ -424,13 +459,37 @@ input[type="search"] {
     max-width: 50%;
     max-height: 20vh;
   }
+  .level_line {
+    display: flex;
+    justify-content: center;
+    padding: 2vh;
+  }  
   .select_list_title {
     font-weight: bold;
     text-align: center;
     height: 15%;
     font-size: 1rem;
 }
+.list_content_box{
+  height: 50%;
+}
+.list_img_size{
+  height: 100%;
+}
+.selectBtn {
+  height: 75%;
+  width: 50%;
+  border-radius: 30px;
+  background-color: white;
+  font-weight: bold;
+  font-size: 1.5vw;
+  text-align: center;
+  margin-right: 2%;
+  margin-top: 0.5%;
 }
 
-
-
+.list_option div {
+  height: 100%;
+  font-size: 2vw;
+}
+}

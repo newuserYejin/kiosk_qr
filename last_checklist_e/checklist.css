@@ -85,6 +85,8 @@ body {
 
 /*포장 확인*/
 
+
+
 .take-out {
     margin: 0;
     padding: 0;
@@ -103,13 +105,14 @@ body {
     text-align: end;
 }
 
-.list-group {
+.take-out .list-group {
     width: 60%;
     display: flex;
     flex-direction: row;
+   
 }
 
-.list-group-item {
+.take-out .list-group-item {
     border: none;
     width: 100%;
     font-weight: bold;
@@ -117,8 +120,7 @@ body {
     padding: 0;
     align-items: center;
 }
-
-.list-group-item label {
+.take-out .list-group-item label  {
     font-size: 2.5vw;
     width: 80%;
 }
@@ -127,6 +129,9 @@ body {
     border: solid 2px black;
     margin-top: 0;
 }
+
+
+
 
 /*주문 리스트*/
 .box {
@@ -314,7 +319,7 @@ body {
     border-radius: 20px;
     border: solid 2px black;
     font-weight: bold;
-    font-size: 3vw;
+    font-size: 2vw;
 }
 
 .fix_button_detail:hover {
@@ -322,15 +327,24 @@ body {
     color: white;
     border: solid 1px skyblue;
 }
-
+@media screen and (max-width:800px) {
+    .list_box {
+        padding: 1vw;
+        height: 75%;
+        margin-top: 2%;
+        overflow: hidden;
+        overflow-y: visible;
+    }
+}
 @media screen and (min-width:1000px) {
+    
     .list-group-item label {
         font-size: 2vw;
         width: 80%;
     }
     .list_box {
         padding: 1vw;
-        height: 68%;
+        height: 67%;
         margin-top: 2%;
         overflow: hidden;
         overflow-y: visible;
