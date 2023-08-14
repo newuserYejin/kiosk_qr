@@ -43,7 +43,7 @@ body {
 }
 
 /*단계별 가운데 선*/
-.+ {
+.level_line {
   display: flex;
   justify-content: center;
   padding: 2vh;
