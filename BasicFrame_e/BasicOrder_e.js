@@ -67,16 +67,46 @@ function orderlist(){
     }
 }
 
-// 도움말 버튼
+//도움말 버튼
 const joImage = document.getElementById("imageLink");
 
 joImage.addEventListener("click", function () {
-  $.get("../help_msg/help_msg.html", function (data) {
-    $("#modalContainer").html(data);
-    const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
-    modal.show();
-  });
+  // 먼저 모달 컨테이너를 비웁니다.
+  document.getElementById("modalContainer").innerHTML = "";
+
+  // detail_menu.css를 제거합니다.
+  const detailMenuLink = document.querySelector('link[href="../detail_menu/detail_menu.css"]');
+  if (detailMenuLink) {
+    detailMenuLink.remove();
+  }
+
+  // help_msg.html 콘텐츠를 로드하여 모달 컨테이너에 추가합니다.
+  fetch("../help_msg/help_msg.html")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("HTTP Error " + response.status);
+      }
+      return response.text();
+    })
+    .then(data => {
+      // 모달 컨테이너에 help_msg.html 콘텐츠를 추가합니다.
+      $("#modalContainer").html(data);
+
+      // help_msg.css 파일을 로드합니다.
+      const linkElement = document.createElement("link");
+      linkElement.rel = "stylesheet";
+      linkElement.type = "text/css";
+      linkElement.href = "../help_msg/help_msg.css";
+      document.head.appendChild(linkElement);
+
+      const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+      modal.show();
+    })
+    .catch(error => {
+      console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
+    });
 });
+
 
 const search = document.querySelectorAll('.search, .search_icon');
 search.forEach((divElement) => {
@@ -142,17 +172,58 @@ document.getElementById("nextScreen").addEventListener("click", function () {
  
 });
 
-// 메뉴 박스
-const list_content_box = document.querySelectorAll('.list_content_box');
 
-list_content_box.forEach((divElement) => {
-  divElement.addEventListener('click', function () {
-    // 이벤트 처리 로직 작성
-    alert("선택되었습니다");
-    window.location.href = '../detail_menu/jojo.html';
+
+
+// 버튼들의 클래스명을 'selectBtn'으로 가지고 있는 모든 요소들을 선택합니다.
+const list_content_box = document.querySelectorAll(".list_content_box");
+
+// 각 버튼에 대해 반복문을 통해 이벤트 핸들러를 등록합니다.
+list_content_box.forEach(button => {
+  button.addEventListener("click", function () {
+    // 버튼이 클릭되었을 때 실행되는 코드
+
+    // 먼저 모달 컨테이너를 비웁니다.
+    document.getElementById("modalContainer").innerHTML = "";
+
+    // help_msg.css를 제거합니다.
+    const detailMenuLink = document.querySelector('link[href="../help_msg/help_msg.css"]');
+    if (detailMenuLink) {
+      detailMenuLink.remove();
+    }
+
+    // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
+    fetch("../detail_menu/jojo.html") // 이 부분의 파일 경로를 수정해야합니다.
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("HTTP Error " + response.status);
+        }
+        return response.text();
+      })
+      .then(data => {
+        // 모달 컨테이너에 jojo.html 콘텐츠를 추가합니다.
+        $("#modalContainer").html(data);
+
+        // 외부 detail_menu 폴더에 있는 detail_menu.css 파일을 로드합니다.
+        const linkElement = document.createElement("link");
+        linkElement.rel = "stylesheet";
+        linkElement.type = "text/css";
+        linkElement.href = "../detail_menu/detail_menu.css"; // 이 부분의 파일 경로를 수정해야합니다.
+        document.head.appendChild(linkElement);
+
+        // 외부 detail_menu 폴더에 있는 detail_menu.js 파일을 로드합니다.
+        const scriptElement = document.createElement("script");
+        scriptElement.src = "../detail_menu/detail_menu.js"; // 이 부분의 파일 경로를 수정해야합니다.
+        document.body.appendChild(scriptElement);
+
+        const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+        modal.show();
+      })
+      .catch(error => {
+        console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
+      });
   });
 });
-
 
 /*슬라이드 버튼*/
 const slider = document.querySelector(".slider");
