@@ -214,7 +214,7 @@ body {
 
 .menu_name {
   width: 60%;
-  font-size: 3vw;
+  font-size: 5px;
   border-right: solid 3px black;
   display: flex;
   justify-content: center;
@@ -239,11 +239,13 @@ body {
   border-top: 3px solid black;
   border-bottom: 3px solid black;
   height: 45%;
+  overflow: hidden;
+  overflow-y: visible;
 }
 
 .list_option div{
   height: 100%;
-  font-size: 3vw;
+  font-size: 2.5vw;
 }
 
 .list_buttons {
@@ -297,7 +299,7 @@ body {
 }
 
 /*카테고리*/
-.categores {
+.categories {
   display: flex;
   justify-content: flex-end;
   list-style-type: none;
@@ -307,13 +309,12 @@ body {
 
 }
 
-.categore {
+.category {
   display: grid;
   border: 1px solid black;
-
 }
 
-.categore a {
+.category a {
   display: block;
   text-align: center;
   font-size: 3vw;
@@ -386,7 +387,7 @@ body {
     height: 75%;
   }
   .menu_name {
-    font-size: 4vw;
+    font-size: 3vw;
   }
   .menu_cost {
     font-size: 4vw;

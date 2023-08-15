@@ -257,3 +257,54 @@ function search(){
       console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
     });
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  const menuList = document.querySelector(".list_box"); // 변경: .list_content_box -> .list_box
+  const categoryLinks = document.querySelectorAll(".categories a");
+
+  // 카테고리 링크에 클릭 이벤트 추가
+  categoryLinks.forEach(link => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault(); // 링크의 기본 동작을 막습니다.
+      const category = link.getAttribute("data-category");
+      fetch(`/menu?category=${category}`)
+        .then(response => response.json())
+        .then(menuData => {
+          // 메뉴 목록을 초기화하고 새로운 데이터로 갱신합니다.
+          menuList.innerHTML = ''; // 변경: 내용을 지우도록 수정
+          handleMenuData(menuData);
+        });
+    });
+  });
+});
+
+
+function handleMenuData(menuData) {
+  // 받아온 데이터를 가지고 출력할 HTML 요소 생성
+  const menuItems = menuData.map(menu => {
+    return `
+
+      <div class="box list_content_box">
+                    <div class="box list_img_box">
+                        <img id="im" class="list_img_size" src="./image/img1.png" />
+                    </div>
+                    <div class="box list_content_info"> <!--오른쪽 설명-->
+                        <div class="content_title">
+                            <div class="menu_name">${menu.menu_name}</div>
+                            <div class="menu_cost">${menu.price}원</div>
+                        </div>
+                        <div class="list_option">
+                            <div>${menu.menu_explan}</div>
+                        </div>
+                        <div class="list_buttons">
+                            <button class="selectBtn" id="selectBtn">선택</button>
+                        </div>
+                    </div>
+                </div>
+    `;
+  });
+
+  // 메뉴 목록에 추가
+  const menuList = document.querySelector(".list_box");
+  menuList.innerHTML += menuItems.join("");
+}
