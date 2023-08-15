@@ -95,6 +95,39 @@ selectBtn.addEventListener("click", function () {
     });
 });
 
+//네비게이션
+function select_page() {
+  alert("현재 페이지 입니다.")
+};
+
+// 처음으로
+function check_page(){
+  // 새로운 페이지로 이동
+  const urlParams = new URLSearchParams(window.location.search);
+  const orderType = urlParams.get('order');
+
+  if (orderType == 'slow') {
+    location.href = '../last_checklist/checklist.html?order=slow';
+  } else if (orderType == 'basic') {
+    location.href = '../last_checklist/checklist.html?order=basic';
+  }
+};
+
+// 다음
+function pay_page(){
+  // 새로운 페이지로 이동
+  const urlParams = new URLSearchParams(window.location.search);
+  const orderType = urlParams.get('order');
+
+  if (orderType == 'slow') {
+    // 천천히 주문하기 버튼을 클릭한 경우
+    location.href = '../paymethod/paymethod.html?order=slow';
+  } else if (orderType == 'basic') {
+    // 기본 주문하기 버튼을 클릭한 경우
+    location.href = '../paymethod/paymethod.html?order=basic';
+  }
+};
+
 
 // 하단 고정 버튼(이전화면, 처음으로, 다음)
 // 이전화면 클릭시
@@ -161,7 +194,7 @@ radioButtons.forEach(button => {
     if (button.checked) {
       switch (button.value) {
         case 'basic':
-          window.location.href = '../BasicFrame/BasicOrder.html?order=basic';
+          window.location.href = '../BasicFrame/BasicOrder.html?order=slow';
           break;
         case 'big':
           window.location.href = '../BigFrame/BigOrder.html?order=slow';
