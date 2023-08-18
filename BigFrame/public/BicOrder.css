@@ -323,6 +323,12 @@ body {
   background-color: #dddddd;
 }
 
+@media (max-width: 360px) {
+  .categore {
+    font-size: 0.2rem;
+  }
+}
+
 /* 기본 더크게 검색 nav바*/
 .add_fuc_bar {
   display: flex;
@@ -442,12 +448,12 @@ body {
     height: 3vw;
   }
 
-  .categores {
+  .categories {
     height: 2.5vw;
     margin: 0;
   }
 
-  .categore a {
+  .category a {
     font-size: 2vw;
   }
 

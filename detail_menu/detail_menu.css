@@ -49,6 +49,10 @@
     margin-top: 0;
 }
 
+#modalContainer .menu_cost{
+    text-align: left;
+}
+
 #modalContainer .border_line {
     border-bottom: 2px solid black;
 }

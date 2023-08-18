@@ -1,16 +1,3 @@
-// script.js
-
-var button = document.querySelector('.circle');
-var colors = ['orange', 'pink'];
-var currentIndex = 0;
-
-button.addEventListener('click', function () {
-  button.style.backgroundColor = colors[currentIndex];
-  currentIndex = (currentIndex + 1) % colors.length;
-  alert("버튼이 클릭되었습니다!");
-  window.location.href = '../detail_menu/jojo.html';
-});
-
 //도움말 버튼
 const joImage = document.getElementById("imageLink");
 
@@ -19,13 +6,13 @@ joImage.addEventListener("click", function () {
   document.getElementById("modalContainer").innerHTML = "";
 
   // detail_menu.css를 제거합니다.
-  const detailMenuLink = document.querySelector('link[href="../detail_menu/detail_menu.css"]');
+  const detailMenuLink = document.querySelector('link[href="../../detail_menu/detail_menu.css"]');
   if (detailMenuLink) {
     detailMenuLink.remove();
   }
 
   // help_msg.html 콘텐츠를 로드하여 모달 컨테이너에 추가합니다.
-  fetch("../help_msg/help_msg.html")
+  fetch("../../help_msg/help_msg.html")
     .then(response => {
       if (!response.ok) {
         throw new Error("HTTP Error " + response.status);
@@ -34,13 +21,20 @@ joImage.addEventListener("click", function () {
     })
     .then(data => {
       // 모달 컨테이너에 help_msg.html 콘텐츠를 추가합니다.
-      $("#modalContainer").html(data);
+      modalContainer.innerHTML = data;
+
+      const modalBody = document.querySelector(".modal-body");
+      modalBody.innerHTML = `
+        <p>새로운 내용 1.</p>
+        <p>새로운 내용 2.</p>
+        <p>새로운 내용 3.</p>
+        <!-- 원하는 내용으로 수정 -->`;
 
       // help_msg.css 파일을 로드합니다.
       const linkElement = document.createElement("link");
       linkElement.rel = "stylesheet";
       linkElement.type = "text/css";
-      linkElement.href = "../help_msg/help_msg.css";
+      linkElement.href = "../../help_msg/help_msg.css";
       document.head.appendChild(linkElement);
 
       const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
@@ -51,20 +45,20 @@ joImage.addEventListener("click", function () {
     });
 });
 
-// 선택 버튼
+// 선택 버튼(메뉴 선택)
 const selectBtn = document.getElementById("selectBtn");
 selectBtn.addEventListener("click", function () {
   // 먼저 모달 컨테이너를 비웁니다.
   document.getElementById("modalContainer").innerHTML = "";
 
   // help_msg.css를 제거합니다.
-  const detailMenuLink = document.querySelector('link[href="../help_msg/help_msg.css"]');
+  const detailMenuLink = document.querySelector('link[href="../../help_msg/help_msg.css"]');
   if (detailMenuLink) {
     detailMenuLink.remove();
   }
 
   // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
-  fetch("../detail_menu/jojo.html") // 이 부분의 파일 경로를 수정해야합니다.
+  fetch("../../detail_menu/jojo.html") // 이 부분의 파일 경로를 수정해야합니다.
     .then(response => {
       if (!response.ok) {
         throw new Error("HTTP Error " + response.status);
@@ -79,12 +73,12 @@ selectBtn.addEventListener("click", function () {
       const linkElement = document.createElement("link");
       linkElement.rel = "stylesheet";
       linkElement.type = "text/css";
-      linkElement.href = "../detail_menu/detail_menu.css"; // 이 부분의 파일 경로를 수정해야합니다.
+      linkElement.href = "../../detail_menu/detail_menu.css"; // 이 부분의 파일 경로를 수정해야합니다.
       document.head.appendChild(linkElement);
 
       // 외부 detail_menu 폴더에 있는 detail_menu.js 파일을 로드합니다.
       const scriptElement = document.createElement("script");
-      scriptElement.src = "../detail_menu/detail_menu.js"; // 이 부분의 파일 경로를 수정해야합니다.
+      scriptElement.src = "../../detail_menu/detail_menu.js"; // 이 부분의 파일 경로를 수정해야합니다.
       document.body.appendChild(scriptElement);
 
       const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
@@ -100,31 +94,29 @@ function select_page() {
   alert("현재 페이지 입니다.")
 };
 
-// 처음으로
-function check_page(){
-  // 새로운 페이지로 이동
+// 확인 페이지로 이동
+function check_page() {
   const urlParams = new URLSearchParams(window.location.search);
   const orderType = urlParams.get('order');
 
   if (orderType == 'slow') {
-    location.href = '../last_checklist/checklist.html?order=slow';
+    location.href = '../../last_checklist/checklist.html?order=slow';
   } else if (orderType == 'basic') {
-    location.href = '../last_checklist/checklist.html?order=basic';
+    location.href = '../../last_checklist/checklist.html?order=basic';
   }
 };
 
-// 다음
-function pay_page(){
-  // 새로운 페이지로 이동
+// 결제 페이지로 이동
+function pay_page() {
   const urlParams = new URLSearchParams(window.location.search);
   const orderType = urlParams.get('order');
 
   if (orderType == 'slow') {
     // 천천히 주문하기 버튼을 클릭한 경우
-    location.href = '../paymethod/paymethod.html?order=slow';
+    location.href = '../../paymethod/paymethod.html?order=slow';
   } else if (orderType == 'basic') {
     // 기본 주문하기 버튼을 클릭한 경우
-    location.href = '../paymethod/paymethod.html?order=basic';
+    location.href = '../../paymethod/paymethod.html?order=basic';
   }
 };
 
@@ -137,31 +129,31 @@ function prvsScren() {
 
   if (orderType == 'slow') {
     // 천천히 주문하기 버튼을 클릭한 경우
-    location.href = '../selecteat/selecteat.html?order=slow';
+    location.href = '../../selecteat/selecteat.html?order=slow';
   } else if (orderType == 'basic') {
     // 기본 주문하기 버튼을 클릭한 경우
-    location.href = '../selecteat/selecteat.html?order=basic';
+    location.href = '../../selecteat/selecteat.html?order=basic';
   }
 };
 
 // 처음으로
-function firstScreen(){
+function firstScreen() {
   // 새로운 페이지로 이동
-  window.location.href = "../selectorder/selectorder.html";
+  window.location.href = "../../selectorder/selectorder.html";
 };
 
 // 다음
-function nextScreen(){
+function nextScreen() {
   // 새로운 페이지로 이동
   const urlParams = new URLSearchParams(window.location.search);
   const orderType = urlParams.get('order');
 
   if (orderType == 'slow') {
     // 천천히 주문하기 버튼을 클릭한 경우
-    location.href = '../last_checklist/checklist.html?order=slow';
+    location.href = '../../last_checklist/checklist.html?order=slow';
   } else if (orderType == 'basic') {
     // 기본 주문하기 버튼을 클릭한 경우
-    location.href = '../last_checklist/checklist.html?order=basic';
+    location.href = '../../last_checklist/checklist.html?order=basic';
   }
 };
 
@@ -194,39 +186,39 @@ radioButtons.forEach(button => {
     if (button.checked) {
       switch (button.value) {
         case 'basic':
-          window.location.href = '../BasicFrame/BasicOrder.html?order=slow';
+          window.location.href = '../../BasicFrame/BasicOrder.html?order=slow';
           break;
         case 'big':
-          window.location.href = '../BigFrame/BigOrder.html?order=slow';
+          window.location.href = '../../BigFrame/BigOrder.html?order=slow';
           break;
         default:
           break;
       }
     }
   });
-}); 
+});
 
 
 // 검색버튼
 
 document.getElementById("search_div").addEventListener('click', search);
 
-function search(){
+function search() {
   document.getElementById("modalContainer").innerHTML = "";
 
   // help_msg.css를 제거합니다.
-  const help_msg_Link = document.querySelector('link[href="../help_msg/help_msg.css"]');
+  const help_msg_Link = document.querySelector('link[href="../../help_msg/help_msg.css"]');
   if (help_msg_Link) {
     help_msg_Link.remove();
   }
 
   // detail_menu.css를 제거합니다.
-  const detailMenuLink = document.querySelector('link[href="../detail_menu/detail_menu.css"]');
+  const detailMenuLink = document.querySelector('link[href="../../detail_menu/detail_menu.css"]');
   if (detailMenuLink) {
     detailMenuLink.remove();
   }
 
-  fetch("../search/search.html") // 이 부분의 파일 경로를 수정해야합니다.
+  fetch("../../search/search.html") // 이 부분의 파일 경로를 수정해야합니다.
     .then(response => {
       if (!response.ok) {
         throw new Error("HTTP Error " + response.status);
@@ -241,14 +233,14 @@ function search(){
       const linkElement = document.createElement("link");
       linkElement.rel = "stylesheet";
       linkElement.type = "text/css";
-      linkElement.href = "../search/search.css"; // 이 부분의 파일 경로를 수정해야합니다.
+      linkElement.href = "../../search/search.css"; // 이 부분의 파일 경로를 수정해야합니다.
       document.head.appendChild(linkElement);
 
       // 외부 detail_menu 폴더에 있는 detail_menu.js 파일을 로드합니다.
       const scriptElement = document.createElement("script");
-      scriptElement.src = "../search/search.js"; // 이 부분의 파일 경로를 수정해야합니다.
+      scriptElement.src = "../../search/search.js"; // 이 부분의 파일 경로를 수정해야합니다.
       document.body.appendChild(scriptElement);
-      
+
 
       const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
       modal.show();
@@ -258,7 +250,7 @@ function search(){
     });
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   const menuList = document.querySelector(".list_box"); // 변경: .list_content_box -> .list_box
   const categoryLinks = document.querySelectorAll(".categories a");
 
