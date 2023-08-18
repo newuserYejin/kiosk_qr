@@ -2,24 +2,26 @@
 
 var button = document.querySelector('.circle');
 
-document.addEventListener("DOMContentLoaded", function () {
-  var decrementButton = document.getElementById("decrement");
-  var incrementButton = document.getElementById("increment");
-  var quantityInput = document.getElementById("quantity");
+// 증감기능 삭제
+// document.addEventListener("DOMContentLoaded", function () {
+//   var decrementButton = document.getElementById("decrement");
+//   var incrementButton = document.getElementById("increment");
+//   var quantityInput = document.getElementById("quantity");
 
-  decrementButton.addEventListener("click", function () {
-    var currentQuantity = parseInt(quantityInput.value);
-    if (currentQuantity > 1) {
-      quantityInput.value = currentQuantity - 1;
-    }
-  });
+//   decrementButton.addEventListener("click", function () {
+//     var currentQuantity = parseInt(quantityInput.value);
+//     if (currentQuantity > 1) {
+//       quantityInput.value = currentQuantity - 1;
+//     }
+//   });
 
-  incrementButton.addEventListener("click", function () {
-    var currentQuantity = parseInt(quantityInput.value);
-    quantityInput.value = currentQuantity + 1;
-  });
-});
+//   incrementButton.addEventListener("click", function () {
+//     var currentQuantity = parseInt(quantityInput.value);
+//     quantityInput.value = currentQuantity + 1;
+//   });
+// });
 
+//네비게이션 부분
 function selectPage(){
   var URL = new URLSearchParams(window.location.search);
   var order_info = URL.get('order');
@@ -75,3 +77,88 @@ function nextScreen(){
     location.href = '../paymethod/paymethod.html?order=basic';
   }
 };
+
+//도움말 버튼
+const joImage = document.getElementById("imageLink");
+
+joImage.addEventListener("click", function () {
+  // 먼저 모달 컨테이너를 비웁니다.
+  document.getElementById("modalContainer").innerHTML = "";
+
+  // detail_menu.css를 제거합니다.
+  const detailMenuLink = document.querySelector('link[href="../detail_menu/detail_menu.css"]');
+  if (detailMenuLink) {
+    detailMenuLink.remove();
+  }
+
+  // help_msg.html 콘텐츠를 로드하여 모달 컨테이너에 추가합니다.
+  fetch("../help_msg/help_msg.html")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("HTTP Error " + response.status);
+      }
+      return response.text();
+    })
+    .then(data => {
+      // 모달 컨테이너에 help_msg.html 콘텐츠를 추가합니다.
+      $("#modalContainer").html(data);
+
+      // help_msg.css 파일을 로드합니다.
+      const linkElement = document.createElement("link");
+      linkElement.rel = "stylesheet";
+      linkElement.type = "text/css";
+      linkElement.href = "../help_msg/help_msg.css";
+      document.head.appendChild(linkElement);
+
+      const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+      modal.show();
+    })
+    .catch(error => {
+      console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
+    });
+});
+
+//수정 버튼
+const selectBtn = document.getElementById("updateBtn");
+selectBtn.addEventListener("click", function () {
+
+  // 먼저 모달 컨테이너를 비웁니다.
+  document.getElementById("modalContainer").innerHTML = "";
+
+  // help_msg.css를 제거합니다.
+  const detailMenuLink = document.querySelector('link[href="../help_msg/help_msg.css"]');
+  if (detailMenuLink) {
+    detailMenuLink.remove();
+  }
+
+  // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
+  fetch("../detail_menu/jojo.html") // 이 부분의 파일 경로를 수정해야합니다.
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("HTTP Error " + response.status);
+      }
+      return response.text();
+    })
+    .then(data => {
+      // 모달 컨테이너에 jojo.html 콘텐츠를 추가합니다.
+      $("#modalContainer").html(data);
+
+      // 외부 detail_menu 폴더에 있는 detail_menu.css 파일을 로드합니다.
+      const linkElement = document.createElement("link");
+      linkElement.rel = "stylesheet";
+      linkElement.type = "text/css";
+      linkElement.href = "../detail_menu/detail_menu.css"; // 이 부분의 파일 경로를 수정해야합니다.
+      document.head.appendChild(linkElement);
+
+      // 외부 detail_menu 폴더에 있는 detail_menu.js 파일을 로드합니다.
+      const scriptElement = document.createElement("script");
+      scriptElement.src = "../detail_menu/detail_menu.js"; // 이 부분의 파일 경로를 수정해야합니다.
+      document.body.appendChild(scriptElement);
+
+      const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+      modal.show();
+    })
+    .catch(error => {
+      console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
+    });
+});

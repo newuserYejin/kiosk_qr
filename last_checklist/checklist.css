@@ -86,7 +86,7 @@ body {
 
 /*포장 확인*/
 
-.take-out {
+.take_out {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -104,13 +104,13 @@ body {
     text-align: end;
 }
 
-.list-group {
+.take_out .list-group{
     width: 60%;
     display: flex;
     flex-direction: row;
 }
 
-.list-group-item {
+.list-group .list-group-item {
     border: none;
     width: 100%;
     font-weight: bold;
@@ -119,12 +119,12 @@ body {
     align-items: center;
 }
 
-.list-group-item label {
+.list-group .list-group-item label {
     font-size: 2.5vw;
     width: 80%;
 }
 
-.form-check-input {
+.list-group-item .form-check-input {
     border: solid 2px black;
     margin-top: 0;
 }
@@ -196,14 +196,14 @@ body {
     width: 100%;
 }
 
-.menu_name {
+.content_title .menu_name {
     font-size: 3vw;
     text-align: left;
     padding: 0;
     border-right: solid 3px black;
 }
 
-.menu_cost {
+.content_title .menu_cost {
     padding: 0;
     text-align: left;
     font-size: 3vw;
