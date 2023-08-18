@@ -21,7 +21,14 @@ joImage.addEventListener("click", function () {
     })
     .then(data => {
       // 모달 컨테이너에 help_msg.html 콘텐츠를 추가합니다.
-      $("#modalContainer").html(data);
+      modalContainer.innerHTML = data;
+
+      const modalBody = document.querySelector(".modal-body");
+      modalBody.innerHTML = `
+        <p>새로운 내용 1.</p>
+        <p>새로운 내용 2.</p>
+        <p>새로운 내용 3.</p>
+        <!-- 원하는 내용으로 수정 -->`;
 
       // help_msg.css 파일을 로드합니다.
       const linkElement = document.createElement("link");
@@ -88,7 +95,7 @@ function select_page() {
 };
 
 // 확인 페이지로 이동
-function check_page(){
+function check_page() {
   const urlParams = new URLSearchParams(window.location.search);
   const orderType = urlParams.get('order');
 
@@ -100,7 +107,7 @@ function check_page(){
 };
 
 // 결제 페이지로 이동
-function pay_page(){
+function pay_page() {
   const urlParams = new URLSearchParams(window.location.search);
   const orderType = urlParams.get('order');
 
@@ -130,13 +137,13 @@ function prvsScren() {
 };
 
 // 처음으로
-function firstScreen(){
+function firstScreen() {
   // 새로운 페이지로 이동
   window.location.href = "../../selectorder/selectorder.html";
 };
 
 // 다음
-function nextScreen(){
+function nextScreen() {
   // 새로운 페이지로 이동
   const urlParams = new URLSearchParams(window.location.search);
   const orderType = urlParams.get('order');
@@ -189,14 +196,14 @@ radioButtons.forEach(button => {
       }
     }
   });
-}); 
+});
 
 
 // 검색버튼
 
 document.getElementById("search_div").addEventListener('click', search);
 
-function search(){
+function search() {
   document.getElementById("modalContainer").innerHTML = "";
 
   // help_msg.css를 제거합니다.
@@ -233,7 +240,7 @@ function search(){
       const scriptElement = document.createElement("script");
       scriptElement.src = "../../search/search.js"; // 이 부분의 파일 경로를 수정해야합니다.
       document.body.appendChild(scriptElement);
-      
+
 
       const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
       modal.show();
@@ -243,7 +250,7 @@ function search(){
     });
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   const menuList = document.querySelector(".list_box"); // 변경: .list_content_box -> .list_box
   const categoryLinks = document.querySelectorAll(".categories a");
 

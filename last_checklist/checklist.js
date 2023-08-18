@@ -102,6 +102,12 @@ joImage.addEventListener("click", function () {
     .then(data => {
       // 모달 컨테이너에 help_msg.html 콘텐츠를 추가합니다.
       $("#modalContainer").html(data);
+      const modalBody = document.querySelector(".modal-body");
+      modalBody.innerHTML = `
+        <p>도움말 새로운 내용 1.</p>
+        <p>새로운 내용 2.</p>
+        <p>새로운 내용 3.</p>
+        <!-- 원하는 내용으로 수정 -->`;
 
       // help_msg.css 파일을 로드합니다.
       const linkElement = document.createElement("link");
