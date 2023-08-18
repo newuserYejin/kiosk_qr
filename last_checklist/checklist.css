@@ -104,7 +104,7 @@ body {
     text-align: end;
 }
 
-.take_out .list-group{
+.take_out .list-group {
     width: 60%;
     display: flex;
     flex-direction: row;
@@ -197,16 +197,19 @@ body {
 }
 
 .content_title .menu_name {
-    font-size: 3vw;
+    font-size: 2.5vw;
     text-align: left;
     padding: 0;
     border-right: solid 3px black;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .content_title .menu_cost {
     padding: 0;
     text-align: left;
-    font-size: 3vw;
+    font-size: 2.5vw;
 }
 
 .list_content_info {
@@ -331,6 +334,7 @@ body {
         font-size: 2vw;
         width: 80%;
     }
+
     .list_box {
         padding: 1vw;
         height: 68%;
@@ -338,6 +342,7 @@ body {
         overflow: hidden;
         overflow-y: visible;
     }
+
     .take_out_title {
         font-weight: bold;
         font-size: 2vw;
@@ -345,6 +350,7 @@ body {
         width: 40%;
         text-align: end;
     }
+
     .button_num {
         position: relative;
         top: 30%;
@@ -354,12 +360,14 @@ body {
         text-align: left;
         font-weight: bold;
     }
+
     .list_option {
         margin-top: 1%;
         border-top: 3px solid black;
         border-bottom: 3px solid black;
         height: 55%;
     }
+
     .list_content_box {
         display: flex;
         justify-content: space-between;
@@ -367,6 +375,7 @@ body {
         height: 45%;
         border: none;
     }
+
     .content_update_button {
         height: 96%;
         width: 100%;
@@ -375,6 +384,7 @@ body {
         align-items: center;
         border-left: solid 3px black;
     }
+
     .content_update_button button {
         width: 45%;
         height: 85%;
@@ -383,6 +393,7 @@ body {
         font-size: 1.5vw;
         border-radius: 20%;
     }
+
     .take_out_title {
         font-weight: bold;
         font-size: 2vw;
@@ -390,26 +401,29 @@ body {
         width: 40%;
         text-align: end;
     }
+
     .list-group-item label {
         font-size: 2vw;
         width: 80%;
     }
+
     .menu_name {
         font-size: 2vw;
         text-align: left;
         padding: 0;
         border-right: solid 3px black;
     }
+
     .menu_cost {
         padding: 0;
         text-align: left;
         font-size: 2vw;
     }
+
     .option_detail {
         padding: 0;
         margin: 0;
         font-size: 2vw;
         font-weight: bold;
     }
-  }
-  
+}

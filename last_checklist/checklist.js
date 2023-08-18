@@ -124,6 +124,80 @@ joImage.addEventListener("click", function () {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function () {//서버연동(DOMContentLoaded가 실행되고 서버를 실행되어야지 정상적으로 작동[사실 잘 모르겠음])
+  fetch('/getOrderData')
+      .then(response => response.json())
+      .then(data => {
+          addOrdersToDOM(data);
+          console.log("Session data:", JSON.stringify(data));
+      });
+});
+
+function createOrderItem(order) {//주문 아이템 생성 함수
+  const orderItem = document.createElement('div');
+  orderItem.className = 'box list_content_box';
+  orderItem.innerHTML = `
+<!-- ... (이미지 내용 관련 부분) ... -->
+<div class="box list_img_box">
+                      <img id="im" class="list_img_size" src="${order.imagePath}" alt="menu_image"/>
+                  </div>
+                  <!--여기까지-->
+                  <div class="box list_content_info">
+                      <div class="container text-center">
+                          <div class="row content_title">
+                              <div class="col-7 menu_name">${order.menu_name}</div> <!--메뉴 이름 출력-->
+                              <div class="col-5 menu_cost">&nbsp;총: ${order.total_price}원</div> <!--메뉴 가격 출력-->
+                          </div>
+                          <!--옵션 데이터-->
+                          <div class="row list_option">
+                              <div class="list_option_detail">
+                                  <p class="option_title">현재 선택 내용</p>
+                                  <div class="option_detail">
+                                      <div>
+                                          <span class="option_name">온도: </span>
+                                          <span class="select_tem">${order.op1}</span>
+                                      </div>
+                                      <div>
+                                          <span class="option_name">크기: </span>
+                                          <span class="select_size">${order.op2}</span>
+                                      </div>
+                                  </div>
+
+                              </div>
+                          </div>
+                          <div class="row list_buttons">
+                              <div class="col-4 button_box_num">
+                                  <p class="button_num">${order.count}개</p>
+                              </div>
+                              <div class="col-8" style="padding: 0px; height: 100%;">
+                                  <div class="content_update_button">
+                                      <button id="updateBtn">수정</button>
+                                      <button>삭제</button>
+                                  </div>
+                              </div>
+
+                          </div>
+                      </div>
+                  </div>
+`;
+
+  // //   이미지 표시 로직
+  //   const imgBox = orderItem.querySelector('.box.list_content_info .container .order-list .order-item');
+  //   displayImage(order.imagePath, imgBox); // 이미지 표시 함수 호출
+
+    return orderItem;
+}
+
+function addOrdersToDOM(orders) {
+  let orderList = document.querySelector('.list_box');
+
+  orders.forEach(order => {
+      const orderItem = createOrderItem(order);
+      orderList.appendChild(orderItem);
+  });
+}
+
+
 //수정 버튼
 const selectBtn = document.getElementById("updateBtn");
 selectBtn.addEventListener("click", function () {
@@ -168,3 +242,5 @@ selectBtn.addEventListener("click", function () {
       console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
     });
 });
+
+
