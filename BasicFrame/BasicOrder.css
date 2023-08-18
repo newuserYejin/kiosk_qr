@@ -295,7 +295,7 @@ body {
 }
 
 /*카테고리*/
-.categores {
+.categories {
   display: flex;
   justify-content: flex-end;
   list-style-type: none;
@@ -305,13 +305,13 @@ body {
 
 }
 
-.categore {
+.category {
   display: grid;
   border: 1px solid black;
 
 }
 
-.categore a {
+.category a {
   display: block;
   text-align: center;
   font-size: 3vw;
@@ -490,12 +490,12 @@ input[type="search"] {
     height: 3vw;
   }
 
-  .categores {
+  .categories {
     height: 2.5vw;
     margin: 0;
   }
 
-  .categore a {
+  .category a {
     font-size: 2vw;
 
   }
