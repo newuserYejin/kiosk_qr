@@ -171,7 +171,7 @@ function createOrderItem(order) {//주문 아이템 생성 함수
                               </div>
                               <div class="col-8" style="padding: 0px; height: 100%;">
                                   <div class="content_update_button">
-                                      <button id="updateBtn">수정</button>
+                                      <button class="updateBtn">수정</button>
                                       <button>삭제</button>
                                   </div>
                               </div>
@@ -199,7 +199,7 @@ function addOrdersToDOM(orders) {
 
 
 //수정 버튼
-const selectBtn = document.getElementById("updateBtn");
+const selectBtn = document.querySelectorAll("updateBtn");
 selectBtn.addEventListener("click", function () {
 
   // 먼저 모달 컨테이너를 비웁니다.
