@@ -172,7 +172,7 @@ function createOrderItem(order) {//주문 아이템 생성 함수
                               <div class="col-8" style="padding: 0px; height: 100%;">
                                   <div class="content_update_button">
                                       <button class="updateBtn">수정</button>
-                                      <button>삭제</button>
+                                      <button class="deleteBtn">삭제</button>
                                   </div>
                               </div>
 
@@ -199,48 +199,89 @@ function addOrdersToDOM(orders) {
 
 
 //수정 버튼
-const selectBtn = document.querySelectorAll("updateBtn");
-selectBtn.addEventListener("click", function () {
+const selectBtn = document.querySelectorAll(".updateBtn");
+selectBtn.forEach(selectBtn=>{
+  selectBtn.addEventListener("click", function () {
 
-  // 먼저 모달 컨테이너를 비웁니다.
-  document.getElementById("modalContainer").innerHTML = "";
-
-  // help_msg.css를 제거합니다.
-  const detailMenuLink = document.querySelector('link[href="../help_msg/help_msg.css"]');
-  if (detailMenuLink) {
-    detailMenuLink.remove();
-  }
-
-  // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
-  fetch("../detail_menu/jojo.html") // 이 부분의 파일 경로를 수정해야합니다.
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("HTTP Error " + response.status);
-      }
-      return response.text();
-    })
-    .then(data => {
-      // 모달 컨테이너에 jojo.html 콘텐츠를 추가합니다.
-      $("#modalContainer").html(data);
-
-      // 외부 detail_menu 폴더에 있는 detail_menu.css 파일을 로드합니다.
-      const linkElement = document.createElement("link");
-      linkElement.rel = "stylesheet";
-      linkElement.type = "text/css";
-      linkElement.href = "../detail_menu/detail_menu.css"; // 이 부분의 파일 경로를 수정해야합니다.
-      document.head.appendChild(linkElement);
-
-      // 외부 detail_menu 폴더에 있는 detail_menu.js 파일을 로드합니다.
-      const scriptElement = document.createElement("script");
-      scriptElement.src = "../detail_menu/detail_menu.js"; // 이 부분의 파일 경로를 수정해야합니다.
-      document.body.appendChild(scriptElement);
-
-      const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
-      modal.show();
-    })
-    .catch(error => {
-      console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
-    });
+    // 먼저 모달 컨테이너를 비웁니다.
+    document.getElementById("modalContainer").innerHTML = "";
+  
+    // help_msg.css를 제거합니다.
+    const detailMenuLink = document.querySelector('link[href="../help_msg/help_msg.css"]');
+    if (detailMenuLink) {
+      detailMenuLink.remove();
+    }
+  
+    // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
+    fetch("../detail_menu/jojo.html") // 이 부분의 파일 경로를 수정해야합니다.
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("HTTP Error " + response.status);
+        }
+        return response.text();
+      })
+      .then(data => {
+        // 모달 컨테이너에 jojo.html 콘텐츠를 추가합니다.
+        $("#modalContainer").html(data);
+  
+        // 외부 detail_menu 폴더에 있는 detail_menu.css 파일을 로드합니다.
+        const linkElement = document.createElement("link");
+        linkElement.rel = "stylesheet";
+        linkElement.type = "text/css";
+        linkElement.href = "../detail_menu/detail_menu.css"; // 이 부분의 파일 경로를 수정해야합니다.
+        document.head.appendChild(linkElement);
+  
+        // 외부 detail_menu 폴더에 있는 detail_menu.js 파일을 로드합니다.
+        const scriptElement = document.createElement("script");
+        scriptElement.src = "../detail_menu/detail_menu.js"; // 이 부분의 파일 경로를 수정해야합니다.
+        document.body.appendChild(scriptElement);
+  
+        const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+        modal.show();
+      })
+      .catch(error => {
+        console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
+      });
+  });
 });
 
-
+//삭제 버튼
+const deleteBtn = document.querySelectorAll(".deleteBtn");
+deleteBtn.forEach(deleteBtn=>{
+  deleteBtn.addEventListener("click", function(){
+    // 먼저 모달 컨테이너를 비웁니다.
+    document.getElementById("modalContainer").innerHTML = "";
+  
+    // detail_menu.css를 제거합니다.
+    const detailMenuLink = document.querySelector('link[href="../detail_menu/detail_menu.css"]');
+    if (detailMenuLink) {
+      detailMenuLink.remove();
+    }
+  
+    // caution_msg.html 콘텐츠를 로드하여 모달 컨테이너에 추가합니다.
+    fetch("../messagebox/caution_msg.html")
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("HTTP Error " + response.status);
+        }
+        return response.text();
+      })
+      .then(data => {
+        // 모달 컨테이너에 caution_msg.html 콘텐츠를 추가합니다.
+        $("#modalContainer").html(data);
+  
+        // caution_msg.css 파일을 로드합니다.
+        const linkElement = document.createElement("link");
+        linkElement.rel = "stylesheet";
+        linkElement.type = "text/css";
+        linkElement.href = "../messagebox/caution_style.css";
+        document.head.appendChild(linkElement);
+  
+        const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+        modal.show();
+      })
+      .catch(error => {
+        console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
+      });
+  });
+});
