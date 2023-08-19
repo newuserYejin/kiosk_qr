@@ -86,14 +86,17 @@ html,body {
     height: 100%;
     overflow: hidden;
 }
-.help{
+.help {
     width: 100%;
     display: flex;
     justify-content: end;
 }
+
 .helpimg {
-    padding-top: 2%;
-    padding-right: 2%;
+    position: absolute;
+    width: 6%;
+    right: 1%;
+   
 }
 
 .first{
@@ -140,4 +143,27 @@ html,body {
     height: 8vh;
     margin-top: 4vh;
     margin-bottom: 8vh;
+}
+.back{
+
+    font-size: 3vw;
+    background-color: white;
+    height: 80%;
+    height: 8vh;
+    margin-top: 4vh;
+    margin-bottom: 8vh;
+    
+}
+
+@media screen and (min-width:1000px) {
+    .helpimg {
+        width: 3%;
+        height: 5%;
+        
+    }
+    .explain {
+        font-size: 4vw;
+        margin-top: 0;
+        text-align: center;
+    }
 }
