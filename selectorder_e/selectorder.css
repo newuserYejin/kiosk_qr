@@ -15,8 +15,10 @@ html,body{
     justify-content: end;
 }
 .helpimg {
-    padding-top: 2%;
-    padding-right: 2%;
+    position: absolute;
+    width: 6%;
+    right: 1%;
+    top: 1%;
 }
 
 .first{
@@ -67,4 +69,11 @@ html,body{
     border: solid 2px black;
     border-radius: 50%;
 }
-
+@media screen and (min-width:1000px) {
+    .helpimg {
+        width: 3%;
+        height: 5%;
+        
+    }
+    
+}

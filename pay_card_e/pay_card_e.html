@@ -68,7 +68,7 @@
                     </div>
                     <div class="gohome_">
                         <button type="button" class="back" onclick="back()">Previous screen</button>
-                        <button type="button" class="gohome" onclick="location.href='../selectorder_e/selectorder_e.html'">Return to order</button>
+                        <button type="button" class="gohome" onclick="gohome()">Return to order</button>
                     </div>
                 </div>
             </div>
@@ -132,7 +132,7 @@
             } else {
                 location.href = '../selectorder/selectorder.html';
             }
-            alert("The button has been clicked!")
+           
 
         }
         function openCheck() {
@@ -146,7 +146,6 @@
             location.href = '../selectorder/selectorder.html';
             }
 
-            alert("The button has been clicked!")
         }
         function openPay() {
             if (orderType === 'slow') {
@@ -159,7 +158,6 @@
             location.href = '../selectorder/selectorder.html';
             }
 
-            alert("The button has been clicked!")
         }
 
         function back(){
@@ -173,7 +171,6 @@
             location.href = '../selectorder/selectorder.html';
             }
 
-            alert("The button has been clicked!")
         }
         function gohome(){
             if (orderType === 'slow') {
@@ -185,7 +182,7 @@
             } else {
                 location.href = '../selectorder/selectorder.html';
             }
-            alert("The button has been clicked!")
+
         }
         </script>
         <script src="navbarmsg.js"></script>   

@@ -68,7 +68,7 @@
                     </div>
                     <div class="gohome_">
                         <button type="button" class="back" onclick="back()">Previous screen</button>
-                        <button type="button" class="gohome" onclick="location.href='../selectorder_e/selectorder_e.html'">Return to order</button>
+                        <button type="button" class="gohome" onclick="gohome()">Return to order</button>
                     </div>
                 </div>
             </div>
@@ -111,9 +111,6 @@
                 });
             });
 
-
-        </script>
-        <script>
             // URL에서 "order" 파라미터 값을 확인하여 다른 페이지로 이동
         const urlParams = new URLSearchParams(window.location.search);
         const orderType = urlParams.get('order');
@@ -128,7 +125,6 @@
             } else {
                 location.href = '../selectorder/selectorder.html';
             }
-            alert("The button has been clicked!")
 
         }
         function openCheck() {
@@ -142,7 +138,6 @@
             location.href = '../selectorder/selectorder.html';
             }
 
-            alert("The button has been clicked!")
         }
         function openPay() {
             if (orderType === 'slow') {
@@ -155,7 +150,6 @@
             location.href = '../selectorder/selectorder.html';
             }
 
-            alert("The button has been clicked!")
         }
 
         function back(){
@@ -169,7 +163,6 @@
             location.href = '../selectorder/selectorder.html';
             }
 
-            alert("The button has been clicked!")
         }
 
         function gohome(){
@@ -182,7 +175,7 @@
             } else {
                 location.href = '../selectorder/selectorder.html';
             }
-            alert("The button has been clicked!")
+            
         }
         </script>
         <script src="navbarmsg.js"></script>   

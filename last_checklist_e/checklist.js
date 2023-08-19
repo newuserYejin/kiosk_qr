@@ -7,7 +7,6 @@ var currentIndex = 0;
 button.addEventListener('click', function () {
   button.style.backgroundColor = colors[currentIndex];
   currentIndex = (currentIndex + 1) % colors.length;
-  alert("버튼이 클릭되었습니다!");
   window.location.href = '../detail_menu/jojo.html';
 });
 
@@ -45,7 +44,7 @@ document.getElementById('prvsScren').addEventListener('click', function () {
        } else {
            location.href = '../selectorder/selectorder.html';
        }
-       alert("The button has been clicked!")
+
 });
 
 // 처음으로
@@ -86,7 +85,7 @@ document.getElementById("nextScreen").addEventListener("click", function () {
        } else {
            location.href = '../selectorder/selectorder.html';
        }
-       alert("The button has been clicked!")
+       
 
    }
    function openCheck() {
@@ -100,7 +99,7 @@ document.getElementById("nextScreen").addEventListener("click", function () {
        location.href = '../selectorder/selectorder.html';
        }
 
-       alert("The button has been clicked!")
+  
    }
    function openPay() {
        if (orderType === 'slow') {
@@ -113,7 +112,7 @@ document.getElementById("nextScreen").addEventListener("click", function () {
        location.href = '../selectorder/selectorder.html';
        }
 
-       alert("The button has been clicked!")
+      
    }
 
   //도움말 버튼
