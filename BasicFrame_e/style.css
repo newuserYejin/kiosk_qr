@@ -94,7 +94,7 @@ html,body {
   font-weight: bold;
   text-align: center;
   height: 15%;
-  font-size: 2vw;
+  font-size: 2.2vw;
 }
 
 .select_list_list{
@@ -327,6 +327,7 @@ html,body {
 .view_button{
   width: 50%;
   font-size: 2.5vw;
+  font-weight: bold;
 }
 
 /* 검색 입력창*/

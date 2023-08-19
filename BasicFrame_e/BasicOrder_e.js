@@ -5,7 +5,6 @@ var currentIndex = 0;
 button.addEventListener('click', function () {
   button.style.backgroundColor = colors[currentIndex];
   currentIndex = (currentIndex + 1) % colors.length;
-  alert("버튼이 클릭되었습니다!");
   window.location.href = '../search/search.html';
 });
 
@@ -38,7 +37,6 @@ function openCheck() {
     location.href = '../selectorder/selectorder.html';
   }
   
-  alert("The button has been clicked!")
 }
 function openPay() {
   if (orderType === 'slow') {
@@ -51,7 +49,7 @@ function openPay() {
     location.href = '../selectorder/selectorder.html';
   }
   
-  alert("The button has been clicked!")
+  
 }
 
 //주문리스트 미리보기
@@ -108,40 +106,54 @@ joImage.addEventListener("click", function () {
 });
 
 
-const search = document.querySelectorAll('.search, .search_icon');
-search.forEach((divElement) => {
-  divElement.addEventListener('click', function() {
-    // 이벤트 처리 로직 작성
-    $.get("../search/search.html", function(data) {
-      // search.html 파일 내용을 DOM 객체로 만들어서 추출
-      const tempDiv = document.createElement('div');
-      tempDiv.innerHTML = data;
+document.getElementById("search_div").addEventListener('click', search);
 
-      // search.css 로드 및 적용
-      const styleElement = tempDiv.querySelector('style');
-      if (styleElement) {
-        const styleTag = document.createElement('style');
-        styleTag.src = "../search/search.css"
-        document.head.appendChild(styleTag);
+function search(){
+  document.getElementById("modalContainer").innerHTML = "";
+
+  // help_msg.css를 제거합니다.
+  const help_msg_Link = document.querySelector('link[href="../help_msg/help_msg.css"]');
+  if (help_msg_Link) {
+    help_msg_Link.remove();
+  }
+
+  // detail_menu.css를 제거합니다.
+  const detailMenuLink = document.querySelector('link[href="../detail_menu/detail_menu.css"]');
+  if (detailMenuLink) {
+    detailMenuLink.remove();
+  }
+
+  fetch("../search/search.html") // 이 부분의 파일 경로를 수정해야합니다.
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("HTTP Error " + response.status);
       }
+      return response.text();
+    })
+    .then(data => {
+      // 모달 컨테이너에 jojo.html 콘텐츠를 추가합니다.
+      $("#modalContainer").html(data);
 
-      // search.js 로드 및 실행
-      const scriptElement = tempDiv.querySelector('script');
-      if (scriptElement) {
-        const scriptTag = document.createElement('script');
-        scriptTag.src = "../search/search.js"; // search.js 파일의 경로
-        document.body.appendChild(scriptTag);
-      }
+      // 외부 detail_menu 폴더에 있는 detail_menu.css 파일을 로드합니다.
+      const linkElement = document.createElement("link");
+      linkElement.rel = "stylesheet";
+      linkElement.type = "text/css";
+      linkElement.href = "../search/search.css"; // 이 부분의 파일 경로를 수정해야합니다.
+      document.head.appendChild(linkElement);
 
-      // search.html의 내용을 modal에 적용
-      const modalContent = tempDiv.querySelector('#modalContent');
-      $("#modalContainer").html(modalContent.innerHTML);
+      // 외부 detail_menu 폴더에 있는 detail_menu.js 파일을 로드합니다.
+      const scriptElement = document.createElement("script");
+      scriptElement.src = "../search/search.js"; // 이 부분의 파일 경로를 수정해야합니다.
+      document.body.appendChild(scriptElement);
+      
 
       const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
       modal.show();
+    })
+    .catch(error => {
+      console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
     });
-  });
-});
+}
 
 
 
