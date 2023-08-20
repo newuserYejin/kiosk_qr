@@ -41,12 +41,12 @@
 
                 if (orderType === 'slow') {
                     // 천천히 주문하기 버튼을 클릭한 경우
-                    location.href = '../BigFrame/public/BigOrder.html?order=slow';
+                    location.href = 'http://localhost:3001/BigFrame/BigOrder.html?order=slow';
                 } else if (orderType === 'basic') {
                     // 기본 주문하기 버튼을 클릭한 경우
-                    location.href = '../BasicFrame/BasicOrder.html?order=basic';
+                    location.href = 'http://localhost:3001/BasicFrame/BasicOrder.html?order=basic';
                 } else {
-                    location.href = '../selectorder/selectorder.html';
+                    location.href = 'http://localhost:3001/selectorder/selectorder.html';
                 }
             }
         </script>
@@ -55,7 +55,7 @@
             const joImage = document.getElementById("imageLink");
 
             joImage.addEventListener("click", function () {
-                $.get("../help_msg/help_msg.html", function (data) {
+                $.get("http://localhost:3001/help_msg/help_msg.html", function (data) {
                     $("#modalContainer").html(data);
                     const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
                     modal.show();

@@ -27,9 +27,9 @@ function selectPage(){
   var order_info = URL.get('order');
 
   if(order_info == 'slow'){
-    window.location.href = "../BigFrame/BigOrder.html?order=slow"
+    window.location.href = "http://localhost:3001/BigFrame/BigOrder.html?order=slow"
   } else if(order_info == 'basic'){
-    window.location.href = "../BasicFrame/BasicOrder.html?order=basic"
+    window.location.href = "http://localhost:3001/BasicFrame/BasicOrder.html?order=basic"
   }
 }
 
@@ -38,9 +38,9 @@ function openPay(){
   var order_info = URL.get('order');
 
   if(order_info == 'slow'){
-    window.location.href = "../paymethod/paymethod.html?order=slow"
+    window.location.href = "http://localhost:3001/paymethod/paymethod.html?order=slow"
   } else if(order_info == 'basic'){
-    window.location.href = "../paymethod/paymethod.html?order=basic"
+    window.location.href = "http://localhost:3001/paymethod/paymethod.html?order=basic"
   }
 }
 
@@ -50,17 +50,17 @@ function prvsScren() {
 
   if (orderType == 'slow') {
     // 천천히 주문하기 버튼을 클릭한 경우
-    location.href = '../BigFrame/BigOrder.html?order=slow';
+    location.href = 'http://localhost:3001/BigFrame/BigOrder.html?order=slow';
   } else if (orderType == 'basic') {
     // 기본 주문하기 버튼을 클릭한 경우
-    location.href = '../BasicFrame/BasicOrder.html?order=basic';
+    location.href = 'http://localhost:3001/BasicFrame/BasicOrder.html?order=basic';
   }
 };
 
 // 처음으로
 function firstScreen(){
   // 새로운 페이지로 이동
-  window.location.href = "../selectorder/selectorder.html";
+  window.location.href = "http://localhost:3001/selectorder/selectorder.html";
 };
 
 // 다음
@@ -71,10 +71,10 @@ function nextScreen(){
 
   if (orderType == 'slow') {
     // 천천히 주문하기 버튼을 클릭한 경우
-    location.href = '../paymethod/paymethod.html?order=slow';
+    location.href = 'http://localhost:3001/paymethod/paymethod.html?order=slow';
   } else if (orderType == 'basic') {
     // 기본 주문하기 버튼을 클릭한 경우
-    location.href = '../paymethod/paymethod.html?order=basic';
+    location.href = 'http://localhost:3001/paymethod/paymethod.html?order=basic';
   }
 };
 
@@ -86,13 +86,13 @@ joImage.addEventListener("click", function () {
   document.getElementById("modalContainer").innerHTML = "";
 
   // detail_menu.css를 제거합니다.
-  const detailMenuLink = document.querySelector('link[href="../detail_menu/detail_menu.css"]');
+  const detailMenuLink = document.querySelector('link[href="http://localhost:3001/detail_menu/detail_menu.css"]');
   if (detailMenuLink) {
     detailMenuLink.remove();
   }
 
   // help_msg.html 콘텐츠를 로드하여 모달 컨테이너에 추가합니다.
-  fetch("../help_msg/help_msg.html")
+  fetch("http://localhost:3001/help_msg/help_msg.html")
     .then(response => {
       if (!response.ok) {
         throw new Error("HTTP Error " + response.status);
@@ -113,7 +113,7 @@ joImage.addEventListener("click", function () {
       const linkElement = document.createElement("link");
       linkElement.rel = "stylesheet";
       linkElement.type = "text/css";
-      linkElement.href = "../help_msg/help_msg.css";
+      linkElement.href = "http://localhost:3001/help_msg/help_msg.css";
       document.head.appendChild(linkElement);
 
       const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
@@ -139,7 +139,7 @@ function createOrderItem(order) {//주문 아이템 생성 함수
   orderItem.innerHTML = `
 <!-- ... (이미지 내용 관련 부분) ... -->
 <div class="box list_img_box">
-                      <img id="im" class="list_img_size" src="${order.imagePath}" alt="menu_image"/>
+                      <img id="im" class="list_img_size" src=".${order.imagePath}" alt="menu_image"/>
                   </div>
                   <!--여기까지-->
                   <div class="box list_content_info">
@@ -207,13 +207,13 @@ selectBtn.forEach(selectBtn=>{
     document.getElementById("modalContainer").innerHTML = "";
   
     // help_msg.css를 제거합니다.
-    const detailMenuLink = document.querySelector('link[href="../help_msg/help_msg.css"]');
+    const detailMenuLink = document.querySelector('link[href="http://localhost:3001/help_msg/help_msg.css"]');
     if (detailMenuLink) {
       detailMenuLink.remove();
     }
   
     // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
-    fetch("../detail_menu/jojo.html") // 이 부분의 파일 경로를 수정해야합니다.
+    fetch("http://localhost:3001/detail_menu/jojo.html") // 이 부분의 파일 경로를 수정해야합니다.
       .then(response => {
         if (!response.ok) {
           throw new Error("HTTP Error " + response.status);
@@ -228,12 +228,12 @@ selectBtn.forEach(selectBtn=>{
         const linkElement = document.createElement("link");
         linkElement.rel = "stylesheet";
         linkElement.type = "text/css";
-        linkElement.href = "../detail_menu/detail_menu.css"; // 이 부분의 파일 경로를 수정해야합니다.
+        linkElement.href = "http://localhost:3001/detail_menu/detail_menu.css"; // 이 부분의 파일 경로를 수정해야합니다.
         document.head.appendChild(linkElement);
   
         // 외부 detail_menu 폴더에 있는 detail_menu.js 파일을 로드합니다.
         const scriptElement = document.createElement("script");
-        scriptElement.src = "../detail_menu/detail_menu.js"; // 이 부분의 파일 경로를 수정해야합니다.
+        scriptElement.src = "http://localhost:3001/detail_menu/detail_menu.js"; // 이 부분의 파일 경로를 수정해야합니다.
         document.body.appendChild(scriptElement);
   
         const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
@@ -253,13 +253,13 @@ deleteBtn.forEach(deleteBtn=>{
     document.getElementById("modalContainer").innerHTML = "";
   
     // detail_menu.css를 제거합니다.
-    const detailMenuLink = document.querySelector('link[href="../detail_menu/detail_menu.css"]');
+    const detailMenuLink = document.querySelector('link[href="http://localhost:3001/detail_menu/detail_menu.css"]');
     if (detailMenuLink) {
       detailMenuLink.remove();
     }
   
     // caution_msg.html 콘텐츠를 로드하여 모달 컨테이너에 추가합니다.
-    fetch("../messagebox/caution_msg.html")
+    fetch("http://localhost:3001/messagebox/caution_msg.html")
       .then(response => {
         if (!response.ok) {
           throw new Error("HTTP Error " + response.status);
@@ -274,7 +274,7 @@ deleteBtn.forEach(deleteBtn=>{
         const linkElement = document.createElement("link");
         linkElement.rel = "stylesheet";
         linkElement.type = "text/css";
-        linkElement.href = "../messagebox/caution_style.css";
+        linkElement.href = "http://localhost:3001/messagebox/caution_style.css";
         document.head.appendChild(linkElement);
   
         const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
