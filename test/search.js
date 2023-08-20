@@ -42,34 +42,40 @@ function search() {
                 if (data.length === 0) {
                     resultContainer.innerHTML = '<p>검색 결과가 없습니다.</p>';
                 } else {
-                  data.forEach(item => {
-                    const div = document.createElement('div');
-                    div.className = 'box list_content_box';
-                    div.id = 'list_click';
-                    div.innerHTML = `
-                        <div class="box list_img_box">
-                            <img class="list_img_size" src="${item.Picture}">
-                        </div>
-                        <div class="box list_content_info">
-                            <div class=" container text-center">
-                                <div class="content_title">
-                                    <div class="menu_name">${item.Menu_Name}</div>
-                                    <div class="menu_cost">${item.Price}원</div>
+                    data.forEach(item => {
+                        const div = document.createElement('div');
+                        div.className = 'box list_content_box';
+                        div.id = 'list_click';
+                        div.innerHTML = `
+                            <div class="box list_img_box">
+                                <img class="list_img_size" src="${item.Picture}">
+                            </div>
+                            <div class="box list_content_info">
+                                <div class=" container text-center">
+                                    <div class="content_title">
+                                        <div class="menu_name">${item.Menu_Name}</div>
+                                        <div class="menu_cost">${item.Price}원</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    `;
-                    resultContainer.appendChild(div);
-                    console.log("Menu Name: ", item.Menu_Name);
-                    console.log("Menu Price: ", item.Price);
-                });
+                        `;
+                        resultContainer.appendChild(div);
+                        console.log("Menu Name: ", item.Menu_Name);
+                        console.log("Menu Price: ", item.Price);
+                    });
+                }
 
-            }
-
-            const searchResult = encodeURIComponent(JSON.stringify(data));
-        })
-        .catch(error => console.error('Error fetching data:', error));
+                // const searchResult = encodeURIComponent(JSON.stringify(data));
+                localStorage.setItem('mydata',JSON.stringify(data));
+            })
+            .catch(error => console.error('Error fetching data:', error));
     }
-
-
 }
+
+// Enter 키 입력 시 search 함수 호출
+document.getElementById('input_menu_name').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault(); // 기본 제출 동작 막기
+        search(); // 검색 함수 호출
+    }
+});

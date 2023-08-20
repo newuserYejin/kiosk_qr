@@ -408,9 +408,8 @@
                             </div>
                         </div>
                     </div>
-                    <button id="prevBtn">
-                        < </button>
-                            <button id="nextBtn"> > </button>
+                    <button id="prevBtn"> < </button>
+                    <button id="nextBtn"> > </button>
                 </div>
             </div>
 
@@ -422,6 +421,11 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const storeData = JSON.parse(localStorage.getItem('mydata'));
+        console.log(storeData);
+    </script>
 
     <script src="BasicOrder_test.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
