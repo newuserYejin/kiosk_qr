@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="gohome_">
-                <button type="button" class="gohome" onclick="location.href='../selectorder/selectorder.html'">Back to HOME</button>
+                <button type="button" class="gohome" onclick="location.href='http://localhost:3001/selectorder/selectorder.html'">Back to HOME</button>
             </div>
         </div>
     </div>
@@ -38,7 +38,7 @@
         const joImage = document.getElementById("imageLink");
 
         joImage.addEventListener("click", function () {
-            $.get("../help_msg/help_msg.html", function (data) {
+            $.get("http://localhost:3001/help_msg/help_msg.html", function (data) {
                 $("#modalContainer").html(data);
                 const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
                 modal.show();
@@ -49,7 +49,7 @@
     <script>
         
         function openClose() {
-            window.location.href = "../selectorder/selectorder.html"
+            window.location.href = "http://localhost:3001/selectorder/selectorder.html"
         }
     </script>
 

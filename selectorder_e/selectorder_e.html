@@ -20,12 +20,12 @@
         <div class="first">
             <div class="fir_box">
                 <div class="order">	
-                    <button type="button" class="sloworder" onclick="location.href='../selecteat_e/selecteat_e.html?order=slow'">Ordering slowly</button>
-                    <button type="button" class="basicorder" onclick="location.href='../selecteat_e/selecteat_e.html?order=basic'">Ordering basic</button>
+                    <button type="button" class="sloworder" onclick="location.href='http://localhost:3001/selecteat_e/selecteat_e.html?order=slow'">Ordering slowly</button>
+                    <button type="button" class="basicorder" onclick="location.href='http://localhost:3001/selecteat_e/selecteat_e.html?order=basic'">Ordering basic</button>
                 </div>
                 <div class="language">
-                    <img class="kor" src="./image/kor.png"onclick="location.href='../selectorder/selectorder.html'">
-                    <img class="usa" src="./image/usa.png" onclick="location.href='../selectorder_e/selectorder_e.html'">
+                    <img class="kor" src="./image/kor.png"onclick="location.href='http://localhost:3001/selectorder/selectorder.html'">
+                    <img class="usa" src="./image/usa.png" onclick="location.href='http://localhost:3001/selectorder_e/selectorder_e.html'">
                 </div> 
             </div>
         </div>
@@ -39,13 +39,13 @@
         document.getElementById("modalContainer").innerHTML = "";
 
         // detail_menu.css를 제거합니다.
-        const detailMenuLink = document.querySelector('link[href="../detail_menu/detail_menu.css"]');
+        const detailMenuLink = document.querySelector('link[href="http://localhost:3001/detail_menu/detail_menu.css"]');
         if (detailMenuLink) {
             detailMenuLink.remove();
         }
 
         // help_msg.html 콘텐츠를 로드하여 모달 컨테이너에 추가합니다.
-        fetch("../help_msg/help_msg.html")
+        fetch("http://localhost:3001/help_msg/help_msg.html")
             .then(response => {
             if (!response.ok) {
                 throw new Error("HTTP Error " + response.status);
@@ -60,7 +60,7 @@
             const linkElement = document.createElement("link");
             linkElement.rel = "stylesheet";
             linkElement.type = "text/css";
-            linkElement.href = "../help_msg/help_msg.css";
+            linkElement.href = "http://localhost:3001/help_msg/help_msg.css";
             document.head.appendChild(linkElement);
 
             const modal = new bootstrap.Modal(document.getElementById("exampleModal"));

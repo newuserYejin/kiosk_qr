@@ -6,13 +6,13 @@ joImage.addEventListener("click", function () {
     document.getElementById("modalContainer").innerHTML = "";
 
     // detail_menu.css를 제거합니다.
-    const detailMenuLink = document.querySelector('link[href="../detail_menu/detail_menu.css"]');
+    const detailMenuLink = document.querySelector('link[href="http://localhost:3001/detail_menu/detail_menu.css"]');
     if (detailMenuLink) {
         detailMenuLink.remove();
     }
 
     // help_msg.html 콘텐츠를 로드하여 모달 컨테이너에 추가합니다.
-    fetch("../help_msg/help_msg.html")
+    fetch("http://localhost:3001/help_msg/help_msg.html")
         .then(response => {
             if (!response.ok) {
                 throw new Error("HTTP Error " + response.status);
@@ -27,7 +27,7 @@ joImage.addEventListener("click", function () {
             const linkElement = document.createElement("link");
             linkElement.rel = "stylesheet";
             linkElement.type = "text/css";
-            linkElement.href = "../help_msg/help_msg.css";
+            linkElement.href = "http://localhost:3001/help_msg/help_msg.css";
             document.head.appendChild(linkElement);
 
             const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
@@ -45,12 +45,12 @@ function openSelect() {
 
     if (orderType === 'slow') {
         // 천천히 주문하기 버튼을 클릭한 경우
-        location.href = '../BigFrame/BigOrder.html?order=slow';
+        location.href = 'http://localhost:3001/BigFrame/BigOrder.html?order=slow';
     } else if (orderType === 'basic') {
         // 기본 주문하기 버튼을 클릭한 경우
-        location.href = '../BasicFrame/BasicOrder.html?order=basic';
+        location.href = 'http://localhost:3001/BasicFrame/BasicOrder.html?order=basic';
     } else {
-        location.href = '../selectorder/selectorder.html';
+        location.href = 'http://localhost:3001/selectorder/selectorder.html';
     }
 
 
@@ -58,24 +58,24 @@ function openSelect() {
 function openCheck() {
     if (orderType === 'slow') {
         // 천천히 주문하기 버튼을 클릭한 경우
-        location.href = '../last_checklist/checklist.html?order=slow';
+        location.href = 'http://localhost:3001/last_checklist/checklist.html?order=slow';
     } else if (orderType === 'basic') {
         // 기본 주문하기 버튼을 클릭한 경우
-        location.href = '../last_checklist/checklist.html?order=basic';
+        location.href = 'http://localhost:3001/last_checklist/checklist.html?order=basic';
     } else {
-        location.href = '../selectorder/selectorder.html';
+        location.href = 'http://localhost:3001/selectorder/selectorder.html';
     }
 
 }
 function openPay() {
     if (orderType === 'slow') {
         // 천천히 주문하기 버튼을 클릭한 경우
-        location.href = '../paymethod/paymethod.html?order=slow';
+        location.href = 'http://localhost:3001/paymethod/paymethod.html?order=slow';
     } else if (orderType === 'basic') {
         // 기본 주문하기 버튼을 클릭한 경우
-        location.href = '../paymethod/paymethod.html?order=basic';
+        location.href = 'http://localhost:3001/paymethod/paymethod.html?order=basic';
     } else {
-        location.href = '../selectorder/selectorder.html';
+        location.href = 'http://localhost:3001/selectorder/selectorder.html';
     }
 
 }
@@ -83,24 +83,24 @@ function openPay() {
 function back() {
     if (orderType === 'slow') {
         // 천천히 주문하기 버튼을 클릭한 경우
-        location.href = '../paymethod/paymethod.html?order=slow';
+        location.href = 'http://localhost:3001/paymethod/paymethod.html?order=slow';
     } else if (orderType === 'basic') {
         // 기본 주문하기 버튼을 클릭한 경우
-        location.href = '../paymethod/paymethod.html?order=basic';
+        location.href = 'http://localhost:3001/paymethod/paymethod.html?order=basic';
     } else {
-        location.href = '../selectorder/selectorder.html';
+        location.href = 'http://localhost:3001/selectorder/selectorder.html';
     }
 
 }
 function gohome() {
     if (orderType === 'slow') {
         // 천천히 주문하기 버튼을 클릭한 경우
-        location.href = '../BigFrame/BigOrder.html?order=slow';
+        location.href = 'http://localhost:3001/BigFrame/BigOrder.html?order=slow';
     } else if (orderType === 'basic') {
         // 기본 주문하기 버튼을 클릭한 경우
-        location.href = '../BasicFrame/BasicOrder.html?order=basic';
+        location.href = 'http://localhost:3001/BasicFrame/BasicOrder.html?order=basic';
     } else {
-        location.href = '../selectorder/selectorder.html';
+        location.href = 'http://localhost:3001/selectorder/selectorder.html';
     }
 
 }

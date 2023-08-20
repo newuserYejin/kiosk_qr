@@ -74,9 +74,9 @@
                 var order_info = URL.get('order');
 
                 if (order_info == 'slow') {
-                    window.location.href = "../BigFrame/BigOrder.html?order=slow"
+                    window.location.href = "http://localhost:3001/BigFrame/BigOrder.html?order=slow"
                 } else if (order_info == 'basic') {
-                    window.location.href = "../BasicFrame/BasicOrder.html?order=basic"
+                    window.location.href = "http://localhost:3001/BasicFrame/BasicOrder.html?order=basic"
                 }
             }
 
@@ -85,9 +85,9 @@
                 var order_info = URL.get('order');
 
                 if (order_info == 'slow') {
-                    window.location.href = "../pay_card/pay_card.html?order=slow"
+                    window.location.href = "http://localhost:3001/pay_card/pay_card.html?order=slow"
                 } else if (order_info == 'basic') {
-                    window.location.href = "../pay_card/pay_card.html?order=basic"
+                    window.location.href = "http://localhost:3001/pay_card/pay_card.html?order=basic"
                 }
             }
 
@@ -96,14 +96,14 @@
                 var order_info = URL.get('order');
 
                 if (order_info == 'slow') {
-                    window.location.href = "../pay_coupon/pay_coupon.html?order=slow"
+                    window.location.href = "http://localhost:3001/pay_coupon/pay_coupon.html?order=slow"
                 } else if (order_info == 'basic') {
-                    window.location.href = "../pay_coupon/pay_coupon.html?order=basic"
+                    window.location.href = "http://localhost:3001/pay_coupon/pay_coupon.html?order=basic"
                 }
             }
 
             function openHelp() {
-                $.get("../help_msg/help_msg.html", function (data) {
+                $.get("http://localhost:3001/help_msg/help_msg.html", function (data) {
                     $("#modalContainer").html(data);
                     const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
                     modal.show();
@@ -115,9 +115,9 @@
                 var order_info = URL.get('order');
 
                 if (order_info == 'slow') {
-                    window.location.href = "../BigFrame/BigOrder.html?order=slow"
+                    window.location.href = "http://localhost:3001/BigFrame/BigOrder.html?order=slow"
                 } else if (order_info == 'basic') {
-                    window.location.href = "../BasicFrame/BasicOrder.html?order=basic"
+                    window.location.href = "http://localhost:3001/BasicFrame/BasicOrder.html?order=basic"
                 }
             }
             function openCheck() {
@@ -125,9 +125,9 @@
                 var order_info = URL.get('order');
 
                 if (order_info == 'slow') {
-                    window.location.href = "../last_checklist/checklist.html?order=slow"
+                    window.location.href = "http://localhost:3001/last_checklist/checklist.html?order=slow"
                 } else if (order_info == 'basic') {
-                    window.location.href = "../last_checklist/checklist.html?order=basic"
+                    window.location.href = "http://localhost:3001/last_checklist/checklist.html?order=basic"
                 }
             }
             function openPay() {

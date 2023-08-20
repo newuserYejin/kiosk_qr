@@ -17,9 +17,9 @@
         <div class="first">
             <div class="fir_box">
                 <div class="order">
-                    <button type="button" class="sloworder" onclick="location.href='../selecteat/selecteat.html?order=slow'">천천히
+                    <button type="button" class="sloworder" onclick="location.href='http://localhost:3001/selecteat/selecteat.html?order=slow'">천천히
                         주문하기</button>
-                    <button type="button" class="basicorder" onclick="location.href='../selecteat/selecteat.html?order=basic'">기본
+                    <button type="button" class="basicorder" onclick="location.href='http://localhost:3001/selecteat/selecteat.html?order=basic'">기본
                         주문하기</button>
                 </div>
                 <div class="language">
@@ -41,7 +41,7 @@
         const joImage = document.getElementById("imageLink");
 
         joImage.addEventListener("click", function () {
-            $.get("../help_msg/help_msg.html", function (data) {
+            $.get("http://localhost:3001/help_msg/help_msg.html", function (data) {
                 $("#modalContainer").html(data);
                 const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
                 modal.show();
@@ -49,7 +49,7 @@
         });
 
         function lang_ch(){
-            window.location.href = '../selectorder_e/selectorder_e.html';
+            window.location.href = 'http://localhost:3001/selectorder_e/selectorder_e.html';
         }
 
     </script>
