@@ -68,7 +68,7 @@ function search() {
                 // const searchResult = encodeURIComponent(JSON.stringify(data));
                 localStorage.setItem('mydata',JSON.stringify(data));
             })
-            .catch(error => console.error('Error fetching data:', error));
+            //.catch(error => console.error('Error fetching data:', error));
     }
 }
 

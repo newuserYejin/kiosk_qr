@@ -13,6 +13,7 @@ app.use(express.static(__dirname + '/', {
   }
 }));
 app.use(cors());
+app.use(express.json());
 
 // MySQL 연결 설정
 const connection = mysql.createConnection({
@@ -235,3 +236,24 @@ app.get('/detail_menu.js', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+app.get('/search', (req, res) => {
+  const keyword = req.query.keyword;
+
+  const sql = `select * from img inner join tb_menu
+  on img.img_num = tb_menu.Menu_Num
+  where tb_menu.Menu_Name LIKE '%${keyword}%'`;
+
+  connection.query(sql, (err, results) => {
+      if (err) {
+          console.error('Error executing the query:', err);
+          res.status(500).json({ error: 'Internal server error' });
+      } else {
+          res.json(results);
+      }
+
+      //res.setHeader('Content-Type', 'application/javascript');
+      res.sendFile(__dirname + '/search.js');
+  });
+});
+
