@@ -232,11 +232,6 @@ app.get('/detail_menu.js', (req, res) => {
   res.sendFile(__dirname + '/detail_menu.js');
 });
 
-// 서버 시작
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
-
 app.get('/search', (req, res) => {
   const keyword = req.query.keyword;
 
@@ -253,7 +248,10 @@ app.get('/search', (req, res) => {
       }
 
       //res.setHeader('Content-Type', 'application/javascript');
-      res.sendFile(__dirname + '/search.js');
+      res.sendFile(__dirname + '/search/search.js');
   });
 });
 
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});

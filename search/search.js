@@ -58,13 +58,14 @@ function search() {
                             </div>
                         `;
                         resultContainer.appendChild(div);
-                        console.log("Menu Name: ", item.Menu_Name);
-                        console.log("Menu Price: ", item.Price);
+                        //console.log("Menu Name: ", item.Menu_Name);
+                        //console.log("Menu Price: ", item.Price);
                     });
                 }
 
                 // const searchResult = encodeURIComponent(JSON.stringify(data));
                 localStorage.setItem('mydata',JSON.stringify(data));
+                //console.log(data);
             })
             .catch(error => console.error('Error fetching data:', error));
     }
@@ -75,5 +76,11 @@ document.getElementById('input_menu_name').addEventListener('keypress', function
     if (event.key === 'Enter') {
         event.preventDefault(); // 기본 제출 동작 막기
         search(); // 검색 함수 호출
+        location.reload(); //페이지 새로고침
     }
 });
+
+document.getElementById("search_icon").addEventListener("click", function(){
+    search();
+    location.reload();
+})
