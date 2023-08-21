@@ -25,7 +25,9 @@ app.use(cors());
 app.get('/search', (req, res) => {
     const keyword = req.query.keyword;
 
-    const sql = `SELECT * FROM tb_menu_e WHERE Menu_Name LIKE '%${keyword}%'`;
+    const sql = `select * from img inner join tb_menu_e
+    on img.img_num = tb_menu.Menu_Num
+    where tb_menu.Menu_Name LIKE '%${keyword}%'`;
 
     connection.query(sql, (err, results) => {
         if (err) {
