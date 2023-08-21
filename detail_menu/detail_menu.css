@@ -2,6 +2,22 @@
     margin-bottom: 10px;
 }
 
+#modalContainer .modal-header{
+    height: 6%;
+}
+
+#modalContainer .modal-footer{
+    height: 6%;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    border-top: 2px solid black;
+}
+
+#modalContainer .modal-body{
+    height: auto;
+}
+
 #modalContainer .help {
     position: absolute;
     width: 7%;
@@ -9,6 +25,7 @@
 
 #modalContainer .menu_img_box {
     width: 38vw;
+    height: 35vw;
     height: var(width);
     padding: 10px;
     border: solid 2px black;
@@ -17,11 +34,19 @@
 }
 
 #modalContainer .menu_img_size {
-    width: 70%;
+    width: 80%;
+}
+
+#modalContainer .menu_explain_detail{
+    height: auto;
+    overflow: hidden;
+    overflow-y: visible;
 }
 
 #modalContainer .menu_explain {
-    height: 100%;
+    width: 38vw;
+    height: auto;
+    min-height: 35vw;
     border: solid 2px black;
     display: flex;
     align-items: center;
@@ -41,12 +66,13 @@
 #modalContainer .menu_explain_content {
     margin: 1vw;
     font-weight: bold;
-    font-size: 3vw;
+    font-size: 2.5vw;
 }
 
 #modalContainer .menu_title {
-    font-size: 4vw;
+    font-size: 3.5vw;
     margin-top: 0;
+    margin-bottom: 0;
 }
 
 #modalContainer .menu_cost{
@@ -69,18 +95,28 @@
 #modalContainer .modal-dialog {
     min-width: 90%;
     min-height: 90%;
+    width: 90%;
+    height: 95%;
 }
 
 #modalContainer .modal-content {
-    height: 95vh;
+    height: 100%;
     overflow: hidden;
     overflow-y: visible;
+}
+
+#modalContainer .all_modal{
+    height: 100%;
+}
+
+#modalContainer .op_box{
+    height: 50%;
 }
 
 /*옵션*/
 #modalContainer .option_box {
     border: 2px solid black;
-    height: 40vh;
+    height: 100%;
     padding: 2vw;
     overflow: hidden;
     overflow-y: visible;
@@ -109,7 +145,6 @@
 
 #modalContainer .option_name {
     margin: 0;
-    margin-bottom: 20px;
     font-weight: bold;
     font-size: 3vh;
 }
@@ -118,8 +153,6 @@
     display: flex;
     flex-direction: row;
     justify-content: start;
-    text-align: center;
-    text-align: left;
 }
 
 #modalContainer .list-group-item {
@@ -140,7 +173,7 @@
 }
 
 #modalContainer .form-check-label {
-    font-size: 2.5vh;
+    font-size: 3vw;
     font-weight: bold;
     margin-left: 10px;
 }
@@ -211,3 +244,61 @@
     font-weight: bold;
     font-size: 3vw;
 }
+
+#modalContainer .modal-footer button{
+    height: 90%;
+    margin-top: 3px;
+}
+
+/*알레르기*/
+#modalContainer .r_box{
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    min-height: auto;
+    overflow: visible;
+    border: none;
+}
+
+#modalContainer .r_box *{
+    margin: 0;
+}
+
+#modalContainer .r_name{
+    font-size: 3vw;
+    width: 28vw;
+}
+
+#modalContainer .allegy_list{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#modalContainer .allegy_list li{
+    margin-right: 30px;
+}
+
+#modalContainer .check{
+    overflow: hidden;
+    overflow-x: visible;
+    height: 150px;
+}
+
+#modalContainer .chek_ul{
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 두 개의 열로 나눔 */
+}
+
+#modalContainer .chek_ul li .form-check-label{
+    font-size: 2.5vw;
+    width: auto;
+}
+
+/* .chek_ul li .form-check-input{
+    border: solid 2px black;
+    width: 20px;
+    height: 20px;
+} */
