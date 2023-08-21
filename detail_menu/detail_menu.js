@@ -86,8 +86,8 @@ optionContainers.forEach((container, index) => {
       .filter(option => option.op_name === "뜨거움" || option.op_name === "차가움")
       .map(option => {
         const checkedAttribute = option.op_name === "뜨거움" ? "checked" : "";
-        return `<li class="list-group-item"><input class="form-check-input me-1" type="radio" name="temperature" value="${option.op_name}" ${checkedAttribute}>
-        <label class="form-check-label" for="firstRadio">${option.op_name} (+${option.op_price}원)</label></li>`;
+        return `<li class="list-group-item"><input class="form-check-input me-1" type="radio" name="temperature"  id="${option.op_name}" value="${option.op_name}" ${checkedAttribute}>
+        <label class="form-check-label" for="${option.op_name}">${option.op_name} (+${option.op_price}원)</label></li>`;
       })
       .join("");
   } else if (index === 1) {
@@ -95,8 +95,8 @@ optionContainers.forEach((container, index) => {
       .filter(option => option.op_name === "기본 크기" || option.op_name === "큰 크기")
       .map(option => {
         const checkedAttribute = option.op_name === "기본 크기" ? "checked" : "";
-        return `<li class="list-group-item"><input class="form-check-input me-1" type="radio" name="size" value="${option.op_name}" ${checkedAttribute}>
-        <label class="form-check-label" for="firstRadio">${option.op_name} (+${option.op_price}원)</label></li>`;
+        return `<li class="list-group-item"><input class="form-check-input me-1" type="radio" name="size"  id="${option.op_name}" value="${option.op_name}" ${checkedAttribute}>
+        <label class="form-check-label" for="${option.op_name}">${option.op_name} (+${option.op_price}원)</label></li>`;
       })
       .join("");
   } else if (index === 2) {
@@ -108,8 +108,8 @@ optionContainers.forEach((container, index) => {
     optionList.innerHTML = checkboxOptions
       .map(option => {
         currentSet++;
-        return `<li class="list-group-item chch"><input class="form-check-input me-1" type="checkbox" name="option_set_${currentSet}" value="${option.op_name}">
-        <label class="form-check-label">${option.op_name} (+${option.op_price}원)</label></li>`;
+        return `<li class="list-group-item chch"><input class="form-check-input me-1" type="checkbox" id="${option.op_name}" name="option_set_${currentSet}" value="${option.op_name}">
+        <label class="form-check-label" for="${option.op_name}">${option.op_name} (+${option.op_price}원)</label></li>`;
       })
       .join("");
   } else if (index === 3) {
@@ -121,8 +121,8 @@ optionContainers.forEach((container, index) => {
     optionList.innerHTML = checkboxOptions
       .map(option => {
         currentSet++;
-        return `<li class="list-group-item chch"><input class="form-check-input me-1" type="checkbox" name="option_set_${currentSet}" value="${option.op_name}">
-        <label class="form-check-label">${option.op_name} (+${option.op_price}원)</label></li>`;
+        return `<li class="list-group-item chch"><input class="form-check-input me-1" type="checkbox" id="${option.op_name}" name="option_set_${currentSet}" value="${option.op_name}">
+        <label class="form-check-label" for="${option.op_name}">${option.op_name} (+${option.op_price}원)</label></li>`;
       })
       .join("");
   }
