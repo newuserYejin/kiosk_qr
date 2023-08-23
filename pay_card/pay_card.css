@@ -24,7 +24,7 @@ html,body {
     padding: 2vw;
 }
 
-.navigation_all_box{
+.navigation_all_box {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -58,27 +58,28 @@ html,body {
     width: 100%;
     justify-content: space-around;
     align-items: center;
+    cursor: pointer;
+}
 
-    .level_name {
-        padding: 1vh;
-        font-weight: bold;
-    }
+.level_name {
+    padding: 1vh;
+    font-weight: bold;
+}
 
-    .circle {
-        width: 2rem;
-        height: 2rem;
-        border: solid 3px black;
-        border-radius: 50%;
-        background-color: pink;
-        margin-right: 5px;
-    }
+.circle {
+    width: 2rem;
+    height: 2rem;
+    border: solid 3px black;
+    border-radius: 50%;
+    background-color: pink;
+    margin-right: 5px;
+}
 
-    .circle_name {
-        text-align: center;
-        margin: 0;
-        font-size: 3vw;
-        font-weight: bold;
-    }
+.circle_name {
+    text-align: center;
+    margin: 0;
+    font-size: 3vw;
+    font-weight: bold;
 }
 
 .selectpay {
@@ -86,25 +87,29 @@ html,body {
     height: 100%;
     overflow: hidden;
 }
-.help{
+
+.help {
     width: 100%;
     display: flex;
     justify-content: end;
 }
+
 .helpimg {
-    position: absolute;
-    width: 6%;
-    right: 1%;
+    padding-top: 2%;
+    padding-right: 2%;
+    width: 8%;
+    height: 8%;
 }
 
-.first{
+.first {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.fir_box{
+
+.fir_box {
     height: 100%;
     width: 100%;
     display: flex;
@@ -134,42 +139,50 @@ html,body {
     height: 40vh;
 }
 
-.under_buttons{
+.under_buttons {
     width: 60vw;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .gohome {
     font-size: 3vw;
     background-color: white;
-    height: 80%;
     height: 8vh;
     margin-top: 4vh;
     margin-bottom: 8vh;
-    padding: 0 20px;
+    font-weight: bold;
+    border: solid 2.5px black;
+    width: 38vw;
+    text-align: center;
+    padding: 0 10px;
 }
-.back{
-    padding: 0 20px;
+
+.back {
+    padding: 0 10px;
     font-size: 3vw;
+    font-weight: bold;
     background-color: white;
-    height: 80%;
     height: 8vh;
     margin-top: 4vh;
     margin-bottom: 8vh;
+    border: solid 2.5px black;
+    width: 20vw;
+    text-align: center;
 }
 
 @media screen and (min-width:1000px) {
     .helpimg {
         width: 3%;
         height: 5%;
-        
+
     }
+
     .explain {
         font-size: 4vw;
         margin-top: 0;
         text-align: center;
     }
-    
+
 }

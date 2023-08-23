@@ -30,6 +30,7 @@ body {
 
 .navigation_all_box {
   height: 75%;
+  padding: 0 2.5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -285,7 +286,7 @@ body {
   border-radius: 20px;
   border: solid 2px black;
   font-weight: bold;
-  font-size: 2vw;
+  font-size: 3vw;
 }
 
 .fix_button_detail:hover {
@@ -340,14 +341,17 @@ body {
 }
 
 /* 검색 입력창*/
-input[type="search"] {
-  padding: 1vw;
+.search_div{
+  width: 50%;
+}
+
+.search{
+  width: 80%;
 }
 
 .search_icon {
   height: 5vw;
 }
-
 
 
 /*슬라이드 창*/

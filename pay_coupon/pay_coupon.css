@@ -146,20 +146,27 @@ html,body {
 .gohome {
     font-size: 3vw;
     background-color: white;
-    height: 80%;
     height: 8vh;
     margin-top: 4vh;
     margin-bottom: 8vh;
-    padding: 0 20px;
+    font-weight: bold;
+    border: solid 2.5px black;
+    width: 38vw;
+    text-align: center;
+    padding: 0 10px;
 }
-.back{
-    padding: 0 20px;
+
+.back {
+    padding: 0 10px;
     font-size: 3vw;
+    font-weight: bold;
     background-color: white;
-    height: 80%;
     height: 8vh;
     margin-top: 4vh;
     margin-bottom: 8vh;
+    border: solid 2.5px black;
+    width: 20vw;
+    text-align: center;
 }
 
 @media screen and (min-width:1000px) {

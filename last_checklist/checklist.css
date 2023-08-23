@@ -136,7 +136,7 @@ body {
 
 .list_box {
     padding: 1vw;
-    height: 70%;
+    height: 64.3%;
     overflow: hidden;
     overflow-y: visible;
 }
@@ -289,13 +289,13 @@ body {
 
 /*최종 금액*/
 .total_cost_box {
-    height: 7%;
+    height: 10%;
     border-top: none;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    font-size: 3vw;
+    font-size: 4vw;
 }
 
 .total_cost {
@@ -304,7 +304,7 @@ body {
 
 /*하단 고정 버튼*/
 .fix_button {
-    height: 9%;
+    height: 12.3%;
     width: 100%;
     display: flex;
     justify-content: space-around;

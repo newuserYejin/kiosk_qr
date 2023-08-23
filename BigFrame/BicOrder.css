@@ -30,6 +30,7 @@ body {
 
 .navigation_all_box {
   height: 75%;
+  padding: 0 2.5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -170,14 +171,14 @@ body {
 
 .help {
   position: absolute;
-  top: 1%;
-  right: 1%;
   width: 5%;
+  right: 1%;
+  top: 1%;
 }
 
 .list_box {
   padding: 1vw;
-  height: 75%;
+  height: 70%;
   overflow: hidden;
   overflow-y: visible;
 }
@@ -284,12 +285,12 @@ body {
 
 .fix_button_detail {
   width: 20vw;
-  height: 80%;
+  height: 90%;
   background-color: white;
   border-radius: 20px;
   border: solid 2px black;
   font-weight: bold;
-  font-size: 2vw;
+  font-size: 3vw;
 }
 
 .fix_button_detail:hover {
@@ -390,7 +391,7 @@ body {
 @media screen and (min-width: 600px) {
 
   .list_box {
-    height: 75%;
+    height: 70%;
   }
   .menu_name {
     font-size: 3vw;
