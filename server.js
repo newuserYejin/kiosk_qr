@@ -248,7 +248,7 @@ app.get('/search', (req, res) => {
       }
 
       //res.setHeader('Content-Type', 'application/javascript');
-      res.sendFile(__dirname + '/search/search.js');
+      // res.sendFile(__dirname + '/search/search.js');
   });
 });
 
