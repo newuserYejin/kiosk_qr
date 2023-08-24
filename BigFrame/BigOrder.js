@@ -389,7 +389,7 @@ window.onload = searchFunction;
 
 function searchFunction() {
   //bigOrder.html에 불러오는 코드 작성
-  console.log("검색된 결과값", storeData);
+  console.log("검색된 결과값:", storeData);
 
   const resultContainer = document.getElementById('resultContainer');
   resultContainer.innerHTML = ''; //이전 결과 초기화
