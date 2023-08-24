@@ -1,8 +1,4 @@
-// 페이지 로딩 후 모달 창을 자동으로 표시합니다.
-// document.addEventListener("DOMContentLoaded", function () {
-//   const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
-//   modal.show();
-// })
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const incrementButtons = document.querySelectorAll(".input-group #increment");

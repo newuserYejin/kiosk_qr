@@ -226,6 +226,19 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuList = document.querySelector(".list_box"); // 변경: .list_content_box -> .list_box
   const categoryLinks = document.querySelectorAll(".categories a");
 
+  // 페이지 로드 시 기본 카테고리를 설정--start
+  const defaultCategory = "1";
+
+  // 페이지 로드 시 해당 카테고리의 메뉴 데이터 가져와서 출력
+  fetch(`/menu?category=${defaultCategory}`)
+    .then(response => response.json())
+    .then(menuData => {
+      // 메뉴 목록을 초기화하고 새로운 데이터로 갱신합니다.
+      menuList.innerHTML = ''; // 변경: 내용을 지우도록 수정
+      handleMenuData(menuData);
+    });
+  //페이지 로드시 기본 카테고리 설정--end
+
   // 카테고리 링크에 클릭 이벤트 추가
   categoryLinks.forEach(link => {
     link.addEventListener("click", (event) => {
@@ -261,7 +274,8 @@ function handleMenuData(menuData) {
                             <div>${menu.menu_explan}</div>
                         </div>
                         <div class="list_buttons">
-                            <button class="selectBtn" id="selectBtn">선택</button>
+                            <button class="selectBtn" id="selectBtn" data-menunum="${menu.menu_num}">선택</button>
+                            <!--menu_num전달을 위한 data-menunu추가-->
                         </div>
                     </div>
                 </div>
@@ -275,7 +289,10 @@ function handleMenuData(menuData) {
   // 선택 버튼(메뉴 선택)
   const selectBtn = document.querySelectorAll(".selectBtn");
   selectBtn.forEach(selectBtn => {
-    selectBtn.addEventListener("click", function () {
+    selectBtn.addEventListener("click", function (event) {
+      console.log("버튼 눌림");
+      const menuNum = event.target.dataset.menunum;//08.24 menu_num을 가져오기 위한
+      console.log("주문번호:", menuNum);//08.24 menu_num을 가져오기 위한
       // 먼저 모달 컨테이너를 비웁니다.
       document.getElementById("modalContainer").innerHTML = "";
 
@@ -286,7 +303,7 @@ function handleMenuData(menuData) {
       }
 
       // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
-      fetch("http://localhost:3001/detail_menu/jojo.html") // 이 부분의 파일 경로를 수정해야합니다.
+      fetch("http://localhost:3001/detail_menu/jojo.html?menuId=${menuNum}") // 이 부분의 파일 경로를 수정해야합니다.
         .then(response => {
           if (!response.ok) {
             throw new Error("HTTP Error " + response.status);
