@@ -104,3 +104,17 @@ function gohome() {
     }
 
 }
+
+function showMessageAndRedirect() {
+    setTimeout(function() {
+        alert("3초 후에 페이지가 이동됩니다.");
+    
+        // 알림 메시지가 나타난 후 3초 뒤에 페이지를 
+        setTimeout(function() {
+          window.location.href = "http://localhost:3001/ordernum/ordernum.html?order=basic";
+        }, 3000); 
+      }, 2000); 
+    }
+    
+// 페이지 로드 시 함수 호출
+window.onload = showMessageAndRedirect;

@@ -179,5 +179,21 @@
         }
         </script>
         <script src="navbarmsg.js"></script>   
+
+        <script>
+            function showMessageAndRedirect() {
+                setTimeout(function() {
+                    alert("The page will be moved after 3 seconds.");
+                
+                    // 알림 메시지가 나타난 후 3초 뒤에 페이지를 
+                    setTimeout(function() {
+                      window.location.href = "http://localhost:3001/ordernum_e/ordernum_e.html?order=basic";
+                    }, 3000); 
+                  }, 2000); 
+                }
+                
+            // 페이지 로드 시 함수 호출
+            window.onload = showMessageAndRedirect;
+        </script>
 </body>
 </html>
