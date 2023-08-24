@@ -231,17 +231,27 @@ radioButtons.forEach(button => {
   button.addEventListener('click', () => {
     // 선택된 라디오 버튼의 값에 따라 페이지 이동
     if (button.checked) {
+      const urlParams = new URLSearchParams(window.location.search);
+      const currentOrder = urlParams.get('order');
+      
       switch (button.value) {
-        case 'basic':
-          window.location.href = 'http://localhost:3001/BasicFrame/BasicOrder.html?order=basic';
-          break;
         case 'big':
-          window.location.href = 'http://localhost:3001/BigFrame/BigOrder.html?order=basic';
+          if (currentOrder === 'slow') {
+            window.location.href = 'http://localhost:3001/BigFrame/BigOrder.html?order=slow';
+          } else if (currentOrder === 'basic') {
+            window.location.href = 'http://localhost:3001/BigFrame/BigOrder.html?order=basic';
+          }
+          break;
+        case 'basic':
+          if (currentOrder === 'slow') {
+            window.location.href = 'http://localhost:3001/BasicFrame/BasicOrder.html?order=slow';
+          } else if (currentOrder === 'basic') {
+            window.location.href = 'http://localhost:3001/BasicFrame/BasicOrder.html?order=basic';
+          }
           break;
         default:
           break;
       }
     }
   });
-}); 
-
+});
