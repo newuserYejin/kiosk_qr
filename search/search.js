@@ -19,7 +19,12 @@ $(document).ready(function() {
   
   function onKeyPress(button) {
     console.log("Button pressed", button);
-  }
+
+    if (button === "{enter}") {
+        search(); // 검색 함수 호출
+        location.reload();
+    }
+}
   
 });
 
@@ -71,14 +76,14 @@ function search() {
     }
 }
 
-// Enter 키 입력 시 search 함수 호출
-document.getElementById('input_menu_name').addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
-        event.preventDefault(); // 기본 제출 동작 막기
-        search(); // 검색 함수 호출
-        location.reload(); //페이지 새로고침
-    }
-});
+// // Enter 키 입력 시 search 함수 호출
+// document.getElementById('input_menu_name').addEventListener('keypress', function(event) {
+//     if (event.key === 'Enter') {
+//         event.preventDefault(); // 기본 제출 동작 막기
+//         search(); // 검색 함수 호출
+//         location.reload(); //페이지 새로고침
+//     }
+// });
 
 document.getElementById("search_icon").addEventListener("click", function(){
     search();

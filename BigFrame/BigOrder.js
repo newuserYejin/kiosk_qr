@@ -349,3 +349,48 @@ selectBtn.forEach(selectBtn => {
       });
   });
 });
+
+const storeData = JSON.parse(localStorage.getItem('mydata'));
+
+window.onload = searchFunction;
+
+function searchFunction() {
+  //bigOrder.html에 불러오는 코드 작성
+  console.log("검색된 결과값", storeData);
+
+  const resultContainer = document.getElementById('resultContainer');
+  resultContainer.innerHTML = ''; //이전 결과 초기화
+
+  if(storeData.length === 0){
+    resultContainer.innerHTML = '<p>검색 결과가 없습니다.<br>다시 검색해 주세요</p>';
+    resultContainer.style.fontSize = '4vw';
+    resultContainer.style.textAlign = 'center';
+    resultContainer.style.padding = '5vh';
+  } else {
+    storeData.forEach(item => {
+      const div = document.createElement('div');
+      div.className = "box list_content_box";
+      div.innerHTML = `
+      <div class="box list_img_box">
+        <img id="im" class="list_img_size" src=".${item.Picture}" />
+      </div>
+      <div class="box list_content_info">
+        <div class="content_title">
+            <div class="menu_name">${item.Menu_Name}</div>
+            <div class="menu_cost">${item.Price}원</div>
+        </div>
+        <div class="list_option">
+            <div>
+                ${item.Menu_Explan}
+            </div>
+        </div>
+        <div class="list_buttons">
+            <button class="selectBtn" id="selectBtn">선택</button>
+        </div>
+    </div>
+    `
+    resultContainer.appendChild(div);
+    })
+  };
+
+}
