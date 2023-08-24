@@ -25,7 +25,7 @@ joImage.addEventListener("click", function () {
 
       const modalBody = document.querySelector(".modal-body");
       modalBody.innerHTML = `
-        <p>새로운 내용 1.</p>
+        <p>새로운 내용 11.</p>
         <p>새로운 내용 2.</p>
         <p>새로운 내용 3.</p>
         <!-- 원하는 내용으로 수정 -->`;
