@@ -218,8 +218,6 @@ function search() {
       console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
     });
 
-  const inputMenuName = document.getElementById('input_menu_name');
-  inputMenuName.click(); // 바로 클릭 이벤트 실행
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -302,6 +300,8 @@ function handleMenuData(menuData) {
         detailMenuLink.remove();
       }
 
+      history.pushState(null, null,`http://localhost:3001/BigFrame/BigOrder.html? order=basic&menuId=${menuNum}`);
+
       // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
       fetch("http://localhost:3001/detail_menu/jojo.html?menuId=${menuNum}") // 이 부분의 파일 경로를 수정해야합니다.
         .then(response => {
@@ -335,7 +335,6 @@ function handleMenuData(menuData) {
     });
   });
 }
-
 
 // 선택 버튼(메뉴 선택)
 const selectBtn = document.querySelectorAll(".selectBtn");
@@ -382,6 +381,7 @@ selectBtn.forEach(selectBtn => {
       });
   });
 });
+
 
 const storeData = JSON.parse(localStorage.getItem('mydata'));
 

@@ -215,7 +215,7 @@ body {
 
 .menu_name {
   width: 60%;
-  font-size: 5px;
+  font-size: 3vw;
   border-right: solid 3px black;
   display: flex;
   justify-content: center;
