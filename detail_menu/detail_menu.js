@@ -1,24 +1,37 @@
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  const incrementButtons = document.querySelectorAll(".input-group #increment");
-  const decrementButtons = document.querySelectorAll(".input-group #decrement");
+// document.addEventListener("DOMContentLoaded", function () {
+//   const incrementButtons = document.querySelectorAll(".input-group #increment");
+//   const decrementButtons = document.querySelectorAll(".input-group #decrement");
 
-  incrementButtons.forEach(button => {
-    button.addEventListener("click", function () {
-      const input = this.closest(".input-group").querySelector("input");
-      input.value = parseInt(input.value) + 1;
-    });
-  });
+//   incrementButtons.forEach(button => {
+//     button.addEventListener("click", function () {
+//       const input = this.closest(".input-group").querySelector("input");
+//       input.value = parseInt(input.value) + 1;
+//     });
+//   });
 
-  decrementButtons.forEach(button => {
-    button.addEventListener("click", function () {
-      const input = this.closest(".input-group").querySelector("input");
-      if (parseInt(input.value) > 1) {
-        input.value = parseInt(input.value) - 1;
-      }
-    });
-  });
+//   decrementButtons.forEach(button => {
+//     button.addEventListener("click", function () {
+//       const input = this.closest(".input-group").querySelector("input");
+//       if (parseInt(input.value) > 1) {
+//         input.value = parseInt(input.value) - 1;
+//       }
+//     });
+//   });
+// });
+$(".input-group").on("click", "#increment", function () {
+  // .input-group 클래스를 가진 요소 내에서 #increment 버튼을 클릭했을 때 실행되는 함수
+  var input = $(this).closest(".input-group").find("input");
+  // 클릭한 버튼이 속한 .input-group 내에서 input 요소를 찾음
+  input.val(parseInt(input.val()) + 1);
+});
+
+$(".input-group").on("click", "#decrement", function () {
+  var input = $(this).closest(".input-group").find("input");
+  if (parseInt(input.val()) > 1) {
+    input.val(parseInt(input.val()) - 1);
+  }
 });
 
 /*서버 연동 08.14*/
