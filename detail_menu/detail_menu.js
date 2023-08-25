@@ -26,6 +26,59 @@ document.addEventListener("DOMContentLoaded", function () {
 const urlParams = new URLSearchParams(window.location.search);
 const menuId = urlParams.get("menuId");
 
+// //sql연동부분
+//   // 추가 버튼 클릭 이벤트 핸들러
+//   $(".btn-info").click(function () {
+//     const selectedMenuNum = new URLSearchParams(window.location.search).get("menuId");
+//     const selectedCount = parseInt($("#quantity").val());
+
+//     // 옵션 값 설정
+//     const selectedOptions = {
+//       op_t: $("input[name='temperature']:checked").val() === "뜨거움" ? 1 : 2,
+//       op_s: $("input[name='size']:checked").val() === "기본 크기" ? 3 : 4,
+//       op1: $("input[name='option_set_1']").prop('checked') ? 5 : 0,
+//       op2: $("input[name='option_set_2']").prop('checked') ? 6 : 0,
+//       op3: $("input[name='option_set_3']").prop('checked') ? 7 : 0,
+//       op4: $("input[name='option_set_4']").prop('checked') ? 8 : 0,
+//       op5: $("input[name='option_set_5']").prop('checked') ? 9 : 0,
+//       op6: $("input[name='option_set_6']").prop('checked') ? 10 : 0,
+//       op7: $("input[name='option_set_7']").prop('checked') ? 11 : 0,
+//       op8: $("input[name='option_set_8']").prop('checked') ? 12 : 0
+//     };
+
+//     // 서버로 주문 정보 전송
+//     fetch('/addOrder', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify({
+//         menu_num: selectedMenuNum,
+//         count: selectedCount,
+//         ...selectedOptions
+//       })
+//     })
+//       .then(response => response.json())
+//       .then(data => {
+//         if (data.success) {
+//           console.log("주문이 성공적으로 저장되었습니다.");
+//           console.log("메뉴 번호:", selectedMenuNum);
+//           console.log("갯수:", selectedCount);
+//           console.log("온도 옵션:", selectedOptions.op_t);
+//           console.log("크기 옵션:", selectedOptions.op_s);
+//           for (let i = 1; i <= 8; i++) {
+//             console.log(`옵션${i}:`, selectedOptions[`op${i}`]);
+//           }
+//         } else {
+//           console.log("주문 저장에 실패했습니다.");
+//         }
+//       })
+//       .catch(error => {
+//         console.error("주문 저장 중 오류 발생:", error);
+//       });
+//     //sql연동 끝
+//   });
+
 // 서버로부터 메뉴 정보를 요청합니다.
 fetch(`/menu/${menuId}`)
   .then(response => response.json())

@@ -232,12 +232,23 @@ app.get('/detail_menu.js', (req, res) => {
   res.sendFile(__dirname + '/detail_menu.js');
 });
 
+const bodyParser = require('body-parser');
+const iconv = require('iconv-lite');
+
+app.use(bodyParser.json({ charset: 'utf-8' }));
+
+// URL-encoded 요청의 경우 UTF-8로 인코딩된 데이터를 파싱
+app.use(bodyParser.urlencoded({ extended: true, charset: 'utf-8' }));
+
 app.get('/search', (req, res) => {
+
   const keyword = req.query.keyword;
+
+  const decodedKeyword = iconv.decode(Buffer.from(keyword, 'base64'), 'utf-8');
 
   const sql = `select * from img inner join tb_menu
   on img.img_num = tb_menu.Menu_Num
-  where tb_menu.Menu_Name LIKE '%${keyword}%'`;
+  where tb_menu.Menu_Name LIKE '%${decodedKeyword}%'`;
 
   connection.query(sql, (err, results) => {
       if (err) {
