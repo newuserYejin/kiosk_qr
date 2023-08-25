@@ -1,25 +1,4 @@
 
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   const incrementButtons = document.querySelectorAll(".input-group #increment");
-//   const decrementButtons = document.querySelectorAll(".input-group #decrement");
-
-//   incrementButtons.forEach(button => {
-//     button.addEventListener("click", function () {
-//       const input = this.closest(".input-group").querySelector("input");
-//       input.value = parseInt(input.value) + 1;
-//     });
-//   });
-
-//   decrementButtons.forEach(button => {
-//     button.addEventListener("click", function () {
-//       const input = this.closest(".input-group").querySelector("input");
-//       if (parseInt(input.value) > 1) {
-//         input.value = parseInt(input.value) - 1;
-//       }
-//     });
-//   });
-// });
 $(".input-group").on("click", "#increment", function () {
   // .input-group 클래스를 가진 요소 내에서 #increment 버튼을 클릭했을 때 실행되는 함수
   var input = $(this).closest(".input-group").find("input");
@@ -36,8 +15,6 @@ $(".input-group").on("click", "#decrement", function () {
 
 /*서버 연동 08.14*/
 // 페이지 로딩 후 모달 창을 자동으로 표시합니다.
-const urlParams = new URLSearchParams(window.location.search);
-const menuId = urlParams.get("menuId");
 
 // //sql연동부분
 //   // 추가 버튼 클릭 이벤트 핸들러
@@ -93,16 +70,6 @@ const menuId = urlParams.get("menuId");
 //   });
 
 // 서버로부터 메뉴 정보를 요청합니다.
-fetch(`/menu/${menuId}`)
-  .then(response => response.json())
-  .then(menuData => {
-    console.log(menuData); // 서버에서 받은 메뉴 데이터를 확인해보세요
-    renderMenuDetail(menuData);
-  })
-  .catch(error => {
-    console.error("Error fetching menu data:", error);
-  });
-
 // 메뉴 정보를 출력하는 함수
 function renderMenuDetail(menuData) {
   const menuTitle = document.querySelector(".menu_title");
@@ -190,6 +157,22 @@ optionContainers.forEach((container, index) => {
   }
 });
 
+}
+
+// 서버로부터 메뉴 정보를 요청합니다.
+if (window.location.search) {
+  let detail_urlParams = new URLSearchParams(window.location.search);
+  const menuId = detail_urlParams.get("menuId");
+  
+  fetch(`/menu/${menuId}`)
+    .then(response => response.json())
+    .then(menuData => {
+      console.log(menuData); // 서버에서 받은 메뉴 데이터를 확인해보세요
+      renderMenuDetail(menuData);
+    })
+    .catch(error => {
+      console.error("Error fetching menu data:", error);
+    });
 }
 
 // function handleMenuData(menuData) {

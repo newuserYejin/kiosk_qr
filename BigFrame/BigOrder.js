@@ -300,6 +300,8 @@ function handleMenuData(menuData) {
         detailMenuLink.remove();
       }
 
+      history.pushState(null, null,`http://localhost:3001/BigFrame/BigOrder.html? order=basic&menuId=${menuNum}`);
+
       // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
       fetch("http://localhost:3001/detail_menu/jojo.html?menuId=${menuNum}") // 이 부분의 파일 경로를 수정해야합니다.
         .then(response => {
@@ -334,94 +336,94 @@ function handleMenuData(menuData) {
   });
 }
 
-// // 선택 버튼(메뉴 선택)
-// const selectBtn = document.querySelectorAll(".selectBtn");
-// selectBtn.forEach(selectBtn => {
-//   selectBtn.addEventListener("click", function () {
-//     // 먼저 모달 컨테이너를 비웁니다.
-//     document.getElementById("modalContainer").innerHTML = "";
+// 선택 버튼(메뉴 선택)
+const selectBtn = document.querySelectorAll(".selectBtn");
+selectBtn.forEach(selectBtn => {
+  selectBtn.addEventListener("click", function () {
+    // 먼저 모달 컨테이너를 비웁니다.
+    document.getElementById("modalContainer").innerHTML = "";
 
-//     // help_msg.css를 제거합니다.
-//     const detailMenuLink = document.querySelector('link[href="http://localhost:3001/help_msg/help_msg.css"]');
-//     if (detailMenuLink) {
-//       detailMenuLink.remove();
-//     }
+    // help_msg.css를 제거합니다.
+    const detailMenuLink = document.querySelector('link[href="http://localhost:3001/help_msg/help_msg.css"]');
+    if (detailMenuLink) {
+      detailMenuLink.remove();
+    }
 
-//     // 외부 detail_menu 폴더에 있는 detail_menu.html 파일을 로드하여 모달 컨테이너에 추가합니다.
-//     fetch("http://localhost:3001/detail_menu/detail_menu.html") // 이 부분의 파일 경로를 수정해야합니다.
-//       .then(response => {
-//         if (!response.ok) {
-//           throw new Error("HTTP Error " + response.status);
-//         }
-//         return response.text();
-//       })
-//       .then(data => {
-//         // 모달 컨테이너에 detail_menu.html 콘텐츠를 추가합니다.
-//         $("#modalContainer").html(data);
+    // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
+    fetch("http://localhost:3001/detail_menu/jojo.html") // 이 부분의 파일 경로를 수정해야합니다.
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("HTTP Error " + response.status);
+        }
+        return response.text();
+      })
+      .then(data => {
+        // 모달 컨테이너에 jojo.html 콘텐츠를 추가합니다.
+        $("#modalContainer").html(data);
 
-//         // 외부 detail_menu 폴더에 있는 detail_menu.css 파일을 로드합니다.
-//         const linkElement = document.createElement("link");
-//         linkElement.rel = "stylesheet";
-//         linkElement.type = "text/css";
-//         linkElement.href = "http://localhost:3001/detail_menu/detail_menu.css"; // 이 부분의 파일 경로를 수정해야합니다.
-//         document.head.appendChild(linkElement);
+        // 외부 detail_menu 폴더에 있는 detail_menu.css 파일을 로드합니다.
+        const linkElement = document.createElement("link");
+        linkElement.rel = "stylesheet";
+        linkElement.type = "text/css";
+        linkElement.href = "http://localhost:3001/detail_menu/detail_menu.css"; // 이 부분의 파일 경로를 수정해야합니다.
+        document.head.appendChild(linkElement);
 
-//         // 외부 detail_menu 폴더에 있는 detail_menu.js 파일을 로드합니다.
-//         const scriptElement = document.createElement("script");
-//         scriptElement.src = "http://localhost:3001/detail_menu/detail_menu.js"; // 이 부분의 파일 경로를 수정해야합니다.
-//         document.body.appendChild(scriptElement);
+        // 외부 detail_menu 폴더에 있는 detail_menu.js 파일을 로드합니다.
+        const scriptElement = document.createElement("script");
+        scriptElement.src = "http://localhost:3001/detail_menu/detail_menu.js"; // 이 부분의 파일 경로를 수정해야합니다.
+        document.body.appendChild(scriptElement);
 
-//         const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
-//         modal.show();
-//       })
-//       .catch(error => {
-//         console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
-//       });
-//   });
-// });
+        const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+        modal.show();
+      })
+      .catch(error => {
+        console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
+      });
+  });
+});
 
-// const storeData = JSON.parse(localStorage.getItem('mydata'));
 
-// function searchFunction() {
-//   //bigOrder.html에 불러오는 코드 작성
-//   console.log("검색된 결과값:", storeData);
-  
-//   const resultContainer = document.querySelector(".list_box"); // 변경: .list_content_box -> .list_box
-//   resultContainer.innerHTML = ''; //이전 결과 초기화
+const storeData = JSON.parse(localStorage.getItem('mydata'));
 
-//   // if (storeData.length === 0) {
-//   //   resultContainer.innerHTML = ''; //이전 결과 초기화
+window.onload = searchFunction;
 
-//   //   resultContainer.innerHTML = '<p>검색 결과가 없습니다.<br>다시 검색해 주세요</p>';
-//   //   resultContainer.style.fontSize = '4vw';
-//   //   resultContainer.style.textAlign = 'center';
-//   //   resultContainer.style.padding = '5vh';
-//   // } else {
-//   //   storeData.forEach(item => {
-//   //     const div = document.createElement('div');
-//   //     div.classList.add("box", "list_content_box");
-//   //     div.innerHTML = `
-//   //     <div class="box list_img_box">
-//   //       <img id="im" class="list_img_size" src=".${item.Picture}" />
-//   //     </div>
-//   //     <div class="box list_content_info">
-//   //       <div class="content_title">
-//   //           <div class="menu_name">${item.Menu_Name}</div>
-//   //           <div class="menu_cost">${item.Price}원</div>
-//   //       </div>
-//   //       <div class="list_option">
-//   //           <div>
-//   //               ${item.Menu_Explan}
-//   //           </div>
-//   //       </div>
-//   //       <div class="list_buttons">
-//   //           <button class="selectBtn" id="selectBtn">선택</button>
-//   //       </div>
-//   //     </div>`
-//   //     resultContainer.appendChild(div);
-//   //   })
-//   // };
+function searchFunction() {
+  //bigOrder.html에 불러오는 코드 작성
+  console.log("검색된 결과값", storeData);
 
-// }
+  const resultContainer = document.getElementById('resultContainer');
+  resultContainer.innerHTML = ''; //이전 결과 초기화
 
-// window.onload = searchFunction;
+  if(storeData.length === 0){
+    resultContainer.innerHTML = '<p>검색 결과가 없습니다.<br>다시 검색해 주세요</p>';
+    resultContainer.style.fontSize = '4vw';
+    resultContainer.style.textAlign = 'center';
+    resultContainer.style.padding = '5vh';
+  } else {
+    storeData.forEach(item => {
+      const div = document.createElement('div');
+      div.className = "box list_content_box";
+      div.innerHTML = `
+      <div class="box list_img_box">
+        <img id="im" class="list_img_size" src=".${item.Picture}" />
+      </div>
+      <div class="box list_content_info">
+        <div class="content_title">
+            <div class="menu_name">${item.Menu_Name}</div>
+            <div class="menu_cost">${item.Price}원</div>
+        </div>
+        <div class="list_option">
+            <div>
+                ${item.Menu_Explan}
+            </div>
+        </div>
+        <div class="list_buttons">
+            <button class="selectBtn" id="selectBtn">선택</button>
+        </div>
+    </div>
+    `
+    resultContainer.appendChild(div);
+    })
+  };
+
+}
