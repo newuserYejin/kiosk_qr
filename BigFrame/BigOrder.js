@@ -136,6 +136,7 @@ function nextScreen() {
 
 //사이즈 이동
 //사이즈 이동
+//사이즈 이동
 const radioButtons = document.getElementsByName('size');
 radioButtons.forEach(button => {
   button.addEventListener('click', () => {
@@ -143,20 +144,20 @@ radioButtons.forEach(button => {
     if (button.checked) {
       const urlParams = new URLSearchParams(window.location.search);
       const currentOrder = urlParams.get('order');
-
+      
       switch (button.value) {
-        case 'basic':
-          if (currentOrder === 'slow') {
-            window.location.href = 'http://localhost:3001/BasicFrame/BasicOrder.html?order=slow';
-          } else if (currentOrder === 'basic') {
-            window.location.href = 'http://localhost:3001/BasicFrame/BasicOrder.html?order=basic';
-          }
-          break;
         case 'big':
           if (currentOrder === 'slow') {
             window.location.href = 'http://localhost:3001/BigFrame/BigOrder.html?order=slow';
           } else if (currentOrder === 'basic') {
             window.location.href = 'http://localhost:3001/BigFrame/BigOrder.html?order=basic';
+          }
+          break;
+        case 'basic':
+          if (currentOrder === 'slow') {
+            window.location.href = 'http://localhost:3001/BasicFrame/BasicOrder.html?order=slow';
+          } else if (currentOrder === 'basic') {
+            window.location.href = 'http://localhost:3001/BasicFrame/BasicOrder.html?order=basic';
           }
           break;
         default:
@@ -300,7 +301,7 @@ function handleMenuData(menuData) {
         detailMenuLink.remove();
       }
 
-      history.pushState(null, null,`http://localhost:3001/BigFrame/BigOrder.html? order=basic&menuId=${menuNum}`);
+      history.pushState(null, null,`http://localhost:3001/BigFrame/BigOrder.html?order=basic&menuId=${menuNum}`);
 
       // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
       fetch("http://localhost:3001/detail_menu/jojo.html?menuId=${menuNum}") // 이 부분의 파일 경로를 수정해야합니다.
