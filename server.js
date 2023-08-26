@@ -393,10 +393,10 @@ const getOrderData = (callback) => {
         .then(processedResults => {
           const finalResults = processedResults.map(order => {
             // 주문의 가격과 수량을 곱한 기본 total_price 계산
-            let total_price = order.price * order.count;
+            let total_price = Number(order.price) * Number(order.count);
             // 옵션들의 op_price를 더하여 total_price에 추가
             order.options.forEach(option => {
-              total_price += option.op_price;
+              total_price += Number(option.op_price);
             });
             return {
               ...order,
