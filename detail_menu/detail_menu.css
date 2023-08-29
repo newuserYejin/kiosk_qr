@@ -76,7 +76,9 @@
 }
 
 #modalContainer .menu_cost{
-    text-align: left;
+    border: none;
+    font-size: 3vw;
+    justify-content: start;
 }
 
 #modalContainer .border_line {
@@ -274,6 +276,7 @@
 #modalContainer .allegy_list{
     display: flex;
     flex-wrap: wrap;
+    font-size: 3.2vw;
 }
 
 #modalContainer .allegy_list li{
