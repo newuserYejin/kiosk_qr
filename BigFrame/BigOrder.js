@@ -135,8 +135,6 @@ function nextScreen() {
 // });
 
 //사이즈 이동
-//사이즈 이동
-//사이즈 이동
 const radioButtons = document.getElementsByName('size');
 radioButtons.forEach(button => {
   button.addEventListener('click', () => {
@@ -262,7 +260,7 @@ function handleMenuData(menuData) {
 
       <div class="box list_content_box">
                     <div class="box list_img_box">
-                        <img id="im" class="list_img_size" src=".${menu.image_path}" />
+                        <img id="im" class="list_img_size" src=".${menu.image_path}" data-menunum="${menu.menu_num}" />
                     </div>
                     <div class="box list_content_info"> <!--오른쪽 설명-->
                         <div class="content_title">
@@ -335,53 +333,58 @@ function handleMenuData(menuData) {
         });
     });
   });
-}
 
-// 선택 버튼(메뉴 선택)
-const selectBtn = document.querySelectorAll(".selectBtn");
-selectBtn.forEach(selectBtn => {
-  selectBtn.addEventListener("click", function () {
-    // 먼저 모달 컨테이너를 비웁니다.
-    document.getElementById("modalContainer").innerHTML = "";
+  //이미지 클릭시에도 detail호출
+  const img_select = document.querySelectorAll(".list_img_box");
+  img_select.forEach(img_select => {
+    img_select.addEventListener("click", function (event) {
+      console.log("버튼 눌림");
+      const menuNum = event.target.dataset.menunum;//08.24 menu_num을 가져오기 위한
+      console.log("주문번호:", menuNum);//08.24 menu_num을 가져오기 위한
+      // 먼저 모달 컨테이너를 비웁니다.
+      document.getElementById("modalContainer").innerHTML = "";
 
-    // help_msg.css를 제거합니다.
-    const detailMenuLink = document.querySelector('link[href="http://localhost:3001/help_msg/help_msg.css"]');
-    if (detailMenuLink) {
-      detailMenuLink.remove();
-    }
+      // help_msg.css를 제거합니다.
+      const detailMenuLink = document.querySelector('link[href="http://localhost:3001/help_msg/help_msg.css"]');
+      if (detailMenuLink) {
+        detailMenuLink.remove();
+      }
 
-    // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
-    fetch("http://localhost:3001/detail_menu/jojo.html") // 이 부분의 파일 경로를 수정해야합니다.
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("HTTP Error " + response.status);
-        }
-        return response.text();
-      })
-      .then(data => {
-        // 모달 컨테이너에 jojo.html 콘텐츠를 추가합니다.
-        $("#modalContainer").html(data);
+      history.pushState(null, null,`http://localhost:3001/BigFrame/BigOrder.html?order=basic&menuId=${menuNum}`);
 
-        // 외부 detail_menu 폴더에 있는 detail_menu.css 파일을 로드합니다.
-        const linkElement = document.createElement("link");
-        linkElement.rel = "stylesheet";
-        linkElement.type = "text/css";
-        linkElement.href = "http://localhost:3001/detail_menu/detail_menu.css"; // 이 부분의 파일 경로를 수정해야합니다.
-        document.head.appendChild(linkElement);
+      // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
+      fetch("http://localhost:3001/detail_menu/jojo.html?menuId=${menuNum}") // 이 부분의 파일 경로를 수정해야합니다.
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("HTTP Error " + response.status);
+          }
+          return response.text();
+        })
+        .then(data => {
+          // 모달 컨테이너에 jojo.html 콘텐츠를 추가합니다.
+          $("#modalContainer").html(data);
 
-        // 외부 detail_menu 폴더에 있는 detail_menu.js 파일을 로드합니다.
-        const scriptElement = document.createElement("script");
-        scriptElement.src = "http://localhost:3001/detail_menu/detail_menu.js"; // 이 부분의 파일 경로를 수정해야합니다.
-        document.body.appendChild(scriptElement);
+          // 외부 detail_menu 폴더에 있는 detail_menu.css 파일을 로드합니다.
+          const linkElement = document.createElement("link");
+          linkElement.rel = "stylesheet";
+          linkElement.type = "text/css";
+          linkElement.href = "http://localhost:3001/detail_menu/detail_menu.css"; // 이 부분의 파일 경로를 수정해야합니다.
+          document.head.appendChild(linkElement);
 
-        const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
-        modal.show();
-      })
-      .catch(error => {
-        console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
-      });
+          // 외부 detail_menu 폴더에 있는 detail_menu.js 파일을 로드합니다.
+          const scriptElement = document.createElement("script");
+          scriptElement.src = "http://localhost:3001/detail_menu/detail_menu.js"; // 이 부분의 파일 경로를 수정해야합니다.
+          document.body.appendChild(scriptElement);
+
+          const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+          modal.show();
+        })
+        .catch(error => {
+          console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
+        });
+    });
   });
-});
+}
 
 
 const storeData = JSON.parse(localStorage.getItem('mydata'));
