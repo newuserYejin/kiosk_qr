@@ -217,13 +217,13 @@ body {
 .menu_name {
   width: 60%;
   font-size: 3vw;
-  border-right: solid 3px black;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .menu_cost {
+  border-left: solid 3px black;
   width: 40%;
   padding-left: 1rem;
   font-size: 2.5vw;
@@ -340,8 +340,11 @@ body {
 }
 
 .view_button {
-  width: 50%;
+  width: 30%;
   font-size: 2.5vw;
+  display: flex;
+  justify-content: space-around;
+  font-weight: bold;
 }
 
 /* 검색 입력창*/

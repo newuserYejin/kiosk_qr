@@ -340,8 +340,11 @@ body {
 }
 
 .view_button {
-  width: 50%;
+  width: 30%;
   font-size: 2.5vw;
+  display: flex;
+  justify-content: space-around;
+  font-weight: bold;
 }
 
 /* 검색 입력창*/
