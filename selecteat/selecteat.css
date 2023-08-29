@@ -15,14 +15,19 @@ html,body {
     width: 100%;
     overflow: hidden;
 }
-.help{
+
+.help {
     width: 100%;
+    height: auto;
     display: flex;
     justify-content: end;
 }
-.helpimg {
+
+.helping {
     padding-top: 2%;
     padding-right: 2%;
+    width: 12%;
+    height: 100%;
 }
 
 .first{

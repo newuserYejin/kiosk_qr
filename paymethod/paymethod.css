@@ -71,7 +71,7 @@ html,body {
     height: 2rem;
     border: solid 3px black;
     border-radius: 50%;
-    background-color: pink;
+    background-color: white;
     margin-right: 5px;
 }
 
@@ -80,6 +80,7 @@ html,body {
     margin: 0;
     font-size: 3vw;
     font-weight: bold;
+    width: 50%;
 }
 
 .selectpay {
@@ -90,15 +91,16 @@ html,body {
 
 .help {
     width: 100%;
+    height: auto;
     display: flex;
     justify-content: end;
 }
 
-.helpimg {
+.helping {
     padding-top: 2%;
     padding-right: 2%;
-    width: 8%;
-    height: 8%;
+    width: 17%;
+    height: 100%;
 }
 
 .first {

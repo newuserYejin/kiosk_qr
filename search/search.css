@@ -18,10 +18,11 @@
     align-items: center;
 }
 
-#input_menu_name{
+#modalContainer .input{
     border: none;
     border-bottom: solid 3px black;
     padding-right: 2vw;
+    font-size: 3vw;
 }
 
 #modalContainer .search_icon{
@@ -33,13 +34,16 @@
     overflow: hidden;
 }
 
-#modalContainer .simple-keyboard{
-    border: solid 2px black;
-    width: 100%;
-    height: 100%;
-}
-
 #modalContainer .keyboard_size{
+    border: solid 2px black;
     width: 100%;
     height: 43%;
 }
+
+#modalContainer .simple-keyboard{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: scroll;
+}
+

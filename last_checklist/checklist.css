@@ -60,27 +60,28 @@ body {
     justify-content: space-around;
     align-items: center;
     cursor: pointer;
+}
 
-    .level_name {
-        padding: .8rem;
-        font-weight: bold;
-    }
+.level_name {
+    padding: .8rem;
+    font-weight: bold;
+}
 
-    .circle {
-        width: 2rem;
-        height: 2rem;
-        border: solid 3px black;
-        border-radius: 50%;
-        background-color: pink;
-        margin-right: 5px;
-    }
+.circle {
+    width: 2rem;
+    height: 2rem;
+    border: solid 3px black;
+    border-radius: 50%;
+    background-color: white;
+    margin-right: 5px;
+}
 
-    .circle_name {
-        text-align: center;
-        margin: 0;
-        font-size: 3vw;
-        font-weight: bold;
-    }
+.circle_name {
+    text-align: center;
+    margin: 0;
+    font-size: 3vw;
+    font-weight: bold;
+    width: 50%;
 }
 
 
@@ -159,10 +160,10 @@ body {
 
 .help {
     position: absolute;
-    top: 2%;
-    right: 2%;
-    width: 5%;
-}
+    width: 12%;
+    right: 1%;
+    top: 1%;
+  }
 
 .list_content_box {
     display: flex;

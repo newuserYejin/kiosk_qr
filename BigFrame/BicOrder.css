@@ -63,27 +63,28 @@ body {
   width: 100%;
   justify-content: space-around;
   align-items: center;
+}
 
-  .level_name {
-    padding: 0.8rem;
-    font-weight: bold;
-  }
+.level_name {
+  padding: 0.8rem;
+  font-weight: bold;
+}
 
-  .circle {
-    width: 2rem;
-    height: 2rem;
-    border: solid 3px black;
-    border-radius: 50%;
-    background-color: pink;
-    margin-right: 5px;
-  }
+.circle {
+  width: 2rem;
+  height: 2rem;
+  border: solid 3px black;
+  border-radius: 50%;
+  background-color: white;
+  margin-right: 5px;
+}
 
-  .circle_name {
-    text-align: center;
-    margin: 0;
-    font-size: 3vw;
-    font-weight: bold;
-  }
+.circle_name {
+  text-align: center;
+  margin: 0;
+  font-size: 3vw;
+  font-weight: bold;
+  width: 50%;
 }
 
 /*주문리스트 미리보기*/
@@ -171,7 +172,7 @@ body {
 
 .help {
   position: absolute;
-  width: 5%;
+  width: 12%;
   right: 1%;
   top: 1%;
 }
@@ -244,7 +245,7 @@ body {
   overflow-y: visible;
 }
 
-.list_option div{
+.list_option div {
   height: 100%;
   font-size: 2.5vw;
 }
@@ -344,11 +345,11 @@ body {
 }
 
 /* 검색 입력창*/
-.search_div{
+.search_div {
   width: 50%;
 }
 
-.search{
+.search {
   width: 80%;
 }
 
@@ -359,16 +360,19 @@ body {
 /*전체적 사이즈 조절 */
 
 @media screen and (max-width : 310px) {
-  .search_div{
+  .search_div {
     width: 50%;
   }
-  .view_button{
+
+  .view_button {
     width: 50%;
   }
-  .search{
+
+  .search {
     height: 20px;
     width: 70%;
   }
+
   .navigation {
     border: solid 3px black;
     border-right: none;
@@ -377,13 +381,14 @@ body {
     display: flex;
     flex-direction: column;
   }
-  
+
   .list_menu {
     width: 75%;
     height: 100%;
     padding: 2vw;
   }
-  .view_button{
+
+  .view_button {
     font-size: 0.5rem;
   }
 }
@@ -393,12 +398,15 @@ body {
   .list_box {
     height: 70%;
   }
+
   .menu_name {
     font-size: 3vw;
   }
+
   .menu_cost {
     font-size: 4vw;
   }
+
   .sizes {
     font-size: 1.5rem;
   }

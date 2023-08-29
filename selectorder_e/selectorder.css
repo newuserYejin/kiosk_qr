@@ -9,14 +9,18 @@ html,body{
     height: 100%;
 }
 
-.help{
+.help {
     width: 100%;
+    height: auto;
     display: flex;
     justify-content: end;
 }
-.helpimg {
+
+.helping {
     padding-top: 2%;
     padding-right: 2%;
+    width: 12%;
+    height: 100%;
 }
 
 .first{
@@ -59,11 +63,18 @@ html,body{
 }
 .kor {
     width: 18vW;
+    height: 18vw;
     border: solid 2px black;
     border-radius: 50%;
 }
 .usa {
+    height: 18vw;
     width: 18vW;
     border: solid 2px black;
     border-radius: 50%;
 }
+
+.selected_lag{
+    border: solid 10px #cce8f4;
+}
+

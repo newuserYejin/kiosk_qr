@@ -72,7 +72,7 @@ body {
     height: 2rem;
     border: solid 3px black;
     border-radius: 50%;
-    background-color: pink;
+    background-color: white;
     margin-right: 5px;
 }
 
@@ -90,15 +90,16 @@ body {
 
 .help {
     width: 100%;
+    height: auto;
     display: flex;
     justify-content: end;
 }
 
-.helpimg {
-    position: absolute;
-    width: 6%;
-    right: 1%;
-    top: 1%;
+.helping {
+    padding-top: 2%;
+    padding-right: 2%;
+    width: 17%;
+    height: 100%;
 }
 
 .first {
