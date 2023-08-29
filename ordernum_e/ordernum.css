@@ -10,15 +10,13 @@ html,body {
     height: 100%;
 }
 
-.help{
-    width: 100%;
-    display: flex;
-    justify-content: end;
-}
-.helpimg {
-    padding-top: 2%;
-    padding-right: 2%;
-}
+.helping {
+    position: absolute;
+    width: 12%;
+    right: 1%;
+    top: 1%;
+    height: auto;
+  }
 
 .ordernum {
     width: 100%;
@@ -75,8 +73,9 @@ html,body {
 }
 
 .gohome {
-    font-size: 3vw;
+    font-size: 5vw;
     background-color: white;
-    height: 8vh;
+    padding: 20px;
     margin-top: 4vh;
+    border: solid 2px black;
 }

@@ -145,7 +145,6 @@ function search(){
       const scriptElement = document.createElement("script");
       scriptElement.src = "http://localhost:3001/search/search.js"; // 이 부분의 파일 경로를 수정해야합니다.
       document.body.appendChild(scriptElement);
-      
 
       const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
       modal.show();

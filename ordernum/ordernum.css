@@ -10,14 +10,12 @@ html,body {
     height: 100%;
 }
 
-.help{
-    width: 100%;
-    display: flex;
-    justify-content: end;
-}
-.helpimg {
-    padding-top: 2%;
-    padding-right: 2%;
+.helping {
+    position: absolute;
+    width: 12%;
+    right: 1%;
+    top: 1%;
+    height: auto;
 }
 
 .ordernum {

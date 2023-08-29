@@ -76,7 +76,7 @@ body {
   height: 2rem;
   border: solid 3px black;
   border-radius: 50%;
-  background-color: pink;
+  background-color: white;
   margin-right: 5px;
 }
 
@@ -85,6 +85,7 @@ body {
   margin: 0;
   font-size: 3vw;
   font-weight: bold;
+  width: 50%;
 }
 
 /*주문리스트 미리보기*/
@@ -182,7 +183,7 @@ body {
 
 .help {
   position: absolute;
-  width: 5%;
+  width: 12%;
   right: 1%;
   top: 1%;
 }
