@@ -136,3 +136,13 @@ document.getElementById('input_menu_name').addEventListener('keypress', function
         location.reload(); //페이지 새로고침/
     }
 });
+
+const keyword = document.querySelectorAll(".keyword");
+
+keyword.forEach(keyword =>{
+    keyword.addEventListener('click',function(){
+        const keyword_value = keyword.textContent;
+        search(keyword_value);
+        location.reload();
+    })
+})
