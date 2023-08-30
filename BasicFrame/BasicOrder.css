@@ -99,55 +99,53 @@ body {
   text-align: center;
   height: 15%;
   font-size: 2.5vw;
+  margin-bottom: 5px;
 }
 
 .select_list_list {
   border: solid 2px blue;
-  padding-right: 1px;
   height: 80%;
   overflow: hidden;
   overflow-y: visible;
+  margin: 0 1PX;
+  padding-top: 2px;
 }
 
 .select_list_detail {
-  display: flex;
-  justify-content: space-around;
   font-weight: bold;
-  font-size: 1.7vh;
-  padding-top: .3rem;
-  border-bottom: solid 1px blue;
+  font-size: 2vw;
+  border-bottom: solid 2px black;
+  margin-bottom: 8px;
+  margin-left: 2px;
+  padding: 0 2px;
 }
 
-@media screen and (max-width: 380px) {
-  .select_list_title {
-    width: 100%;
-    font-size: 0.1rem;
-  }
+.select_num {
+  text-align: end;
+}
 
+@media screen and (max-width: 400px) {
   .select_list_detail {
-    display: block;
-    font-size: 0.1rem;
-    margin: 0;
+    font-size: 4px;
+  }
+  .circle_name{
+    font-size: 1vw;
+  }
+  .circle{
+    width: 5vw;
+    height: 5vw;
     padding: 0;
-    border-bottom: solid 2px blu;
+    margin-right: 3px;
+  }
+  
+  .add_fuc_bar .view_button{
+    width: 40%;
   }
 
-  .select_num {
-    text-align: end;
-  }
-
-  @media screen and (max-height: 500px) {
-    .select_list_title {
-      padding: 0 5%;
-      margin-bottom: 20%;
-    }
-
-    .select_list_list {
-      height: 75%;
-    }
+  .search{
+    height: 5vw;
   }
 }
-
 
 /*주문 리스트*/
 .box {
