@@ -32,6 +32,33 @@
 #modalContainer .keyword_box{
     height: 50%;
     overflow: hidden;
+    padding: 10px;
+}
+
+#modalContainer .real_keyword {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 20px;
+    justify-content: center; /* 가운데 정렬 */
+}
+
+#modalContainer .keyword{
+    padding: 5px 0;
+    background-color: white;
+    border-radius: 5px;
+    width: 90%;
+    height: auto;
+    margin: 0 auto; /* 가운데 정렬 */
+    font-size: 2.5vw;
+    font-weight: 500;
+}
+
+#modalContainer .keyword:hover{
+    background-color: skyblue;
+    color: white;
+    border: none;
+    font-size: 2.8vw;
+    font-weight: bold;
 }
 
 #modalContainer .keyboard_size{
@@ -46,4 +73,3 @@
     overflow-y: scroll;
     overflow-x: scroll;
 }
-

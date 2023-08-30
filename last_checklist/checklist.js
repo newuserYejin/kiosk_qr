@@ -282,3 +282,28 @@ function addOrdersToDOM(orders) {
   });
 }
 
+//08.19수정 이 코드를 위에 추가 (전역 변수 선언)
+let totalAmount = 0;
+
+// 아래 코드를 document.addEventListener("DOMContentLoaded", ...)` 내에 추가
+fetch('/getOrderData')
+  .then(response => response.json())
+  .then(data => {
+    addOrdersToDOM(data);
+    console.log("Session data:", JSON.stringify(data));
+
+    // 주문 데이터를 가지고 총 금액 계산
+    totalAmount = calculateTotalAmount(data);
+    updateTotalAmountUI(totalAmount);
+  });
+
+// 아래에 코드를 추가 (함수 정의)
+function calculateTotalAmount(orders) {
+  return orders.reduce((total, order) => total + Number(order.total_price), 0);
+}
+
+function updateTotalAmountUI(amount) {
+  const totalCostElement = document.querySelector('.total_cost');
+  totalCostElement.textContent = amount + '원';
+}
+//08.19 최종 금액 계산
