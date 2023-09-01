@@ -431,3 +431,11 @@ function searchFunction() {
   };
 
 }
+
+// 검색 내용 input태그에 표시
+const keywordValue = localStorage.getItem('searchInput');
+    if (keywordValue) {
+        const searchInput = document.querySelector(".search");
+        searchInput.value = keywordValue;
+        localStorage.removeItem('searchInput'); // 사용한 값은 제거
+    }

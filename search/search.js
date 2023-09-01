@@ -123,6 +123,7 @@ function search(searchInput) {
                 // const searchResult = encodeURIComponent(JSON.stringify(data));
                 localStorage.setItem('mydata', JSON.stringify(data));
                 //console.log(data);
+                localStorage.setItem('searchInput', searchInput);
             })
             .catch(error => console.error('Error fetching data:', error));
     }
@@ -143,6 +144,7 @@ keyword.forEach(keyword =>{
     keyword.addEventListener('click',function(){
         const keyword_value = keyword.textContent;
         search(keyword_value);
+        localStorage.setItem('searchInput', keyword_value); // 클릭한 키워드 값을 localStorage에 저장
         location.reload();
     })
 })
