@@ -142,7 +142,7 @@ radioButtons.forEach(button => {
     if (button.checked) {
       const urlParams = new URLSearchParams(window.location.search);
       const currentOrder = urlParams.get('order');
-      
+
       switch (button.value) {
         case 'big':
           if (currentOrder === 'slow') {
@@ -226,14 +226,19 @@ document.addEventListener("DOMContentLoaded", function () {
   // 페이지 로드 시 기본 카테고리를 설정--start
   const defaultCategory = "1";
 
-  // 페이지 로드 시 해당 카테고리의 메뉴 데이터 가져와서 출력
-  fetch(`/menu?category=${defaultCategory}`)
-    .then(response => response.json())
-    .then(menuData => {
-      // 메뉴 목록을 초기화하고 새로운 데이터로 갱신합니다.
-      menuList.innerHTML = ''; // 변경: 내용을 지우도록 수정
-      handleMenuData(menuData);
-    });
+  // storeData에 데이터가 있는지 여부를 확인
+  if (storeData && storeData.length > 0) {
+    searchFunction(); // storeData에 데이터가 있을 경우 검색 결과 표시
+  } else {
+    // storeData에 데이터가 없을 경우 초기 카테고리 메뉴 로드
+    fetch(`/menu?category=${defaultCategory}`)
+      .then(response => response.json())
+      .then(menuData => {
+        // 메뉴 목록을 초기화하고 새로운 데이터로 갱신합니다.
+        menuList.innerHTML = ''; // 변경: 내용을 지우도록 수정
+        handleMenuData(menuData);
+      });
+  }
   //페이지 로드시 기본 카테고리 설정--end
 
   // 카테고리 링크에 클릭 이벤트 추가
@@ -247,6 +252,8 @@ document.addEventListener("DOMContentLoaded", function () {
           // 메뉴 목록을 초기화하고 새로운 데이터로 갱신합니다.
           menuList.innerHTML = ''; // 변경: 내용을 지우도록 수정
           handleMenuData(menuData);
+          const searchInput = document.querySelector(".search");
+          searchInput.value = '';
         });
     });
   });
@@ -299,7 +306,7 @@ function handleMenuData(menuData) {
         detailMenuLink.remove();
       }
 
-      history.pushState(null, null,`http://localhost:3001/BigFrame/BigOrder.html?order=basic&menuId=${menuNum}`);
+      history.pushState(null, null, `http://localhost:3001/BigFrame/BigOrder.html?order=basic&menuId=${menuNum}`);
 
       // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
       fetch("http://localhost:3001/detail_menu/jojo.html?menuId=${menuNum}") // 이 부분의 파일 경로를 수정해야합니다.
@@ -350,7 +357,7 @@ function handleMenuData(menuData) {
         detailMenuLink.remove();
       }
 
-      history.pushState(null, null,`http://localhost:3001/BigFrame/BigOrder.html?order=basic&menuId=${menuNum}`);
+      history.pushState(null, null, `http://localhost:3001/BigFrame/BigOrder.html?order=basic&menuId=${menuNum}`);
 
       // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
       fetch("http://localhost:3001/detail_menu/jojo.html?menuId=${menuNum}") // 이 부분의 파일 경로를 수정해야합니다.
@@ -386,8 +393,8 @@ function handleMenuData(menuData) {
   });
 }
 
-
-const storeData = JSON.parse(localStorage.getItem('mydata'));
+let storeData = JSON.parse(localStorage.getItem('mydata'));
+let storeData_str = localStorage.getItem('mydata');
 
 window.onload = searchFunction;
 
@@ -395,21 +402,19 @@ function searchFunction() {
   //bigOrder.html에 불러오는 코드 작성
   console.log("검색된 결과값", storeData);
 
-  const resultContainer = document.getElementById('resultContainer');
+  const resultContainer = document.querySelector('.list_box');
   resultContainer.innerHTML = ''; //이전 결과 초기화
+  // const res = document.querySelector('.list_content_box');
 
-  if(storeData.length === 0){
-    resultContainer.innerHTML = '<p>검색 결과가 없습니다.<br>다시 검색해 주세요</p>';
-    resultContainer.style.fontSize = '4vw';
-    resultContainer.style.textAlign = 'center';
-    resultContainer.style.padding = '5vh';
+  if (storeData.length === 0 && storeData_str == '없음') {
+    console.log('결과 없음');
   } else {
     storeData.forEach(item => {
       const div = document.createElement('div');
       div.className = "box list_content_box";
       div.innerHTML = `
       <div class="box list_img_box">
-        <img id="im" class="list_img_size" src=".${item.Picture}" />
+        <img id="im" class="list_img_size" src=".${item.Picture}" data-menunum="${item.Menu_Num}"/>
       </div>
       <div class="box list_content_info">
         <div class="content_title">
@@ -422,20 +427,123 @@ function searchFunction() {
             </div>
         </div>
         <div class="list_buttons">
-            <button class="selectBtn" id="selectBtn">선택</button>
+            <button class="selectBtn" id="selectBtn" data-menunum="${item.Menu_Num}">선택</button>
         </div>
     </div>
     `
-    resultContainer.appendChild(div);
+      resultContainer.appendChild(div);
     })
-  };
 
+
+    // 선택 버튼(메뉴 선택)
+    const selectBtn = document.querySelectorAll(".selectBtn");
+    selectBtn.forEach(selectBtn => {
+      selectBtn.addEventListener("click", function (event) {
+        console.log("버튼 눌림");
+        const menuNum = event.target.dataset.menunum;//08.24 menu_num을 가져오기 위한
+        console.log("주문번호:", menuNum);//08.24 menu_num을 가져오기 위한
+        // 먼저 모달 컨테이너를 비웁니다.
+        document.getElementById("modalContainer").innerHTML = "";
+
+        // help_msg.css를 제거합니다.
+        const detailMenuLink = document.querySelector('link[href="http://localhost:3001/help_msg/help_msg.css"]');
+        if (detailMenuLink) {
+          detailMenuLink.remove();
+        }
+
+        history.pushState(null, null, `http://localhost:3001/BigFrame/BigOrder.html?order=basic&menuId=${menuNum}`);
+
+        // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
+        fetch("http://localhost:3001/detail_menu/jojo.html?menuId=${menuNum}") // 이 부분의 파일 경로를 수정해야합니다.
+          .then(response => {
+            if (!response.ok) {
+              throw new Error("HTTP Error " + response.status);
+            }
+            return response.text();
+          })
+          .then(data => {
+            // 모달 컨테이너에 jojo.html 콘텐츠를 추가합니다.
+            $("#modalContainer").html(data);
+
+            // 외부 detail_menu 폴더에 있는 detail_menu.css 파일을 로드합니다.
+            const linkElement = document.createElement("link");
+            linkElement.rel = "stylesheet";
+            linkElement.type = "text/css";
+            linkElement.href = "http://localhost:3001/detail_menu/detail_menu.css"; // 이 부분의 파일 경로를 수정해야합니다.
+            document.head.appendChild(linkElement);
+
+            // 외부 detail_menu 폴더에 있는 detail_menu.js 파일을 로드합니다.
+            const scriptElement = document.createElement("script");
+            scriptElement.src = "http://localhost:3001/detail_menu/detail_menu.js"; // 이 부분의 파일 경로를 수정해야합니다.
+            document.body.appendChild(scriptElement);
+
+            const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+            modal.show();
+          })
+          .catch(error => {
+            console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
+          });
+      });
+    });
+
+    //이미지 클릭시에도 detail호출
+    const img_select = document.querySelectorAll(".list_img_box");
+    img_select.forEach(img_select => {
+      img_select.addEventListener("click", function (event) {
+        console.log("버튼 눌림");
+        const menuNum = event.target.dataset.menunum;//08.24 menu_num을 가져오기 위한
+        console.log("주문번호:", menuNum);//08.24 menu_num을 가져오기 위한
+        // 먼저 모달 컨테이너를 비웁니다.
+        document.getElementById("modalContainer").innerHTML = "";
+
+        // help_msg.css를 제거합니다.
+        const detailMenuLink = document.querySelector('link[href="http://localhost:3001/help_msg/help_msg.css"]');
+        if (detailMenuLink) {
+          detailMenuLink.remove();
+        }
+
+        history.pushState(null, null, `http://localhost:3001/BigFrame/BigOrder.html?order=basic&menuId=${menuNum}`);
+
+        // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
+        fetch("http://localhost:3001/detail_menu/jojo.html?menuId=${menuNum}") // 이 부분의 파일 경로를 수정해야합니다.
+          .then(response => {
+            if (!response.ok) {
+              throw new Error("HTTP Error " + response.status);
+            }
+            return response.text();
+          })
+          .then(data => {
+            // 모달 컨테이너에 jojo.html 콘텐츠를 추가합니다.
+            $("#modalContainer").html(data);
+
+            // 외부 detail_menu 폴더에 있는 detail_menu.css 파일을 로드합니다.
+            const linkElement = document.createElement("link");
+            linkElement.rel = "stylesheet";
+            linkElement.type = "text/css";
+            linkElement.href = "http://localhost:3001/detail_menu/detail_menu.css"; // 이 부분의 파일 경로를 수정해야합니다.
+            document.head.appendChild(linkElement);
+
+            // 외부 detail_menu 폴더에 있는 detail_menu.js 파일을 로드합니다.
+            const scriptElement = document.createElement("script");
+            scriptElement.src = "http://localhost:3001/detail_menu/detail_menu.js"; // 이 부분의 파일 경로를 수정해야합니다.
+            document.body.appendChild(scriptElement);
+
+            const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+            modal.show();
+          })
+          .catch(error => {
+            console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
+          });
+      });
+    });
+
+  };
 }
 
 // 검색 내용 input태그에 표시
 const keywordValue = localStorage.getItem('searchInput');
-    if (keywordValue) {
-        const searchInput = document.querySelector(".search");
-        searchInput.value = keywordValue;
-        localStorage.removeItem('searchInput'); // 사용한 값은 제거
-    }
+if (keywordValue) {
+  const searchInput = document.querySelector(".search");
+  searchInput.value = keywordValue;
+  localStorage.removeItem('searchInput'); // 사용한 값은 제거
+}
