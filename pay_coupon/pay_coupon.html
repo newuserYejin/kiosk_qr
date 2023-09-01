@@ -78,6 +78,28 @@
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
             crossorigin="anonymous"></script> 
         <script src="./pay_coupon.js"></script>
+
+        <!--JQuery라이브러리(Ajax)-->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+        <!--부트스트랩-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script>
+
+        <script>
+            setTimeout(function() {
+                openModal();
+            }, 3000); // 3000 밀리초는 3초입니다
+      
+            // 모달 열기 함수
+            function openModal() {
+            $.get("http://localhost:3001/payment_msg/payment_msg.html", function (data) {
+            $("#modalContainer").html(data);
+            const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+            modal.show();
+            });
+        }
+    </script>
 </body>
 
 </html>
