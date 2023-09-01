@@ -253,7 +253,7 @@ document.addEventListener("DOMContentLoaded", function () {
           menuList.innerHTML = ''; // 변경: 내용을 지우도록 수정
           handleMenuData(menuData);
           const searchInput = document.querySelector(".search");
-          searchInput.value = '';
+          searchInput.value = "";
         });
     });
   });
