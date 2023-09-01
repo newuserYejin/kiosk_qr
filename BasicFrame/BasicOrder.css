@@ -346,12 +346,13 @@ body {
 }
 
 /* 검색 입력창*/
-.search_div{
+.search_div {
   width: 50%;
 }
 
-.search{
+.search {
   width: 80%;
+  font-size: 3vw;
 }
 
 .search_icon {
@@ -441,11 +442,6 @@ body {
 
   .sizes {
     font-size: 1rem;
-  }
-
-  input[type="search"] {
-    padding: 1vw;
-    height: 1rem;
   }
 
   .searchs {

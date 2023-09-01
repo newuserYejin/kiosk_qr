@@ -96,6 +96,7 @@ function search(searchInput) {
 
                 if (data.length === 0) {
                     resultContainer.innerHTML = '<p>검색 결과가 없습니다.</p>';
+                    localStorage.setItem('mydata', '없음'); // '없음' 문자열 저장
                 } else {
                     data.forEach(item => {
                         const div = document.createElement('div');
@@ -123,13 +124,14 @@ function search(searchInput) {
                 // const searchResult = encodeURIComponent(JSON.stringify(data));
                 localStorage.setItem('mydata', JSON.stringify(data));
                 //console.log(data);
+                localStorage.setItem('searchInput', searchInput);
             })
             .catch(error => console.error('Error fetching data:', error));
     }
 }
 
 // Enter 키 입력 시 search 함수 호출
-document.getElementById('input_menu_name').addEventListener('keypress', function(event) {
+document.getElementById('input_menu_name').addEventListener('keypress', function (event) {
     if (event.key === 'Enter') {
         event.preventDefault(); // 기본 제출 동작 막기
         search(); // 검색 함수 호출
@@ -139,10 +141,11 @@ document.getElementById('input_menu_name').addEventListener('keypress', function
 
 const keyword = document.querySelectorAll(".keyword");
 
-keyword.forEach(keyword =>{
-    keyword.addEventListener('click',function(){
+keyword.forEach(keyword => {
+    keyword.addEventListener('click', function () {
         const keyword_value = keyword.textContent;
         search(keyword_value);
+        localStorage.setItem('searchInput', keyword_value); // 클릭한 키워드 값을 localStorage에 저장
         location.reload();
     })
 })
