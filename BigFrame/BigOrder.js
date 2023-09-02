@@ -229,6 +229,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // storeData에 데이터가 있는지 여부를 확인
   if (storeData && storeData.length > 0) {
     searchFunction(); // storeData에 데이터가 있을 경우 검색 결과 표시
+  } else if (storeData !== null) {
+    console.log("검색 결과 없음");
   } else {
     // storeData에 데이터가 없을 경우 초기 카테고리 메뉴 로드
     fetch(`/menu?category=${defaultCategory}`)
@@ -406,8 +408,12 @@ function searchFunction() {
   resultContainer.innerHTML = ''; //이전 결과 초기화
   // const res = document.querySelector('.list_content_box');
 
-  if (storeData.length === 0 && storeData_str == '없음') {
+  if (storeData.length === 0) {
     console.log('결과 없음');
+    resultContainer.innerHTML = '<p>검색 결과가 없습니다.<br>다시 검색해 주세요.</p>';
+    resultContainer.style.fontSize = '4vw';
+    resultContainer.style.textAlign = 'center';
+    resultContainer.style.padding = '5vh';
   } else {
     storeData.forEach(item => {
       const div = document.createElement('div');
@@ -433,6 +439,7 @@ function searchFunction() {
     `
       resultContainer.appendChild(div);
     })
+    localStorage.removeItem('mydata');
 
 
     // 선택 버튼(메뉴 선택)
