@@ -76,9 +76,10 @@
 }
 
 #modalContainer .menu_cost{
-    border: none;
     font-size: 3vw;
+    display: flex;
     justify-content: start;
+    color: black;
 }
 
 #modalContainer .border_line {

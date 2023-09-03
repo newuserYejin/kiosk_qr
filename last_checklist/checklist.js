@@ -2,25 +2,6 @@
 
 var button = document.querySelector('.circle');
 
-// 증감기능 삭제
-// document.addEventListener("DOMContentLoaded", function () {
-//   var decrementButton = document.getElementById("decrement");
-//   var incrementButton = document.getElementById("increment");
-//   var quantityInput = document.getElementById("quantity");
-
-//   decrementButton.addEventListener("click", function () {
-//     var currentQuantity = parseInt(quantityInput.value);
-//     if (currentQuantity > 1) {
-//       quantityInput.value = currentQuantity - 1;
-//     }
-//   });
-
-//   incrementButton.addEventListener("click", function () {
-//     var currentQuantity = parseInt(quantityInput.value);
-//     quantityInput.value = currentQuantity + 1;
-//   });
-// });
-
 //네비게이션 부분
 function selectPage() {
   var URL = new URLSearchParams(window.location.search);
@@ -125,12 +106,6 @@ joImage.addEventListener("click", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {//서버연동(DOMContentLoaded가 실행되고 서버를 실행되어야지 정상적으로 작동[사실 잘 모르겠음])
-  fetch('/getOrderData')
-    .then(response => response.json())
-    .then(data => {
-      addOrdersToDOM(data);
-      console.log("Session data:", JSON.stringify(data));
-    });
 });
 
 function createOrderItem(order) {//주문 아이템 생성 함수
@@ -151,18 +126,20 @@ function createOrderItem(order) {//주문 아이템 생성 함수
                           <!--옵션 데이터-->
                           <div class="row list_option">
                               <div class="list_option_detail">
-                                  <p class="option_title">현재 선택 내용</p>
-                                  <div class="option_detail">
-                                      <div>
+                                  <div class="row option_detail">
+                                      <div class="col-6">
                                           <span class="option_name">온도: </span>
-                                          <span class="select_tem">${order.op1}</span>
+                                          <span class="select_tem">${order.op_t === 1 ? '뜨거움' : '차가움'}</span>
                                       </div>
-                                      <div>
+                                      <div class="col-6">
                                           <span class="option_name">크기: </span>
-                                          <span class="select_size">${order.op2}</span>
+                                          <span class="select_size">${order.op_s === 3 ? '기본 크기' : '큰 크기'}</span>
                                       </div>
                                   </div>
-
+                                  <div>
+                                      <span class="option_name">추가 옵션: </span>
+                                      <span class="select_op">${order.options.map(op => op.op_name).join(', ')}</span>
+                                  </div>
                               </div>
                           </div>
                           <div class="row list_buttons">
@@ -171,8 +148,8 @@ function createOrderItem(order) {//주문 아이템 생성 함수
                               </div>
                               <div class="col-8" style="padding: 0px; height: 100%;">
                                   <div class="content_update_button">
-                                      <button class="updateBtn">수정</button>
-                                      <button class="deleteBtn">삭제</button>
+                                      <button class="updateBtn" data-orderNum="${order.order_num}">수정</button>
+                                      <button class="deleteBtn" data-orderNum="${order.order_num}">삭제</button>
                                   </div>
                               </div>
 
@@ -181,10 +158,18 @@ function createOrderItem(order) {//주문 아이템 생성 함수
                   </div>
 `;
 
-  // //   이미지 표시 로직
-  //   const imgBox = orderItem.querySelector('.box.list_content_info .container .order-list .order-item');
-  //   displayImage(order.imagePath, imgBox); // 이미지 표시 함수 호출
   return orderItem;
+}
+
+function findParentOrderItem(element) {
+  let parent = element.parentElement;
+  while (parent) {
+    if (parent.classList.contains("list_content_box")) {
+      return parent;
+    }
+    parent = parent.parentElement;
+  }
+  return null;
 }
 
 function addOrdersToDOM(orders) {
@@ -194,11 +179,16 @@ function addOrdersToDOM(orders) {
     const orderItem = createOrderItem(order);
     orderList.appendChild(orderItem);
   });
+
   //수정 버튼
   const selectBtn = document.querySelectorAll(".updateBtn");
   selectBtn.forEach(selectBtn => {
     selectBtn.addEventListener("click", function () {
-
+      console.log("수정 버튼 눌림");
+      // 클릭된 버튼의 data-orderNum 값을 가져옴
+      const orderNum = this.getAttribute('data-orderNum');
+      //window.location.href = `http://localhost:3001/detail_menu/jojo_o.html?orderNum=${orderNum}`;
+      console.log("주문번호:", orderNum);
       // 먼저 모달 컨테이너를 비웁니다.
       document.getElementById("modalContainer").innerHTML = "";
 
@@ -207,9 +197,9 @@ function addOrdersToDOM(orders) {
       if (detailMenuLink) {
         detailMenuLink.remove();
       }
-
+      history.pushState(null, null, `http://localhost:3001/last_checklist/checklist.html?order=basic&orderNum=${orderNum}`);
       // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
-      fetch("http://localhost:3001/detail_menu/jojo.html") // 이 부분의 파일 경로를 수정해야합니다.
+      fetch("http://localhost:3001/detail_menu/jojo_o.html?orderNum=${orderNum}") // 이 부분의 파일 경로를 수정해야합니다.
         .then(response => {
           if (!response.ok) {
             throw new Error("HTTP Error " + response.status);
@@ -227,9 +217,9 @@ function addOrdersToDOM(orders) {
           linkElement.href = "http://localhost:3001/detail_menu/detail_menu.css"; // 이 부분의 파일 경로를 수정해야합니다.
           document.head.appendChild(linkElement);
 
-          // 외부 detail_menu 폴더에 있는 detail_menu.js 파일을 로드합니다.
+          // 외부 detail_menu 폴더에 있는 detail_menu_o.js 파일을 로드합니다.
           const scriptElement = document.createElement("script");
-          scriptElement.src = "http://localhost:3001/detail_menu/detail_menu.js"; // 이 부분의 파일 경로를 수정해야합니다.
+          scriptElement.src = "http://localhost:3001/detail_menu/detail_menu_o.js"; // 이 부분의 파일 경로를 수정해야합니다.
           document.body.appendChild(scriptElement);
 
           const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
@@ -240,10 +230,16 @@ function addOrdersToDOM(orders) {
         });
     });
   });
-  //삭제 버튼
+
+  // 삭제 버튼
   const deleteBtn = document.querySelectorAll(".deleteBtn");
   deleteBtn.forEach(deleteBtn => {
     deleteBtn.addEventListener("click", function () {
+      console.log("삭제 버튼 눌림");
+      // 클릭된 버튼의 data-orderNum 값을 가져옴
+      const orderNum = this.getAttribute('data-orderNum');
+      console.log("주문 번호:", orderNum);
+
       // 먼저 모달 컨테이너를 비웁니다.
       document.getElementById("modalContainer").innerHTML = "";
 
@@ -254,7 +250,7 @@ function addOrdersToDOM(orders) {
       }
 
       // caution_msg.html 콘텐츠를 로드하여 모달 컨테이너에 추가합니다.
-      fetch("http://localhost:3001/messagebox/caution_msg.html")
+      fetch(`http://localhost:3001/messagebox/caution_msg.html?orderNum=${orderNum}`)
         .then(response => {
           if (!response.ok) {
             throw new Error("HTTP Error " + response.status);
@@ -264,7 +260,7 @@ function addOrdersToDOM(orders) {
         .then(data => {
           // 모달 컨테이너에 caution_msg.html 콘텐츠를 추가합니다.
           $("#modalContainer").html(data);
-
+          console.log("선택된 주문 번호 :", orderNum);
           // caution_msg.css 파일을 로드합니다.
           const linkElement = document.createElement("link");
           linkElement.rel = "stylesheet";
@@ -272,8 +268,24 @@ function addOrdersToDOM(orders) {
           linkElement.href = "http://localhost:3001/messagebox/caution_style.css";
           document.head.appendChild(linkElement);
 
+          // 모달을 열기 위한 코드
           const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
           modal.show();
+
+          // 주문 확인 모달 내부의 버튼 이벤트 리스너 등을 여기서 추가하면 됩니다.
+          const confirmButton = document.querySelector('.btn-primary');
+          confirmButton.addEventListener("click", function () {
+            console.log("확인 버튼 눌림");
+            // "확인" 버튼이 클릭되면 orderNum 값을 사용하여 DELETE 요청을 보내는 코드 작성
+            deleteOrder(orderNum);
+          });
+
+          const cancelButton = document.querySelector('.btn-secondary');
+          cancelButton.addEventListener("click", function () {
+            console.log("취소 버튼 눌림");
+            // "취소" 버튼이 클릭되면 모달 닫기
+            modal.hide();
+          });
         })
         .catch(error => {
           console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
