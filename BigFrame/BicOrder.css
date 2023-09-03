@@ -238,17 +238,28 @@ body {
 
 
 /*옵션*/
-.list_option {
+.list_option_boxes{
   border-top: 3px solid black;
   border-bottom: 3px solid black;
-  height: 45%;
   overflow: hidden;
   overflow-y: visible;
+  height: 45%;
 }
 
-.list_option div {
-  height: 100%;
+.list_option {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  height: auto;
+  padding: 0;
+}
+
+.tag{
   font-size: 2.5vw;
+  font-weight: bold;
+  border-radius: 10px;
+  border: solid 3px skyblue;
+  margin: 3px;
+  text-align: center;
 }
 
 .list_buttons {

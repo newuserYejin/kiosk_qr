@@ -139,13 +139,18 @@ document.getElementById('input_menu_name').addEventListener('keypress', function
     }
 });
 
-const keyword = document.querySelectorAll(".keyword");
 
-keyword.forEach(keyword => {
-    keyword.addEventListener('click', function () {
-        const keyword_value = keyword.textContent;
-        search(keyword_value);
-        localStorage.setItem('searchInput', keyword_value); // 클릭한 키워드 값을 localStorage에 저장
-        location.reload();
+function handleKeywordClick() {
+    const keyword = document.querySelectorAll(".keyword");
+
+    keyword.forEach(item => {
+        item.addEventListener('click', function () {
+            const keyword_value = item.textContent;
+            search(keyword_value);
+            localStorage.setItem('searchInput', keyword_value);
+            location.reload();
+        })
     })
-})
+}
+
+handleKeywordClick(); // 함수 호출
