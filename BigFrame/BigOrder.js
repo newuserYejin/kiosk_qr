@@ -273,6 +273,18 @@ document.addEventListener("DOMContentLoaded", function () {
 function handleMenuData(menuData) {
   // 받아온 데이터를 가지고 출력할 HTML 요소 생성
   const menuItems = menuData.map(menu => {
+
+    // menu.tag를 띄어쓰기를 기준으로 분리하여 배열로 만듭니다.
+    const tagsArray = menu.tag.split(' #');
+
+    // 분리된 태그를 별도의 div 요소에 넣어주기 위한 HTML 문자열 생성
+    const tagsHTML = tagsArray.map((tag, index) => {
+      // 첫 번째 요소에는 #를 추가하지 않고, 두 번째 요소부터는 #를 추가
+      const prefix = index === 0 ? '' : '#';
+
+      return `<div class="tag">${prefix}${tag}</div>`;
+    }).join(''); // 배열 요소들을 문자열로 결합
+
     return `
 
       <div class="box list_content_box">
@@ -284,8 +296,10 @@ function handleMenuData(menuData) {
                             <div class="menu_name">${menu.menu_name}</div>
                             <div class="menu_cost">${menu.price}원</div>
                         </div>
-                        <div class="list_option">
-                            <div>${menu.tag}</div>
+                        <div class="list_option_boxes">
+                            <div class="list_option">
+                                ${tagsHTML} <!-- 분리된 태그들을 여기에 삽입 -->
+                            </div>
                         </div>
                         <div class="list_buttons">
                             <button class="selectBtn" id="selectBtn" data-menunum="${menu.menu_num}">선택</button>
@@ -412,7 +426,6 @@ function searchFunction() {
 
   //검색하면 카테고리 표시 삭제
   const categories = document.querySelectorAll('.category');
-  categories.forEach(c => c.classList.remove('select_category'));
 
   //bigOrder.html에 불러오는 코드 작성
   console.log("검색된 결과값", storeData);
@@ -426,7 +439,21 @@ function searchFunction() {
     resultContainer.innerHTML = '<p style="font-size: 4vw; text-align: center; padding: 5vh;">검색 결과가 없습니다.<br>다시 검색해 주세요.</p>';
     localStorage.removeItem('mydata');
   } else {
+    categories.forEach(c => c.classList.remove('select_category'));
+
     storeData.forEach(item => {
+
+      // menu.tag를 띄어쓰기를 기준으로 분리하여 배열로 만듭니다.
+      const tagsArray = item.Tag.split(' #');
+
+      // 분리된 태그를 별도의 div 요소에 넣어주기 위한 HTML 문자열 생성
+      const tagsHTML = tagsArray.map((Tag, index) => {
+        // 첫 번째 요소에는 #를 추가하지 않고, 두 번째 요소부터는 #를 추가
+        const prefix = index === 0 ? '' : '#';
+
+        return `<div class="tag">${prefix}${Tag}</div>`;
+      }).join(''); // 배열 요소들을 문자열로 결합
+
       const div = document.createElement('div');
       div.className = "box list_content_box";
       div.innerHTML = `
@@ -438,9 +465,9 @@ function searchFunction() {
             <div class="menu_name">${item.Menu_Name}</div>
             <div class="menu_cost">${item.Price}원</div>
         </div>
-        <div class="list_option">
-            <div>
-                ${item.Tag}
+        <div class="list_option_boxes">
+            <div class="list_option">
+                ${tagsHTML} <!-- 분리된 태그들을 여기에 삽입 -->
             </div>
         </div>
         <div class="list_buttons">
@@ -568,22 +595,22 @@ if (keywordValue) {
 //네이베이션 아래의 주문 목록
 function generateOrderList(orderData) {
   const selectList = document.querySelector('.select_list_list');
-  
+
   orderData.forEach(order => {
     const selectListDetail = document.createElement('div');
     selectListDetail.classList.add('select_list_detail');
-    
+
     const selectName = document.createElement('div');
     selectName.classList.add('select_name');
     selectName.textContent = order.menu_name;
-    
+
     const selectNum = document.createElement('div');
     selectNum.classList.add('select_num');
     selectNum.textContent = order.count + '개';
-    
+
     selectListDetail.appendChild(selectName);
     selectListDetail.appendChild(selectNum);
-    
+
     selectList.appendChild(selectListDetail);
   });
 }

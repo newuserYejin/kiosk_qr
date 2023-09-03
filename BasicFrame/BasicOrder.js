@@ -261,6 +261,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const sliderContainer = document.querySelector(".slider"); // slider 컨테이너
 
   const categoryLinks = document.querySelectorAll(".categories a");
+  const categories = document.querySelectorAll('.category');
 
   const defaultCategory = "1";
 
@@ -275,6 +276,12 @@ document.addEventListener("DOMContentLoaded", function () {
     link.addEventListener("click", (event) => {
       event.preventDefault();
       const category = link.getAttribute("data-category");
+
+      categories.forEach(c => c.classList.remove('select_category'));
+
+      // 클릭한 카테고리에 select_category 클래스 추가
+      link.parentNode.classList.add('select_category');
+
       fetch(`/menu?category=${category}`)
         .then(response => response.json())
         .then(menuData => {
