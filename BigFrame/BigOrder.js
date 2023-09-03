@@ -554,7 +554,6 @@ function searchFunction() {
           });
       });
     });
-
   };
 }
 
@@ -565,3 +564,38 @@ if (keywordValue) {
   searchInput.value = keywordValue;
   localStorage.removeItem('searchInput'); // 사용한 값은 제거
 }
+
+//네이베이션 아래의 주문 목록
+function generateOrderList(orderData) {
+  const selectList = document.querySelector('.select_list_list');
+  
+  orderData.forEach(order => {
+    const selectListDetail = document.createElement('div');
+    selectListDetail.classList.add('select_list_detail');
+    
+    const selectName = document.createElement('div');
+    selectName.classList.add('select_name');
+    selectName.textContent = order.menu_name;
+    
+    const selectNum = document.createElement('div');
+    selectNum.classList.add('select_num');
+    selectNum.textContent = order.count + '개';
+    
+    selectListDetail.appendChild(selectName);
+    selectListDetail.appendChild(selectNum);
+    
+    selectList.appendChild(selectListDetail);
+  });
+}
+
+// 페이지 로드 시 주문 목록을 가져와서 생성
+window.addEventListener('load', () => {
+  fetch('/getOrderData')  // 서버의 getOrderData 라우트에 요청
+    .then(response => response.json())
+    .then(orderData => {
+      generateOrderList(orderData);  // 주문 목록 생성 함수 호출
+    })
+    .catch(error => {
+      console.error('Error fetching order data:', error);
+    });
+});

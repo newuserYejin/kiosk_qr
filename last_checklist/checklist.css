@@ -232,19 +232,17 @@ body {
     overflow-y: visible;
 }
 
-.option_title {
-    font-weight: bold;
-    padding: 0;
+.option_detail {
     margin: 0;
-    margin-bottom: 2%;
-    font-size: 3.5vw;
+    width: 100%;
+    font-size: 2.5vw;
+    font-weight: bold;
+    border-bottom: solid 3px black;
 }
 
-.option_detail {
+.option_detail div{
     padding: 0;
-    margin: 0;
-    font-size: 3vw;
-    font-weight: bold;
+    text-align: left;
 }
 
 
