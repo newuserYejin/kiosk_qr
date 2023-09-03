@@ -62,6 +62,7 @@ $(".btn-info").click(function () {
       console.error("주문 저장 중 오류 발생:", error);
     });
   //sql연동 끝
+  location.reload();
 });
 
 
