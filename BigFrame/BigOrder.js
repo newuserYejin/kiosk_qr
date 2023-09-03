@@ -222,6 +222,7 @@ function search() {
 document.addEventListener("DOMContentLoaded", function () {
   const menuList = document.querySelector(".list_box"); // 변경: .list_content_box -> .list_box
   const categoryLinks = document.querySelectorAll(".categories a");
+  const categories = document.querySelectorAll('.category');
 
   // 페이지 로드 시 기본 카테고리를 설정--start
   const defaultCategory = "1";
@@ -248,6 +249,13 @@ document.addEventListener("DOMContentLoaded", function () {
     link.addEventListener("click", (event) => {
       event.preventDefault(); // 링크의 기본 동작을 막습니다.
       const category = link.getAttribute("data-category");
+
+      // 모든 카테고리에서 select_category 클래스 제거
+      categories.forEach(c => c.classList.remove('select_category'));
+
+      // 클릭한 카테고리에 select_category 클래스 추가
+      link.parentNode.classList.add('select_category');
+
       fetch(`/menu?category=${category}`)
         .then(response => response.json())
         .then(menuData => {
@@ -401,6 +409,11 @@ let storeData_str = localStorage.getItem('mydata');
 window.onload = searchFunction;
 
 function searchFunction() {
+
+  //검색하면 카테고리 표시 삭제
+  const categories = document.querySelectorAll('.category');
+  categories.forEach(c => c.classList.remove('select_category'));
+
   //bigOrder.html에 불러오는 코드 작성
   console.log("검색된 결과값", storeData);
 
