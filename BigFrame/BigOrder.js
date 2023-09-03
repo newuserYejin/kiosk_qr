@@ -411,6 +411,7 @@ function searchFunction() {
   if (storeData.length === 0) {
     console.log('결과 없음');
     resultContainer.innerHTML = '<p style="font-size: 4vw; text-align: center; padding: 5vh;">검색 결과가 없습니다.<br>다시 검색해 주세요.</p>';
+    localStorage.removeItem('mydata');
   } else {
     storeData.forEach(item => {
       const div = document.createElement('div');
