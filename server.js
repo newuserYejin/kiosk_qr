@@ -72,7 +72,7 @@ const calculateMenuRange = (category) => {
 // 데이터베이스에서 해당 범위의 메뉴 정보 조회
 const getMenuDataByRange = (category, callback) => {
   const menuRange = calculateMenuRange(category);
-  const sql = `SELECT menu_num, menu_name, price, menu_explan, picture AS image_path 
+  const sql = `SELECT menu_num, menu_name, price, menu_explan, tag, picture AS image_path 
       FROM tb_menu 
       inner join img on tb_menu.menu_num = img.img_num
       WHERE menu_num BETWEEN ? AND ?`;
@@ -100,7 +100,7 @@ app.get('/menu/:menuId', (req, res) => {
   console.log(menuId);
 
   const getMenuQuery = `
-    SELECT menu_name, price, menu_explan
+    SELECT menu_name, price, menu_explan, tag
     FROM tb_menu
     WHERE menu_num = ?`;
 
