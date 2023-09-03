@@ -193,12 +193,14 @@ body {
 .list_img_box {
   width: 35%;
   height: var(width);
+  min-height: var(width);
   padding: 10px;
   border: solid 2px black;
 }
 
 .list_img_size {
   width: 100%;
+  min-height: 140px;
 }
 
 .list_content_info {
@@ -258,6 +260,7 @@ body {
 /* 선택 버튼*/
 .selectBtn {
   height: 80%;
+  min-height: 35px;
   width: 50%;
   border-radius: 30px;
   background-color: white;
@@ -409,7 +412,7 @@ body {
   }
 
   .menu_name {
-    font-size: 3vw;
+    font-size: 2.5vw;
   }
 
   .menu_cost {

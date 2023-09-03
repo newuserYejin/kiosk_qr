@@ -285,7 +285,7 @@ function handleMenuData(menuData) {
                             <div class="menu_cost">${menu.price}원</div>
                         </div>
                         <div class="list_option">
-                            <div>${menu.menu_explan}</div>
+                            <div>${menu.tag}</div>
                         </div>
                         <div class="list_buttons">
                             <button class="selectBtn" id="selectBtn" data-menunum="${menu.menu_num}">선택</button>
@@ -440,7 +440,7 @@ function searchFunction() {
         </div>
         <div class="list_option">
             <div>
-                ${item.Menu_Explan}
+                ${item.Tag}
             </div>
         </div>
         <div class="list_buttons">
