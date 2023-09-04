@@ -4,12 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="pay_coupon.css"/>
+    <title>coupon_pay</title>
+    <link rel="stylesheet" type="text/css" href="./pay_coupon_e.css" />
 </head>
 
 <body>
@@ -39,7 +35,6 @@
                 <div class="level_line">
                     <p></p>
                     <img src="./image/line2.jpg" alt="Line 이미지" class="center">
-
                 </div>
 
                 <div class="box_line">
@@ -49,152 +44,35 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
         <div class="selectpay">
             <div class="help">
-                <img class="helping" src="./image/helpicon.png"  width="7.5%" height="7.5%" id="imageLink">
+                <img class="helping" src="./image/helpicon.png" width="7.5%" height="7.5%" id="imageLink">
                 <div id="modalContainer"></div>
             </div>
             <div class="first">
                 <div class="fir_box">
-                    <div class="explain">	
+                    <div class="explain">
                         <div class="explain1">Please insert the card </div>
                         <div class="explain2">into the slot like the video.</div>
                     </div>
                     <div class="video">
-                        <img class="pay_coupon" src="./image/pay_coupon.gif" loop = infinite/>
+                        <img class="pay_coupon" src="./image/pay_coupon.gif" loop=infinite />
                     </div>
-                    <div class="gohome_">
+                    <div class="under_buttons">
                         <button type="button" class="back" onclick="back()">Previous screen</button>
                         <button type="button" class="gohome" onclick="gohome()">Return to order</button>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <script>
-           //도움말 버튼
-            const joImage = document.getElementById("imageLink");
 
-            joImage.addEventListener("click", function () {
-            // 먼저 모달 컨테이너를 비웁니다.
-            document.getElementById("modalContainer").innerHTML = "";
-
-            
-
-            // help_msg.html 콘텐츠를 로드하여 모달 컨테이너에 추가합니다.
-            fetch("http://localhost:3001/help_msg/help_msg.html")
-                .then(response => {
-                if (!response.ok) {
-                    throw new Error("HTTP Error " + response.status);
-                }
-                return response.text();
-                })
-                .then(data => {
-                // 모달 컨테이너에 help_msg.html 콘텐츠를 추가합니다.
-                $("#modalContainer").html(data);
-
-                // help_msg.css 파일을 로드합니다.
-                const linkElement = document.createElement("link");
-                linkElement.rel = "stylesheet";
-                linkElement.type = "text/css";
-                linkElement.href = "http://localhost:3001/help_msg/help_msg.css";
-                document.head.appendChild(linkElement);
-
-                const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
-                modal.show();
-                })
-                .catch(error => {
-                console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
-                });
-            });
-
-            // URL에서 "order" 파라미터 값을 확인하여 다른 페이지로 이동
-        const urlParams = new URLSearchParams(window.location.search);
-        const orderType = urlParams.get('order');
-        function openSelect() {
-        
-            if (orderType === 'slow') {
-                // 천천히 주문하기 버튼을 클릭한 경우
-                location.href = 'http://localhost:3001/BigFrame_e/BigOrder_e.html?order=slow';
-            } else if (orderType === 'basic') {
-                // 기본 주문하기 버튼을 클릭한 경우
-                location.href = 'http://localhost:3001/BasicFrame_e/BasicOrder_e.html?order=basic';
-            } else {
-                location.href = 'http://localhost:3001/selectorder/selectorder.html';
-            }
-
-        }
-        function openCheck() {
-            if (orderType === 'slow') {
-            // 천천히 주문하기 버튼을 클릭한 경우
-            location.href = 'http://localhost:3001/last_checklist_e/checklist_e.html?order=slow';
-            } else if (orderType === 'basic') {
-            // 기본 주문하기 버튼을 클릭한 경우
-            location.href = 'http://localhost:3001/last_checklist_e/checklist_e.html?order=basic';
-            } else {
-            location.href = 'http://localhost:3001/selectorder/selectorder.html';
-            }
-
-        }
-        function openPay() {
-            if (orderType === 'slow') {
-            // 천천히 주문하기 버튼을 클릭한 경우
-            location.href = 'http://localhost:3001/paymethod_e/paymethod_e.html?order=slow';
-            } else if (orderType === 'basic') {
-            // 기본 주문하기 버튼을 클릭한 경우
-            location.href = 'http://localhost:3001/paymethod_e/paymethod_e.html?order=basic';
-            } else {
-            location.href = 'http://localhost:3001/selectorder/selectorder.html';
-            }
-
-        }
-
-        function back(){
-            if (orderType === 'slow') {
-            // 천천히 주문하기 버튼을 클릭한 경우
-            location.href = 'http://localhost:3001/paymethod_e/paymethod_e.html?order=slow';
-            } else if (orderType === 'basic') {
-            // 기본 주문하기 버튼을 클릭한 경우
-            location.href = 'http://localhost:3001/paymethod_e/paymethod_e.html?order=basic';
-            } else {
-            location.href = 'http://localhost:3001/selectorder/selectorder.html';
-            }
-
-        }
-
-        function gohome(){
-            if (orderType === 'slow') {
-                // 천천히 주문하기 버튼을 클릭한 경우
-                location.href = 'http://localhost:3001/BigFrame_e/BigOrder_e.html?order=slow';
-            } else if (orderType === 'basic') {
-                // 기본 주문하기 버튼을 클릭한 경우
-                location.href = 'http://localhost:3001/BasicFrame_e/BasicOrder_e.html?order=basic';
-            } else {
-                location.href = 'http://localhost:3001/selectorder/selectorder.html';
-            }
-            
-        }
-        </script>
-        <script src="navbarmsg.js"></script>   
-
-        <!-- <script>
-            function showMessageAndRedirect() {
-                setTimeout(function() {
-                    alert("The page will be moved after 3 seconds.");
-                
-                    // 알림 메시지가 나타난 후 3초 뒤에 페이지를 
-                    setTimeout(function() {
-                      window.location.href = "http://localhost:3001/ordernum_e/ordernum_e.html?order=basic";
-                    }, 3000); 
-                  }, 2000); 
-                }
-                
-            // 페이지 로드 시 함수 호출
-            window.onload = showMessageAndRedirect;
-        </script> -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script>
+        <script src="./pay_coupon_e.js"></script>
 
         <!--JQuery라이브러리(Ajax)-->
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
@@ -204,18 +82,19 @@
             crossorigin="anonymous"></script>
 
         <script>
-            setTimeout(function() {
+            setTimeout(function () {
                 openModal();
             }, 3000); // 3000 밀리초는 3초입니다
-      
+
             // 모달 열기 함수
             function openModal() {
-            $.get("http://localhost:3001/payment_msg_e/payment_msg_e.html", function (data) {
-            $("#modalContainer").html(data);
-            const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
-            modal.show();
-            });
-        }
-    </script>
+                $.get("http://localhost:3001/payment_msg_e/payment_msg_e.html", function (data) {
+                    $("#modalContainer").html(data);
+                    const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+                    modal.show();
+                });
+            }
+        </script>
 </body>
+
 </html>

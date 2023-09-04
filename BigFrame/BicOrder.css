@@ -57,10 +57,9 @@ body {
   max-height: 25vh;
 }
 
-.now{
-  animation: progressAnimation 1.2s linear infinite;
+.now {
+  animation: progressAnimation 1s linear infinite;
 }
-
 
 @keyframes progressAnimation {
   0% {

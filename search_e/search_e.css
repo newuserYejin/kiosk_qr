@@ -1,48 +1,48 @@
-#modalContainer_e .modal_size{
+#modalContainer .modal_size{
     height:95%;
 }
 
-#modalContainer_e .modal-body{
+#modalContainer .modal-body{
     overflow: hidden;
     overflow-y: visible;
 }
 
-#modalContainer_e .box{
+#modalContainer .box{
     border: solid 2px black;
 }
 
-#modalContainer_e .top_box{
+#modalContainer .top_box{
     height: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#modalContainer_e .input{
+#modalContainer .input{
     border: none;
     border-bottom: solid 3px black;
     padding-right: 2vw;
     font-size: 3vw;
 }
 
-#modalContainer_e .search_icon{
+#modalContainer .search_icon{
     width: 7%;
 }
 
-#modalContainer_e .keyword_box{
+#modalContainer .keyword_box{
     height: 50%;
     overflow: hidden;
     padding: 10px;
 }
 
-#modalContainer_e .real_keyword {
+#modalContainer .real_keyword {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px 20px;
     justify-content: center; /* 가운데 정렬 */
 }
 
-#modalContainer_e .keyword{
+#modalContainer .keyword{
     padding: 5px 0;
     background-color: white;
     border-radius: 5px;
@@ -53,7 +53,7 @@
     font-weight: 500;
 }
 
-#modalContainer_e .keyword:hover{
+#modalContainer .keyword:hover{
     background-color: skyblue;
     color: white;
     border: none;
@@ -61,13 +61,13 @@
     font-weight: bold;
 }
 
-#modalContainer_e .keyboard_size{
+#modalContainer .keyboard_size{
     border: solid 2px black;
     width: 100%;
     height: 43%;
 }
 
-#modalContainer_e .simple-keyboard{
+#modalContainer .simple-keyboard{
     width: 100%;
     height: 100%;
     overflow-y: scroll;

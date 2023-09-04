@@ -3,7 +3,7 @@ const joImage = document.getElementById("imageLink");
 
 joImage.addEventListener("click", function () {
   // 먼저 모달 컨테이너를 비웁니다.
-  document.getElementById("modalContainer_e").innerHTML = "";
+  document.getElementById("modalContainer").innerHTML = "";
 
   // detail_menu.css를 제거합니다.
   const detailMenuLink = document.querySelector('link[href="http://localhost:3001/detail_menu/detail_menu.css"]');
@@ -21,7 +21,7 @@ joImage.addEventListener("click", function () {
     })
     .then(data => {
       // 모달 컨테이너에 help_msg.html 콘텐츠를 추가합니다.
-      $("#modalContainer_e").html(data);
+      $("#modalContainer").html(data);
 
       // help_msg.css 파일을 로드합니다.
       const linkElement = document.createElement("link");
@@ -142,7 +142,7 @@ radioButtons.forEach(button => {
 document.getElementById("search_div").addEventListener('click', search);
 
 function search(){
-  document.getElementById("modalContainer_e").innerHTML = "";
+  document.getElementById("modalContainer").innerHTML = "";
 
   // help_msg.css를 제거합니다.
   const help_msg_Link = document.querySelector('link[href="http://localhost:3001/help_msg/help_msg.css"]');
@@ -165,7 +165,7 @@ function search(){
     })
     .then(data => {
       // 모달 컨테이너에 jojo.html 콘텐츠를 추가합니다.
-      $("#modalContainer_e").html(data);
+      $("#modalContainer").html(data);
 
       // 외부 detail_menu 폴더에 있는 detail_menu.css 파일을 로드합니다.
       const linkElement = document.createElement("link");
@@ -292,7 +292,7 @@ function handleMenuData(menuData) {
       const menuNum = event.target.dataset.menunum;//08.24 menu_num을 가져오기 위한
       console.log("주문번호:", menuNum);//08.24 menu_num을 가져오기 위한
       // 먼저 모달 컨테이너를 비웁니다.
-      document.getElementById("modalContainer_e").innerHTML = "";
+      document.getElementById("modalContainer").innerHTML = "";
 
       // help_msg.css를 제거합니다.
       const detailMenuLink = document.querySelector('link[href="http://localhost:3001/help_msg/help_msg.css"]');
@@ -312,7 +312,7 @@ function handleMenuData(menuData) {
         })
         .then(data => {
           // 모달 컨테이너에 jojo.html 콘텐츠를 추가합니다.
-          $("#modalContainer_e").html(data);
+          $("#modalContainer").html(data);
 
           // 외부 detail_menu 폴더에 있는 detail_menu.css 파일을 로드합니다.
           const linkElement = document.createElement("link");
@@ -343,7 +343,7 @@ function handleMenuData(menuData) {
       const menuNum = event.target.dataset.menunum;//08.24 menu_num을 가져오기 위한
       console.log("주문번호:", menuNum);//08.24 menu_num을 가져오기 위한
       // 먼저 모달 컨테이너를 비웁니다.
-      document.getElementById("modalContainer_e").innerHTML = "";
+      document.getElementById("modalContainer").innerHTML = "";
 
       // help_msg.css를 제거합니다.
       const detailMenuLink = document.querySelector('link[href="http://localhost:3001/help_msg/help_msg.css"]');
@@ -363,7 +363,7 @@ function handleMenuData(menuData) {
         })
         .then(data => {
           // 모달 컨테이너에 jojo.html 콘텐츠를 추가합니다.
-          $("#modalContainer_e").html(data);
+          $("#modalContainer").html(data);
 
           // 외부 detail_menu 폴더에 있는 detail_menu.css 파일을 로드합니다.
           const linkElement = document.createElement("link");
@@ -459,7 +459,7 @@ function searchFunction() {
         const menuNum = event.target.dataset.menunum;//08.24 menu_num을 가져오기 위한
         console.log("주문번호:", menuNum);//08.24 menu_num을 가져오기 위한
         // 먼저 모달 컨테이너를 비웁니다.
-        document.getElementById("modalContainer_e").innerHTML = "";
+        document.getElementById("modalContainer").innerHTML = "";
 
         // help_msg.css를 제거합니다.
         const detailMenuLink = document.querySelector('link[href="http://localhost:3001/help_msg/help_msg.css"]');
@@ -479,7 +479,7 @@ function searchFunction() {
           })
           .then(data => {
             // 모달 컨테이너에 jojo.html 콘텐츠를 추가합니다.
-            $("#modalContainer_e").html(data);
+            $("#modalContainer").html(data);
 
             // 외부 detail_menu 폴더에 있는 detail_menu.css 파일을 로드합니다.
             const linkElement = document.createElement("link");
@@ -510,7 +510,7 @@ function searchFunction() {
         const menuNum = event.target.dataset.menunum;//08.24 menu_num을 가져오기 위한
         console.log("주문번호:", menuNum);//08.24 menu_num을 가져오기 위한
         // 먼저 모달 컨테이너를 비웁니다.
-        document.getElementById("modalContainer_e").innerHTML = "";
+        document.getElementById("modalContainer").innerHTML = "";
 
         // help_msg.css를 제거합니다.
         const detailMenuLink = document.querySelector('link[href="http://localhost:3001/help_msg/help_msg.css"]');
@@ -530,7 +530,7 @@ function searchFunction() {
           })
           .then(data => {
             // 모달 컨테이너에 jojo.html 콘텐츠를 추가합니다.
-            $("#modalContainer_e").html(data);
+            $("#modalContainer").html(data);
 
             // 외부 detail_menu 폴더에 있는 detail_menu.css 파일을 로드합니다.
             const linkElement = document.createElement("link");
