@@ -75,7 +75,7 @@ function renderMenuDetail(menuData) {
   const menuImage = document.querySelector(".menu_img_size");
 
   menuTitle.textContent = menuData.menuData.menu_name;
-  menuCost.textContent = `가격: ${menuData.menuData.price}원`;
+  menuCost.textContent = `price: ₩${menuData.menuData.price}`;
   menuDescription.textContent = menuData.menuData.menu_explan;
   
   const img_pp = `.${menuData.image_path}`
@@ -123,7 +123,7 @@ optionContainers.forEach((container, index) => {
       .map(option => {
         const checkedAttribute = option.op_name === "기본 크기" ? "checked" : "";
         return `<li class="list-group-item"><input class="form-check-input me-1" type="radio" name="size"  id="${option.op_name}" value="${option.op_name}" ${checkedAttribute}>
-        <label class="form-check-label" for="${option.op_name}">${option.op_name} (+${option.op_price}원)</label></li>`;
+        <label class="form-check-label" for="${option.op_name}">${option.op_name} (+${option.op_price})</label></li>`;
       })
       .join("");
   } else if (index === 2) {
@@ -136,7 +136,7 @@ optionContainers.forEach((container, index) => {
       .map(option => {
         currentSet++;
         return `<li class="list-group-item chch"><input class="form-check-input me-1" type="checkbox" id="${option.op_name}" name="option_set_${currentSet}" value="${option.op_name}">
-        <label class="form-check-label" for="${option.op_name}">${option.op_name} (+${option.op_price}원)</label></li>`;
+        <label class="form-check-label" for="${option.op_name}">${option.op_name} (+${option.op_price})</label></li>`;
       })
       .join("");
   } 

@@ -16,7 +16,7 @@
             <div class="modal-content">
                 <div class="all_modal">
                     <div class="modal-header border_line">
-                        <h5 class="modal-title" id="exampleModalLongTitle">상세 메뉴</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">Detail Menu</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -41,18 +41,18 @@
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
                                                             <button class="btn btn-outline-secondary"
-                                                                id="decrement">-</button>
+                                                                id="decrement1">-</button>
                                                         </div>
                                                         <input type="text" class="form-control" id="quantity" value="1"
                                                             readonly />
                                                         <div class="input-group-append">
                                                             <button class="btn btn-outline-secondary"
-                                                                id="increment">+</button>
+                                                                id="increment1">+</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="add_button">
-                                                    <button class="btn-info" data-bs-dismiss="modal">저장</button>
+                                                    <button class="btn-info" data-bs-dismiss="modal">add</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -62,7 +62,7 @@
                         </div>
 
                         <div class="option r_box">
-                            <p class="option_name r_name">알레르기 정보</p>
+                            <p class="option_name r_name">Allergy</p>
                             <ul class="allegy_list"></ul>
                         </div>
 
@@ -73,18 +73,17 @@
                                     <div class="option">
                                         <div class="option_inner_bow">
                                             <!-- 온도 옵션 -->
-                                            <p class="option_name">온도 옵션</p>
+                                            <p class="option_name">Temperature Option</p>
                                             <ul class="list-group">
                                                 <li class="list-group-item">
                                                     <input class="form-check-input me-1" type="radio" name="temperature"
                                                         value="1" id="t_firstRadio" checked>
-                                                    <label class="form-check-label" for="t_firstRadio">뜨거움 (+0원)</label>
+                                                    <label class="form-check-label" for="t_firstRadio" style="color: red;">Hot (+0)</label>
                                                 </li>
                                                 <li class="list-group-item">
                                                     <input class="form-check-input me-1" type="radio" name="temperature"
                                                         value="2" id="t_secondRadio">
-                                                    <label class="form-check-label" for="t_secondRadio">차가움
-                                                        (+0원)</label>
+                                                    <label class="form-check-label" for="t_secondRadio" style="color: blue;">Cold (+0)</label>
                                                 </li>
                                             </ul>
                                         </div>
@@ -94,19 +93,17 @@
                                         <div class="option_inner_bow">
 
                                             <!-- 크기 옵션 -->
-                                            <p class="option_name">크기 옵션</p>
+                                            <p class="option_name">Size Option</p>
                                             <ul class="list-group">
                                                 <li class="list-group-item">
                                                     <input class="form-check-input me-1" type="radio" name="size"
                                                         value="3" id="s_firstRadio" checked>
-                                                    <label class="form-check-label" for="s_firstRadio">기본 크기
-                                                        (+0원)</label>
+                                                    <label class="form-check-label" for="s_firstRadio">Basic Size(+0)</label>
                                                 </li>
                                                 <li class="list-group-item">
                                                     <input class="form-check-input me-1" type="radio" name="size"
                                                         value="4" id="s_secondRadio">
-                                                    <label class="form-check-label" for="s_secondRadio">큰 크기
-                                                        (+1200원)</label>
+                                                    <label class="form-check-label" for="s_secondRadio">Bic Size (+1200)</label>
                                                 </li>
                                             </ul>
                                         </div>
@@ -116,7 +113,7 @@
                                         <div class="option_inner_bow">
 
                                             <!-- 에스프레소, 휘핑 크림, 초콜릿 칩, 바닐라 시럽 옵션 -->
-                                            <p class="option_name">세번째 옵션</p>
+                                            <p class="option_name">Third Option</p>
                                             <ul class="list-group ch chek_ul">
                                                 <li class="list-group-item">
                                                     <input class="form-check-input me-1" type="checkbox"
@@ -163,8 +160,8 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-                        <button type="button" class="btn btn-info" data-dismiss="modal">추가</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-info" data-dismiss="modal">Add</button>
                     </div>
                 </div>
                 <!--08.17수정-->
