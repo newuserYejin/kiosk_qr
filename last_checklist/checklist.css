@@ -225,14 +225,14 @@ body {
     height: 55%;
 }
 
-.list_option_detail {
+.list_option .list_option_detail {
     padding: 0;
     height: 100%;
     overflow: hidden;
     overflow-y: visible;
 }
 
-.option_detail {
+.list_option_detail .option_detail {
     margin: 0;
     width: 100%;
     font-size: 2.5vw;

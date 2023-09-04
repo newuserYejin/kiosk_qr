@@ -80,6 +80,7 @@
     display: flex;
     justify-content: start;
     color: black;
+    border: none;
 }
 
 #modalContainer .border_line {

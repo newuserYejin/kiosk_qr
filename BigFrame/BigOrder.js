@@ -479,7 +479,6 @@ function searchFunction() {
     })
     localStorage.removeItem('mydata');
 
-
     // 선택 버튼(메뉴 선택)
     const selectBtn = document.querySelectorAll(".selectBtn");
     selectBtn.forEach(selectBtn => {

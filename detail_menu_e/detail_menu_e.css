@@ -1,0 +1,309 @@
+#modalContainer_e .row {
+    margin-bottom: 10px;
+}
+
+#modalContainer_e .modal-header{
+    height: 6%;
+}
+
+#modalContainer_e .modal-footer{
+    height: 6%;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    border-top: 2px solid black;
+}
+
+#modalContainer_e .modal-body{
+    height: auto;
+}
+
+#modalContainer_e .help {
+    position: absolute;
+    width: 7%;
+}
+
+#modalContainer_e .menu_img_box {
+    width: 38vw;
+    height: 35vw;
+    height: var(width);
+    padding: 10px;
+    border: solid 2px black;
+    display: flex;
+    justify-content: center;
+}
+
+#modalContainer_e .menu_img_size {
+    width: 80%;
+}
+
+#modalContainer_e .menu_explain_detail{
+    height: auto;
+    overflow: hidden;
+    overflow-y: visible;
+}
+
+#modalContainer_e .menu_explain {
+    width: 38vw;
+    height: auto;
+    min-height: 35vw;
+    border: solid 2px black;
+    display: flex;
+    align-items: center;
+    padding: 2%;
+}
+
+#modalContainer_e .menu_explain_center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#modalContainer_e .menu_explain_center div {
+    width: 100%;
+}
+
+#modalContainer_e .menu_explain_content {
+    margin: 1vw;
+    font-weight: bold;
+    font-size: 2.5vw;
+}
+
+#modalContainer_e .menu_title {
+    font-size: 3.5vw;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#modalContainer_e .menu_cost{
+    font-size: 3vw;
+    display: flex;
+    justify-content: start;
+    color: black;
+    border: none;
+}
+
+#modalContainer_e .border_line {
+    border-bottom: 2px solid black;
+}
+
+#modalContainer_e .modal {
+    width: 100%;
+    height: 100%;
+}
+
+#modalContainer_e .modal-title {
+    font-weight: bold;
+}
+
+#modalContainer_e .modal-dialog {
+    min-width: 90%;
+    min-height: 90%;
+    width: 90%;
+    height: 95%;
+}
+
+#modalContainer_e .modal-content {
+    height: 100%;
+    overflow: hidden;
+    overflow-y: visible;
+}
+
+#modalContainer_e .all_modal{
+    height: 100%;
+}
+
+#modalContainer_e .op_box{
+    height: 50%;
+}
+
+/*옵션*/
+#modalContainer_e .option_box {
+    border: 2px solid black;
+    height: 100%;
+    padding: 2vw;
+    overflow: hidden;
+    overflow-y: visible;
+}
+
+/*상세 옵션*/
+#modalContainer_e .option {
+    border: 2px solid black;
+    height: 15vh;
+    min-height: 80px;
+    margin-bottom: 2vh;
+    padding: 0 10px;
+    overflow: hidden;
+    overflow-y: visible;
+    display: flex;
+    align-items: center;
+}
+
+#modalContainer_e .option_inner_bow {
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#modalContainer_e .option_name {
+    margin: 0;
+    font-weight: bold;
+    font-size: 3vh;
+}
+
+#modalContainer_e .list-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+#modalContainer_e .list-group-item {
+    border: none;
+    padding: 1vh;
+    min-width: 20px;
+}
+
+#modalContainer_e .list-group li {
+    display: flex;
+    align-items: center;
+}
+
+#modalContainer_e .form-check-input {
+    border: solid 2px black;
+    width: 20px;
+    height: 20px;
+}
+
+#modalContainer_e .form-check-label {
+    font-size: 3vw;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+
+#modalContainer_e .detail_explain_bottom {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/*수량 체크 박스*/
+#modalContainer_e .num_check {
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    height: 50%;
+    flex-direction: row;
+}
+
+#modalContainer_e .input-group {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+}
+
+#modalContainer_e .input-group div {
+    width: auto;
+}
+
+#modalContainer_e .form-control[readonly] {
+    background-color: white;
+    border-right: solid 2px black;
+    border-left: solid 2px black;
+}
+
+#modalContainer_e .form-control {
+    text-align: center;
+    font-weight: bold;
+    font-size: 4vw;
+    color: black;
+    padding: 0;
+    width: 10%;
+}
+
+#modalContainer_e .btn-outline-secondary {
+    border: none;
+    font-weight: bold;
+    font-size: 4vw;
+    color: black;
+    padding: 0 2vw;
+}
+
+/*추가버튼*/
+#modalContainer_e .add_button {
+    height: 5.5vw;
+    display: flex;
+    justify-content: center;
+}
+
+#modalContainer_e .add_button button {
+    width: 70%;
+    height: 100%;
+    background-color: white;
+    font-weight: bold;
+    font-size: 3vw;
+}
+
+#modalContainer_e .modal-footer button{
+    height: 90%;
+    margin-top: 3px;
+}
+
+/*알레르기*/
+#modalContainer_e .r_box{
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    min-height: auto;
+    overflow: visible;
+    border: none;
+}
+
+#modalContainer_e .r_box *{
+    margin: 0;
+}
+
+#modalContainer_e .r_name{
+    font-size: 3vw;
+    width: 28vw;
+}
+
+#modalContainer_e .allegy_list{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 3.2vw;
+}
+
+#modalContainer_e .allegy_list li{
+    margin-right: 30px;
+}
+
+#modalContainer_e .check{
+    overflow: hidden;
+    overflow-x: visible;
+    height: 150px;
+}
+
+#modalContainer_e .chek_ul{
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 두 개의 열로 나눔 */
+}
+
+#modalContainer_e .chek_ul li .form-check-label{
+    font-size: 2.5vw;
+    width: auto;
+}
+
+/* .chek_ul li .form-check-input{
+    border: solid 2px black;
+    width: 20px;
+    height: 20px;
+} */
