@@ -3,10 +3,10 @@ const joImage = document.getElementById("imageLink");
 
 joImage.addEventListener("click", function () {
   // 먼저 모달 컨테이너를 비웁니다.
-  document.getElementById("modalContainer").innerHTML = "";
+  document.getElementById("modalContainer_e").innerHTML = "";
 
   // detail_menu.css를 제거합니다.
-  const detailMenuLink = document.querySelector('link[href="http://localhost:3001/detail_menu/detail_menu.css"]');
+  const detailMenuLink = document.querySelector('link[href="http://localhost:3001/detail_menu_e/detail_menu_e.css"]');
   if (detailMenuLink) {
     detailMenuLink.remove();
   }
@@ -21,7 +21,7 @@ joImage.addEventListener("click", function () {
     })
     .then(data => {
       // 모달 컨테이너에 help_msg.html 콘텐츠를 추가합니다.
-      $("#modalContainer").html(data);
+      $("#modalContainer_e").html(data);
 
       // help_msg.css 파일을 로드합니다.
       const linkElement = document.createElement("link");
@@ -142,7 +142,7 @@ radioButtons.forEach(button => {
 document.getElementById("search_div").addEventListener('click', search);
 
 function search(){
-  document.getElementById("modalContainer").innerHTML = "";
+  document.getElementById("modalContainer_e").innerHTML = "";
 
   // help_msg.css를 제거합니다.
   const help_msg_Link = document.querySelector('link[href="http://localhost:3001/help_msg/help_msg.css"]');
@@ -151,7 +151,7 @@ function search(){
   }
 
   // detail_menu.css를 제거합니다.
-  const detailMenuLink = document.querySelector('link[href="http://localhost:3001/detail_menu/detail_menu.css"]');
+  const detailMenuLink = document.querySelector('link[href="http://localhost:3001/detail_menu_e/detail_menu_e.css"]');
   if (detailMenuLink) {
     detailMenuLink.remove();
   }
@@ -165,7 +165,7 @@ function search(){
     })
     .then(data => {
       // 모달 컨테이너에 jojo.html 콘텐츠를 추가합니다.
-      $("#modalContainer").html(data);
+      $("#modalContainer_e").html(data);
 
       // 외부 detail_menu 폴더에 있는 detail_menu.css 파일을 로드합니다.
       const linkElement = document.createElement("link");
@@ -292,7 +292,7 @@ function handleMenuData(menuData) {
       const menuNum = event.target.dataset.menunum;//08.24 menu_num을 가져오기 위한
       console.log("주문번호:", menuNum);//08.24 menu_num을 가져오기 위한
       // 먼저 모달 컨테이너를 비웁니다.
-      document.getElementById("modalContainer").innerHTML = "";
+      document.getElementById("modalContainer_e").innerHTML = "";
 
       // help_msg.css를 제거합니다.
       const detailMenuLink = document.querySelector('link[href="http://localhost:3001/help_msg/help_msg.css"]');
@@ -303,7 +303,7 @@ function handleMenuData(menuData) {
       history.pushState(null, null, `http://localhost:3001/BigFrame_e/BigOrder_e.html?order=basic&menuId=${menuNum}`);
 
       // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
-      fetch("http://localhost:3001/detail_menu/jojo.html?menuId=${menuNum}") // 이 부분의 파일 경로를 수정해야합니다.
+      fetch("http://localhost:3001/detail_menu_e/jojo_e.html?menuId=${menuNum}") // 이 부분의 파일 경로를 수정해야합니다.
         .then(response => {
           if (!response.ok) {
             throw new Error("HTTP Error " + response.status);
@@ -312,18 +312,18 @@ function handleMenuData(menuData) {
         })
         .then(data => {
           // 모달 컨테이너에 jojo.html 콘텐츠를 추가합니다.
-          $("#modalContainer").html(data);
+          $("#modalContainer_e").html(data);
 
           // 외부 detail_menu 폴더에 있는 detail_menu.css 파일을 로드합니다.
           const linkElement = document.createElement("link");
           linkElement.rel = "stylesheet";
           linkElement.type = "text/css";
-          linkElement.href = "http://localhost:3001/detail_menu/detail_menu.css"; // 이 부분의 파일 경로를 수정해야합니다.
+          linkElement.href = "http://localhost:3001/detail_menu_e/detail_menu_e.css"; // 이 부분의 파일 경로를 수정해야합니다.
           document.head.appendChild(linkElement);
 
           // 외부 detail_menu 폴더에 있는 detail_menu.js 파일을 로드합니다.
           const scriptElement = document.createElement("script");
-          scriptElement.src = "http://localhost:3001/detail_menu/detail_menu.js"; // 이 부분의 파일 경로를 수정해야합니다.
+          scriptElement.src = "http://localhost:3001/detail_menu_e/detail_menu_e.js"; // 이 부분의 파일 경로를 수정해야합니다.
           document.body.appendChild(scriptElement);
 
           const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
@@ -343,7 +343,7 @@ function handleMenuData(menuData) {
       const menuNum = event.target.dataset.menunum;//08.24 menu_num을 가져오기 위한
       console.log("주문번호:", menuNum);//08.24 menu_num을 가져오기 위한
       // 먼저 모달 컨테이너를 비웁니다.
-      document.getElementById("modalContainer").innerHTML = "";
+      document.getElementById("modalContainer_e").innerHTML = "";
 
       // help_msg.css를 제거합니다.
       const detailMenuLink = document.querySelector('link[href="http://localhost:3001/help_msg/help_msg.css"]');
@@ -354,7 +354,7 @@ function handleMenuData(menuData) {
       history.pushState(null, null, `http://localhost:3001/BigFrame_e/BigOrder_e.html?order=basic&menuId=${menuNum}`);
 
       // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
-      fetch("http://localhost:3001/detail_menu/jojo.html?menuId=${menuNum}") // 이 부분의 파일 경로를 수정해야합니다.
+      fetch("http://localhost:3001/detail_menu_e/jojo_e.html?menuId=${menuNum}") // 이 부분의 파일 경로를 수정해야합니다.
         .then(response => {
           if (!response.ok) {
             throw new Error("HTTP Error " + response.status);
@@ -363,18 +363,18 @@ function handleMenuData(menuData) {
         })
         .then(data => {
           // 모달 컨테이너에 jojo.html 콘텐츠를 추가합니다.
-          $("#modalContainer").html(data);
+          $("#modalContainer_e").html(data);
 
           // 외부 detail_menu 폴더에 있는 detail_menu.css 파일을 로드합니다.
           const linkElement = document.createElement("link");
           linkElement.rel = "stylesheet";
           linkElement.type = "text/css";
-          linkElement.href = "http://localhost:3001/detail_menu/detail_menu.css"; // 이 부분의 파일 경로를 수정해야합니다.
+          linkElement.href = "http://localhost:3001/detail_menu_e/detail_menu_e.css"; // 이 부분의 파일 경로를 수정해야합니다.
           document.head.appendChild(linkElement);
 
           // 외부 detail_menu 폴더에 있는 detail_menu.js 파일을 로드합니다.
           const scriptElement = document.createElement("script");
-          scriptElement.src = "http://localhost:3001/detail_menu/detail_menu.js"; // 이 부분의 파일 경로를 수정해야합니다.
+          scriptElement.src = "http://localhost:3001/detail_menu_e/detail_menu_e.js"; // 이 부분의 파일 경로를 수정해야합니다.
           document.body.appendChild(scriptElement);
 
           const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
@@ -459,7 +459,7 @@ function searchFunction() {
         const menuNum = event.target.dataset.menunum;//08.24 menu_num을 가져오기 위한
         console.log("주문번호:", menuNum);//08.24 menu_num을 가져오기 위한
         // 먼저 모달 컨테이너를 비웁니다.
-        document.getElementById("modalContainer").innerHTML = "";
+        document.getElementById("modalContainer_e").innerHTML = "";
 
         // help_msg.css를 제거합니다.
         const detailMenuLink = document.querySelector('link[href="http://localhost:3001/help_msg/help_msg.css"]');
@@ -470,7 +470,7 @@ function searchFunction() {
         history.pushState(null, null, `http://localhost:3001/BigFrame_e/BigOrder_e.html?order=basic&menuId=${menuNum}`);
 
         // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
-        fetch("http://localhost:3001/detail_menu/jojo.html?menuId=${menuNum}") // 이 부분의 파일 경로를 수정해야합니다.
+        fetch("http://localhost:3001/detail_menu_e/jojo_e.html?menuId=${menuNum}") // 이 부분의 파일 경로를 수정해야합니다.
           .then(response => {
             if (!response.ok) {
               throw new Error("HTTP Error " + response.status);
@@ -479,18 +479,18 @@ function searchFunction() {
           })
           .then(data => {
             // 모달 컨테이너에 jojo.html 콘텐츠를 추가합니다.
-            $("#modalContainer").html(data);
+            $("#modalContainer_e").html(data);
 
             // 외부 detail_menu 폴더에 있는 detail_menu.css 파일을 로드합니다.
             const linkElement = document.createElement("link");
             linkElement.rel = "stylesheet";
             linkElement.type = "text/css";
-            linkElement.href = "http://localhost:3001/detail_menu/detail_menu.css"; // 이 부분의 파일 경로를 수정해야합니다.
+            linkElement.href = "http://localhost:3001/detail_menu_e/detail_menu_e.css"; // 이 부분의 파일 경로를 수정해야합니다.
             document.head.appendChild(linkElement);
 
             // 외부 detail_menu 폴더에 있는 detail_menu.js 파일을 로드합니다.
             const scriptElement = document.createElement("script");
-            scriptElement.src = "http://localhost:3001/detail_menu/detail_menu.js"; // 이 부분의 파일 경로를 수정해야합니다.
+            scriptElement.src = "http://localhost:3001/detail_menu_e/detail_menu_e.js"; // 이 부분의 파일 경로를 수정해야합니다.
             document.body.appendChild(scriptElement);
 
             const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
@@ -510,7 +510,7 @@ function searchFunction() {
         const menuNum = event.target.dataset.menunum;//08.24 menu_num을 가져오기 위한
         console.log("주문번호:", menuNum);//08.24 menu_num을 가져오기 위한
         // 먼저 모달 컨테이너를 비웁니다.
-        document.getElementById("modalContainer").innerHTML = "";
+        document.getElementById("modalContainer_e").innerHTML = "";
 
         // help_msg.css를 제거합니다.
         const detailMenuLink = document.querySelector('link[href="http://localhost:3001/help_msg/help_msg.css"]');
@@ -521,7 +521,7 @@ function searchFunction() {
         history.pushState(null, null, `http://localhost:3001/BigFrame_e/BigOrder_e.html?order=basic&menuId=${menuNum}`);
 
         // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
-        fetch("http://localhost:3001/detail_menu/jojo.html?menuId=${menuNum}") // 이 부분의 파일 경로를 수정해야합니다.
+        fetch("http://localhost:3001/detail_menu_e/jojo_e.html?menuId=${menuNum}") // 이 부분의 파일 경로를 수정해야합니다.
           .then(response => {
             if (!response.ok) {
               throw new Error("HTTP Error " + response.status);
@@ -530,18 +530,18 @@ function searchFunction() {
           })
           .then(data => {
             // 모달 컨테이너에 jojo.html 콘텐츠를 추가합니다.
-            $("#modalContainer").html(data);
+            $("#modalContainer_e").html(data);
 
             // 외부 detail_menu 폴더에 있는 detail_menu.css 파일을 로드합니다.
             const linkElement = document.createElement("link");
             linkElement.rel = "stylesheet";
             linkElement.type = "text/css";
-            linkElement.href = "http://localhost:3001/detail_menu/detail_menu.css"; // 이 부분의 파일 경로를 수정해야합니다.
+            linkElement.href = "http://localhost:3001/detail_menu_e/detail_menu_e.css"; // 이 부분의 파일 경로를 수정해야합니다.
             document.head.appendChild(linkElement);
 
             // 외부 detail_menu 폴더에 있는 detail_menu.js 파일을 로드합니다.
             const scriptElement = document.createElement("script");
-            scriptElement.src = "http://localhost:3001/detail_menu/detail_menu.js"; // 이 부분의 파일 경로를 수정해야합니다.
+            scriptElement.src = "http://localhost:3001/detail_menu_e/detail_menu_e.js"; // 이 부분의 파일 경로를 수정해야합니다.
             document.body.appendChild(scriptElement);
 
             const modal = new bootstrap.Modal(document.getElementById("exampleModal"));

@@ -57,17 +57,18 @@ body {
   max-height: 25vh;
 }
 
-.now{
+.now {
   animation: progressAnimation 1.2s linear infinite;
 }
 
 
 @keyframes progressAnimation {
   0% {
-      height: 0;
+    height: 0;
   }
+
   100% {
-      height: 100%;
+    height: 100%;
   }
 }
 
@@ -75,14 +76,10 @@ body {
 .level_button {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  padding:0 3px;
-}
-
-.level_name {
-  padding: 0.8rem;
-  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
 }
 
 .circle {
@@ -99,7 +96,7 @@ body {
   margin: 0;
   font-size: 3vw;
   font-weight: bold;
-  width: 50%;
+  width: auto;
 }
 
 /*주문리스트 미리보기*/
@@ -142,21 +139,23 @@ body {
   .select_list_detail {
     font-size: 4px;
   }
-  .circle_name{
+
+  .circle_name {
     font-size: 1vw;
   }
-  .circle{
+
+  .circle {
     width: 5vw;
     height: 5vw;
     padding: 0;
     margin-right: 3px;
   }
-  
-  .add_fuc_bar .view_button{
+
+  .add_fuc_bar .view_button {
     width: 40%;
   }
 
-  .search{
+  .search {
     height: 4vw;
     font-size: 3.5vw;
   }
@@ -253,7 +252,7 @@ body {
 
 
 /*옵션*/
-.list_option_boxes{
+.list_option_boxes {
   border-top: 3px solid black;
   border-bottom: 3px solid black;
   overflow: hidden;
@@ -268,7 +267,7 @@ body {
   padding: 0;
 }
 
-.tag{
+.tag {
   font-size: 2.5vw;
   font-weight: bold;
   border-radius: 10px;
@@ -358,11 +357,11 @@ body {
   color: black;
 }
 
-.select_category{
+.select_category {
   background-color: orange;
 }
 
-.select_category a{
+.select_category a {
   color: white;
   font-size: 3vw;
 }

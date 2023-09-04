@@ -57,14 +57,10 @@ body {
 .level_button {
     display: flex;
     width: 100%;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    padding: 0 3px;
-}
-
-.level_name {
-    padding: 1vh;
-    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
 }
 
 .circle {
@@ -74,14 +70,14 @@ body {
     border-radius: 50%;
     background-color: white;
     margin-right: 5px;
-  }
+}
 
 .circle_name {
     text-align: center;
     margin: 0;
     font-size: 3vw;
     font-weight: bold;
-    width: 50%;
+    width: auto;
 }
 
 .selectpay {

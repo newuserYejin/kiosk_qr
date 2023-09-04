@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>카드결제</title>
-    <link rel="stylesheet" type="text/css" href="pay_card.css"/>
+    <link rel="stylesheet" type="text/css" href="pay_card.css" />
 </head>
 
 <body>
@@ -28,7 +28,7 @@
                 <div class="box_line">
                     <div onclick="openCheck()" class="level_button">
                         <p class="circle_name">주문 확인</p>
-                        <button class="circle"></button>                      
+                        <button class="circle"></button>
                     </div>
                 </div>
 
@@ -55,12 +55,12 @@
             </div>
             <div class="first">
                 <div class="fir_box">
-                    <div class="explain">	
+                    <div class="explain">
                         <div class="explain1">카드를 아래의 영상과 같이</div>
                         <div class="explain2">투입구에 끝까지 넣어주세요.</div>
                     </div>
                     <div class="video">
-                        <img class="pay_card" src="./image/pay_card.gif" loop = infinite/>
+                        <img class="pay_card" src="./image/pay_card.gif" loop=infinite />
                     </div>
                     <div>
 
@@ -87,20 +87,19 @@
             crossorigin="anonymous"></script>
 
         <script>
-            setTimeout(function() {
+            setTimeout(function () {
                 openModal();
             }, 3000); // 3000 밀리초는 3초입니다
-      
+
             // 모달 열기 함수
             function openModal() {
-            $.get("http://localhost:3001/payment_msg/payment_msg.html", function (data) {
-            $("#modalContainer").html(data);
-            const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
-            modal.show();
-            });
-        }
-    </script>
+                $.get("http://localhost:3001/payment_msg/payment_msg.html", function (data) {
+                    $("#modalContainer").html(data);
+                    const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+                    modal.show();
+                });
+            }
+        </script>
 </body>
 
 </html>
-

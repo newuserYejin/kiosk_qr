@@ -3,10 +3,10 @@ const joImage = document.getElementById("imageLink");
 
 joImage.addEventListener("click", function () {
     // 먼저 모달 컨테이너를 비웁니다.
-    document.getElementById("modalContainer").innerHTML = "";
+    document.getElementById("modalContainer_e").innerHTML = "";
 
     // detail_menu.css를 제거합니다.
-    const detailMenuLink = document.querySelector('link[href="http://localhost:3001/detail_menu/detail_menu.css"]');
+    const detailMenuLink = document.querySelector('link[href="http://localhost:3001/detail_menu_e/detail_menu_e.css"]');
     if (detailMenuLink) {
         detailMenuLink.remove();
     }
@@ -21,7 +21,7 @@ joImage.addEventListener("click", function () {
         })
         .then(data => {
             // 모달 컨테이너에 help_msg.html 콘텐츠를 추가합니다.
-            $("#modalContainer").html(data);
+            $("#modalContainer_e").html(data);
 
             // help_msg.css 파일을 로드합니다.
             const linkElement = document.createElement("link");
