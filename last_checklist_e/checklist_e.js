@@ -144,7 +144,7 @@ function createOrderItem(order) {//주문 아이템 생성 함수
                           </div>
                           <div class="row list_buttons">
                               <div class="col-4 button_box_num">
-                                  <p class="button_num">${order.count}개</p>
+                                  <p class="button_num">${order.count}pcs</p>
                               </div>
                               <div class="col-8" style="padding: 0px; height: 100%;">
                                   <div class="content_update_button">
