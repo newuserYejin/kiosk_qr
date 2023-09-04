@@ -219,6 +219,8 @@ function search() {
 
 }
 
+
+//카테고리
 document.addEventListener("DOMContentLoaded", function () {
   const menuList = document.querySelector(".list_box"); // 변경: .list_content_box -> .list_box
   const categoryLinks = document.querySelectorAll(".categories a");
@@ -269,7 +271,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-
+// 메뉴 출력
 function handleMenuData(menuData) {
   // 받아온 데이터를 가지고 출력할 HTML 요소 생성
   const menuItems = menuData.map(menu => {
@@ -417,6 +419,8 @@ function handleMenuData(menuData) {
   });
 }
 
+
+//검색
 let storeData = JSON.parse(localStorage.getItem('mydata'));
 let storeData_str = localStorage.getItem('mydata');
 

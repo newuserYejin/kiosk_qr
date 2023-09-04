@@ -30,6 +30,7 @@ body {
 
 .navigation_all_box {
   height: 75%;
+  padding: 0 2.5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -56,12 +57,27 @@ body {
   max-height: 25vh;
 }
 
+.now{
+  animation: progressAnimation 1.2s linear infinite;
+}
+
+
+@keyframes progressAnimation {
+  0% {
+      height: 0;
+  }
+  100% {
+      height: 100%;
+  }
+}
+
 /*각 단계 버튼*/
 .level_button {
   display: flex;
   width: 100%;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  padding: 0 2px;
 }
 
 .level_name {
@@ -70,8 +86,8 @@ body {
 }
 
 .circle {
-  width: 2rem;
-  height: 2rem;
+  width: 1.7rem;
+  height: 1.7rem;
   border: solid 3px black;
   border-radius: 50%;
   background-color: white;
@@ -83,6 +99,7 @@ body {
   margin: 0;
   font-size: 3vw;
   font-weight: bold;
+  width: 50%;
 }
 
 /*주문리스트 미리보기*/
@@ -95,15 +112,17 @@ body {
   font-weight: bold;
   text-align: center;
   height: 15%;
-  font-size: 2.2vw;
+  font-size: 2.5vw;
+  margin-bottom: 5px;
 }
 
 .select_list_list {
+  border: solid 2px blue;
   height: 80%;
   overflow: hidden;
   overflow-y: visible;
   margin: 0 1PX;
-  border: solid 1px blue;
+  padding-top: 2px;
 }
 
 .select_list_detail {
@@ -119,34 +138,27 @@ body {
   text-align: end;
 }
 
-@media screen and (max-width: 450px) {
-  .select_list_title {
-    width: 100%;
-    font-size: 0.1rem;
-  }
-
+@media screen and (max-width: 400px) {
   .select_list_detail {
-    display: block;
-    font-size: 0.1rem;
-    margin: 0;
+    font-size: 4px;
+  }
+  .circle_name{
+    font-size: 1vw;
+  }
+  .circle{
+    width: 5vw;
+    height: 5vw;
     padding: 0;
-    border-bottom: solid 2px blue;
+    margin-right: 3px;
+  }
+  
+  .add_fuc_bar .view_button{
+    width: 40%;
   }
 
-  .select_num {
-    text-align: end;
-  }
-
-  @media screen and (max-height: 700px) {
-    .select_list_title {
-      padding: 0 5%;
-      margin-bottom: 20%;
-      font-size: 12px;
-    }
-
-    .select_list_list {
-      height: 75%;
-    }
+  .search{
+    height: 4vw;
+    font-size: 3.5vw;
   }
 }
 
@@ -181,7 +193,7 @@ body {
 
 .list_box {
   padding: 1vw;
-  height: 75%;
+  height: 70%;
   overflow: hidden;
   overflow-y: visible;
 }
@@ -196,12 +208,14 @@ body {
 .list_img_box {
   width: 35%;
   height: var(width);
+  min-height: var(width);
   padding: 10px;
   border: solid 2px black;
 }
 
 .list_img_size {
   width: 100%;
+  min-height: 140px;
 }
 
 .list_content_info {
@@ -239,15 +253,28 @@ body {
 
 
 /*옵션*/
-.list_option {
+.list_option_boxes{
   border-top: 3px solid black;
   border-bottom: 3px solid black;
+  overflow: hidden;
+  overflow-y: visible;
   height: 45%;
 }
 
-.list_option div {
-  height: 100%;
-  font-size: 3vw;
+.list_option {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  height: auto;
+  padding: 0;
+}
+
+.tag{
+  font-size: 2.5vw;
+  font-weight: bold;
+  border-radius: 10px;
+  border: solid 3px skyblue;
+  margin: 3px;
+  text-align: center;
 }
 
 .list_buttons {
@@ -259,6 +286,7 @@ body {
 /* 선택 버튼*/
 .selectBtn {
   height: 80%;
+  min-height: 35px;
   width: 50%;
   border-radius: 30px;
   background-color: white;
@@ -271,7 +299,7 @@ body {
 .selectBtn:hover {
   background-color: skyblue;
   color: white;
-  border: solid 1px skyblue;
+  border: solid 2px skyblue;
 }
 
 /*하단 고정 버튼*/
@@ -286,12 +314,12 @@ body {
 
 .fix_button_detail {
   width: 20vw;
-  height: 80%;
+  height: 90%;
   background-color: white;
   border-radius: 20px;
   border: solid 2px black;
   font-weight: bold;
-  font-size: 2vw;
+  font-size: 3vw;
 }
 
 .fix_button_detail:hover {
@@ -301,29 +329,48 @@ body {
 }
 
 /*카테고리*/
-.categores {
+.categories {
   display: flex;
   justify-content: flex-end;
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-
 }
 
-.categore {
+.category {
   display: grid;
-  border: 1px solid black;
-
+  padding: 0 3px;
+  margin: 0;
+  margin-left: 3px;
+  border: 2px solid black;
+  border-bottom: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: #dddddd;
 }
 
-.categore a {
+.category a {
   display: block;
   text-align: center;
   font-size: 2.5vw;
   text-decoration: none;
   color: black;
-  background-color: #dddddd;
+}
+
+.select_category{
+  background-color: orange;
+}
+
+.select_category a{
+  color: white;
+  font-size: 3vw;
+}
+
+@media (max-width: 360px) {
+  .categore {
+    font-size: 0.2rem;
+  }
 }
 
 /* 기본 더크게 검색 nav바*/
@@ -344,14 +391,12 @@ body {
 
 /* 검색 입력창*/
 .search_div {
-  display: flex;
-  justify-content: end;
-  align-items: center;
   width: 50%;
 }
 
 .search {
   width: 80%;
+  font-size: 3vw;
 }
 
 .search_icon {
@@ -362,10 +407,6 @@ body {
 
 @media screen and (max-width : 310px) {
   .search_div {
-    width: 50%;
-  }
-
-  .view_button {
     width: 50%;
   }
 
@@ -388,20 +429,16 @@ body {
     height: 100%;
     padding: 2vw;
   }
-
-  .view_button {
-    font-size: 0.5rem;
-  }
 }
 
 @media screen and (min-width: 600px) {
 
   .list_box {
-    height: 75%;
+    height: 70%;
   }
 
   .menu_name {
-    font-size: 4vw;
+    font-size: 2.5vw;
   }
 
   .menu_cost {
@@ -415,17 +452,13 @@ body {
 }
 
 @media screen and (min-width:1000px) {
-  .select_list_title {
-    font-size: 2vw;
-  }
 
   .list_box {
-    height: 63%;
+    height: 75%;
   }
 
-
   .list_name {
-    font-size: 3vw;
+    font-size: 4vw;
   }
 
   .help {
@@ -462,58 +495,13 @@ body {
     height: 3vw;
   }
 
-  .categores {
+  .categories {
     height: 2.5vw;
     margin: 0;
   }
 
-  .categore a {
+  .category a {
     font-size: 2vw;
   }
 
-  /*네비바 선*/
-  .center {
-    width: 100%;
-    height: 100%;
-    max-width: 50%;
-    max-height: 20vh;
-  }
-
-  .level_line {
-    display: flex;
-    justify-content: center;
-    padding: 2vh;
-  }
-
-  .select_list_title {
-    font-weight: bold;
-    text-align: center;
-    height: 15%;
-    font-size: 1rem;
-  }
-
-  .list_content_box {
-    height: 50%;
-  }
-
-  .list_img_size {
-    height: 100%;
-  }
-
-  .selectBtn {
-    height: 75%;
-    width: 50%;
-    border-radius: 30px;
-    background-color: white;
-    font-weight: bold;
-    font-size: 1.5vw;
-    text-align: center;
-    margin-right: 2%;
-    margin-top: 0.5%;
-  }
-
-  .list_option div {
-    height: 100%;
-    font-size: 2vw;
-  }
 }
