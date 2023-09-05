@@ -265,13 +265,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const defaultCategory = "1";
 
-  fetch(`/menu?category=${defaultCategory}`)
+  if (storeData && storeData.length > 0) {
+    searchFunction(); // storeData에 데이터가 있을 경우 검색 결과 표시
+  } else if (storeData !== null) {
+    console.log("검색 결과 없음");
+  } else {
+    fetch(`/menu?category=${defaultCategory}`)
     .then(response => response.json())
     .then(menuData => {
       clearSliderContainer(sliderContainer); // 슬라이더 컨테이너 내용 지우기
       handleMenuData(menuData, sliderContainer); // 메뉴 데이터 추가
     });
-
+  }
+  
   categoryLinks.forEach(link => {
     link.addEventListener("click", (event) => {
       event.preventDefault();
