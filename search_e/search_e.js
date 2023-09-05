@@ -73,7 +73,7 @@ function search() {
                 }
 
                 // const searchResult = encodeURIComponent(JSON.stringify(data));
-                localStorage.setItem('mydata_e', JSON.stringify(data));
+                localStorage.setItem('mydata', JSON.stringify(data));
                 //console.log(data);
             })
             .catch(error => console.error('Error fetching data:', error));
@@ -93,7 +93,7 @@ function search(searchInput) {
 
                 if (data.length === 0) {
                     resultContainer.innerHTML = '<p>검색 결과가 없습니다.</p>';
-                    localStorage.setItem('mydata_e', '없음'); // '없음' 문자열 저장
+                    localStorage.setItem('mydata', '없음'); // '없음' 문자열 저장
                 } else {
                     data.forEach(item => {
                         const div = document.createElement('div');
@@ -119,7 +119,7 @@ function search(searchInput) {
                 }
 
                 // const searchResult = encodeURIComponent(JSON.stringify(data));
-                localStorage.setItem('mydata_e', JSON.stringify(data));
+                localStorage.setItem('mydata', JSON.stringify(data));
                 //console.log(data);
                 localStorage.setItem('searchInput_e', searchInput);
             })
