@@ -58,7 +58,7 @@ body {
 }
 
 .now {
-  animation: progressAnimation 1.2s linear infinite;
+  animation: progressAnimation 2.5s linear infinite;
 }
 
 

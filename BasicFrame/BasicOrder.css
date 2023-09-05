@@ -57,6 +57,19 @@ body {
   max-height: 25vh;
 }
 
+.now {
+  animation: progressAnimation 2.5s linear infinite;
+}
+
+@keyframes progressAnimation {
+  0% {
+      height: 0;
+  }
+  100% {
+      height: 100%;
+  }
+}
+
 /*각 단계 버튼*/
 .level_button {
   display: flex;

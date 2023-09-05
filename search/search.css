@@ -1,35 +1,36 @@
-#modalContainer .modal_size{
-    height:95%;
+#modalContainer .modal_size {
+    height: 95%;
 }
 
-#modalContainer .modal-body{
+#modalContainer .modal-body {
     overflow: hidden;
     overflow-y: visible;
+    height: auto;
 }
 
-#modalContainer .box{
+#modalContainer .box {
     border: solid 2px black;
 }
 
-#modalContainer .top_box{
+#modalContainer .top_box {
     height: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#modalContainer .input{
+#modalContainer .input {
     border: none;
     border-bottom: solid 3px black;
     padding-right: 2vw;
     font-size: 3vw;
 }
 
-#modalContainer .search_icon{
+#modalContainer .search_icon {
     width: 7%;
 }
 
-#modalContainer .keyword_box{
+#modalContainer .keyword_box {
     height: 50%;
     overflow: hidden;
     padding: 10px;
@@ -39,21 +40,23 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px 20px;
-    justify-content: center; /* 가운데 정렬 */
+    justify-content: center;
+    /* 가운데 정렬 */
 }
 
-#modalContainer .keyword{
+#modalContainer .keyword {
     padding: 5px 0;
     background-color: white;
     border-radius: 5px;
     width: 90%;
     height: auto;
-    margin: 0 auto; /* 가운데 정렬 */
+    margin: 0 auto;
+    /* 가운데 정렬 */
     font-size: 2.5vw;
     font-weight: 500;
 }
 
-#modalContainer .keyword:hover{
+#modalContainer .keyword:hover {
     background-color: skyblue;
     color: white;
     border: none;
@@ -61,15 +64,28 @@
     font-weight: bold;
 }
 
-#modalContainer .keyboard_size{
+#modalContainer .keyboard_size {
     border: solid 2px black;
     width: 100%;
-    height: 43%;
+    height: auto;
 }
 
-#modalContainer .simple-keyboard{
+#modalContainer .simple-keyboard {
     width: 100%;
     height: 100%;
     overflow-y: scroll;
     overflow-x: scroll;
+}
+
+@media screen and (min-width: 200px) {
+    .modal-dialog {
+        max-width: var(--bs-modal-width);
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .modal {
+        --bs-modal-margin: 1.75rem;
+        --bs-modal-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    }
 }
