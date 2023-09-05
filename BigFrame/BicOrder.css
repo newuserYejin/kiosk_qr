@@ -58,15 +58,16 @@ body {
 }
 
 .now {
-  animation: progressAnimation 1s linear infinite;
+  animation: progressAnimation 2.5s linear infinite;
 }
 
 @keyframes progressAnimation {
   0% {
-      height: 0;
+    height: 0;
   }
+
   100% {
-      height: 100%;
+    height: 100%;
   }
 }
 
@@ -140,21 +141,23 @@ body {
   .select_list_detail {
     font-size: 4px;
   }
-  .circle_name{
+
+  .circle_name {
     font-size: 1vw;
   }
-  .circle{
+
+  .circle {
     width: 5vw;
     height: 5vw;
     padding: 0;
     margin-right: 3px;
   }
-  
-  .add_fuc_bar .view_button{
+
+  .add_fuc_bar .view_button {
     width: 40%;
   }
 
-  .search{
+  .search {
     height: 4vw;
     font-size: 3.5vw;
   }
@@ -251,7 +254,7 @@ body {
 
 
 /*옵션*/
-.list_option_boxes{
+.list_option_boxes {
   border-top: 3px solid black;
   border-bottom: 3px solid black;
   overflow: hidden;
@@ -266,7 +269,7 @@ body {
   padding: 0;
 }
 
-.tag{
+.tag {
   font-size: 2.5vw;
   font-weight: bold;
   border-radius: 10px;
@@ -356,11 +359,11 @@ body {
   color: black;
 }
 
-.select_category{
+.select_category {
   background-color: orange;
 }
 
-.select_category a{
+.select_category a {
   color: white;
   font-size: 3vw;
 }
