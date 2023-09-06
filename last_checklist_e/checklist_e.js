@@ -121,23 +121,23 @@ function createOrderItem(order) {//주문 아이템 생성 함수
                       <div class="container text-center">
                           <div class="row content_title">
                               <div class="col-7 menu_name">${order.menu_name}</div> <!--메뉴 이름 출력-->
-                              <div class="col-5 menu_cost">&nbsp;총: ${order.total_price}원</div> <!--메뉴 가격 출력-->
+                              <div class="col-5 menu_cost">&nbsp;Total: &#8361;${order.total_price}</div> <!--메뉴 가격 출력-->
                           </div>
                           <!--옵션 데이터-->
                           <div class="row list_option">
                               <div class="list_option_detail">
                                   <div class="row option_detail">
                                       <div class="col-6">
-                                          <span class="option_name">온도: </span>
-                                          <span class="select_tem">${order.op_t === 1 ? '뜨거움' : '차가움'}</span>
+                                          <span class="option_name">TEMP: </span>
+                                          <span class="select_tem">${order.op_t === 1 ? 'HOT' : 'ICED'}</span>
                                       </div>
                                       <div class="col-6">
-                                          <span class="option_name">크기: </span>
-                                          <span class="select_size">${order.op_s === 3 ? '기본 크기' : '큰 크기'}</span>
+                                          <span class="option_name">SIZE: </span>
+                                          <span class="select_size">${order.op_s === 3 ? 'basic size' : '(EX) size'}</span>
                                       </div>
                                   </div>
                                   <div>
-                                      <span class="option_name">추가 옵션: </span>
+                                      <span class="option_name">Add Option: </span>
                                       <span class="select_op">${order.options.map(op => op.op_name).join(', ')}</span>
                                   </div>
                               </div>
@@ -148,8 +148,8 @@ function createOrderItem(order) {//주문 아이템 생성 함수
                               </div>
                               <div class="col-8" style="padding: 0px; height: 100%;">
                                   <div class="content_update_button">
-                                      <button class="updateBtn" data-orderNum="${order.order_num}">수정</button>
-                                      <button class="deleteBtn" data-orderNum="${order.order_num}">삭제</button>
+                                      <button class="updateBtn" data-orderNum="${order.order_num}">Edit</button>
+                                      <button class="deleteBtn" data-orderNum="${order.order_num}">Delete</button>
                                   </div>
                               </div>
 
@@ -298,7 +298,7 @@ function addOrdersToDOM(orders) {
 let totalAmount = 0;
 
 // 아래 코드를 document.addEventListener("DOMContentLoaded", ...)` 내에 추가
-fetch('/getOrderData')
+fetch('/getOrderData_e')
   .then(response => response.json())
   .then(data => {
     addOrdersToDOM(data);
