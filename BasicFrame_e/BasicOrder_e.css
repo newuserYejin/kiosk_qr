@@ -41,6 +41,7 @@ body {
   height: 11.5%;
   display: flex;
   margin: 0 5px;
+  border-radius: 10px;
 }
 
 /*단계별 가운데 선*/
@@ -118,6 +119,7 @@ body {
   overflow-y: visible;
   margin: 0 1PX;
   padding-top: 2px;
+  border-radius: 10px;
 }
 
 .select_list_detail {
@@ -211,14 +213,14 @@ body {
   margin: 2%;
   align-items: center;
   position: relative;
+  border: solid 2px black;
+  border-radius: 8px;
 }
 
 .list_img_box {
   width: 65%;
   height: 65%;
   border: none;
-  border-left: solid 2px black;
-  border-right: solid 2px black;
 }
 
 .list_img_size {
@@ -237,7 +239,7 @@ body {
   padding: 0;
 }
 
-.content_title {
+.content_title{
   font-weight: bold;
   text-align: center;
   height: 100%;
@@ -247,12 +249,13 @@ body {
   justify-content: center;
 }
 
-.content_title .menu_name {
+.menu_name {
   font-size: 2.4vw;
   text-align: center;
   align-content: center;
   padding: 0;
   margin: 0;
+  width: 100%;
   height: 70%;
 }
 
@@ -281,7 +284,7 @@ body {
   width: 100%;
   height: 35%;
   border: none;
-  border-top: solid 2px black;
+  border-top: solid 1px gray;
 }
 
 /*하단 고정 버튼*/
@@ -374,16 +377,23 @@ body {
 
 /* 검색 입력창*/
 .search_div {
-  width: 50%;
+  width: 40%;
+  border: solid 1px black;
+  height: 3.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .search {
   width: 80%;
-  font-size: 3vw;
+  font-size: 1.5vw;
+  border: none;
+  height: auto;
 }
 
 .search_icon {
-  height: 5vw;
+  height: 3.5vw;
 }
 
 
@@ -428,6 +438,9 @@ body {
   font-size: 20px;
   font-weight: bold;
   background-color: rgb(255, 255, 128);
+
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 #nextBtn {
@@ -442,6 +455,9 @@ body {
   font-weight: bold;
   cursor: pointer;
   background-color: rgb(255, 255, 128);
+
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 
 /*전체적 사이즈 조절 */

@@ -572,6 +572,13 @@ function generateOrderList(orderData) {
     selectName.classList.add('select_name');
     selectName.textContent = order.menu_name;
 
+    //09.05수정
+    if (order.op_t === 1) {
+      selectName.style.color = 'red'; // op_t가 1일 때 빨간색
+    } else if (order.op_t === 2) {
+      selectName.style.color = 'blue'; // op_t가 2일 때 파란색
+    }
+
     const selectNum = document.createElement('div');
     selectNum.classList.add('select_num');
     selectNum.textContent = order.count + '개';

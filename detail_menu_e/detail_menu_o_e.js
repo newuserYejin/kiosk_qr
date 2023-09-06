@@ -22,8 +22,8 @@ $(document).ready(function () {
     const newData = {
       // 업데이트할 필드들의 값을 적절히 가져와 newData 객체에 넣어줘야 함
       count: parseInt($("#quantity").val()),
-      op_t: $("input[name='temperature']:checked").val() === "뜨거움" ? 1 : 2,
-      op_s: $("input[name='size']:checked").val() === "기본 크기" ? 3 : 4,
+      op_t: $("input[name='temperature']:checked").val() === "1" ? 1 : 2,
+      op_s: $("input[name='size']:checked").val() === "3" ? 3 : 4,
       op1: $("input[name='option_set_1']").prop('checked') ? 5 : 0,
       op2: $("input[name='option_set_2']").prop('checked') ? 6 : 0,
       op3: $("input[name='option_set_3']").prop('checked') ? 7 : 0,
@@ -35,7 +35,7 @@ $(document).ready(function () {
     };
 
     // 서버로 업데이트 요청을 보냄
-    fetch('/updateOrder', {
+    fetch('/updateOrder_e', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -62,7 +62,7 @@ $(document).ready(function () {
 
   /*------------------------tb_order-----------------------------------------------------------------------------------------------------------*/
   //08.17 tb_order와 연동 (서버로부터 주문 정보를 요청합니다.) - 클라이언트 측에서 주문 정보를 가져오고 처리하는 코드
-  fetch(`/order/${orderNum}`)
+  fetch(`/order_e/${orderNum}`)
     .then(response => response.json())
     .then(orderData => {
       console.log(orderData); // 서버에서 받은 주문 데이터를 확인해보세요

@@ -19,8 +19,8 @@ $(".btn-info").click(function () {
 
   // 옵션 값 설정
   const selectedOptions = {
-    op_t: $("input[name='temperature']:checked").val() === "뜨거움" ? 1 : 2,
-    op_s: $("input[name='size']:checked").val() === "기본 크기" ? 3 : 4,
+    op_t: $("input[name='temperature']:checked").val() === "HOT" ? 1 : 2,
+    op_s: $("input[name='size']:checked").val() === "basic size" ? 3 : 4,
     op1: $("input[name='option_set_1']").prop('checked') ? 5 : 0,
     op2: $("input[name='option_set_2']").prop('checked') ? 6 : 0,
     op3: $("input[name='option_set_3']").prop('checked') ? 7 : 0,
@@ -32,7 +32,7 @@ $(".btn-info").click(function () {
   };
 
   // 서버로 주문 정보 전송
-  fetch('/addOrder', {
+  fetch('/addOrder_e', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -109,19 +109,19 @@ optionContainers.forEach((container, index) => {
 
   if (index === 0) {
     optionList.innerHTML = menuData.op_data
-      .filter(option => option.op_name === "뜨거움" || option.op_name === "차가움")
+      .filter(option => option.op_name === "HOT" || option.op_name === "ICED")
       .map(option => {
-        const checkedAttribute = option.op_name === "뜨거움" ? "checked" : "";
-        const textColor = option.op_name === "뜨거움" ? "red" : "blue"; // 뜨거움은 빨간색, 차가움은 파란색
+        const checkedAttribute = option.op_name === "HOT" ? "checked" : "";
+        const textColor = option.op_name === "HOT" ? "red" : "blue"; // 뜨거움은 빨간색, 차가움은 파란색
         return `<li class="list-group-item"><input class="form-check-input me-1" type="radio" name="temperature"  id="${option.op_name}" value="${option.op_name}" ${checkedAttribute}>
-        <label class="form-check-label" for="${option.op_name}" style="color: ${textColor};">${option.op_name} (+${option.op_price}원)</label></li>`;
+        <label class="form-check-label" for="${option.op_name}" style="color: ${textColor};">${option.op_name} (+${option.op_price})</label></li>`;
       })
       .join("");
   } else if (index === 1) {
     optionList.innerHTML = menuData.op_data
-      .filter(option => option.op_name === "기본 크기" || option.op_name === "큰 크기")
+      .filter(option => option.op_name === "basic size" || option.op_name === "(EX) size")
       .map(option => {
-        const checkedAttribute = option.op_name === "기본 크기" ? "checked" : "";
+        const checkedAttribute = option.op_name === "basic size" ? "checked" : "";
         return `<li class="list-group-item"><input class="form-check-input me-1" type="radio" name="size"  id="${option.op_name}" value="${option.op_name}" ${checkedAttribute}>
         <label class="form-check-label" for="${option.op_name}">${option.op_name} (+${option.op_price})</label></li>`;
       })
@@ -129,7 +129,7 @@ optionContainers.forEach((container, index) => {
   } else if (index === 2) {
     // 세번째 박스에는 나머지 옵션 중 체크박스 옵션 4개를 넣습니다.
     const checkboxOptions = menuData.op_data
-      .filter(option => option.op_name !== "뜨거움" && option.op_name !== "차가움" && option.op_name !== "기본 크기" && option.op_name !== "큰 크기")
+      .filter(option => option.op_name !== "HOT" && option.op_name !== "ICED" && option.op_name !== "basic size" && option.op_name !== "(EX) size")
       .slice(0, 6); // 첫 4개의 체크박스 옵션 선택
 
     optionList.innerHTML = checkboxOptions
@@ -149,7 +149,7 @@ if (window.location.search) {
   let detail_urlParams = new URLSearchParams(window.location.search);
   const menuId = detail_urlParams.get("menuId");
   
-  fetch(`/menu/${menuId}`)
+  fetch(`/menu_e/${menuId}`)
     .then(response => response.json())
     .then(menuData => {
       console.log(menuData); // 서버에서 받은 메뉴 데이터를 확인해보세요

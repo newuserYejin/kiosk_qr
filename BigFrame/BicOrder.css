@@ -41,6 +41,7 @@ body {
   height: 11.5%;
   display: flex;
   margin: 0 5px;
+  border-radius: 10px;
 }
 
 /*단계별 가운데 선*/
@@ -77,6 +78,7 @@ body {
   width: 100%;
   justify-content: space-around;
   align-items: center;
+  cursor: pointer;
 }
 
 .level_name {
@@ -122,6 +124,7 @@ body {
   overflow-y: visible;
   margin: 0 1PX;
   padding-top: 2px;
+  border-radius: 10px;
 }
 
 .select_list_detail {
@@ -204,6 +207,12 @@ body {
   display: flex;
   justify-content: space-between;
   margin: 1vw;
+  border-radius: 15px;
+  background-color: #dee2e6;
+}
+
+.list_content_box *{
+  background-color: white;
 }
 
 .list_img_box {
@@ -211,7 +220,8 @@ body {
   height: var(width);
   min-height: var(width);
   padding: 10px;
-  border: solid 2px black;
+  border: solid 1px gray;
+  border-radius: 10px;
 }
 
 .list_img_size {
@@ -221,6 +231,9 @@ body {
 
 .list_content_info {
   width: 63%;
+  border: solid 1px gray;
+  border-radius: 10px;
+  /* box-shadow: 4px 4px gray; */
 }
 
 .content_title {
@@ -229,6 +242,8 @@ body {
   align-items: center;
   justify-content: space-between;
   height: 30%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .menu_name {
@@ -240,7 +255,7 @@ body {
 }
 
 .menu_cost {
-  border-left: solid 3px black;
+  border-left: solid 1px gray;
   width: 40%;
   padding-left: 1rem;
   font-size: 2.5vw;
@@ -250,13 +265,18 @@ body {
   height: 100%;
   margin: 0%;
   padding: 0;
+  border-top-right-radius: 10px;
+}
+
+.split_border{
+  border: solid 2px orange;
 }
 
 
 /*옵션*/
 .list_option_boxes {
-  border-top: 3px solid black;
-  border-bottom: 3px solid black;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
   overflow: hidden;
   overflow-y: visible;
   height: 45%;
@@ -279,21 +299,28 @@ body {
 }
 
 .list_buttons {
-  height: 30%;
+  height: 25%;
   display: flex;
+  align-items: center;
   justify-content: end;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 /* 선택 버튼*/
 .selectBtn {
   height: 80%;
-  min-height: 35px;
-  width: 50%;
+  min-height: 30px;
+  width: 40%;
   border-radius: 30px;
   background-color: white;
   font-weight: bold;
   font-size: 3vw;
   margin-right: 2%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -392,16 +419,25 @@ body {
 
 /* 검색 입력창*/
 .search_div {
-  width: 50%;
+  width: 40%;
+  border: solid 1px black;
+  height: 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .search {
   width: 80%;
-  font-size: 3vw;
+  font-size: 2.3vw;
+  border: none;
+  height: auto;
+  text-align: center;
+  font-weight: bold;
 }
 
 .search_icon {
-  height: 5vw;
+  height: 3.5vw;
 }
 
 /*전체적 사이즈 조절 */

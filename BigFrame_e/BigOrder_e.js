@@ -204,7 +204,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("검색 결과 없음");
   } else {
     // storeData에 데이터가 없을 경우 초기 카테고리 메뉴 로드
-    fetch(`/menu?category=${defaultCategory}`)
+    fetch(`/menu_e?category=${defaultCategory}`)
       .then(response => response.json())
       .then(menuData => {
         // 메뉴 목록을 초기화하고 새로운 데이터로 갱신합니다.
@@ -226,7 +226,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // 클릭한 카테고리에 select_category 클래스 추가
       link.parentNode.classList.add('select_category');
 
-      fetch(`/menu?category=${category}`)
+      fetch(`/menu_e?category=${category}`)
         .then(response => response.json())
         .then(menuData => {
           // 메뉴 목록을 초기화하고 새로운 데이터로 갱신합니다.
@@ -257,26 +257,29 @@ function handleMenuData(menuData) {
 
     return `
 
-      <div class="box list_content_box">
-                    <div class="box list_img_box">
-                        <img id="im" class="list_img_size" src=".${menu.image_path}" data-menunum="${menu.menu_num}" />
-                    </div>
-                    <div class="box list_content_info"> <!--오른쪽 설명-->
-                        <div class="content_title">
-                            <div class="menu_name">${menu.menu_name}</div>
-                            <div class="menu_cost">&#8361;${menu.price}</div>
-                        </div>
-                        <div class="list_option_boxes">
-                            <div class="list_option">
-                                ${tagsHTML} <!-- 분리된 태그들을 여기에 삽입 -->
-                            </div>
-                        </div>
-                        <div class="list_buttons">
-                            <button class="selectBtn" id="selectBtn" data-menunum="${menu.menu_num}">select</button>
-                            <!--menu_num전달을 위한 data-menunu추가-->
-                        </div>
-                    </div>
-                </div>
+      <div class="list_content_box">
+          <div class="box list_img_box">
+              <img id="im" class="list_img_size" src=".${menu.image_path}" data-menunum="${menu.menu_num}" />
+          </div>
+          <div class="box list_content_info"> <!--오른쪽 설명-->
+              <div class="content_title">
+                  <div class="menu_name">${menu.menu_name}</div>
+                  <div class="menu_cost">&#8361;${menu.price}</div>
+              </div>
+                  <div class="list_option_boxes">
+                      <div class="list_option">
+                      ${tagsHTML} <!-- 분리된 태그들을 여기에 삽입 -->
+                      </div>
+                  </div>
+                  <div class="list_buttons">
+                      <button class="selectBtn" id="selectBtn" data-menunum="${menu.menu_num}">select</button>
+                      <!--menu_num전달을 위한 data-menunu추가-->
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="split_border"></div>
+
     `;
   });
 
@@ -426,7 +429,7 @@ function searchFunction() {
       }).join(''); // 배열 요소들을 문자열로 결합
 
       const div = document.createElement('div');
-      div.className = "box list_content_box";
+      div.className = "list_content_box";
       div.innerHTML = `
       <div class="box list_img_box">
         <img id="im" class="list_img_size" src=".${item.Picture}" data-menunum="${item.Menu_Num}"/>
@@ -447,6 +450,15 @@ function searchFunction() {
     </div>
     `
       resultContainer.appendChild(div);
+
+      resultContainer.appendChild(div);
+
+      const splitBorderDiv = document.createElement('div');
+      splitBorderDiv.className = "split_border";
+
+      const parentContainer = resultContainer; // Replace with the actual parent container
+      parentContainer.appendChild(div);
+      parentContainer.appendChild(splitBorderDiv);
     })
     localStorage.removeItem('mydata_e');
 
@@ -575,6 +587,13 @@ function generateOrderList(orderData) {
     selectName.classList.add('select_name');
     selectName.textContent = order.menu_name;
 
+    //09.05수정
+    if (order.op_t === 1) {
+      selectName.style.color = 'red'; // op_t가 1일 때 빨간색
+    } else if (order.op_t === 2) {
+      selectName.style.color = 'blue'; // op_t가 2일 때 파란색
+    }
+
     const selectNum = document.createElement('div');
     selectNum.classList.add('select_num');
     selectNum.textContent = order.count + 'Pcs';
@@ -590,7 +609,7 @@ function generateOrderList(orderData) {
 
 // 페이지 로드 시 주문 목록을 가져와서 생성
 window.addEventListener('load', () => {
-  fetch('/getOrderData')  // 서버의 getOrderData 라우트에 요청
+  fetch('/getOrderData_e')  // 서버의 getOrderData 라우트에 요청
     .then(response => response.json())
     .then(orderData => {
       generateOrderList(orderData);  // 주문 목록 생성 함수 호출

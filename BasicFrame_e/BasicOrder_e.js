@@ -115,7 +115,7 @@ function pay_page(){
   }
 };
 
-// 검색버튼
+// 검색버튼(검색 창 띄우기)
 
 document.getElementById("search_div").addEventListener('click', search);
 
@@ -270,7 +270,7 @@ document.addEventListener("DOMContentLoaded", function () {
   } else if (storeData !== null) {
     console.log("검색 결과 없음");
   } else {
-    fetch(`/menu?category=${defaultCategory}`)
+    fetch(`/menu_e?category=${defaultCategory}`)
     .then(response => response.json())
     .then(menuData => {
       clearSliderContainer(sliderContainer); // 슬라이더 컨테이너 내용 지우기
@@ -288,7 +288,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // 클릭한 카테고리에 select_category 클래스 추가
       link.parentNode.classList.add('select_category');
 
-      fetch(`/menu?category=${category}`)
+      fetch(`/menu_e?category=${category}`)
         .then(response => response.json())
         .then(menuData => {
           clearSliderContainer(sliderContainer); // 슬라이더 컨테이너 내용 지우기
@@ -435,7 +435,7 @@ function searchFunction() {
             <div class="container text-center">
               <div class="content_title">
                 <div class="menu_name">${item.Menu_Name}</div>
-                <div class="menu_cost">${item.Price}원</div>
+                <div class="menu_cost">&#8361;${item.Price}</div>
               </div>
             </div>
           </div>
@@ -570,6 +570,13 @@ function generateOrderList(orderData) {
     const selectName = document.createElement('div');
     selectName.classList.add('select_name');
     selectName.textContent = order.menu_name;
+
+    //09.05수정
+    if (order.op_t === 1) {
+      selectName.style.color = 'red'; // op_t가 1일 때 빨간색
+    } else if (order.op_t === 2) {
+      selectName.style.color = 'blue'; // op_t가 2일 때 파란색
+    }
     
     const selectNum = document.createElement('div');
     selectNum.classList.add('select_num');
@@ -584,7 +591,7 @@ function generateOrderList(orderData) {
 
 // 페이지 로드 시 주문 목록을 가져와서 생성
 window.addEventListener('load', () => {
-  fetch('/getOrderData')  // 서버의 getOrderData 라우트에 요청
+  fetch('/getOrderData_e')  // 서버의 getOrderData 라우트에 요청
     .then(response => response.json())
     .then(orderData => {
       generateOrderList(orderData);  // 주문 목록 생성 함수 호출

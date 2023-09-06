@@ -51,6 +51,11 @@ html,body {
     margin-top: -15vh;
 }
 
+.order button{
+    border-radius: 15px;
+    box-shadow: 7px 7px gray;
+}
+
 .sloworder {
     font-size: 5vw;
     background-color: white;

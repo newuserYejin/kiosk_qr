@@ -117,7 +117,7 @@ function createOrderItem(order) {//주문 아이템 생성 함수
                       <img id="im" class="list_img_size" src=".${order.imagePath}" alt="menu_image"/>
                   </div>
                   <!--여기까지-->
-                  <div class="box list_content_info">
+                  <div class="list_content_info">
                       <div class="container text-center">
                           <div class="row content_title">
                               <div class="col-7 menu_name">${order.menu_name}</div> <!--메뉴 이름 출력-->
