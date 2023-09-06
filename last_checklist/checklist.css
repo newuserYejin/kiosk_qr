@@ -212,9 +212,10 @@ body {
 
 .content_title .menu_name {
     font-size: 2.5vw;
-    text-align: left;
+    text-align: center;
     padding: 0;
-    border-right: solid 3px black;
+    padding-left: 8px;
+    border-right: solid 2px black;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -222,19 +223,20 @@ body {
 
 .content_title .menu_cost {
     padding: 0;
-    text-align: left;
+    text-align: center;
     font-size: 2.5vw;
 }
 
 .list_content_info {
+    border: solid 2px black;
     width: 63%;
-    border: solid bl;
+    padding: 0;
 }
 
 /*옵션*/
 .list_option {
-    border-top: 3px solid black;
-    border-bottom: 3px solid black;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
     height: 55%;
 }
 
@@ -250,11 +252,12 @@ body {
     width: 100%;
     font-size: 2.5vw;
     font-weight: bold;
-    border-bottom: solid 3px black;
+    border-bottom: solid 2px black;
 }
 
 .option_detail div{
     padding: 0;
+    padding-left: 8px;
     text-align: left;
 }
 
@@ -264,14 +267,18 @@ body {
     height: 25%;
 }
 
+.button_box_num{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .button_num {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     font-size: 3vw;
-    text-align: left;
     font-weight: bold;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 /* 수정&삭제 버튼*/
@@ -281,7 +288,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border-left: solid 3px black;
+    border-left: solid 2px black;
 }
 
 .content_update_button button {
@@ -394,7 +401,7 @@ body {
         display: flex;
         justify-content: space-around;
         align-items: center;
-        border-left: solid 3px black;
+        border-left: solid 2px black;
     }
 
     .content_update_button button {
@@ -423,7 +430,7 @@ body {
         font-size: 2vw;
         text-align: left;
         padding: 0;
-        border-right: solid 3px black;
+        border-right: solid 2px black;
     }
 
     .menu_cost {

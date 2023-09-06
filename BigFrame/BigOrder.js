@@ -461,7 +461,7 @@ function searchFunction() {
       <div class="box list_img_box">
         <img id="im" class="list_img_size" src=".${item.Picture}" data-menunum="${item.Menu_Num}"/>
       </div>
-      <div class="box list_content_info">
+      <div class="list_content_info">
         <div class="content_title">
             <div class="menu_name">${item.Menu_Name}</div>
             <div class="menu_cost">${item.Price}원</div>
