@@ -456,7 +456,7 @@ function searchFunction() {
       }).join(''); // 배열 요소들을 문자열로 결합
 
       const div = document.createElement('div');
-      div.className = "box list_content_box";
+      div.className = "list_content_box";
       div.innerHTML = `
       <div class="box list_img_box">
         <img id="im" class="list_img_size" src=".${item.Picture}" data-menunum="${item.Menu_Num}"/>
@@ -477,6 +477,13 @@ function searchFunction() {
     </div>
     `
       resultContainer.appendChild(div);
+
+      const splitBorderDiv = document.createElement('div');
+      splitBorderDiv.className = "split_border";
+
+      const parentContainer = resultContainer; // Replace with the actual parent container
+      parentContainer.appendChild(div);
+      parentContainer.appendChild(splitBorderDiv);
     })
     localStorage.removeItem('mydata');
 

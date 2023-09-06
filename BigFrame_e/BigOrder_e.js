@@ -257,26 +257,29 @@ function handleMenuData(menuData) {
 
     return `
 
-      <div class="box list_content_box">
-                    <div class="box list_img_box">
-                        <img id="im" class="list_img_size" src=".${menu.image_path}" data-menunum="${menu.menu_num}" />
-                    </div>
-                    <div class="box list_content_info"> <!--오른쪽 설명-->
-                        <div class="content_title">
-                            <div class="menu_name">${menu.menu_name}</div>
-                            <div class="menu_cost">&#8361;${menu.price}</div>
-                        </div>
-                        <div class="list_option_boxes">
-                            <div class="list_option">
-                                ${tagsHTML} <!-- 분리된 태그들을 여기에 삽입 -->
-                            </div>
-                        </div>
-                        <div class="list_buttons">
-                            <button class="selectBtn" id="selectBtn" data-menunum="${menu.menu_num}">select</button>
-                            <!--menu_num전달을 위한 data-menunu추가-->
-                        </div>
-                    </div>
-                </div>
+      <div class="list_content_box">
+          <div class="box list_img_box">
+              <img id="im" class="list_img_size" src=".${menu.image_path}" data-menunum="${menu.menu_num}" />
+          </div>
+          <div class="box list_content_info"> <!--오른쪽 설명-->
+              <div class="content_title">
+                  <div class="menu_name">${menu.menu_name}</div>
+                  <div class="menu_cost">&#8361;${menu.price}</div>
+              </div>
+                  <div class="list_option_boxes">
+                      <div class="list_option">
+                      ${tagsHTML} <!-- 분리된 태그들을 여기에 삽입 -->
+                      </div>
+                  </div>
+                  <div class="list_buttons">
+                      <button class="selectBtn" id="selectBtn" data-menunum="${menu.menu_num}">select</button>
+                      <!--menu_num전달을 위한 data-menunu추가-->
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="split_border"></div>
+
     `;
   });
 
@@ -426,7 +429,7 @@ function searchFunction() {
       }).join(''); // 배열 요소들을 문자열로 결합
 
       const div = document.createElement('div');
-      div.className = "box list_content_box";
+      div.className = "list_content_box";
       div.innerHTML = `
       <div class="box list_img_box">
         <img id="im" class="list_img_size" src=".${item.Picture}" data-menunum="${item.Menu_Num}"/>
@@ -447,6 +450,15 @@ function searchFunction() {
     </div>
     `
       resultContainer.appendChild(div);
+
+      resultContainer.appendChild(div);
+
+      const splitBorderDiv = document.createElement('div');
+      splitBorderDiv.className = "split_border";
+
+      const parentContainer = resultContainer; // Replace with the actual parent container
+      parentContainer.appendChild(div);
+      parentContainer.appendChild(splitBorderDiv);
     })
     localStorage.removeItem('mydata_e');
 

@@ -41,6 +41,7 @@ body {
   height: 11.5%;
   display: flex;
   margin: 0 5px;
+  border-radius: 10px;
 }
 
 /*단계별 가운데 선*/
@@ -77,6 +78,7 @@ body {
   width: 100%;
   justify-content: space-around;
   align-items: center;
+  cursor: pointer;
 }
 
 .level_name {
@@ -122,6 +124,7 @@ body {
   overflow-y: visible;
   margin: 0 1PX;
   padding-top: 2px;
+  border-radius: 10px;
 }
 
 .select_list_detail {
@@ -402,16 +405,25 @@ body {
 
 /* 검색 입력창*/
 .search_div {
-  width: 50%;
+  width: 45%;
+  border: solid 1px black;
+  height: 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .search {
   width: 80%;
-  font-size: 3vw;
+  font-size: 2.3vw;
+  border: none;
+  height: auto;
+  text-align: center;
+  font-weight: bold;
 }
 
 .search_icon {
-  height: 5vw;
+  height: 3.5vw;
 }
 
 /*전체적 사이즈 조절 */
