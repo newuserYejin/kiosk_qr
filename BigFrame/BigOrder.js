@@ -287,26 +287,27 @@ function handleMenuData(menuData) {
 
     return `
 
-      <div class="box list_content_box">
-                    <div class="box list_img_box">
-                        <img id="im" class="list_img_size" src=".${menu.image_path}" data-menunum="${menu.menu_num}" />
-                    </div>
-                    <div class="box list_content_info"> <!--오른쪽 설명-->
-                        <div class="content_title">
-                            <div class="menu_name">${menu.menu_name}</div>
-                            <div class="menu_cost">${menu.price}원</div>
-                        </div>
-                        <div class="list_option_boxes">
-                            <div class="list_option">
-                                ${tagsHTML} <!-- 분리된 태그들을 여기에 삽입 -->
-                            </div>
-                        </div>
-                        <div class="list_buttons">
-                            <button class="selectBtn" id="selectBtn" data-menunum="${menu.menu_num}">선택</button>
-                            <!--menu_num전달을 위한 data-menunu추가-->
-                        </div>
-                    </div>
-                </div>
+      <div class="list_content_box">
+          <div class="box list_img_box">
+              <img id="im" class="list_img_size" src=".${menu.image_path}" data-menunum="${menu.menu_num}" />
+          </div>
+          <div class="box list_content_info"> <!--오른쪽 설명-->
+              <div class="content_title">
+                  <div class="menu_name">${menu.menu_name}</div>
+                  <div class="menu_cost">${menu.price}원</div>
+              </div>
+              <div class="list_option_boxes">
+                  <div class="list_option">
+                      ${tagsHTML} <!-- 분리된 태그들을 여기에 삽입 -->
+                  </div>
+              </div>
+              <div class="list_buttons">
+                  <button class="selectBtn" id="selectBtn" data-menunum="${menu.menu_num}">선택</button>
+                  <!--menu_num전달을 위한 data-menunu추가-->
+              </div>
+          </div>
+      </div>
+      <div class="split_border"></div>
     `;
   });
 
