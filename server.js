@@ -417,6 +417,28 @@ const getOrderData = (callback) => {
   });
 };
 
+//검색 쿼리(한국어)
+app.get('/search', (req, res) => {
+  const keyword = req.query.keyword;
+
+  const sql = `select * from img inner join tb_menu
+  on img.img_num = tb_menu.Menu_Num
+  where tb_menu.Menu_Name LIKE '%${keyword}%'`;
+
+  connection.query(sql, (err, results) => {
+      if (err) {
+          console.error('Error executing the query:', err);
+          res.status(500).json({ error: 'Internal server error' });
+      } else {
+          res.json(results);
+      }
+
+      //res.setHeader('Content-Type', 'application/javascript');
+      // res.sendFile(__dirname + '/search/search.js');
+  });
+});
+
+
 
 //----------영어---------
 const getMenuDataByRange_e = (category, callback) => {
@@ -801,13 +823,13 @@ app.get('/detail_menu.js', (req, res) => {
   res.sendFile(__dirname + '/detail_menu.js');
 });
 
-//은영이
-app.get('/search', (req, res) => {
-  const keyword = req.query.keyword;
+//검색 쿼리(영어)
+app.get('/search_e', (req, res) => {
+  const keyword_e = req.query.keyword;
 
-  const sql = `select * from img inner join tb_menu
-  on img.img_num = tb_menu.Menu_Num
-  where tb_menu.Menu_Name LIKE '%${keyword}%'`;
+  const sql = `select * from img inner join tb_menu_e
+  on img.img_num = tb_menu_e.Menu_Num
+  where tb_menu_e.Menu_Name LIKE '%${keyword_e}%'`;
 
   connection.query(sql, (err, results) => {
       if (err) {

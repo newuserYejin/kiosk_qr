@@ -40,7 +40,7 @@ function search() {
 
     // 검색어가 비어있지 않을 경우에만 서버로 요청 전송
     if (searchInput.trim() !== '') {
-        fetch(`http://localhost:3001/search?keyword=${encodeURIComponent(searchInput)}`)
+        fetch(`http://localhost:3001/search_e?keyword=${encodeURIComponent(searchInput)}`)
             .then(response => response.json())
             .then(data => {
                 const resultContainer = document.getElementById('resultContainer');
@@ -85,7 +85,7 @@ function search(searchInput) {
 
     // 검색어가 비어있지 않을 경우에만 서버로 요청 전송
     if (searchInput !== '') {
-        fetch(`http://localhost:3001/search?keyword=${encodeURIComponent(searchInput)}`)
+        fetch(`http://localhost:3001/search_e?keyword=${encodeURIComponent(searchInput)}`)
             .then(response => response.json())
             .then(data => {
                 const resultContainer = document.getElementById('resultContainer');
@@ -121,7 +121,7 @@ function search(searchInput) {
                 // const searchResult = encodeURIComponent(JSON.stringify(data));
                 localStorage.setItem('mydata', JSON.stringify(data));
                 //console.log(data);
-                localStorage.setItem('searchInput_e', searchInput);
+                localStorage.setItem('searchInput', searchInput);
             })
             .catch(error => console.error('Error fetching data:', error));
     }
@@ -143,7 +143,7 @@ function handleKeywordClick() {
         item.addEventListener('click', function () {
             const keyword_value = item.textContent;
             search(keyword_value);
-            localStorage.setItem('searchInput_e', keyword_value);
+            localStorage.setItem('searchInput', keyword_value);
             location.reload();
         })
     })
