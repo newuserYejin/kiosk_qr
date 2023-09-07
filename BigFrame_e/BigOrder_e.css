@@ -136,32 +136,6 @@ body {
   text-align: end;
 }
 
-@media screen and (max-width: 400px) {
-  .select_list_detail {
-    font-size: 4px;
-  }
-
-  .circle_name {
-    font-size: 1vw;
-  }
-
-  .circle {
-    width: 5vw;
-    height: 5vw;
-    padding: 0;
-    margin-right: 3px;
-  }
-
-  .add_fuc_bar .view_button {
-    width: 40%;
-  }
-
-  .search {
-    height: 4vw;
-    font-size: 3.5vw;
-  }
-}
-
 /*주문 리스트*/
 .box {
   border: solid 3px black;
@@ -444,7 +418,7 @@ body {
   }
 
   .search {
-    height: 20px;
+    height: 80%;
     width: 70%;
   }
 
@@ -461,6 +435,32 @@ body {
     width: 75%;
     height: 100%;
     padding: 2vw;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .select_list_detail {
+    font-size: 4px;
+  }
+
+  .circle_name {
+    font-size: 1vw;
+  }
+
+  .circle {
+    width: 5vw;
+    height: 5vw;
+    padding: 0;
+    margin-right: 3px;
+  }
+
+  .add_fuc_bar .view_button {
+    width: 40%;
+  }
+
+  .search {
+    height: 80%;
+    font-size: 3.5vw;
   }
 }
 
@@ -525,7 +525,7 @@ body {
   }
 
   .search {
-    height: 3vw;
+    height: 80%;
   }
 
   .categories {

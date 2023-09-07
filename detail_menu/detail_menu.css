@@ -132,7 +132,7 @@
     height: 15vh;
     min-height: 80px;
     margin-bottom: 2vh;
-    padding: 0 10px;
+    padding: 5px 10px;
     overflow: hidden;
     overflow-y: visible;
     display: flex;
@@ -288,7 +288,8 @@
 #modalContainer .check{
     overflow: hidden;
     overflow-x: visible;
-    height: 150px;
+    height: auto;
+    min-height: 150px;
 }
 
 #modalContainer .chek_ul{
