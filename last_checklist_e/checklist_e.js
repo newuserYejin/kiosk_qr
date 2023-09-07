@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {//서버연동(DOMCon
 
 function createOrderItem(order) {//주문 아이템 생성 함수
   const orderItem = document.createElement('div');
-  orderItem.className = 'box list_content_box';
+  orderItem.className = 'list_content_box';
   orderItem.innerHTML = `
 <!-- ... (이미지 내용 관련 부분) ... -->
 <div class="box list_img_box">
@@ -121,7 +121,7 @@ function createOrderItem(order) {//주문 아이템 생성 함수
                       <div class="container text-center">
                           <div class="row content_title">
                               <div class="col-7 menu_name">${order.menu_name}</div> <!--메뉴 이름 출력-->
-                              <div class="col-5 menu_cost">&nbsp;Total: &#8361;${order.total_price}</div> <!--메뉴 가격 출력-->
+                              <div class="col-5 menu_cost">cost: &#8361;${order.total_price}</div> <!--메뉴 가격 출력-->
                           </div>
                           <!--옵션 데이터-->
                           <div class="row list_option">
@@ -178,6 +178,11 @@ function addOrdersToDOM(orders) {
   orders.forEach(order => {
     const orderItem = createOrderItem(order);
     orderList.appendChild(orderItem);
+
+    const splitBorderDiv = document.createElement('div');
+    splitBorderDiv.className = "split_border";
+
+    orderList.appendChild(splitBorderDiv);
   });
 
   //수정 버튼

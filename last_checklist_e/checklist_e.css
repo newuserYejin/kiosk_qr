@@ -15,8 +15,11 @@ body {
 /*네비게이션 바*/
 .navigation {
     border: solid 3px black;
+    border-right: none;
     width: 20%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .list_menu {
@@ -37,6 +40,7 @@ body {
     height: 11.5%;
     display: flex;
     margin: 0 5px;
+    border-radius: 10px;
 }
 
 /*단계별 가운데 선*/
@@ -55,16 +59,17 @@ body {
 
 .now {
     animation: progressAnimation 2.3s linear infinite;
-  }
-  
-  @keyframes progressAnimation {
+}
+
+@keyframes progressAnimation {
     0% {
         height: 0;
     }
+
     100% {
         height: 100%;
     }
-  }
+}
 
 /*각 단계 버튼*/
 .level_button {
@@ -73,7 +78,11 @@ body {
     justify-content: space-around;
     align-items: center;
     cursor: pointer;
-    padding: 0;
+}
+
+.level_name {
+    padding: 0.8rem;
+    font-weight: bold;
 }
 
 .circle {
@@ -174,18 +183,33 @@ body {
     top: 1%;
 }
 
-.list_content_box {
+/* .list_content_box {
     display: flex;
     justify-content: space-between;
     margin: 1vw;
     height: 35%;
     border: none;
+} */
+
+.list_content_box {
+    padding: 1vw;
+    display: flex;
+    justify-content: space-between;
+    margin: 1vw;
+    border-radius: 15px;
+    background-color: #dee2e6;
+    height: 35%;
+}
+
+.list_content_box * {
+    background-color: white;
 }
 
 .list_img_box {
     width: 35%;
     padding: 10px;
-    border: solid 2px black;
+    border: solid 1px gray;
+    border-radius: 10px;
 }
 
 .list_img_size {
@@ -197,6 +221,7 @@ body {
 .container {
     height: 100%;
     padding: auto;
+    border-radius: 10px;
 }
 
 .content_title {
@@ -204,33 +229,44 @@ body {
     text-align: center;
     height: 20%;
     width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .content_title .menu_name {
     font-size: 2.5vw;
-    text-align: left;
+    text-align: center;
     padding: 0;
-    border-right: solid 3px black;
+    padding-left: 8px;
+    border-right: solid 1px gray;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    border-top-left-radius: 10px;
 }
 
 .content_title .menu_cost {
     padding: 0;
-    text-align: left;
-    font-size: 2.3vw;
+    text-align: center;
+    font-size: 2.5vw;
 }
 
+.split_border{
+    border: solid 2px orange;
+  }
+
 .list_content_info {
+    border: solid 1px gray;
     width: 63%;
-    border: solid bl;
+    padding: 0;
+    border-radius: 10px;
+
 }
 
 /*옵션*/
 .list_option {
-    border-top: 3px solid black;
-    border-bottom: 3px solid black;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
     height: 55%;
 }
 
@@ -246,11 +282,12 @@ body {
     width: 100%;
     font-size: 2.5vw;
     font-weight: bold;
-    border-bottom: solid 3px black;
+    border-bottom: solid 1px gray;
 }
 
 .option_detail div {
     padding: 0;
+    padding-left: 8px;
     text-align: left;
 }
 
@@ -258,16 +295,22 @@ body {
 /*수량 체크(text)*/
 .list_buttons {
     height: 25%;
+    border-bottom-left-radius: 10px;
+}
+
+.button_box_num {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom-left-radius: 10px;
 }
 
 .button_num {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     font-size: 3vw;
-    text-align: left;
     font-weight: bold;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 /* 수정&삭제 버튼*/
@@ -277,7 +320,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border-left: solid 3px black;
+    border-left: solid 1px gray;
 }
 
 .content_update_button button {
@@ -390,7 +433,7 @@ body {
         display: flex;
         justify-content: space-around;
         align-items: center;
-        border-left: solid 3px black;
+        border-left: solid 2px black;
     }
 
     .content_update_button button {
@@ -419,7 +462,7 @@ body {
         font-size: 2vw;
         text-align: left;
         padding: 0;
-        border-right: solid 3px black;
+        border-right: solid 2px black;
     }
 
     .menu_cost {

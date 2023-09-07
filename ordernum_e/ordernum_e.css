@@ -79,3 +79,7 @@ html,body {
     margin-top: 4vh;
     border: solid 2px black;
 }
+
+.gohome_ button{
+    border-radius: 10px;
+}
