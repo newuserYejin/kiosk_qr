@@ -331,7 +331,7 @@ function handleMenuData(menuData) {
         detailMenuLink.remove();
       }
 
-      history.pushState(null, null, `http://localhost:3001/BigFrame/BigOrder.html?order=big&menuId=${menuNum}`);
+      history.pushState(null, null, `http://localhost:3001/BigFrame/BigOrder.html?order=slow&menuId=${menuNum}`);
 
       // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
       fetch("http://localhost:3001/detail_menu/jojo.html?menuId=${menuNum}") // 이 부분의 파일 경로를 수정해야합니다.
@@ -382,7 +382,7 @@ function handleMenuData(menuData) {
         detailMenuLink.remove();
       }
 
-      history.pushState(null, null, `http://localhost:3001/BigFrame/BigOrder.html?order=big&menuId=${menuNum}`);
+      history.pushState(null, null, `http://localhost:3001/BigFrame/BigOrder.html?order=slow&menuId=${menuNum}`);
 
       // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
       fetch("http://localhost:3001/detail_menu/jojo.html?menuId=${menuNum}") // 이 부분의 파일 경로를 수정해야합니다.
@@ -503,7 +503,7 @@ function searchFunction() {
           detailMenuLink.remove();
         }
 
-        history.pushState(null, null, `http://localhost:3001/BigFrame/BigOrder.html?order=big&menuId=${menuNum}`);
+        history.pushState(null, null, `http://localhost:3001/BigFrame/BigOrder.html?order=slow&menuId=${menuNum}`);
 
         // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
         fetch("http://localhost:3001/detail_menu/jojo.html?menuId=${menuNum}") // 이 부분의 파일 경로를 수정해야합니다.
@@ -554,7 +554,7 @@ function searchFunction() {
           detailMenuLink.remove();
         }
 
-        history.pushState(null, null, `http://localhost:3001/BigFrame/BigOrder.html?order=big&menuId=${menuNum}`);
+        history.pushState(null, null, `http://localhost:3001/BigFrame/BigOrder.html?order=slow&menuId=${menuNum}`);
 
         // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
         fetch("http://localhost:3001/detail_menu/jojo.html?menuId=${menuNum}") // 이 부분의 파일 경로를 수정해야합니다.

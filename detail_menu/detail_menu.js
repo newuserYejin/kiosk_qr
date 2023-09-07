@@ -108,13 +108,24 @@ optionContainers.forEach((container, index) => {
   }
 
   if (index === 0) {
-    optionList.innerHTML = menuData.op_data
-      .filter(option => option.op_name === "뜨거움" || option.op_name === "차가움")
+    const temperatureOptions = menuData.op_data
+      .filter(option => option.op_name === "뜨거움" || option.op_name === "차가움");
+  
+    let defaultOption = "뜨거움"; // 기본값 설정
+  
+    const hasHot = temperatureOptions.some(option => option.op_name === "뜨거움");
+    const hasCold = temperatureOptions.some(option => option.op_name === "차가움");
+  
+    if (!hasHot && hasCold) {
+      defaultOption = "차가움";
+    }
+  
+    optionList.innerHTML = temperatureOptions
       .map(option => {
-        const checkedAttribute = option.op_name === "뜨거움" ? "checked" : "";
+        const checkedAttribute = option.op_name === defaultOption ? "checked" : "";
         const textColor = option.op_name === "뜨거움" ? "red" : "blue"; // 뜨거움은 빨간색, 차가움은 파란색
         return `<li class="list-group-item"><input class="form-check-input me-1" type="radio" name="temperature"  id="${option.op_name}" value="${option.op_name}" ${checkedAttribute}>
-        <label class="form-check-label" for="${option.op_name}" style="color: ${textColor};">${option.op_name} (+${option.op_price}원)</label></li>`;
+          <label class="form-check-label" for="${option.op_name}" style="color: ${textColor};">${option.op_name} (+${option.op_price}원)</label></li>`;
       })
       .join("");
   } else if (index === 1) {

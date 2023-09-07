@@ -209,6 +209,7 @@ body {
   margin: 1vw;
   border-radius: 15px;
   background-color: #dee2e6;
+  height: auto;
 }
 
 .list_content_box *{
