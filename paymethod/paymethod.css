@@ -14,8 +14,10 @@ html,body {
 /*네비게이션 바*/
 .navigation {
     border: solid 3px black;
-    width: 20vw;
-    height: 100vh;
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .list_menu {
@@ -25,6 +27,7 @@ html,body {
 }
 
 .navigation_all_box {
+    padding: 0 2.5%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -35,6 +38,7 @@ html,body {
     border: solid 2px black;
     height: 11.5%;
     display: flex;
+    border-radius: 10px;
     margin: 0 5px;
 }
 
@@ -126,6 +130,11 @@ html,body {
     margin-top: -15vh;
 }
 
+.pay button{
+    border-radius: 15px;
+    box-shadow: 7px 7px gray;
+}
+
 .card_method {
     border: solid 2px black;
     font-size: 5vw;
@@ -150,4 +159,5 @@ html,body {
     background-color: white;
     height: 8vh;
     margin-top: 4vh;
+    border-radius: 10px;
 }
