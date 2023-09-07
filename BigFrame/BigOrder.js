@@ -331,7 +331,7 @@ function handleMenuData(menuData) {
         detailMenuLink.remove();
       }
 
-      history.pushState(null, null, `http://localhost:3001/BigFrame/BigOrder.html?order=basic&menuId=${menuNum}`);
+      history.pushState(null, null, `http://localhost:3001/BigFrame/BigOrder.html?order=big&menuId=${menuNum}`);
 
       // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
       fetch("http://localhost:3001/detail_menu/jojo.html?menuId=${menuNum}") // 이 부분의 파일 경로를 수정해야합니다.
@@ -382,7 +382,7 @@ function handleMenuData(menuData) {
         detailMenuLink.remove();
       }
 
-      history.pushState(null, null, `http://localhost:3001/BigFrame/BigOrder.html?order=basic&menuId=${menuNum}`);
+      history.pushState(null, null, `http://localhost:3001/BigFrame/BigOrder.html?order=big&menuId=${menuNum}`);
 
       // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
       fetch("http://localhost:3001/detail_menu/jojo.html?menuId=${menuNum}") // 이 부분의 파일 경로를 수정해야합니다.
@@ -503,7 +503,7 @@ function searchFunction() {
           detailMenuLink.remove();
         }
 
-        history.pushState(null, null, `http://localhost:3001/BigFrame/BigOrder.html?order=basic&menuId=${menuNum}`);
+        history.pushState(null, null, `http://localhost:3001/BigFrame/BigOrder.html?order=big&menuId=${menuNum}`);
 
         // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
         fetch("http://localhost:3001/detail_menu/jojo.html?menuId=${menuNum}") // 이 부분의 파일 경로를 수정해야합니다.
@@ -554,7 +554,7 @@ function searchFunction() {
           detailMenuLink.remove();
         }
 
-        history.pushState(null, null, `http://localhost:3001/BigFrame/BigOrder.html?order=basic&menuId=${menuNum}`);
+        history.pushState(null, null, `http://localhost:3001/BigFrame/BigOrder.html?order=big&menuId=${menuNum}`);
 
         // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
         fetch("http://localhost:3001/detail_menu/jojo.html?menuId=${menuNum}") // 이 부분의 파일 경로를 수정해야합니다.
@@ -616,6 +616,8 @@ function generateOrderList(orderData) {
       selectName.style.color = 'red'; // op_t가 1일 때 빨간색
     } else if (order.op_t === 2) {
       selectName.style.color = 'blue'; // op_t가 2일 때 파란색
+    } else if(order.op_t ===1000 ){
+      selectName.style.color = 'black';
     }
 
     const selectNum = document.createElement('div');

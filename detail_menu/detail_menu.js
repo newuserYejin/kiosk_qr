@@ -19,7 +19,7 @@ $(".btn-info").click(function () {
 
   // 옵션 값 설정
   const selectedOptions = {
-    op_t: $("input[name='temperature']:checked").val() === "뜨거움" ? 1 : 2,
+    op_t: $("input[name='temperature']:checked").val() === "뜨거움" ? 1 : $("input[name='temperature']:checked").val() === "차가움" ? 2 : 1000,
     op_s: $("input[name='size']:checked").val() === "기본 크기" ? 3 : 4,
     op1: $("input[name='option_set_1']").prop('checked') ? 5 : 0,
     op2: $("input[name='option_set_2']").prop('checked') ? 6 : 0,
