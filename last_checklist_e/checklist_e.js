@@ -138,7 +138,7 @@ function createOrderItem(order) {//주문 아이템 생성 함수
                                   </div>
                                   <div>
                                       <span class="option_name">Add Option: </span>
-                                      <span class="select_op">${order.options.map(op => op.op_name).join(', ')}</span>
+                                      <span class="select_op">${order.options.length > 0 ? order.options.map(op => op.op_name).join(', ') : 'none'}</span>
                                   </div>
                               </div>
                           </div>
