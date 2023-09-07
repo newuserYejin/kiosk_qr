@@ -391,8 +391,8 @@ function handleMenuData(menuData) {
 }
 
 //검색
-let storeData = JSON.parse(localStorage.getItem('mydata_e'));
-let storeData_str = localStorage.getItem('mydata_e');
+let storeData = JSON.parse(localStorage.getItem('mydata'));
+let storeData_str = localStorage.getItem('mydata');
 
 window.onload = searchFunction;
 
@@ -411,7 +411,7 @@ function searchFunction() {
   if (storeData.length === 0) {
     console.log('결과 없음');
     resultContainer.innerHTML = '<p style="font-size: 4vw; text-align: center; padding: 5vh;">검색 결과가 없습니다.<br>다시 검색해 주세요.</p>';
-    localStorage.removeItem('mydata_e');
+    localStorage.removeItem('mydata');
   } else {
     categories.forEach(c => c.classList.remove('select_category'));
 
@@ -460,7 +460,7 @@ function searchFunction() {
       parentContainer.appendChild(div);
       parentContainer.appendChild(splitBorderDiv);
     })
-    localStorage.removeItem('mydata_e');
+    localStorage.removeItem('mydata');
 
 
     // 선택 버튼(메뉴 선택)
@@ -568,11 +568,11 @@ function searchFunction() {
 }
 
 // 검색 내용 input태그에 표시
-const keywordValue = localStorage.getItem('searchInput_e');
+const keywordValue = localStorage.getItem('searchInput');
 if (keywordValue) {
   const searchInput = document.querySelector(".search");
   searchInput.value = keywordValue;
-  localStorage.removeItem('searchInput_e'); // 사용한 값은 제거
+  localStorage.removeItem('searchInput'); // 사용한 값은 제거
 }
 
 //네이베이션 아래의 주문 목록
