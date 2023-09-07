@@ -786,8 +786,6 @@ const getOrderData_e = (callback) => {
 };
 
 
-
-
 // 09.04추가 selectorder.html 로딩시 tb_order초기화
 app.post("/reset", (req, res) => {
   // 주문 데이터를 삭제하기 위한 DELETE 쿼리
