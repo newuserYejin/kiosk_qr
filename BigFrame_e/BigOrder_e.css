@@ -79,16 +79,12 @@ body {
   justify-content: space-around;
   align-items: center;
   cursor: pointer;
-}
-
-.level_name {
-  padding: 0.8rem;
-  font-weight: bold;
+  padding: 0;
 }
 
 .circle {
-  width: 2rem;
-  height: 2rem;
+  width: 1.7rem;
+  height: 1.7rem;
   border: solid 3px black;
   border-radius: 50%;
   background-color: white;
@@ -100,7 +96,7 @@ body {
   margin: 0;
   font-size: 3vw;
   font-weight: bold;
-  width: 50%;
+  width: auto;
 }
 
 /*주문리스트 미리보기*/
