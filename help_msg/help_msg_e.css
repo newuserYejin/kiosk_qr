@@ -1,0 +1,30 @@
+#modalContainer_e .modal {
+    width: 100%;
+    height: 100%;
+}
+
+#modalContainer_e .modal-dialog {
+    width: 90vw;
+    height: 40%;
+    max-width: none;
+}
+
+#modalContainer_e .modal-body *{
+    font-size: 3vw;
+    font-weight: normal;
+}
+
+#modalContainer_e .fs-5{
+    font-size: 4vw!important;
+    font-weight: bold;
+}
+
+#modalContainer_e video{
+    width: 100%;
+    height: auto;
+}
+
+#modalContainer_e .content_explain{
+    font-size: 2.5vw;
+    line-height: 40px;
+}
