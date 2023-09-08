@@ -42,13 +42,14 @@ const urlParams = new URLSearchParams(window.location.search);
 const orderType = urlParams.get('order');
 
 function openSelect() {
+    const pickup = urlParams.get('pickup');
 
     if (orderType === 'slow') {
         // 천천히 주문하기 버튼을 클릭한 경우
-        location.href = 'http://localhost:3001/BigFrame_e/BigOrder_e.html?order=slow';
+        location.href = `http://localhost:3001/BigFrame_e/BigOrder_e.html?order=slow&pickup=${pickup}`;
     } else if (orderType === 'basic') {
         // 기본 주문하기 버튼을 클릭한 경우
-        location.href = 'http://localhost:3001/BasicFrame_e/BasicOrder_e.html?order=basic';
+        location.href = `http://localhost:3001/BasicFrame_e/BasicOrder_e.html?order=basic&pickup=${pickup}`;
     } else {
         location.href = 'http://localhost:3001/selectorder/selectorder.html';
     }
@@ -56,24 +57,28 @@ function openSelect() {
 
 }
 function openCheck() {
+    const pickup = urlParams.get('pickup');
+
     if (orderType === 'slow') {
         // 천천히 주문하기 버튼을 클릭한 경우
-        location.href = 'http://localhost:3001/last_checklist_e/checklist_e.html?order=slow';
+        location.href = `http://localhost:3001/last_checklist_e/checklist_e.html?order=slow&pickup=${pickup}`;
     } else if (orderType === 'basic') {
         // 기본 주문하기 버튼을 클릭한 경우
-        location.href = 'http://localhost:3001/last_checklist_e/checklist_e.html?order=basic';
+        location.href = `http://localhost:3001/last_checklist_e/checklist_e.html?order=basic&pickup=${pickup}`;
     } else {
         location.href = 'http://localhost:3001/selectorder_e/selectorder_e.html';
     }
 
 }
 function openPay() {
+    const pickup = urlParams.get('pickup');
+
     if (orderType === 'slow') {
         // 천천히 주문하기 버튼을 클릭한 경우
-        location.href = 'http://localhost:3001/paymethod_e/paymethod_e.html?order=slow';
+        location.href = `http://localhost:3001/paymethod_e/paymethod_e.html?order=slow&pickup=${pickup}`;
     } else if (orderType === 'basic') {
         // 기본 주문하기 버튼을 클릭한 경우
-        location.href = 'http://localhost:3001/paymethod_e/paymethod_e.html?order=basic';
+        location.href = `http://localhost:3001/paymethod_e/paymethod_e.html?order=basic&pickup=${pickup}`;
     } else {
         location.href = 'http://localhost:3001/selectorder/selectorder.html';
     }
@@ -81,24 +86,28 @@ function openPay() {
 }
 
 function back() {
+    const pickup = urlParams.get('pickup');
+
     if (orderType === 'slow') {
         // 천천히 주문하기 버튼을 클릭한 경우
-        location.href = 'http://localhost:3001/paymethod_e/paymethod_e.html?order=slow';
+        location.href = `http://localhost:3001/paymethod_e/paymethod_e.html?order=slow&pickup=${pickup}`;
     } else if (orderType === 'basic') {
         // 기본 주문하기 버튼을 클릭한 경우
-        location.href = 'http://localhost:3001/paymethod_e/paymethod_e.html?order=basic';
+        location.href = `http://localhost:3001/paymethod_e/paymethod_e.html?order=basic&pickup=${pickup}`;
     } else {
         location.href = 'http://localhost:3001/selectorder/selectorder.html';
     }
 
 }
 function gohome() {
+    const pickup = urlParams.get('pickup');
+
     if (orderType === 'slow') {
         // 천천히 주문하기 버튼을 클릭한 경우
-        location.href = 'http://localhost:3001/BigFrame_e/BigOrder_e.html?order=slow';
+        location.href = `http://localhost:3001/BigFrame_e/BigOrder_e.html?order=slow&pickup=${pickup}`;
     } else if (orderType === 'basic') {
         // 기본 주문하기 버튼을 클릭한 경우
-        location.href = 'http://localhost:3001/BasicFrame_e/BasicOrder_e.html?order=basic';
+        location.href = `http://localhost:3001/BasicFrame_e/BasicOrder_e.html?order=basic&pickup=${pickup}`;
     } else {
         location.href = 'http://localhost:3001/selectorder/selectorder.html';
     }

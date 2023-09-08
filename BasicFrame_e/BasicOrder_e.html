@@ -49,7 +49,7 @@
             </div>
 
             <!--주문리스트 미리보기-->
-            <div class="select_list" onclick="location.href='http://localhost:3001/last_checklist_e/checklist_e.html?order=basic'">
+            <div class="select_list" onclick="move_checklist()">
                 <div class="select_list_title">
                     Order List
                 </div>
@@ -171,8 +171,20 @@
         }
         
         function openModal() {
+            // help_msg.css를 제거합니다.
+            const help_msg_Link = document.querySelector('link[href="http://localhost:3001/help_msg/help_msg.css"]');
+            if (help_msg_Link) {
+                help_msg_Link.remove();
+            }
+
+            // detail_menu.css를 제거합니다.
+            const detailMenuLink = document.querySelector('link[href="http://localhost:3001/detail_menu_e/detail_menu_e.css"]');
+            if (detailMenuLink) {
+                detailMenuLink.remove();
+            }
+
             $.get("http://localhost:3001/exithome_msg/exithome_msg.html", function (data) {
-            $("#modalContainer").html(data);
+            $("#modalContainer_e").html(data);
             const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
             modal.show();
             });

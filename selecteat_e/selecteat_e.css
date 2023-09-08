@@ -57,13 +57,13 @@ html,body {
     box-shadow: 7px 7px gray;
 }
 
-.sloworder {
+.takeAway {
     font-size: 5vw;
     background-color: white;
     height: 14.5vh;
     margin-bottom: 5vh;
 }
-.basicorder {
+.forHere {
     font-size: 5vw;
     background-color: white;
     height: 14.5vh;
@@ -73,7 +73,5 @@ html,body {
     .helpimg {
         width: 3%;
         height: 5%;
-        
     }
-    
 }

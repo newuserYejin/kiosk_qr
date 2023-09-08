@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="box_line">
-                    <div onclick="navigate_click()" class="level_button">
+                    <div onclick="navigateclick()" class="level_button">
                         <p class="circle_name">주문 확인</p>
                         <button class="circle" style="background-color:skyblue;"></button>
                     </div>
@@ -65,13 +65,11 @@
                 <div class="take_out_title">포장확인: </div>
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="firstRadio1"
-                            checked>
+                        <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="forHere" id="firstRadio">
                         <label class="form-check-label" for="firstRadio">먹고가기</label>
                     </li>
                     <li class="list-group-item">
-                        <input class="form-check-input me-1" type="radio" name="listGroupRadio" value=""
-                            id="secondRadio2">
+                        <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="takeAway" id="secondRadio">
                         <label class="form-check-label" for="secondRadio">포장</label>
                     </li>
                 </ul>
@@ -179,6 +177,18 @@
         }
         
         function openModal() {
+            // help_msg.css를 제거합니다.
+            const help_msg_Link = document.querySelector('link[href="http://localhost:3001/help_msg/help_msg.css"]');
+            if (help_msg_Link) {
+                help_msg_Link.remove();
+            }
+
+            // detail_menu.css를 제거합니다.
+            const detailMenuLink = document.querySelector('link[href="http://localhost:3001/detail_menu/detail_menu.css"]');
+            if (detailMenuLink) {
+                detailMenuLink.remove();
+            }
+
             $.get("http://localhost:3001/exithome_msg/exithome_msg.html", function (data) {
             $("#modalContainer").html(data);
             const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
