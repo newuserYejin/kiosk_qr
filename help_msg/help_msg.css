@@ -4,8 +4,9 @@
 }
 
 #modalContainer .modal-dialog {
-    max-width: 70%;
-    max-height: 40%;
+    width: 90vw;
+    height: 40%;
+    max-width: none;
 }
 
 #modalContainer .modal-body *{
@@ -16,4 +17,14 @@
 #modalContainer .fs-5{
     font-size: 4vw!important;
     font-weight: bold;
+}
+
+#modalContainer video{
+    width: 100%;
+    height: auto;
+}
+
+#modalContainer .content_explain{
+    font-size: 2.5vw;
+    line-height: 40px;
 }

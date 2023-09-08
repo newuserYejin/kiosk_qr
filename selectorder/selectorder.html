@@ -17,9 +17,11 @@
         <div class="first">
             <div class="fir_box">
                 <div class="order">
-                    <button type="button" class="sloworder" onclick="location.href='http://localhost:3001/selecteat/selecteat.html?order=slow'">천천히
+                    <button type="button" class="sloworder"
+                        onclick="location.href='http://localhost:3001/selecteat/selecteat.html?order=slow'">천천히
                         주문하기</button>
-                    <button type="button" class="basicorder" onclick="location.href='http://localhost:3001/selecteat/selecteat.html?order=basic'">기본
+                    <button type="button" class="basicorder"
+                        onclick="location.href='http://localhost:3001/selecteat/selecteat.html?order=basic'">기본
                         주문하기</button>
                 </div>
                 <div class="language">
@@ -41,16 +43,50 @@
         const joImage = document.getElementById("imageLink");
 
         joImage.addEventListener("click", function () {
-            $.get("http://localhost:3001/help_msg/help_msg.html", function (data) {
-                $("#modalContainer").html(data);
-                const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
-                modal.show();
-            });
-        });
+            // 먼저 모달 컨테이너를 비웁니다.
+            document.getElementById("modalContainer").innerHTML = "";
 
-        function lang_ch(){
-            window.location.href = 'http://localhost:3001/selectorder_e/selectorder_e.html';
-        }
+            // help_msg.html 콘텐츠를 로드하여 모달 컨테이너에 추가합니다.
+            fetch("http://localhost:3001/help_msg/help_msg.html")
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("HTTP Error " + response.status);
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    // 모달 컨테이너에 help_msg.html 콘텐츠를 추가합니다.
+                    modalContainer.innerHTML = data;
+
+                    const modalBody = document.querySelector(".modal-body");
+                    modalBody.innerHTML = `
+                    <video autoplay controls>
+                        <source src="./image/startpage_k.mp4" type="video/mp4">
+                        관리자를 호출해주세요.
+                    </video>
+
+                    <section class="content_explain">
+                        1. 여유롭게 주문하길 원하신다면 '천천히 주문하기'를 선택해주세요.<br>
+                        2. 기존 키오스크 같은 주문을 원하신다면 '기본 주문하기'를 선택해주세요.<br>
+                        3. 만약 영어로의 언어 변경을 원하실땐 오른쪽(미국 국기)를 눌러주세요.<br>
+                        4. 다시 한국어로 바꾸고 싶으시다면 왼쪽(한국 국기를 눌러주세요.)
+                    </section>
+                    `;
+
+                    // help_msg.css 파일을 로드합니다.
+                    const linkElement = document.createElement("link");
+                    linkElement.rel = "stylesheet";
+                    linkElement.type = "text/css";
+                    linkElement.href = "http://localhost:3001/help_msg/help_msg.css";
+                    document.head.appendChild(linkElement);
+
+                    const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+                    modal.show();
+                })
+                .catch(error => {
+                    console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
+                });
+        });
 
     </script>
 
@@ -70,6 +106,10 @@
                     console.error("Error reset data:", error);
                 });
         });
+
+        function lang_ch(){
+            window.location.href = 'http://localhost:3001/selectorder_e/selectorder_e.html';
+        }
     </script>
 
 </body>
