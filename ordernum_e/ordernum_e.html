@@ -75,7 +75,7 @@
             
             function openModal() {
                 $.get("http://localhost:3001/exithome_msg/exithome_msg.html", function (data) {
-                $("#modalContainer").html(data);
+                $("#modalContainer_e").html(data);
                 const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
                 modal.show();
                 });

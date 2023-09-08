@@ -56,7 +56,7 @@ html,body {
     box-shadow: 7px 7px gray;
 }
 
-.sloworder {
+.takeAway {
     font-size: 5vw;
     background-color: white;
     height: 14.5vh;
@@ -64,13 +64,13 @@ html,body {
     font-weight: bold;
 }
 
-.sloworder:active{
+.takeAway:active{
     background-color: skyblue;
     color: white;
     border: none;
 }
 
-.basicorder {
+.forHere {
     font-size: 5vw;
     background-color: white;
     height: 14.5vh;
@@ -78,7 +78,7 @@ html,body {
     margin-top: 3vh;
 }
 
-.basicorder:active{
+.forHere:active{
     background-color: skyblue;
     color: white;
     border: none;

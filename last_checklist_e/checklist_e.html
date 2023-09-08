@@ -65,13 +65,11 @@
                 <div class="take_out_title">Packaging: </div>
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="firstRadio"
-                            checked>
+                        <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="forHere" id="firstRadio">
                         <label class="form-check-label" for="firstRadio">Eat and go</label>
                     </li>
                     <li class="list-group-item">
-                        <input class="form-check-input me-1" type="radio" name="listGroupRadio" value=""
-                            id="secondRadio">
+                        <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="takeAway" id="secondRadio">
                         <label class="form-check-label" for="secondRadio">To go</label>
                     </li>
                 </ul>
@@ -180,8 +178,20 @@
         }
         
         function openModal() {
+            // help_msg.css를 제거합니다.
+            const help_msg_Link = document.querySelector('link[href="http://localhost:3001/help_msg/help_msg.css"]');
+            if (help_msg_Link) {
+                help_msg_Link.remove();
+            }
+
+            // detail_menu.css를 제거합니다.
+            const detailMenuLink = document.querySelector('link[href="http://localhost:3001/detail_menu_e/detail_menu_e.css"]');
+            if (detailMenuLink) {
+                detailMenuLink.remove();
+            }
+
             $.get("http://localhost:3001/exithome_msg/exithome_msg.html", function (data) {
-            $("#modalContainer").html(data);
+            $("#modalContainer_e").html(data);
             const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
             modal.show();
             });

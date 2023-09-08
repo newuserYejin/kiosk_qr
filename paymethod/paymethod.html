@@ -73,33 +73,36 @@
             function back(){
                 var URL = new URLSearchParams(window.location.search);
                 var order_info = URL.get('order');
+                const pickup = URL.get('pickup');
 
                 if (order_info == 'slow') {
-                    window.location.href = "http://localhost:3001/BigFrame/BigOrder.html?order=slow"
+                    window.location.href = `http://localhost:3001/BigFrame/BigOrder.html?order=slow&pickup=${pickup}`
                 } else if (order_info == 'basic') {
-                    window.location.href = "http://localhost:3001/BasicFrame/BasicOrder.html?order=basic"
+                    window.location.href = `http://localhost:3001/BasicFrame/BasicOrder.html?order=basic&pickup=${pickup}`
                 }
             }
 
             function card_method(){
                 var URL = new URLSearchParams(window.location.search);
                 var order_info = URL.get('order');
+                const pickup = URL.get('pickup');
 
                 if (order_info == 'slow') {
-                    window.location.href = "http://localhost:3001/pay_card/pay_card.html?order=slow"
+                    window.location.href = `http://localhost:3001/pay_card/pay_card.html?order=slow&pickup=${pickup}`
                 } else if (order_info == 'basic') {
-                    window.location.href = "http://localhost:3001/pay_card/pay_card.html?order=basic"
+                    window.location.href = `http://localhost:3001/pay_card/pay_card.html?order=basic&pickup=${pickup}`
                 }
             }
 
             function cupon_method(){
                 var URL = new URLSearchParams(window.location.search);
                 var order_info = URL.get('order');
+                const pickup = URL.get('pickup');
 
                 if (order_info == 'slow') {
-                    window.location.href = "http://localhost:3001/pay_coupon/pay_coupon.html?order=slow"
+                    window.location.href = `http://localhost:3001/pay_coupon/pay_coupon.html?order=slow&pickup=${pickup}`
                 } else if (order_info == 'basic') {
-                    window.location.href = "http://localhost:3001/pay_coupon/pay_coupon.html?order=basic"
+                    window.location.href = `http://localhost:3001/pay_coupon/pay_coupon.html?order=basic&pickup=${pickup}`
                 }
             }
 
@@ -114,21 +117,23 @@
             function openSelect() {
                 var URL = new URLSearchParams(window.location.search);
                 var order_info = URL.get('order');
+                const pickup = URL.get('pickup');
 
                 if (order_info == 'slow') {
-                    window.location.href = "http://localhost:3001/BigFrame/BigOrder.html?order=slow"
+                    window.location.href = `http://localhost:3001/BigFrame/BigOrder.html?order=slow&pickup=${pickup}`
                 } else if (order_info == 'basic') {
-                    window.location.href = "http://localhost:3001/BasicFrame/BasicOrder.html?order=basic"
+                    window.location.href = `http://localhost:3001/BasicFrame/BasicOrder.html?order=basic&pickup=${pickup}`
                 }
             }
             function openCheck() {
                 var URL = new URLSearchParams(window.location.search);
                 var order_info = URL.get('order');
-
+                const pickup = URL.get('pickup');
+                
                 if (order_info == 'slow') {
-                    window.location.href = "http://localhost:3001/last_checklist/checklist.html?order=slow"
+                    window.location.href = `http://localhost:3001/last_checklist/checklist.html?order=slow&pickup=${pickup}`
                 } else if (order_info == 'basic') {
-                    window.location.href = "http://localhost:3001/last_checklist/checklist.html?order=basic"
+                    window.location.href = `http://localhost:3001/last_checklist/checklist.html?order=basic&pickup=${pickup}`
                 }
             }
             function openPay() {

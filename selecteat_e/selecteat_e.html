@@ -26,31 +26,49 @@
                 <div class="first">
                     <div class="fir_box">
                         <div class="order">
-                            <button type="button" class="sloworder" onclick="checkOrderType()">To go</button>
-                            <button type="button" class="basicorder" onclick="checkOrderType()">Eat and go</button>
+                            <button type="button" class="takeAway" onclick="takeAway(1)">To go</button>
+                            <button type="button" class="forHere" onclick="forHere(2)">Eat and go</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <script>
-            function checkOrderType() {
+        <script>//09.08 기존의 checkOrderType()의 내용 완전 수정
+            function takeAway() {
                 // URL에서 "order" 파라미터 값을 확인하여 다른 페이지로 이동
                 const urlParams = new URLSearchParams(window.location.search);
                 const orderType = urlParams.get('order');
+                const pickup = '1';
 
                 if (orderType === 'slow') {
                     // 천천히 주문하기 버튼을 클릭한 경우
-                    location.href = 'http://localhost:3001/BigFrame_e/BigOrder_e.html?order=slow';
+                    location.href = `http://localhost:3001/BigFrame_e/BigOrder_e.html?order=slow&pickup=${pickup}`;
                 } else if (orderType === 'basic') {
                     // 기본 주문하기 버튼을 클릭한 경우
-                    location.href = 'http://localhost:3001/BasicFrame_e/BasicOrder_e.html?order=basic';
+                    location.href = `http://localhost:3001/BasicFrame_e/BasicOrder_e.html?order=basic&pickup=${pickup}`;
+                } else {
+                    location.href = 'http://localhost:3001/selectorder/selectorder.html';
+                }
+            }
+            function forHere() {
+                // URL에서 "order" 파라미터 값을 확인하여 다른 페이지로 이동
+                const urlParams = new URLSearchParams(window.location.search);
+                const orderType = urlParams.get('order');
+                const pickup = '2';
+
+                if (orderType === 'slow') {
+                    // 천천히 주문하기 버튼을 클릭한 경우
+                    location.href = `http://localhost:3001/BigFrame_e/BigOrder_e.html?order=slow&pickup=${pickup}`;
+                } else if (orderType === 'basic') {
+                    // 기본 주문하기 버튼을 클릭한 경우
+                    location.href = `http://localhost:3001/BasicFrame_e/BasicOrder_e.html?order=basic&pickup=${pickup}`;
                 } else {
                     location.href = 'http://localhost:3001/selectorder/selectorder.html';
                 }
             }
         </script>
+
         <script>
             const joImage = document.getElementById("imageLink");
 
@@ -113,7 +131,6 @@
             crossorigin="anonymous"></script>
 
         <script>
-            
             var secondsElapsed = 0; 
             
             // 일정 시간 이후에 메시지를 표시하고 경과 시간을 표시하는 함수
@@ -126,7 +143,7 @@
             
             function openModal() {
                 $.get("http://localhost:3001/exithome_msg/exithome_msg.html", function (data) {
-                $("#modalContainer").html(data);
+                $("#modalContainer_e").html(data);
                 const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
                 modal.show();
                 });

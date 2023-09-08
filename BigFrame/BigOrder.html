@@ -48,8 +48,7 @@
                 </div>
             </div>
             <!--주문리스트 미리보기-->
-            <div class="select_list"
-                onclick="location.href='http://localhost:3001/last_checklist/checklist.html?order=slow'">
+            <div class="select_list" onclick="move_cheklist()">
                 <div class="select_list_title">
                     현재 주문 목록
                 </div>
@@ -145,59 +144,59 @@
 
     <script>
 
-        // var secondsElapsed = 0;
+        var secondsElapsed = 0;
 
-        // // 일정 시간 이후에 메시지를 표시하고 경과 시간을 표시하는 함수
-        // function showDelayedMessage() {
-        //     secondsElapsed = 10; // 10초 경과
-        //     console.log(secondsElapsed + "초 경과: 클릭 또는 터치 이벤트가 없었습니다.");
-        //     //alert("10초 동안 클릭 또는 터치 이벤트가 없었습니다.");
-        //     openModal();
-        // }
+        // 일정 시간 이후에 메시지를 표시하고 경과 시간을 표시하는 함수
+        function showDelayedMessage() {
+            secondsElapsed = 10; // 10초 경과
+            console.log(secondsElapsed + "초 경과: 클릭 또는 터치 이벤트가 없었습니다.");
+            //alert("10초 동안 클릭 또는 터치 이벤트가 없었습니다.");
+            openModal();
+        }
 
-        // function openModal() {
-        //     // help_msg.css를 제거합니다.
-        //     const help_msg_Link = document.querySelector('link[href="http://localhost:3001/help_msg/help_msg.css"]');
-        //     if (help_msg_Link) {
-        //         help_msg_Link.remove();
-        //     }
+        function openModal() {
+            // help_msg.css를 제거합니다.
+            const help_msg_Link = document.querySelector('link[href="http://localhost:3001/help_msg/help_msg.css"]');
+            if (help_msg_Link) {
+                help_msg_Link.remove();
+            }
 
-        //     // detail_menu.css를 제거합니다.
-        //     const detailMenuLink = document.querySelector('link[href="http://localhost:3001/detail_menu/detail_menu.css"]');
-        //     if (detailMenuLink) {
-        //         detailMenuLink.remove();
-        //     }
+            // detail_menu.css를 제거합니다.
+            const detailMenuLink = document.querySelector('link[href="http://localhost:3001/detail_menu/detail_menu.css"]');
+            if (detailMenuLink) {
+                detailMenuLink.remove();
+            }
 
-        //     $.get("http://localhost:3001/exithome_msg/exithome_msg.html", function (data) {
-        //         $("#modalContainer").html(data);
-        //         const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
-        //         modal.show();
-        //     });
-        // }
+            $.get("http://localhost:3001/exithome_msg/exithome_msg.html", function (data) {
+                $("#modalContainer").html(data);
+                const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+                modal.show();
+            });
+        }
 
-        // // showDelayedMessage() 함수가 실행된 후 페이지 리로드 및 경과 시간 초기화
-        // function showDelayedMessageAndReload() {
-        //     showDelayedMessage();
-        //     setTimeout(function () {
-        //         //location.reload(); // 일정 시간 후 페이지 리로드
-        //     }, 10000); // 10초 후 리로드
-        // }
+        // showDelayedMessage() 함수가 실행된 후 페이지 리로드 및 경과 시간 초기화
+        function showDelayedMessageAndReload() {
+            showDelayedMessage();
+            setTimeout(function () {
+                //location.reload(); // 일정 시간 후 페이지 리로드
+            }, 10000); // 10초 후 리로드
+        }
 
-        // // 페이지가 로드될 때 타이머를 시작
-        // var timer = setInterval(function () {
-        //     secondsElapsed++; // 경과 시간 증가
-        //     console.log(secondsElapsed + "초");
-        //     if (secondsElapsed === 10) {
-        //         clearInterval(timer); // 타이머 중지
-        //         showDelayedMessage(); // 메시지 표시 함수 호출
-        //     }
-        // }, 1000); // 1초마다 실행
+        // 페이지가 로드될 때 타이머를 시작
+        var timer = setInterval(function () {
+            secondsElapsed++; // 경과 시간 증가
+            console.log(secondsElapsed + "초");
+            if (secondsElapsed === 10) {
+                clearInterval(timer); // 타이머 중지
+                showDelayedMessage(); // 메시지 표시 함수 호출
+            }
+        }, 1000); // 1초마다 실행
 
-        // // 페이지에 클릭 또는 터치 이벤트가 발생하면 경과 시간을 초기화하고 다시 타이머를 시작
-        // document.addEventListener('click', function () {
-        //     secondsElapsed = 0; // 경과 시간 초기화
-        //     console.log("터치 이벤트");
-        // });
+        // 페이지에 클릭 또는 터치 이벤트가 발생하면 경과 시간을 초기화하고 다시 타이머를 시작
+        document.addEventListener('click', function () {
+            secondsElapsed = 0; // 경과 시간 초기화
+            console.log("터치 이벤트");
+        });
 
     </script>
 
