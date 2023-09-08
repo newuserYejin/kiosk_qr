@@ -210,12 +210,12 @@ function addOrdersToDOM(orders) {
         detailMenuLink.remove();
       }
       if(order == 'slow'){
-        history.pushState(null, null, `http://localhost:3001/last_checklist/checklist.html?order=slow&pickup=${pickup}&orderNum=${orderNum}`);
+        history.pushState(null, null, `http://localhost:3001/last_checklist_e/checklist_e.html?order=slow&pickup=${pickup}&orderNum=${orderNum}`);
       }else{
-        history.pushState(null, null, `http://localhost:3001/last_checklist/checklist.html?order=basic&pickup=${pickup}&orderNum=${orderNum}`);
+        history.pushState(null, null, `http://localhost:3001/last_checklist_e/checklist_e.html?order=basic&pickup=${pickup}&orderNum=${orderNum}`);
       }
       // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
-      fetch("http://localhost:3001/detail_menu_e/jojo_o_e.html?orderNum=${orderNum}") // 이 부분의 파일 경로를 수정해야합니다.
+      fetch(`http://localhost:3001/detail_menu_e/jojo_o_e.html?pickup=${pickup}&orderNum=${orderNum}`) // 이 부분의 파일 경로를 수정해야합니다.
         .then(response => {
           if (!response.ok) {
             throw new Error("HTTP Error " + response.status);
