@@ -267,7 +267,7 @@ function addOrdersToDOM(orders) {
       }
 
       // caution_msg.html 콘텐츠를 로드하여 모달 컨테이너에 추가합니다.
-      fetch(`http://localhost:3001/messagebox/caution_msg.html?pickup=${pickup} & orderNum=${orderNum}`)
+      fetch(`http://localhost:3001/messagebox_e/caution_msg_e.html?pickup=${pickup} & orderNum=${orderNum}`)
         .then(response => {
           if (!response.ok) {
             throw new Error("HTTP Error " + response.status);
@@ -282,7 +282,7 @@ function addOrdersToDOM(orders) {
           const linkElement = document.createElement("link");
           linkElement.rel = "stylesheet";
           linkElement.type = "text/css";
-          linkElement.href = "http://localhost:3001/messagebox/caution_style.css";
+          linkElement.href = "http://localhost:3001/messagebox_e/caution_style_e.css";
           document.head.appendChild(linkElement);
 
           // 모달을 열기 위한 코드
