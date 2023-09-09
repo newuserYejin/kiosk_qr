@@ -199,6 +199,11 @@ app.get('/order/:orderNum', (req, res) => {
     FROM tb_op op
     WHERE op.op_num IN (?, ?, ?, ?, ?, ?, ?, ?)`;
 
+  const getMenuOpQuery = `
+    SELECT mo.op_num
+    FROM tb_menu_op mo
+    WHERE mo.menu_num = (SELECT menu_num FROM tb_order WHERE order_num = ?)`;
+
   connection.query(getOrderQuery, [orderNum], (err, orderResults) => {
     if (err) {
       console.error('Error fetching order data:', err);
@@ -223,18 +228,33 @@ app.get('/order/:orderNum', (req, res) => {
         return;
       }
 
-      connection.query(getOptionQuery, opNumbers, (err, optionResults) => {
+      connection.query(getMenuOpQuery, [orderData.order_num], (err, menuOpResults) => {
         if (err) {
-          console.error('Error fetching option data:', err);
-          res.status(500).json({ error: 'Error fetching option data' });
+          console.error('Error fetching menu_op data:', err);
+          res.status(500).json({ error: 'Error fetching menu_op data' });
           return;
         }
 
-        const allergyNames = [...new Set(allergyResults.map(result => result.allegy_name))];
-        orderData.allergy_names = allergyNames;
-        orderData.option_data = optionResults;
+        const opNumbersFromMenuOp = menuOpResults.map(result => result.op_num);
 
-        res.json(orderData);
+        // 'op_num'을 주문 정보에서 가져온 'opNumbers'와 'opNumbersFromMenuOp'에서 모두 가져와 배열에 저장합니다.
+        const combinedOpNumbers = [...opNumbers, ...opNumbersFromMenuOp].filter(op => op !== 0);
+
+        connection.query(getOptionQuery, combinedOpNumbers, (err, optionResults) => {
+          if (err) {
+            console.error('Error fetching option data:', err);
+            res.status(500).json({ error: 'Error fetching option data' });
+            return;
+          }
+
+          const allergyNames = [...new Set(allergyResults.map(result => result.allegy_name))];
+          // 'op_num'을 배열 형태로 추가합니다.
+          orderData.op_num = combinedOpNumbers;
+          orderData.allergy_names = allergyNames;
+          orderData.option_data = optionResults;
+
+          res.json(orderData);
+        });
       });
     });
   });
@@ -426,15 +446,15 @@ app.get('/search', (req, res) => {
   where tb_menu.Menu_Name LIKE '%${keyword}%'`;
 
   connection.query(sql, (err, results) => {
-      if (err) {
-          console.error('Error executing the query:', err);
-          res.status(500).json({ error: 'Internal server error' });
-      } else {
-          res.json(results);
-      }
+    if (err) {
+      console.error('Error executing the query:', err);
+      res.status(500).json({ error: 'Internal server error' });
+    } else {
+      res.json(results);
+    }
 
-      //res.setHeader('Content-Type', 'application/javascript');
-      // res.sendFile(__dirname + '/search/search.js');
+    //res.setHeader('Content-Type', 'application/javascript');
+    // res.sendFile(__dirname + '/search/search.js');
   });
 });
 
@@ -567,6 +587,11 @@ app.get('/order_e/:orderNum', (req, res) => {
     FROM tb_op_e op
     WHERE op.op_num IN (?, ?, ?, ?, ?, ?, ?, ?)`;
 
+  const getMenuOpQuery = `
+    SELECT mo.op_num
+    FROM tb_menu_op_e mo
+    WHERE mo.menu_num = (SELECT menu_num FROM tb_order WHERE order_num = ?)`;
+
   connection.query(getOrderQuery, [orderNum], (err, orderResults) => {
     if (err) {
       console.error('Error fetching order data:', err);
@@ -591,18 +616,33 @@ app.get('/order_e/:orderNum', (req, res) => {
         return;
       }
 
-      connection.query(getOptionQuery, opNumbers, (err, optionResults) => {
+      connection.query(getMenuOpQuery, [orderData.order_num], (err, menuOpResults) => {
         if (err) {
-          console.error('Error fetching option data:', err);
-          res.status(500).json({ error: 'Error fetching option data' });
+          console.error('Error fetching menu_op data:', err);
+          res.status(500).json({ error: 'Error fetching menu_op data' });
           return;
         }
 
-        const allergyNames = [...new Set(allergyResults.map(result => result.allegy_name))];
-        orderData.allergy_names = allergyNames;
-        orderData.option_data = optionResults;
+        const opNumbersFromMenuOp = menuOpResults.map(result => result.op_num);
 
-        res.json(orderData);
+        // 'op_num'을 주문 정보에서 가져온 'opNumbers'와 'opNumbersFromMenuOp'에서 모두 가져와 배열에 저장합니다.
+        const combinedOpNumbers = [...opNumbers, ...opNumbersFromMenuOp].filter(op => op !== 0);
+
+        connection.query(getOptionQuery, combinedOpNumbers, (err, optionResults) => {
+          if (err) {
+            console.error('Error fetching option data:', err);
+            res.status(500).json({ error: 'Error fetching option data' });
+            return;
+          }
+
+          const allergyNames = [...new Set(allergyResults.map(result => result.allegy_name))];
+          // 'op_num'을 배열 형태로 추가합니다.
+          orderData.op_num = combinedOpNumbers;
+          orderData.allergy_names = allergyNames;
+          orderData.option_data = optionResults;
+
+          res.json(orderData);
+        });
       });
     });
   });
@@ -830,15 +870,15 @@ app.get('/search_e', (req, res) => {
   where tb_menu_e.Menu_Name LIKE '%${keyword_e}%'`;
 
   connection.query(sql, (err, results) => {
-      if (err) {
-          console.error('Error executing the query:', err);
-          res.status(500).json({ error: 'Internal server error' });
-      } else {
-          res.json(results);
-      }
+    if (err) {
+      console.error('Error executing the query:', err);
+      res.status(500).json({ error: 'Internal server error' });
+    } else {
+      res.json(results);
+    }
 
-      //res.setHeader('Content-Type', 'application/javascript');
-      // res.sendFile(__dirname + '/search/search.js');
+    //res.setHeader('Content-Type', 'application/javascript');
+    // res.sendFile(__dirname + '/search/search.js');
   });
 });
 

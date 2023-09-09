@@ -315,12 +315,15 @@ function handleMenuData(menuData, sliderContainer) {
   const menuItemsPerSlide = 9; // 슬라이드당 메뉴 개수
   let currentSlide = document.createElement("div");
   currentSlide.className = "slide";
+  let currentPage = 1; // 현재 페이지
+  let totalPages = Math.ceil(menuData.length / menuItemsPerSlide); // 전체 페이지 수
 
   menuData.forEach((menu, index) => {
     if (index > 0 && index % menuItemsPerSlide === 0) {
       sliderContainer.appendChild(currentSlide);
       currentSlide = document.createElement("div");
       currentSlide.className = "slide";
+      currentPage++; // 새로운 슬라이드가 시작되면 현재 페이지 증가
     }
 
     const menuHTML = `
@@ -344,6 +347,15 @@ function handleMenuData(menuData, sliderContainer) {
 
   // 마지막에 남은 슬라이드 추가
   sliderContainer.appendChild(currentSlide);
+
+  //페이지 표시 추가
+
+  const page_div = document.querySelector('.pages');
+  const page = document.createElement('div')
+  page.classList.add('page')
+  page.textContent=`${currentPage}/${totalPages} 페이지`;
+  page_div.appendChild(page);
+
   const selectBtn = document.querySelectorAll(".list_content_box");
   selectBtn.forEach(selectBtn => {
     const urlParams = new URLSearchParams(window.location.search);//09.08 수정
@@ -613,9 +625,9 @@ window.addEventListener('load', () => {
     });
 });
 
-function move_checklist(){
+function move_checklist() {
   const urlParams = new URLSearchParams(window.location.search);
   const pickup = urlParams.get('pickup');//09.08 수정
 
-  location.href=`http://localhost:3001/last_checklist/checklist.html?pickup=${pickup}&order=basic`;
+  location.href = `http://localhost:3001/last_checklist/checklist.html?pickup=${pickup}&order=basic`;
 }

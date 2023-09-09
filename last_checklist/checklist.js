@@ -207,6 +207,7 @@ function addOrdersToDOM(orders) {
 
       // help_msg.css를 제거합니다.
       const detailMenuLink = document.querySelector('link[href="http://localhost:3001/help_msg/help_msg.css"]');
+      const urlParams = new URLSearchParams(window.location.search);//09.09 추가함
       const pickup = urlParams.get('pickup');
       const order = urlParams.get('order');
       if (detailMenuLink) {
@@ -342,26 +343,49 @@ function updateTotalAmountUI(amount) {
 
 // 포장 여부 확인
 
-//URL에서 "order" 파라미터 값을 확인
-const urlParams = new URLSearchParams(window.location.search);
-const orderType = urlParams.get('pickup');
+// 09.09 checklist에서 포장 변경시 바로 저장 되게
+const radioButtons = document.getElementsByName('listGroupRadio');
 
-// 라디오 버튼 체크 함수
+// 라디오 버튼의 상태가 변경될 때 호출되는 함수를 정의합니다.
+function updateURL() {
+  let newParamValue = "";
+
+  // 선택된 라디오 버튼에 따라 newParamValue 값을 설정합니다.
+  if (radioButtons[0].checked) {
+    newParamValue = "2"; // "먹고가기"가 선택된 경우
+  } else if (radioButtons[1].checked) {
+    newParamValue = "1"; // "포장하기"가 선택된 경우
+  }
+
+  // 현재 URL을 가져옵니다.
+  let currentURL = new URL(window.location.href);
+
+  // "pickup" 파라미터를 업데이트합니다.
+  currentURL.searchParams.set("pickup", newParamValue);
+
+  // 새 URL로 이동합니다.
+  window.history.pushState({}, '', currentURL);
+}
+
+// 라디오 버튼의 상태가 변경될 때 updateURL 함수를 호출합니다.
+for (const radioButton of radioButtons) {
+  radioButton.addEventListener('change', updateURL);
+}
+
+// 페이지 로드 시 라디오 버튼 상태를 URL 파라미터에 맞게 설정합니다.
 function checkRadioButton() {
-  const radioButtons = document.getElementsByName('listGroupRadio');
-
-  if (orderType === '2') {
-    // 2일 때, 포장하기 라디오 버튼 체크
-    radioButtons[0].checked = true;
-  } else if (orderType === '1') {
-    // 1일 때, 먹고가기 라디오 버튼 체크
+  const urlParams = new URLSearchParams(window.location.search);
+  const orderType = urlParams.get('pickup');
+  if (orderType === '1') {
+    radioButtons[0].checked = false;
     radioButtons[1].checked = true;
+  } else {
+    radioButtons[0].checked = true;
+    radioButtons[1].checked = false;
   }
 }
 
-// 페이지 로드 시 라디오 버튼 체크 함수 호출
 window.addEventListener('load', checkRadioButton);
-
-
+//09.09추가 끝
 
 
