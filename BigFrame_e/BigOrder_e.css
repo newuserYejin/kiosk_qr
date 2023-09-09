@@ -391,7 +391,7 @@ body {
 .search_div {
   width: 40%;
   border: solid 1px black;
-  height: 4vw;
+  height: 6vw;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -399,7 +399,7 @@ body {
 
 .search {
   width: 80%;
-  font-size: 2.3vw;
+  font-size: 3vw;
   border: none;
   height: auto;
   text-align: center;
