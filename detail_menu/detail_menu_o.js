@@ -3,6 +3,74 @@ $(document).ready(function () {
   const urlParams = new URLSearchParams(window.location.search);
   const orderNum = urlParams.get("orderNum");
 
+  //09.09 추가
+  let op_num_o = [];
+
+  // orderNum 변수가 정상적으로 가져와졌는지 확인
+  if (orderNum) {
+    // 가져온 orderNum을 기반으로 fetch 요청을 수행
+    fetch(`/order/${orderNum}`)
+      .then(response => response.json())
+      .then(data => {
+        if (data && Array.isArray(data.op_num)) {
+          // 데이터가 유효하고 op_num이 배열인 경우에만 처리
+          op_num_o = data.op_num; // op_num_o를 서버에서 받아온 데이터로 설정
+          toggleTemperatureOptions();
+          toggleSizeOptions();
+          console.log(op_num_o); // 데이터가 올바르게 할당되었는지 확인
+        } else {
+          console.error("서버에서 받아온 데이터가 올바르지 않습니다.");
+        }
+      })
+      .catch(error => console.error(error));
+  } else {
+    console.error("orderNum이 URL에서 정의되지 않았습니다.");
+  }
+  // 온도 옵션을 표시하거나 숨기는 함수
+  function toggleTemperatureOptions() {
+    const t_firstRadioContainer = document.getElementById("t_firstRadioContainer");
+    const t_secondRadioContainer = document.getElementById("t_secondRadioContainer");
+
+    // op_num_o 배열에 값 1이 있는지 확인합니다.
+    if (op_num_o.includes(1)) {
+      t_firstRadioContainer.style.display = "block";
+    } else {
+      t_firstRadioContainer.style.display = "none";
+    }
+
+    // op_num_o 배열에 값 2가 있는지 확인합니다.
+    if (op_num_o.includes(2)) {
+      t_secondRadioContainer.style.display = "block";
+    } else {
+      t_secondRadioContainer.style.display = "none";
+    }
+  }
+
+  // 크기 옵션을 표시하거나 숨기는 함수
+  function toggleSizeOptions() {
+    const s_firstRadioContainer = document.getElementById("s_firstRadioContainer");
+    const s_secondRadioContainer = document.getElementById("s_secondRadioContainer");
+
+    // op_num_o 배열에 값 3이 있는지 확인합니다.
+    if (op_num_o.includes(3)) {
+      s_firstRadioContainer.style.display = "block";
+    } else {
+      s_firstRadioContainer.style.display = "none";
+    }
+
+    // op_num_o 배열에 값 4가 있는지 확인합니다.
+    if (op_num_o.includes(4)) {
+      s_secondRadioContainer.style.display = "block";
+    } else {
+      s_secondRadioContainer.style.display = "none";
+    }
+  }
+
+  // 초기에 op_num_o에 기반하여 옵션의 가시성을 설정하는 함수를 호출합니다.
+  toggleTemperatureOptions();
+  toggleSizeOptions();
+  //09.09 여기까지
+
   //sql연동부분
   // "추가" 버튼 클릭 이벤트 핸들러
   $(".btn-info").click(function () {
