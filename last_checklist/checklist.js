@@ -89,7 +89,7 @@ joImage.addEventListener("click", function () {
 
       const modalBody = document.querySelector(".modal-body");
       modalBody.innerHTML = `
-        <video autoplay controls>
+        <video autoplay controls style="width:100%;">
         <source src="./image/checklist.mp4" type="video/mp4">
             관리자를 호출해주세요.
         </video>
