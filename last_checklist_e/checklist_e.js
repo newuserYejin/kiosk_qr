@@ -6,7 +6,7 @@ var button = document.querySelector('.circle');
 function selectPage() {
   var URL = new URLSearchParams(window.location.search);
   var order_info = URL.get('order');
-  const pickup = urlParams.get('pickup');
+  const pickup = URL.get('pickup');
 
   if (order_info == 'slow') {
     window.location.href = `http://localhost:3001/BigFrame_e/BigOrder_e.html?order=slow&pickup=${pickup}`
@@ -18,7 +18,7 @@ function selectPage() {
 function openPay() {
   var URL = new URLSearchParams(window.location.search);
   var order_info = URL.get('order');
-  const pickup = urlParams.get('pickup');
+  const pickup = URL.get('pickup');
 
   if (order_info == 'slow') {
     window.location.href = `http://localhost:3001/paymethod_e/paymethod_e.html?order=slow&pickup=${pickup}`
@@ -348,9 +348,9 @@ function updateURL() {
 
   // 선택된 라디오 버튼에 따라 newParamValue 값을 설정합니다.
   if (radioButtons[0].checked) {
-    newParamValue = "1"; // "먹고가기"가 선택된 경우
+    newParamValue = "2"; // "먹고가기"가 선택된 경우
   } else if (radioButtons[1].checked) {
-    newParamValue = "2"; // "포장하기"가 선택된 경우
+    newParamValue = "1"; // "포장하기"가 선택된 경우
   }
 
   // 현재 URL을 가져옵니다.
@@ -372,7 +372,7 @@ for (const radioButton of radioButtons) {
 function checkRadioButton() {
   const urlParams = new URLSearchParams(window.location.search);
   const orderType = urlParams.get('pickup');
-  if (orderType === '2') {
+  if (orderType === '1') {
     radioButtons[0].checked = false;
     radioButtons[1].checked = true;
   } else {

@@ -6,7 +6,7 @@ var button = document.querySelector('.circle');
 function selectPage() {
   var URL = new URLSearchParams(window.location.search);
   var order_info = URL.get('order');
-  const pickup = urlParams.get('pickup');//09.08 수정
+  const pickup = URL.get('pickup');//09.08 수정
 
   if (order_info == 'slow') {
     window.location.href = `http://localhost:3001/BigFrame/BigOrder.html?order=slow&pickup=${pickup}`
@@ -22,7 +22,7 @@ function navigateclick(){
 function openPay() {
   var URL = new URLSearchParams(window.location.search);
   var order_info = URL.get('order');
-  const pickup = urlParams.get('pickup');//09.08 수정
+  const pickup = URL.get('pickup');//09.08 수정
 
   if (order_info == 'slow') {
     window.location.href = `http://localhost:3001/paymethod/paymethod.html?order=slow&pickup=${pickup}`
@@ -145,7 +145,7 @@ function createOrderItem(order) {//주문 아이템 생성 함수
                           <span class="select_size">${order.op_s === 3 ? '기본 크기' : '큰 크기'}</span>
                       </div>
                   </div>
-                  <div>
+                  <div class="menu_option_box">
                       <span class="option_name">추가 옵션: </span>
                       <span class="select_op">${order.options.length > 0 ? order.options.map(op => op.op_name).join(', ') : '없음'}</span>
                   </div>
@@ -265,13 +265,12 @@ function addOrdersToDOM(orders) {
 
       // detail_menu.css를 제거합니다.
       const detailMenuLink = document.querySelector('link[href="http://localhost:3001/detail_menu/detail_menu.css"]');
-      const pickup = urlParams.get('pickup');
       if (detailMenuLink) {
         detailMenuLink.remove();
       }
 
       // caution_msg.html 콘텐츠를 로드하여 모달 컨테이너에 추가합니다.
-      fetch(`http://localhost:3001/messagebox/caution_msg.html?pickup=${pickup}&orderNum=${orderNum}`)
+      fetch(`http://localhost:3001/messagebox/caution_msg.html?orderNum=${orderNum}`)
         .then(response => {
           if (!response.ok) {
             throw new Error("HTTP Error " + response.status);
