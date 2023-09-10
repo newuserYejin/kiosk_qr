@@ -67,48 +67,61 @@ function nextScreen() {
 //도움말 버튼
 const joImage = document.getElementById("imageLink");
 
-joImage.addEventListener("click", function () {
-  // 먼저 모달 컨테이너를 비웁니다.
-  document.getElementById("modalContainer_e").innerHTML = "";
+            joImage.addEventListener("click", function () {
+                // 먼저 modalContainer_e를 비웁니다.
+                document.getElementById("modalContainer_e").innerHTML = "";
 
-  // detail_menu.css를 제거합니다.
-  const detailMenuLink = document.querySelector('link[href="http://localhost:3001/detail_menu_e/detail_menu_e.css"]');
-  if (detailMenuLink) {
-    detailMenuLink.remove();
-  }
+                // help_msg.html 콘텐츠를 로드하여 modalContainer_e에 추가합니다.
+                fetch("http://localhost:3001/help_msg/help_msg.html")
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("HTTP Error " + response.status);
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        // modalContainer_e에 help_msg.html 콘텐츠를 추가합니다.
+                        // 모달 제목을 찾아서 변경
+                        document.getElementById("modalContainer_e").innerHTML = data;
 
-  // help_msg.html 콘텐츠를 로드하여 모달 컨테이너에 추가합니다.
-  fetch("http://localhost:3001/help_msg/help_msg.html")
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("HTTP Error " + response.status);
-      }
-      return response.text();
-    })
-    .then(data => {
-      // 모달 컨테이너에 help_msg.html 콘텐츠를 추가합니다.
-      $("#modalContainer_e").html(data);
-      const modalBody = document.querySelector(".modal-body");
-      modalBody.innerHTML = `
-        <p>도움말 새로운 내용 1.</p>
-        <p>새로운 내용 2.</p>
-        <p>새로운 내용 3.</p>
-        <!-- 원하는 내용으로 수정 -->`;
+                        const modalTitle = document.querySelector(".modal-title");
+                        if (modalTitle) {
+                            modalTitle.textContent = "help"; // "help"로 변경
+                        }
 
-      // help_msg.css 파일을 로드합니다.
-      const linkElement = document.createElement("link");
-      linkElement.rel = "stylesheet";
-      linkElement.type = "text/css";
-      linkElement.href = "http://localhost:3001/help_msg/help_msg.css";
-      document.head.appendChild(linkElement);
+                        const modalBody = document.querySelector(".modal-body");
+                        modalBody.innerHTML = `
+        <video autoplay controls>
+            <source src="./image/checklist_e.mp4" type="video/mp4">
+            Please call the administrator
+        </video>
 
-      const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
-      modal.show();
-    })
-    .catch(error => {
-      console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
-    });
-});
+        <section class="content_explain" style="border: solid 2px black; height: 60%;">
+        1. If you want to modify your order, please press 'Modify' to modify it and save it as 'Save'.
+        => Product quantity and additions can be modify. <br>
+        2. If you delete an order history, you will be notified of the deletion<br>
+        => If you want to delete it, press 'Cancel' if you don't want to.<br>
+        3. Packaging can be modified at the top.<br>
+        4. The bottom button allows you to move to the previous screen, the first screen, and the next screen.<br>
+        5. You can use the navigation on the left to go to the menu order screen and payment screen.<br>
+        (The screen that follows each selection may differ from the image.)
+        </section>
+        `;
+
+                        // help_msg.css 파일을 로드합니다.
+                        const linkElement = document.createElement("link");
+                        linkElement.rel = "stylesheet";
+                        linkElement.type = "text/css";
+                        linkElement.href = "http://localhost:3001/help_msg/help_msg_e.css";
+                        document.head.appendChild(linkElement);
+
+                        const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+                        modal.show();
+                    })
+                    .catch(error => {
+                        console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
+                    });
+            });
 
 document.addEventListener("DOMContentLoaded", function () {//서버연동(DOMContentLoaded가 실행되고 서버를 실행되어야지 정상적으로 작동[사실 잘 모르겠음])
 });
