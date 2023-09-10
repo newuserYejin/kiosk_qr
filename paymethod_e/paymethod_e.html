@@ -212,7 +212,7 @@
             }
 
             function openModal() {
-                $.get("http://localhost:3001/exithome_msg/exithome_msg.html", function (data) {
+                $.get("http://localhost:3001/exithome_msg/exithome_msg_e.html", function (data) {
                     $("#modalContainer_e").html(data);
                     const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
                     modal.show();

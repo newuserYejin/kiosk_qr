@@ -204,14 +204,15 @@ function addOrdersToDOM(orders) {
 
       // help_msg.css를 제거합니다.
       const detailMenuLink = document.querySelector('link[href="http://localhost:3001/help_msg/help_msg.css"]');
+      const urlParams = new URLSearchParams(window.location.search);
       const pickup = urlParams.get('pickup');
       const order = urlParams.get('order');
       if (detailMenuLink) {
         detailMenuLink.remove();
       }
-      if(order == 'slow'){
+      if (order == 'slow') {
         history.pushState(null, null, `http://localhost:3001/last_checklist_e/checklist_e.html?order=slow&pickup=${pickup}&orderNum=${orderNum}`);
-      }else{
+      } else {
         history.pushState(null, null, `http://localhost:3001/last_checklist_e/checklist_e.html?order=basic&pickup=${pickup}&orderNum=${orderNum}`);
       }
       // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
@@ -261,13 +262,12 @@ function addOrdersToDOM(orders) {
 
       // detail_menu.css를 제거합니다.
       const detailMenuLink = document.querySelector('link[href="http://localhost:3001/detail_menu_e/detail_menu_e.css"]');
-      const pickup = urlParams.get('pickup');
       if (detailMenuLink) {
         detailMenuLink.remove();
       }
 
       // caution_msg.html 콘텐츠를 로드하여 모달 컨테이너에 추가합니다.
-      fetch(`http://localhost:3001/messagebox_e/caution_msg_e.html?pickup=${pickup} & orderNum=${orderNum}`)
+      fetch(`http://localhost:3001/messagebox_e/caution_msg_e.html?& orderNum=${orderNum}`)
         .then(response => {
           if (!response.ok) {
             throw new Error("HTTP Error " + response.status);

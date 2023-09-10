@@ -1,42 +1,58 @@
 //도움말 버튼
 const joImage = document.getElementById("imageLink");
 
-joImage.addEventListener("click", function () {
-    // 먼저 모달 컨테이너를 비웁니다.
-    document.getElementById("modalContainer_e").innerHTML = "";
+            joImage.addEventListener("click", function () {
+                // 먼저 modalContainer_e를 비웁니다.
+                document.getElementById("modalContainer_e").innerHTML = "";
 
-    // detail_menu.css를 제거합니다.
-    const detailMenuLink = document.querySelector('link[href="http://localhost:3001/detail_menu_e/detail_menu_e.css"]');
-    if (detailMenuLink) {
-        detailMenuLink.remove();
-    }
+                // help_msg.html 콘텐츠를 로드하여 modalContainer_e에 추가합니다.
+                fetch("http://localhost:3001/help_msg/help_msg.html")
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("HTTP Error " + response.status);
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        // modalContainer_e에 help_msg.html 콘텐츠를 추가합니다.
+                        // 모달 제목을 찾아서 변경
+                        document.getElementById("modalContainer_e").innerHTML = data;
 
-    // help_msg.html 콘텐츠를 로드하여 모달 컨테이너에 추가합니다.
-    fetch("http://localhost:3001/help_msg/help_msg.html")
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("HTTP Error " + response.status);
-            }
-            return response.text();
-        })
-        .then(data => {
-            // 모달 컨테이너에 help_msg.html 콘텐츠를 추가합니다.
-            $("#modalContainer_e").html(data);
+                        const modalTitle = document.querySelector(".modal-title");
+                        if (modalTitle) {
+                            modalTitle.textContent = "help"; // "help"로 변경
+                        }
 
-            // help_msg.css 파일을 로드합니다.
-            const linkElement = document.createElement("link");
-            linkElement.rel = "stylesheet";
-            linkElement.type = "text/css";
-            linkElement.href = "http://localhost:3001/help_msg/help_msg.css";
-            document.head.appendChild(linkElement);
+                        const modalBody = document.querySelector(".modal-body");
+                        modalBody.innerHTML = `
+        <video autoplay controls>
+            <source src="./image/paycoupon_e.mp4" type="video/mp4">
+            Please call the administrator
+        </video>
 
-            const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
-            modal.show();
-        })
-        .catch(error => {
-            console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
-        });
-});
+        <section class="content_explain">
+        1. If you want to go back to the previous screen, press 'PREVIOUS screen'<br>
+        2. If you want to return to order, please press Return to Order.<br>
+        3. You can move 'Select Menu' and 'Check Order' using the left navigation.<br>
+        4. Don't be surprised if the message pops up! It's a payment completed message. Please wait for the following order number confirmation screen.<br>
+        (The screen that follows after selecting each button may be different from the image.)
+        </section>
+        `;
+
+                        // help_msg.css 파일을 로드합니다.
+                        const linkElement = document.createElement("link");
+                        linkElement.rel = "stylesheet";
+                        linkElement.type = "text/css";
+                        linkElement.href = "http://localhost:3001/help_msg/help_msg_e.css";
+                        document.head.appendChild(linkElement);
+
+                        const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+                        modal.show();
+                    })
+                    .catch(error => {
+                        console.error("콘텐츠를 가져오는 중 오류가 발생했습니다:", error);
+                    });
+            });
 
 const urlParams = new URLSearchParams(window.location.search);
 const orderType = urlParams.get('order');

@@ -15,7 +15,7 @@ function selectPage() {
   }
 }
 
-function navigateclick(){
+function navigateclick() {
   alert("현재 페이지 입니다.")
 }
 
@@ -68,18 +68,12 @@ function nextScreen() {
   }
 };
 
-//도움말 버튼
+//도움말
 const joImage = document.getElementById("imageLink");
 
 joImage.addEventListener("click", function () {
   // 먼저 모달 컨테이너를 비웁니다.
   document.getElementById("modalContainer").innerHTML = "";
-
-  // detail_menu.css를 제거합니다.
-  const detailMenuLink = document.querySelector('link[href="http://localhost:3001/detail_menu/detail_menu.css"]');
-  if (detailMenuLink) {
-    detailMenuLink.remove();
-  }
 
   // help_msg.html 콘텐츠를 로드하여 모달 컨테이너에 추가합니다.
   fetch("http://localhost:3001/help_msg/help_msg.html")
@@ -91,13 +85,26 @@ joImage.addEventListener("click", function () {
     })
     .then(data => {
       // 모달 컨테이너에 help_msg.html 콘텐츠를 추가합니다.
-      $("#modalContainer").html(data);
+      modalContainer.innerHTML = data;
+
       const modalBody = document.querySelector(".modal-body");
       modalBody.innerHTML = `
-        <p>도움말 새로운 내용 1.</p>
-        <p>새로운 내용 2.</p>
-        <p>새로운 내용 3.</p>
-        <!-- 원하는 내용으로 수정 -->`;
+        <video autoplay controls>
+        <source src="./image/checklist.mp4" type="video/mp4">
+            관리자를 호출해주세요.
+        </video>
+
+        <section class="content_explain"style="border: solid 2px black; margin-top: 10px;">
+            1. 주문을 수정하길 원하신다면 '수정'을 눌러 수정하고 '저장'으로 저장해주세요.
+            => 제품 수량과 추가 사항들의 수정이 가능합니다. <br>
+            2. 주문 내역 삭제 시에는 삭제 안내 메세지가 나타납니다<br>
+            => 삭제하실거라면 '확인'을 아니시라면 '취소'를 눌러주세요.<br>
+            3. 포장 여부는 상단에서 수정 가능합니다.<br>
+            4. 하단버튼을 이용하면 이전 화면, 처음 화면, 다음 화면으로의 이동이 가능합니다.<br>
+            5. 왼쪽의 네비게이션을 이용해 메뉴 주문 화면과 결제 화면으로의 이동이 가능합니다.<br>
+            (각 선택에 이어지는 화면은 영상과 다를 수 있습니다.)
+        </section>
+        `;
 
       // help_msg.css 파일을 로드합니다.
       const linkElement = document.createElement("link");
@@ -213,9 +220,9 @@ function addOrdersToDOM(orders) {
       if (detailMenuLink) {
         detailMenuLink.remove();
       }
-      if(order == 'slow'){
+      if (order == 'slow') {
         history.pushState(null, null, `http://localhost:3001/last_checklist/checklist.html?order=slow&pickup=${pickup}&orderNum=${orderNum}`);
-      }else{
+      } else {
         history.pushState(null, null, `http://localhost:3001/last_checklist/checklist.html?order=basic&pickup=${pickup}&orderNum=${orderNum}`);
       }
       // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
