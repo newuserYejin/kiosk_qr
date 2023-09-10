@@ -10,12 +10,15 @@
     padding-bottom: 0;
 }
 
-#modalContainer .modal-content{
-    height: 100%;
+#modalContainer .modal-header{
+    height: 3vh;
 }
 
-#modalContainer  .modal-body{
-    height: 80%;
+#modalContainer .modal-body{
+    height: auto;
+    padding-top: 0;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 #modalContainer .modal-body *{
@@ -34,12 +37,12 @@
     height: 40%;
 }
 
-#modalContainer .content_explain{
+#modalContainer section .content_explain{
     margin: 0;
     padding: 0;
-    max-height: 55%;
-    font-size: 2.5vw;
+    height: 60%;
     line-height: 35px;
+    font-size: 2.5vw;
     padding-left: 5px;
     overflow: hidden;
     overflow-y: visible;
