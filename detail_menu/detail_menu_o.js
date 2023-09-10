@@ -90,8 +90,8 @@ $(document).ready(function () {
     const newData = {
       // 업데이트할 필드들의 값을 적절히 가져와 newData 객체에 넣어줘야 함
       count: parseInt($("#quantity").val()),
-      op_t: $("input[name='temperature']:checked").val() === "뜨거움" ? 1 : 2,
-      op_s: $("input[name='size']:checked").val() === "기본 크기" ? 3 : 4,
+      op_t: $("input[name='temperature']:checked").val() === "1" ? 1 : 2,
+      op_s: $("input[name='size']:checked").val() === "3" ? 3 : 4,
       op1: $("input[name='option_set_1']").prop('checked') ? 5 : 0,
       op2: $("input[name='option_set_2']").prop('checked') ? 6 : 0,
       op3: $("input[name='option_set_3']").prop('checked') ? 7 : 0,
@@ -206,10 +206,6 @@ $(document).ready(function () {
   $("input[name^='option']").change(handleOptionChange);
 
 });
-
-
-
-
 
 // 08.17 tb_order와 연동 (주문 정보를 출력하는 함수)
 function renderOrderDetail(orderData) {

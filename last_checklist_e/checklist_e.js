@@ -6,7 +6,7 @@ var button = document.querySelector('.circle');
 function selectPage() {
   var URL = new URLSearchParams(window.location.search);
   var order_info = URL.get('order');
-  const pickup = urlParams.get('pickup');
+  const pickup = URL.get('pickup');
 
   if (order_info == 'slow') {
     window.location.href = `http://localhost:3001/BigFrame_e/BigOrder_e.html?order=slow&pickup=${pickup}`
@@ -18,7 +18,7 @@ function selectPage() {
 function openPay() {
   var URL = new URLSearchParams(window.location.search);
   var order_info = URL.get('order');
-  const pickup = urlParams.get('pickup');
+  const pickup = URL.get('pickup');
 
   if (order_info == 'slow') {
     window.location.href = `http://localhost:3001/paymethod_e/paymethod_e.html?order=slow&pickup=${pickup}`
@@ -204,14 +204,15 @@ function addOrdersToDOM(orders) {
 
       // help_msg.css를 제거합니다.
       const detailMenuLink = document.querySelector('link[href="http://localhost:3001/help_msg/help_msg.css"]');
+      const urlParams = new URLSearchParams(window.location.search);
       const pickup = urlParams.get('pickup');
       const order = urlParams.get('order');
       if (detailMenuLink) {
         detailMenuLink.remove();
       }
-      if(order == 'slow'){
+      if (order == 'slow') {
         history.pushState(null, null, `http://localhost:3001/last_checklist_e/checklist_e.html?order=slow&pickup=${pickup}&orderNum=${orderNum}`);
-      }else{
+      } else {
         history.pushState(null, null, `http://localhost:3001/last_checklist_e/checklist_e.html?order=basic&pickup=${pickup}&orderNum=${orderNum}`);
       }
       // 외부 detail_menu 폴더에 있는 jojo.html 파일을 로드하여 모달 컨테이너에 추가합니다.
@@ -261,13 +262,12 @@ function addOrdersToDOM(orders) {
 
       // detail_menu.css를 제거합니다.
       const detailMenuLink = document.querySelector('link[href="http://localhost:3001/detail_menu_e/detail_menu_e.css"]');
-      const pickup = urlParams.get('pickup');
       if (detailMenuLink) {
         detailMenuLink.remove();
       }
 
       // caution_msg.html 콘텐츠를 로드하여 모달 컨테이너에 추가합니다.
-      fetch(`http://localhost:3001/messagebox_e/caution_msg_e.html?pickup=${pickup} & orderNum=${orderNum}`)
+      fetch(`http://localhost:3001/messagebox_e/caution_msg_e.html?& orderNum=${orderNum}`)
         .then(response => {
           if (!response.ok) {
             throw new Error("HTTP Error " + response.status);
@@ -348,9 +348,9 @@ function updateURL() {
 
   // 선택된 라디오 버튼에 따라 newParamValue 값을 설정합니다.
   if (radioButtons[0].checked) {
-    newParamValue = "1"; // "먹고가기"가 선택된 경우
+    newParamValue = "2"; // "먹고가기"가 선택된 경우
   } else if (radioButtons[1].checked) {
-    newParamValue = "2"; // "포장하기"가 선택된 경우
+    newParamValue = "1"; // "포장하기"가 선택된 경우
   }
 
   // 현재 URL을 가져옵니다.
@@ -372,7 +372,7 @@ for (const radioButton of radioButtons) {
 function checkRadioButton() {
   const urlParams = new URLSearchParams(window.location.search);
   const orderType = urlParams.get('pickup');
-  if (orderType === '2') {
+  if (orderType === '1') {
     radioButtons[0].checked = false;
     radioButtons[1].checked = true;
   } else {
